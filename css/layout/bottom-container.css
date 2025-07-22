@@ -1,0 +1,74 @@
+/* BOTTOM CONTAINER LAYOUT & STRUCTURE */
+.others {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.other-links {
+    display: inline-flex;
+    position: absolute;
+    top: 15%;
+    right: 2.5%;
+    height: 30px;
+}
+#other-data {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 35px 5vw;
+    padding: 0 5vw;
+    align-items: center;
+}
+#other-data ul {
+    list-style: disc;
+    margin-left: 1vw;
+}
+#other-data ul li + li {
+    margin-top: 15px;
+}
+#other-data p {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+/* PORTFOLIO SECTION */
+#portfolio img {
+    width: 60vw;
+}
+#portfolio img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+#portfolio {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* SVG COLOR STYLES */
+.accent-2-svg {
+    color: var(--accent-2);
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media screen and (max-width: 768px) { /* TABLET */
+    #other-data {
+        padding: 0 10vw;
+    }
+    #other-data ul {
+        margin-left: 6vw;
+    }
+    .other-links {
+        top: 10%;
+        right: 5%;
+    }
+}
+@media screen and (max-width: 480px) { /* MEDIUM PHONE */
+    #other-data {
+        grid-template-columns: repeat(1,1fr);
+    }
+}

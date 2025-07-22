@@ -1,0 +1,89 @@
+/* LEFT PANEL LAYOUT & STRUCTURE */
+h1 {
+    margin: 0 auto;
+}
+h3 {
+    border-left: 7px solid var(--accent-1);
+    margin-bottom: 30px;
+}
+/* header ul,
+header ol {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+} */
+
+/* PHOTO & PERSONAL INFO */
+#my-photo {
+    display: grid;
+    place-items: center;
+    gap: 50px;
+}
+#my-photo figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+#my-photo img {
+    border: 7px solid var(--accent-1);
+    border-radius: 50%;
+    width: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+/* LANGUAGES & CONTACT LISTS */
+#left-panel li {
+    display: flex;
+    align-items: center;
+    padding-left: 19px;
+}
+#left-panel li + li {
+    margin-top: 30px;
+}
+#languages li {
+    justify-content: space-between;
+}
+#contact {
+    position: relative;
+}
+#contact li {
+    display: flex;
+    align-items: center;
+}
+#contact address {
+    order: 2;
+    margin-left: 40px;
+}
+#contact svg { /* ICON POSITIONING */
+    order: 1;
+    position: absolute;
+}
+
+/* SVG COLOR STYLES */
+.accent-1-svg {
+    color: var(--accent-1);
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media screen and (max-width: 768px) { /* TABLET */
+    #my-photo img {
+        width: 350px;
+    }
+    #languages svg { /* REDUCED TO PREVENT COLLAPSE IN ROW LAYOUT */
+        width: 110px;
+        height: 16px;
+    }
+}
+@media screen and (max-width: 480px) { /* MEDIUM PHONE */
+    #languages svg { /* RESTORED TO ORIGINAL SIZE IN COLUMN LAYOUT */
+        width: 140px;
+        height: 20px;
+    }
+}
+@media screen and (max-width: 360px) { /* PHONE */
+    #my-photo img {
+        width: 260px;
+    }
+}

@@ -1,0 +1,48 @@
+/* GLOBAL LAYOUT STRUCTURE */
+body {
+    padding: /* IOS FALLBACK */
+        constant(safe-area-inset-top)
+        constant(safe-area-inset-right)
+        constant(safe-area-inset-bottom)
+        constant(safe-area-inset-left);
+    padding: /* MODERN SAFE AREA */
+        env(safe-area-inset-top)
+        env(safe-area-inset-right)
+        env(safe-area-inset-bottom)
+        env(safe-area-inset-left);
+}
+main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 90vw;
+    margin: 50px auto;
+    gap: 0 5vw;
+}
+#bottom-container {
+    grid-column: span 2;
+}
+
+/* RESPONSIVE LAYOUT */
+@media screen and (max-width: 768px) { /* TABLET */
+    main {
+        width: 100vw;
+    }
+    #left-panel {
+        margin-left: 5vw;
+    }
+}
+@media screen and (max-width: 480px) { /* MEDIUM PHONE */
+    main {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    #left-panel{
+        margin-left: 10vw;
+        margin-right: 10vw;
+    }
+    #bottom-container {
+        grid-column: 1;
+    }
+}
+/* @media screen and (max-width: 360px) {  PHONE
+
+} */

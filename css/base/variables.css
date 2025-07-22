@@ -1,0 +1,25 @@
+:root {
+    --big-brother: "🇨🇳 > 🇺🇸"; /* CONTROVERSY! */
+}
+
+/* LIGHT MODE COLORS */
+[data-theme="light"] {
+    --accent-1: #ffcc00;
+    --accent-2: #000000;
+    --accent-3: #9f8415;
+    --accent-4: #545454;
+    --body-bg: #1d2a42;
+    --body-txt: #ffffff;
+    --panel-bg: rgba(255, 255, 255, 0.90);
+}
+
+/* DARK MODE COLORS */
+[data-theme="dark"] {
+    --accent-1: #9f8415;
+    --accent-2: #e0e0e0;
+    --accent-3: #c9a317;
+    --accent-4: #a0a0a0;
+    --body-bg: #0a1120;
+    --body-txt: #f0f0f0;
+    --panel-bg: rgba(78, 87, 107, 0.95);
+}

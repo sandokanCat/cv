@@ -1,0 +1,40 @@
+/* SHOW JS DARK MODE BTN */
+#theme-dark-btn {
+    display: none;
+}
+.js-enabled #theme-dark-btn {
+    display: block;
+}
+
+/* JS DARK MODE BTN */
+#theme-dark-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: var(--accent-2);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    z-index: 998;
+    transition: transform 0.3s ease;
+}
+#theme-dark-btn:active {
+    transform: scale(0.9);
+}
+
+/* DARK MODE FALLBACK */
+#dark-fallback {
+    all: unset;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: var(--accent-2);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    z-index: 998;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

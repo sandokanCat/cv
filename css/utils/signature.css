@@ -1,0 +1,12 @@
+#signature {
+    position: absolute;
+    top: -38px;
+    right: 2.5%;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media screen and (max-width: 768px) { /* TABLET */
+    #signature {
+        right: 5%;
+    }
+}

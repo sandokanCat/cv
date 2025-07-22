@@ -1,0 +1,46 @@
+/* NO JS WARNING */
+.js-enabled #noscript-warning {
+    display: none; /* HIDE IT */
+}
+#noscript-warning {
+    display: block; /* SHOW IT */
+    width: 90%;
+    margin: 0 auto 50px;
+    padding-top: 30px;
+}
+#noscript-warning h3 {
+    border: none;
+    text-align: center;
+    padding: 0;
+    margin-bottom: 10px;
+    color: var(--accent-1);
+}
+#noscript-warning em {
+    display: inline-block;
+    color: var(--body-txt);
+    font-weight: 400;
+}
+#noscript-warning p {
+    text-align: center;
+    font-size: large;
+}
+
+/* RESPONSIVE LAYOUT */
+@media screen and (max-width: 768px) { /* TABLET */
+    #noscript-warning {
+        width: 80%;
+        margin-bottom: 0;
+    }
+    #noscript-warning p {
+        text-align: justify;
+    }
+}
+@media screen and (max-width: 360px) { /* PHONE */
+    #noscript-warning {
+        width: 80%;
+        margin-bottom: 0;
+    }
+    #noscript-warning p {
+        text-align: justify;
+    }
+}

@@ -1,0 +1,7 @@
+#random-phrases {
+	opacity: 1;
+	transition: opacity 1.2s ease-in-out;
+}
+#random-phrases.fade-out {
+	opacity: 0;
+}

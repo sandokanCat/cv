@@ -1,0 +1,112 @@
+/* COMMON STYLES */
+.carousel-track {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+    will-change: transform;
+    list-style: none;
+}
+.carousel-track li {
+    flex: 0 0 100%;
+}
+.carousel-track img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 877 / 619;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+/* JS CAROUSEL */
+.carousel-container {
+    display: none; /* HIDE IT */
+}
+.js-enabled .carousel-container {
+    display: block; /* SHOW IT */
+    position: relative;
+    order: 3;
+}
+.carousel-track {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    gap: 0;
+}
+.carousel-imgs {
+    overflow: hidden;
+}
+.carousel-control {
+    z-index: 997;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5%;
+    pointer-events: none;
+}
+.carousel-advance,
+.carousel-back {
+    all: unset;
+    cursor: pointer;
+    pointer-events: all;
+    color: var(--accent-2);
+}
+.carousel-advance:hover,
+.carousel-back:hover {
+    color: var(--accent-1);
+    transition: color 0.3s ease;
+}
+.carousel-scrollbar {
+    position: relative;
+    height: 7px;
+    background-color: transparent;
+    overflow: hidden;
+}
+.carousel-scrollbar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: var(--scrollbar-offset, 0%);
+    height: 100%;
+    width: var(--scrollbar-width, 0%);
+    background-color: var(--accent-1);
+    transition:
+        left 0.6s ease-in-out,
+        width 0.6s ease-in-out;
+}
+
+/* FALLBACK CAROUSEL */
+article noscript {
+    order: 3;
+}
+#carousel-fallback {
+    all: unset;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+}
+#carousel-fallback img {
+    pointer-events: none;
+}
+#carousel-fallback::-webkit-scrollbar {
+    height: 7px;
+    background-color: transparent;
+}
+#carousel-fallback::-webkit-scrollbar-thumb {
+    background-color: var(--accent-1);
+    pointer-events: all;
+    cursor: pointer;
+}
+#carousel-fallback::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+@media (hover: none) {
+    #carousel-fallback {
+        scrollbar-width: auto;
+    }
+    #carousel-fallback::-webkit-scrollbar {
+        height: 12px;
+    }
+}

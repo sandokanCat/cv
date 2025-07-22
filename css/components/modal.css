@@ -1,0 +1,123 @@
+/* BODY */
+.no-scroll {
+    overflow: hidden;
+}
+
+/* MODAL BACKGROUND */
+#modal-container {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+        opacity 0.3s ease-out,
+        visibility 0s linear 0.3s;
+    pointer-events: none;
+}
+#modal-container.show {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease-out;
+    pointer-events: auto;
+}
+
+/* MODAL CONTENT */
+#modal-content {
+    position: relative;
+    border: 1px solid red;
+    /* box-sizing: border-box; */
+    display: block;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    max-width: fit-content;
+}
+#modal-container.show #modal-content {
+    opacity: 1;
+}
+
+/* PDF WRAPPER */
+#modal-iframe-wrapper {
+    display: none;
+    width: 90vw;
+    height: 90vh;
+}
+#modal-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+#modal-container.show.pdf #modal-iframe-wrapper {
+    display: block;
+}
+
+/* IMG WRAPPER */
+#modal-img-wrapper {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    max-width: 90vw;
+    max-height: 90vh;
+}
+#modal-img-wrapper img {
+    display: block;
+    width: 100%;
+    max-height: 90vh;
+    pointer-events: none;
+    /* margin: 0;
+    padding: 0;
+    gap: 0; */
+}
+#modal-container.show.carousel #modal-img-wrapper {
+    display: flex;
+}
+#modal-img-wrapper .carousel-container {
+    object-fit: contain;
+}
+#modal-img-wrapper .carousel-img {
+    width: 80%;
+}
+#modal-img-wrapper .carousel-control {
+    border: 1px solid lime;
+    /* padding: 0 10%; */
+}
+
+
+/* CLOSE BUTTON */
+#modal-close {
+    all: unset;
+    cursor: pointer;
+    position: absolute;
+    top: -35px;
+    right: -35px;
+    z-index: 1000;
+}
+#close-svg {
+    color: var(--accent-1);
+}
+#close-svg circle {
+    fill: currentColor;
+}
+#close-svg line {
+    stroke: var(--accent-2);
+}
+
+@media screen and (max-width: 768px) {
+    #modal-content {
+        width: 100%;
+    }
+    #modal-iframe-wrapper {
+        width: 100%;
+    }
+    #modal-img-wrapper {
+        width: 100%;
+    }
+    #modal-close {
+        right: 5px;
+    }
+}
+
