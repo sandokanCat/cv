@@ -1,5 +1,4 @@
 #random-phrases {
-	color: var(--body-txt);
 	opacity: 1;
 	transition: opacity 1.2s ease-in-out;
 }
