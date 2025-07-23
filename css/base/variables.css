@@ -11,7 +11,7 @@
     --body-bg: #1d2a42;
     --body-txt: #ffffff;
     --panel-bg: rgba(255, 255, 255, 0.90);
-    --carousel-mask: brightness(1);
+    --imgs-mask: brightness(1);
 }
 
 /* DARK MODE COLORS */
@@ -23,5 +23,5 @@
     --body-bg: #0a1120;
     --body-txt: #f0f0f0;
     --panel-bg: rgba(78, 87, 107, 0.95);
-    --carousel-mask: brightness(0.4);
+    --imgs-mask: brightness(0.4);
 }

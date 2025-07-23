@@ -36,6 +36,7 @@
 
 /* PORTFOLIO SECTION */
 #portfolio img {
+    filter: var(--imgs-mask);
     width: 60vw;
 }
 #portfolio img:hover {

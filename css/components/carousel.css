@@ -3,7 +3,7 @@
     margin: 30px 0 0 0;
 }
 #carousel img {
-    filter: var(--carousel-mask);
+    filter: var(--imgs-mask);
 }
 .carousel-track {
     display: flex;
