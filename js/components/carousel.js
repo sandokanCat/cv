@@ -1,16 +1,16 @@
 // IMPORTS
-import { validateCarousel } from '../utils/validateCarousel.js'; // FETCH + STRUCTURE + FORMAT VALIDATION
+import { validateCarousel } from "https://open-utils-sandokancats-projects.vercel.app/js/validateCarousel.js"; // FETCH + STRUCTURE + FORMAT VALIDATION
 
 // VARIABLES FOR DEVELOPMENT
 const mode = "prod"; // CHANGE AS NEEDED: dev | ngrok | prod
 const sources = {
 	dev: "http://127.0.0.1:5500/js/data/carousel.json",
-	ngrok: "https://a679-46-6-46-122.ngrok-free.app/js/data/carousel.json",
+	ngrok: "https://example.ngrok-free.app/js/data/carousel.json",
 	prod: "js/data/carousel.json"
 };
 
 // FETCHES AND VALIDATES REMOTE CAROUSEL.JSON VIA PUBLIC API
-const url = "https://open-utils-sandokancats-projects.vercel.app/api/validateCarousel";
+const url = "https://open-utils-sandokancats-projects.vercel.app/public/js/validateCarousel.js";
 const apiFetchCarousel = async () => {
 	const res = await fetch(`${url}?url=${encodeURIComponent(sources[mode])}&debug=${mode !== "prod"}`);
 	const json = await res.json();

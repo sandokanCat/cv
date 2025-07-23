@@ -1,11 +1,11 @@
 // IMPORTS
-import { validateJSON } from "https://open-utils-sandokancats-projects.vercel.app/api/validateCarousel";  // FETCH + STRUCTURE + FORMAT VALIDATION
+import { validateJSON } from "https://open-utils-sandokancats-projects.vercel.app/js/validateJSON.js";  // FETCH + STRUCTURE + FORMAT VALIDATION
 
 // VARIABLES FOR DEVELOPMENT
 const mode = "prod"; // CHANGE AS NEEDED: dev | ngrok | prod
 const sources = {
 	dev: "http://127.0.0.1:5500/js/data/alerts.json",
-	ngrok: "https://a679-46-6-46-122.ngrok-free.app/js/data/alerts.json",
+	ngrok: "https://example.ngrok-free.app/js/data/alerts.json",
 	prod: "js/data/alerts.json"
 };
 
