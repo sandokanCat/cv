@@ -108,6 +108,7 @@ article noscript {
     background-color: transparent;
 }
 
+/* RESPONSIVE BREAKPOINTS */
 @media (hover: none) {
     #carousel-fallback {
         scrollbar-width: auto;
