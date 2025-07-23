@@ -10,8 +10,7 @@ const sources = {
 };
 
 // FETCHES AND VALIDATES REMOTE CAROUSEL.JSON VIA PUBLIC LIBRARY
-const url = "https://open-utils-sandokancats-projects.vercel.app/public/js/validateCarousel.js";
-const apiFetchCarousel = async () => {
+const loadCarouselData = async () => {
     return await validateCarousel(sources[mode], { debug: mode !== "prod" });
 };
 
@@ -22,7 +21,8 @@ export async function initCarousel(
 	nextSelector = '.carousel-advance', // OPTIONAL NEXT BUTTON
 	prevSelector = '.carousel-back',    // OPTIONAL PREVIOUS BUTTON
 	imgs = null, // OPTIONAL: ALLOW PASSING CUSTOM IMG ARRAY (SKIPS FETCH)
-	startIndex = 0 // OPTIONAL: INITIAL SLIDE INDEX
+	startIndex = 0, // OPTIONAL: INITIAL SLIDE INDEX
+	interval = 6000 // OPTIONAL: AUTOSCROLL INTERVAL
 ) {
 	try {
 		// HANDLE SELECTOR OR DIRECT DOM ELEMENT
@@ -37,7 +37,7 @@ export async function initCarousel(
 		if (!containers.length) throw new Error("initCarousel: NO CONTAINERS FOUND");
 
 		// FETCH + VALIDATE IMAGES (IF NOT PASSED MANUALLY)
-		const validImgs = imgs || await apiFetchCarousel();
+		const validImgs = imgs || await loadCarouselData();
 		// const validImgs = imgs || await validateCarousel(sources[mode], {
 		// 	debug: mode !== "prod" // LOG ONLY OUTSIDE PRODUCTION
 		// });
@@ -62,21 +62,31 @@ export async function initCarousel(
 			// RENDER <picture> SLIDES
 			validImgs.forEach(({ webp, png, alt }) => {
 				const li = document.createElement("li");
-				li.innerHTML = `
-					<picture>
-						<source type="image/webp" srcset="${webp.srcSet.trim()}">
-						<source srcset="${png.srcSet.trim()}">
-						<img
-							src="${png.fallback}"
-							alt="${alt}"
-							class="modal-link"
-							data-modal="${png.fallback}"
-							decoding="async"
-							loading="lazy"
-						>
-					</picture>
-				`;
-				track.appendChild(li);
+
+				const picture = document.createElement("picture");
+
+				const sourceWebp = document.createElement("source"); // SOURCE WEBP
+				sourceWebp.type = "image/webp";
+				sourceWebp.srcset = webp.srcSet.trim();
+
+				const sourcePng = document.createElement("source"); // SOURCE PNG
+				sourcePng.srcset = png.srcSet.trim();
+
+				const img = document.createElement("img"); // IMG FALLBACK
+				img.src = png.fallback;
+				img.alt = alt;
+				img.className = "modal-link";
+				img.setAttribute("data-modal", png.fallback);
+				img.decoding = "async";
+				img.loading = "lazy";
+
+				picture.appendChild(sourceWebp); // APPEND CHILDREN TO PICTURE
+				picture.appendChild(sourcePng);
+				picture.appendChild(img);
+
+				li.appendChild(picture); // APPEND PICTURE TO LI
+
+				track.appendChild(li); // APPEND LI TO TRACK
 			});
 
 			// MOVE TRACK + UPDATE SCROLLBAR
@@ -89,7 +99,7 @@ export async function initCarousel(
 				timer = setTimeout(() => {
 					index = (index + 1) % validImgs.length;
 					update();
-				}, 6000);
+				}, interval);
 			};
 
 			// MANUAL BUTTON CONTROLS
