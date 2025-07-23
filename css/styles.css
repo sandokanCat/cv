@@ -1,5 +1,5 @@
 /* BASE */
-@import url("https://open-utils-sandokancats-projects.vercel.app/utils/custom-reset.css");
+@import url("https://open-utils-sandokancats-projects.vercel.app/css/custom-reset.css");
 @import url("base/variables.css");
 @import url("base/fonts.css");
 @import url("base/grid.css");
