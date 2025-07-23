@@ -51,9 +51,9 @@ article ol {
         width: 80%;
         margin: 0 auto;
     }
-    /* #carousel h6 {
-        margin-left: 12%;
-    } */
+    #carousel h6 {
+        margin-left: 10%;
+    }
 }
 @media screen and (max-width: 360px) { /* PHONE */
     article {
