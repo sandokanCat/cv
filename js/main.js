@@ -1,17 +1,18 @@
 // IMPORTS
 import * as components from './components/index.js';
 import { signature } from './utils/signature.js';
+import { manageCookies } from './utils/manageCookies.js';
 
 // CALLING FUNCTIONS
 document.addEventListener("DOMContentLoaded", async () => {
     components.themeDark('#theme-dark-btn');
-    components.initCarousel('.carousel-container', '.carousel-imgs', '.carousel-advance', '.carousel-back');
-    components.openMenu('#burger-nav', '#burger-text', '#burger-links');
-    components.openModal('.modal-link', '#modal-container', '#modal-content', '#modal-iframe', '#modal-close');
+    await components.initCarousel('.carousel-container', '.carousel-imgs', '.carousel-advance', '.carousel-back');
     await components.showRandomMsg('#random-phrases');
-    components.manageCookies('#cookies-bar', '#accept-cookies');
+    components.openMenu('#burger-nav', '#burger-text', '#burger-links');
     await components.provisionalAlert('a[data-provisional]');
+    components.openModal('.modal-link', '#modal-container', '#modal-content', '#modal-iframe', '#modal-close');
     signature('#signature-text');
+    manageCookies('#cookies-bar', '#accept-cookies');
 });
 
 console.group('EASTER EGG');

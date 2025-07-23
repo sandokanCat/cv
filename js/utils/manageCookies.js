@@ -1,26 +1,41 @@
 export function manageCookies(cookieBarSelector, acceptBtnSelector) {
-    const storageKey = 'sandokan.cat';
+    const cookieName = 'sandokan.cat_consent'; // COOKIE NAME
 
-    function setConsent(value, days) {
-        const expiration = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toISOString();
-        const consent = { value, expires: expiration };
-        localStorage.setItem(storageKey, JSON.stringify(consent));
+    // SET COOKIE WITH EXPIRATION DAYS
+    function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+        const expires = `expires=${date.toUTCString()}`;
+        document.cookie = `${name}=${value}; ${expires}; path=/; SameSite=Lax; Secure`;
     }
 
+    // GET COOKIE BY NAME
+    function getCookie(name) {
+        const nameEQ = name + "=";
+        const cookies = document.cookie.split(';');
+        for (let c of cookies) {
+            c = c.trim();
+            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length);
+        }
+        return null;
+    }
+
+    // GET CONSENT INFO (WITH DAYS REMAINING)
     function getConsentInfo() {
-        const raw = localStorage.getItem(storageKey);
+        const raw = getCookie(cookieName);
         if (!raw) return null;
 
         try {
-            const { value, expires } = JSON.parse(raw);
+            const [value, expires] = raw.split('|');
             const daysRemaining = Math.floor((new Date(expires) - new Date()) / (1000 * 60 * 60 * 24));
-            return { name: storageKey, value, daysRemaining };
+            return { name: cookieName, value: value === 'true', daysRemaining };
         } catch (err) {
-            console.warn('Error al parsear localStorage:', err);
+            console.warn('Error al parsear la cookie:', err);
             return null;
         }
     }
 
+    // SHOW OR HIDE THE COOKIE BAR
     function checkAndShowCookieBar() {
         const bar = document.querySelector(cookieBarSelector);
         const consent = getConsentInfo();
@@ -31,39 +46,42 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
             bar.style.display = 'block';
         } else {
             bar.style.display = 'none';
-            loadConsentScripts()
-
+            loadConsentScripts();
             console.info(`Consentimiento para cookies analíticas: %c${consent.value}%c. Expira en %c${consent.daysRemaining}%c días.`,
                 'color: rgb(0,255,0)', '', 'color: rgb(0,255,0)', '');
         }
     }
 
+    // ACCEPT CONSENT
     function acceptConsent(event) {
         if (event) event.preventDefault();
-        setConsent(true, 365);
+
+        const expiration = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString();
+        setCookie(cookieName, `true|${expiration}`, 365);
 
         const bar = document.querySelector(cookieBarSelector);
         if (bar) bar.style.display = 'none';
 
-        loadConsentScripts()
+        loadConsentScripts();
     }
 
-    function loadConsentScripts() { // LOAD EXTERNAL TRACKERS AFTER CONSENT
+    // LOAD EXTERNAL TRACKERS AFTER CONSENT
+    function loadConsentScripts() {
         loadGoogleAnalytics();
         loadClarity();
     }
 
-    function loadGoogleAnalytics() { // GA SCRIPT WITH ONLOAD/ONERROR
+    function loadGoogleAnalytics() {
         const script = document.createElement('script');
         script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-SSZNX4H48N';
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-JMZTXS94TS';
         document.head.appendChild(script);
 
         script.onload = () => {
             window.dataLayer = window.dataLayer || [];
             function gtag(){ dataLayer.push(arguments); }
             gtag('js', new Date());
-            gtag('config', 'G-SSZNX4H48N');
+            gtag('config', 'G-JMZTXS94TS');
         };
 
         script.onerror = () => {
@@ -71,7 +89,7 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
         };
     }
 
-    function loadClarity() { // CLARITY IIFE WITH ERROR HANDLER
+    function loadClarity() {
         (function (c, l, a, r, i, t, y) {
             c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
             t = l.createElement(r);
@@ -79,17 +97,16 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
             t.src = "https://www.clarity.ms/tag/" + i;
 
             t.onerror = () => {
-            console.warn('❌ No se pudo cargar Microsoft Clarity');
+                console.warn('❌ No se pudo cargar Microsoft Clarity');
             };
 
             y = l.getElementsByTagName(r)[0];
             y.parentNode.insertBefore(t, y);
-        })(window, document, "clarity", "script", "ow6nbkzkw6");
+        })(window, document, "clarity", "script", "sgweog5585");
     }
 
-    function initCookieBar() { // INIT + BUTTON BINDING
+    function initCookieBar() {
         checkAndShowCookieBar();
-
         const btn = document.querySelector(acceptBtnSelector);
         if (btn) {
             btn.addEventListener('click', acceptConsent);
