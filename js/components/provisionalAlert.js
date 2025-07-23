@@ -1,5 +1,5 @@
 // IMPORTS
-import { validateJSON } from '../utils/validateJSON.js';
+import { validateJSON } from "https://open-utils-sandokancats-projects.vercel.app/api/validateCarousel.js";  // FETCH + STRUCTURE + FORMAT VALIDATION
 
 // VARIABLES FOR DEVELOPMENT
 const mode = "prod"; // CHANGE AS NEEDED: dev | ngrok | prod
