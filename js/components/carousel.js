@@ -7,17 +7,16 @@ const sources = {
 	dev: "http://127.0.0.1:5500/js/data/carousel.json",
 	ngrok: "https://a679-46-6-46-122.ngrok-free.app/js/data/carousel.json",
 	prod: "js/data/carousel.json"
-	// prod: "https://sandokancat.github.io/CV/js/carousel.json"
 };
 
 // FETCHES AND VALIDATES REMOTE CAROUSEL.JSON VIA PUBLIC API
-// const url = "https://open-utils-alpha.vercel.app/api/validateCarousel";
-// const apiFetchCarousel = async () => {
-// 	const res = await fetch(`${url}?url=${encodeURIComponent(sources[mode])}&debug=${mode !== "prod"}`);
-// 	const json = await res.json();
-// 	if (!json.valid) throw new Error(`validateCarousel API → ${json.error}`);
-// 	return json.data;
-// };
+const url = "https://open-utils-sandokancats-projects.vercel.app/api/validateCarousel";
+const apiFetchCarousel = async () => {
+	const res = await fetch(`${url}?url=${encodeURIComponent(sources[mode])}&debug=${mode !== "prod"}`);
+	const json = await res.json();
+	if (!json.valid) throw new Error(`validateCarousel API → ${json.error}`);
+	return json.data;
+};
 
 // INIT CAROUSEL WITH AUTOSCROLL + MANUAL CONTROLS
 export async function initCarousel(
@@ -41,10 +40,10 @@ export async function initCarousel(
 		if (!containers.length) throw new Error("initCarousel: NO CONTAINERS FOUND");
 
 		// FETCH + VALIDATE IMAGES (IF NOT PASSED MANUALLY)
-		// const validImgs = imgs || await apiFetchCarousel();
-		const validImgs = imgs || await validateCarousel(sources[mode], {
-			debug: mode !== "prod" // LOG ONLY OUTSIDE PRODUCTION
-		});
+		const validImgs = imgs || await apiFetchCarousel();
+		// const validImgs = imgs || await validateCarousel(sources[mode], {
+		// 	debug: mode !== "prod" // LOG ONLY OUTSIDE PRODUCTION
+		// });
 		if (!validImgs.length) throw new Error("initCarousel: EMPTY VALID IMAGE LIST");
 
 		// LOOP EACH MATCHING CONTAINER

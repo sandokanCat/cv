@@ -6,7 +6,7 @@ const mode = "prod"; // CHANGE AS NEEDED: dev | ngrok | prod
 const sources = {
 	dev: "http://127.0.0.1:5500/js/data/phrases.json",
 	ngrok: "https://a679-46-6-46-122.ngrok-free.app/js/data/phrases.json",
-	prod: "js/data/phrases.json"
+	// prod: "js/data/phrases.json"
 };
 
 // GLOBAL VARIABLES

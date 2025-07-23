@@ -45,9 +45,3 @@ article ol {
         margin: 0 auto;
     }
 }
-@media screen and (max-width: 360px) { /* PHONE */
-    article {
-        width: 80%;
-        margin: 0 auto;
-    }
-}
