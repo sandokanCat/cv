@@ -9,7 +9,7 @@ const sources = {
 	prod: "js/data/carousel.json"
 };
 
-// FETCHES AND VALIDATES REMOTE CAROUSEL.JSON VIA PUBLIC API
+// FETCHES AND VALIDATES REMOTE CAROUSEL.JSON VIA PUBLIC LIBRARY
 const url = "https://open-utils-sandokancats-projects.vercel.app/public/js/validateCarousel.js";
 const apiFetchCarousel = async () => {
     return await validateCarousel({
