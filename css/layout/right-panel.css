@@ -2,13 +2,9 @@
 #right-panel {
     background-color: var(--panel-bg);
 }
-/* #right-panel section {
-    margin-bottom: 50px;
-} */
 #right-panel section {
     display: flex;
     flex-direction: column;
-    /* gap: 30px; */
 }
 h4 {
     background-color: var(--accent-1);
@@ -19,9 +15,6 @@ article {
     flex-direction: column;
     margin: 0 5% 0 10%;
 }
-/* #right-panel article:last-of-type {
-    margin-bottom: 50px;
-} */
 h5 {
     order: 2;
     margin: 0 5% 15px 10%;
