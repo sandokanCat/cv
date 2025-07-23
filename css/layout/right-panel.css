@@ -14,7 +14,7 @@ h4 {
     background-color: var(--accent-1);
     color: var(--accent-2);
 }
-article {
+.inner-container {
     display: flex;
     flex-direction: column;
     margin: 0 5% 0 10%;
