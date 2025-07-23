@@ -1,5 +1,5 @@
 // IMPORTS
-import { validateCarousel } from "https://open-utils-sandokancats-projects.vercel.app/js/validateCarousel.js"; // FETCH + STRUCTURE + FORMAT VALIDATION
+import { validateCarousel } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateCarousel.js"; // FETCH + STRUCTURE + FORMAT VALIDATION
 
 // VARIABLES FOR DEVELOPMENT
 const mode = "prod"; // CHANGE AS NEEDED: dev | ngrok | prod
