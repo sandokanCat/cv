@@ -12,10 +12,10 @@ const sources = {
 // FETCHES AND VALIDATES REMOTE CAROUSEL.JSON VIA PUBLIC API
 const url = "https://open-utils-sandokancats-projects.vercel.app/public/js/validateCarousel.js";
 const apiFetchCarousel = async () => {
-	const res = await fetch(`${url}?url=${encodeURIComponent(sources[mode])}&debug=${mode !== "prod"}`);
-	const json = await res.json();
-	if (!json.valid) throw new Error(`validateCarousel API → ${json.error}`);
-	return json.data;
+    return await validateCarousel({
+        url: sources[mode],
+        debug: mode !== "prod"
+    });
 };
 
 // INIT CAROUSEL WITH AUTOSCROLL + MANUAL CONTROLS
