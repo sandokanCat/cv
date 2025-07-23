@@ -2,9 +2,6 @@
 #carousel {
     margin: 30px 0 0 0;
 }
-#carousel img {
-    filter: var(--imgs-filter);
-}
 .carousel-track {
     display: flex;
     transition: transform 0.6s ease-in-out;
@@ -20,6 +17,7 @@
     aspect-ratio: 877 / 619;
     object-fit: contain;
     cursor: pointer;
+    filter: var(--imgs-filter);
 }
 
 /* JS CAROUSEL */
@@ -109,6 +107,11 @@ article noscript {
 }
 
 /* RESPONSIVE BREAKPOINTS */
+@media screen and (max-width: 768px) { /* TABLET */
+    #carousel {
+        width: 100%;
+    }
+}
 @media (hover: none) {
     #carousel-fallback {
         scrollbar-width: auto;
