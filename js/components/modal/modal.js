@@ -1,6 +1,6 @@
 // IMPORTS
 import { handlePdf } from "./pdfLogic.js"; // ADDING PDF LOGIC
-import { validateCarousel } from "../../utils/validateCarousel.js"; // VALIDATE SRC & ALT
+import { validateCarousel } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateCarousel.js"; // FETCH + STRUCTURE + FORMAT VALIDATION
 import { modalCarousel } from "./modalCarousel.js"; // ADDING CAROUSEL LOGIC CLONER
 
 // OPEN MODAL HANDLER
