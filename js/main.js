@@ -9,7 +9,7 @@ import { manageCookies } from './utils/manageCookies.js';
 
 // CALLING FUNCTIONS
 document.addEventListener("DOMContentLoaded", async () => {
-    activeJS('.js-disabled', 'js-enabled');
+    activeJS('js-disabled', 'js-enabled');
     initI18n(userLang);
     
     components.themeDark('#theme-dark-btn');
