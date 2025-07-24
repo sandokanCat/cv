@@ -5,5 +5,5 @@
 
 /* ACTIVE WHEN JS IS ENABLED */
 .js-enabled {
-    display: block;
+    display: inline-block;
 }
