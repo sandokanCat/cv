@@ -54,20 +54,20 @@
 #burger-links.active {
     transform: translateX(0);
 }
-#burger-links li {
+/* #burger-links li {
     margin: 0;
-}
+} */
 
 /* FALLBACK MENU */
 #menu-fallback {
     position: absolute;
     right: 2.5%;
-    top: 50%;
-    transform: translateY(-50%);
+    /* top: 50%; */
+    /* transform: translateY(-50%); */
 }
 #menu-fallback ol {
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     align-items: center;
     list-style: none;
     gap: 15px;
