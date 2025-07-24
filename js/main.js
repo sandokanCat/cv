@@ -7,10 +7,14 @@ import * as components from './components/index.js';
 import { signature } from './utils/signature.js';
 import { manageCookies } from './utils/manageCookies.js';
 
+// GLOBAL VARIABLES
+const userLang = localStorage.getItem('lang') || navigator.language.slice(0, 2);
+
 // CALLING FUNCTIONS
 document.addEventListener("DOMContentLoaded", async () => {
     activeJS('js-disabled', 'js-enabled');
-    initI18n(userLang);
+
+    initI18n(UserLang);
     
     components.themeDark('#theme-dark-btn');
     await components.initCarousel('.carousel-container', '.carousel-imgs', '.carousel-advance', '.carousel-back');
