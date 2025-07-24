@@ -4,9 +4,4 @@ export function activeJS(oldClass = 'js-disabled', newClass = 'js-enabled') {
         el.classList.remove(oldClass);
         el.classList.add(newClass);
     });
-
-    // JS BURGER MENU
-    const burgerNav = document.getElementById('burger-nav');
-    burgerNav.classList.remove('js-disabled');
-    burgerNav.style.display = 'flex';
 }

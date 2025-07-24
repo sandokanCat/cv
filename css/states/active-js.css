@@ -5,5 +5,10 @@
 
 /* ACTIVE WHEN JS IS ENABLED */
 .js-enabled {
-    display: inline-block;
+    display: block;
+}
+
+/* BURGER MENU EXCEPTION */
+#burger-nav.js-enabled {
+    display: flex;
 }
