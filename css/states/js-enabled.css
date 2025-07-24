@@ -1,0 +1,9 @@
+/* FALLBACK WITHOUT JS */
+.js-disabled {
+    display: none;
+}
+
+/* ACTIVE WHEN JS IS ENABLED */
+.js-enabled {
+    display: block;
+}
