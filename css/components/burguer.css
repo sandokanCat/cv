@@ -1,9 +1,5 @@
 /* JS HAMBURGER MENU */
 #burger-nav {
-    display: none; /* HIDE IT */
-}
-.js-enabled #burger-nav {
-    display: flex; /* SHOW IT */
     flex-direction: row-reverse;
     align-items: center;
     gap: 20px;
@@ -79,7 +75,7 @@
 
 /* RESPONSIVE LAYOUT */
 @media screen and (max-width: 768px) { /* TABLET */
-    .js-enabled #burger-nav {
+    #burger-nav {
         gap: 10px;
     }
     #burger-links {
@@ -87,7 +83,7 @@
     }
 }
 @media screen and (max-width: 360px) { /* PHONE */
-    .js-enabled #burger-nav {
+    #burger-nav {
         gap: 5px;
     }
     #burger-links {

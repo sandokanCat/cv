@@ -1,11 +1,3 @@
-/* SHOW JS DARK MODE BTN */
-#theme-dark-btn {
-    display: none;
-}
-.js-enabled #theme-dark-btn {
-    display: block;
-}
-
 /* JS DARK MODE BTN */
 #theme-dark-btn {
     position: fixed;

@@ -22,10 +22,6 @@
 
 /* JS CAROUSEL */
 .carousel-container {
-    display: none; /* HIDE IT */
-}
-.js-enabled .carousel-container {
-    display: block; /* SHOW IT */
     position: relative;
     order: 3;
 }

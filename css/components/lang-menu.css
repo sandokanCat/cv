@@ -1,6 +1,5 @@
 .lang-selector {
     position: relative;
-    display: inline-block;
 }
 
 #lang-options {
@@ -11,10 +10,6 @@
     flex-direction: column;
     background: white;
     border: 1px solid #ccc;
-}
-
-.hidden {
-    display: none;
 }
 
 #lang-options button {
