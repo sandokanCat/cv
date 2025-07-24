@@ -1,0 +1,23 @@
+.lang-selector {
+    position: relative;
+    display: inline-block;
+}
+
+#lang-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border: 1px solid #ccc;
+}
+
+.hidden {
+    display: none;
+}
+
+#lang-options button {
+    padding: 5px;
+    cursor: pointer;
+}

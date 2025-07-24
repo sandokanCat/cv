@@ -161,12 +161,28 @@
                 </div>
             </noscript>
             <!--//NOSCRIPT END -->
-            <!-- DARK MODE BUTTON -->
-            <noscript> <!-- FALLBACK -->
-                <a id="dark-fallback" href="dark-index.html" aria-label="Alternar Modo oscuro">🌙</a>
-            </noscript>
-            <button id="theme-dark-btn" aria-label="Alternar modo oscuro">🌓</button>
-            <!--//END DARK MODE -->
+            <nav>
+                <!-- DARK MODE BUTTON -->
+                <noscript> <!-- FALLBACK -->
+                    <a id="dark-fallback" href="dark-index.html" aria-label="Alternar Modo oscuro">🌙</a>
+                </noscript>
+                <button id="theme-dark-btn" aria-label="Alternar modo oscuro">🌓</button>
+                <!--//END DARK MODE -->
+                <!-- LANG DROPDOWN MENU -->
+                <noscript> <!-- FALLBACK -->
+                    <button aria-label="Català">🏴</button>
+                    <button aria-label="Español">🇪🇸</button>
+                    <button aria-label="English">🇬🇧</button>
+                </noscript>
+                <div id="lang-menu" class="lang-selector">
+                    <button id="lang-toggle" aria-label="Català">🏴</button>
+                    <div id="lang-options" class="hidden">
+                        <button data-lang="ca" aria-label="Español">🇪🇸</button>
+                        <button data-lang="en" aria-label="English">🇬🇧</button>
+                    </div>
+                </div>
+                <!--//LANG MENU END -->
+            </nav>
         </header>
         <main>
             <div id="left-panel">
@@ -367,9 +383,9 @@
                 <section>
                     <div class="others">
                         <h4>Portfolio</h4>
-                        <!-- DROP-DOWN MENU -->
+                        <!-- DROPDOWN MENU -->
                         <noscript> <!-- FALLBACK -->
-                            <div id="menu-fallback">
+                            <aside id="menu-fallback">
                                 <ol aria-label="Menú de repositorios">
                                     <li>
                                         <a href="https://github.com/sandokanCat?tab=repositories" target="_blank" rel="noopener noreferrer" aria-label="Mis repositorios de Frontend:">
@@ -386,9 +402,9 @@
                                         </a>
                                     </li>
                                 </ol>
-                            </div>
+                            </aside>
                         </noscript>
-                        <div class="other-links" id="burger-nav">
+                        <aside class="other-links" id="burger-nav">
                             <button id="burger-btn" aria-label="Menú de repositorios" aria-expanded="false">
                                 <span id="burger-icon">
                                     <span id="burger-icon-top"></span>
@@ -414,7 +430,7 @@
                                     </li>
                                 </ol>
                             </div>
-                        </div>
+                        </aside>
                         <!--//MENU END -->
                     </div>
                     <div id="portfolio">

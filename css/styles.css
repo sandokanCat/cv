@@ -1,24 +1,32 @@
-/* BASE */
-@import url("https://open-utils-dev-sandokan-cat.vercel.app/css/custom-reset.css");
+/* SETTINGS */
 @import url("base/variables.css");
-@import url("base/fonts.css");
-@import url("base/grid.css");
+
+/* TOOLS */
+/* helpers.css here */
+
+/* GENERIC */
+@import url("https://open-utils-dev-sandokan-cat.vercel.app/css/custom-reset.css");
+
+/* ELEMENTS */
 @import url("base/base.css");
+@import url("base/fonts.css");
 @import url("base/typography.css");
 
-/* LAYOUT */
+/* OBJECTS */
+@import url("layout/grid.css");
 @import url("layout/left-panel.css");
 @import url("layout/right-panel.css");
 @import url("layout/bottom-container.css");
 
 /* COMPONENTS */
 @import url("components/theme-dark.css");
+@import url("components/lang-menu.css");
 @import url("components/carousel.css");
 @import url("components/phrases.css");
 @import url("components/burguer.css");
 @import url("components/modal.css");
 
-/* UTILS */
-@import url("utils/cookies.css");
-@import url("utils/noscript.css");
-@import url("utils/signature.css");
+/* TRUMPS / UTILITIES / STATES */
+@import url("states/cookies.css");
+@import url("states/noscript.css");
+@import url("states/signature.css");

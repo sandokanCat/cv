@@ -1,16 +1,22 @@
 // IMPORTS
+import { initI18n } from './utils/i18n.js';
+
 import * as components from './components/index.js';
+
 import { signature } from './utils/signature.js';
 import { manageCookies } from './utils/manageCookies.js';
 
 // CALLING FUNCTIONS
 document.addEventListener("DOMContentLoaded", async () => {
+    initI18n(userLang);
+    
     components.themeDark('#theme-dark-btn');
     await components.initCarousel('.carousel-container', '.carousel-imgs', '.carousel-advance', '.carousel-back');
     await components.showRandomMsg('#random-phrases');
     components.openMenu('#burger-nav', '#burger-text', '#burger-links');
     await components.provisionalAlert('a[data-provisional]');
     components.openModal('.modal-link', '#modal-container', '#modal-content', '#modal-iframe', '#modal-close');
+
     signature('#signature-text');
     manageCookies('#cookies-bar', '#accept-cookies');
 });
@@ -21,7 +27,7 @@ console.group('EASTER EGG');
         " /\\_/\\   Frontend Dev | Maquetación Creativa 🛠️\n" +
         "( o.o )        HTML5 • CSS3 • JS Vanilla\n" +
         " > ^ <     \"sandokan.cat loves code & purrs\" 🐱\n" +
-        "  ╰─▶            rn5pt3hec@mozmail.com",
+        "  ╰─▶              dev@sandokan.cat",
         "color: #ff6d00; font-family: monospace; line-height: 1.3;"
     );
     console.log( // TECH GREETINGS
