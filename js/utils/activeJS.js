@@ -4,5 +4,4 @@ export function activeJS(oldClass = 'js-disabled', newClass = 'js-enabled') {
         el.classList.remove(oldClass);
         el.classList.add(newClass);
     });
-    console.log(`SELECTOR USADO: .${oldClass}`);
 }
