@@ -2,8 +2,8 @@
 #burger-nav {
     display: flex;
     align-items: center;
-    top: 13%;
-    right: 2.5%;
+    top: 10%;
+    right: 5%;
 }
 #burger-links {
     position: relative;
@@ -66,10 +66,10 @@
     pointer-events: auto;
 }
 #github-icon.active {
-    transform: translateX(-90px);
+    transform: translateX(-120px);
 }
 #vercel-icon.active {
-    transform: translateX(-50px);
+    transform: translateX(-60px);
 }
 
 /* FALLBACK MENU */
