@@ -52,11 +52,6 @@
     pointer-events: all;
     color: var(--accent-2);
 }
-.carousel-advance:hover,
-.carousel-back:hover {
-    color: var(--accent-1);
-    transition: color 0.3s ease;
-}
 .carousel-scrollbar {
     position: relative;
     height: 7px;

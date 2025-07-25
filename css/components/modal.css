@@ -86,7 +86,6 @@
     /* padding: 0 10%; */
 }
 
-
 /* CLOSE BUTTON */
 #modal-close {
     all: unset;
@@ -96,17 +95,9 @@
     right: -35px;
     z-index: 1000;
 }
-#close-svg {
-    color: var(--accent-1);
-}
-#close-svg circle {
-    fill: currentColor;
-}
-#close-svg line {
-    stroke: var(--accent-2);
-}
 
-@media screen and (max-width: 768px) {
+/* RESPONSIVE LAYOUT */
+@media screen and (max-width: 768px) { /* TABLET */
     #modal-content {
         width: 100%;
     }
