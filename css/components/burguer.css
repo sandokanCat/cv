@@ -35,8 +35,8 @@
     transform: rotate(45deg) translate(-9px, -9px);
 }
 #burger-links-container {
-    width: max-content;
-    height: 36px;
+    width: 5%;
+    height: 40px;
     overflow: hidden;
 }
 #burger-links {
