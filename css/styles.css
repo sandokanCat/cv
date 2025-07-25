@@ -26,8 +26,7 @@
 @import url("components/modal.css");
 
 /* UTILITIES */
-@import url("utils/icons-color.css");
-@import url("utils/icons-scale.css");
+@import url("utils/icons.css");
 
 /* STATES */
 @import url("states/active-js.css");

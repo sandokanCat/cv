@@ -1,0 +1,16 @@
+/* GLOBAL STYLES */
+.scale-icons { /* INITIAL SCALE */
+    transform: scale(1);
+    transition: transform 0.3s ease;
+}
+.scale-icons:hover { /* HOVER SCALE */
+    transform: scale(1.2);
+}
+
+/* SPECIFIC COLORS */
+.accent-1-svg { /* LEFT-PANEL & MODAL */
+    color: var(--accent-1);
+}
+.accent-2-svg { /* RIGHT-PANEL & BOTTOM-CONTAINER*/
+    color: var(--accent-2);
+}
