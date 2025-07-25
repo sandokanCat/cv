@@ -4,7 +4,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xml:space="preserve" style="display: none;">
 
     <!-- CATALONIA ROUND FLAG -->
-    <symbol id="cat-flag" aria-label="Català" viewBox="0 0 40 40">
+    <symbol id="cat-flag" aria-hidden="true" viewBox="0 0 40 40">
         <defs>
             <clipPath id="clip-catalonia">
             <circle cx="20" cy="20" r="20" />
@@ -22,7 +22,7 @@
     </symbol>
 
     <!-- SPAIN ROUND FLAG -->
-    <symbol id="es-flag" aria-label="Español" viewBox="0 0 40 40">
+    <symbol id="es-flag" aria-hidden="true" viewBox="0 0 40 40">
     <defs>
         <clipPath id="clip-spain">
         <circle cx="20" cy="20" r="20" />
@@ -36,7 +36,7 @@
     </symbol>
 
     <!-- UNITED KINGDOM ROUND FLAG -->
-    <symbol id="uk-flag" aria-label="English" viewBox="0 0 40 40">
+    <symbol id="uk-flag" aria-hidden="true" viewBox="0 0 40 40">
     <defs>
         <clipPath id="clip-uk">
         <circle cx="20" cy="20" r="20"/>
@@ -56,7 +56,7 @@
     </symbol>
 
     <!-- NATIVE LANGUAGE ICON -->
-    <symbol id="native-lang" role="img" aria-label="Nivel nativo" viewBox="0 0 124 16">
+    <symbol id="native-lang" role="img" aria-hidden="true" viewBox="0 0 124 16">
         <circle cx="8" cy="8" r="8" fill="currentColor" />
         <circle cx="35" cy="8" r="8" fill="currentColor" />
         <circle cx="62" cy="8" r="8" fill="currentColor" />
@@ -65,7 +65,7 @@
     </symbol>
 
     <!-- MEDIUM LANGUAGE ICON -->
-    <symbol id="medium-lang" role="img" aria-label="Nivel medio" viewBox="0 0 124 16">
+    <symbol id="medium-lang" role="img" aria-hidden="true" viewBox="0 0 124 16">
         <circle cx="8" cy="8" r="8" fill="currentColor" />
         <circle cx="35" cy="8" r="8" fill="currentColor" />
         <circle aria-hidden="true" cx="62" cy="8" r="8" fill="var(--body-txt)" />
@@ -147,7 +147,7 @@
     </symbol>
 
     <!-- GITHUB ICON -->
-    <symbol id="github" role="img" aria-label="Github" viewBox="0 0 20 20">
+    <symbol id="github" role="img" aria-hidden="true" viewBox="0 0 20 20">
         <g stroke="none" stroke-width="1">
             <g transform="translate(-140.000000, -7559.000000)">
                 <g transform="translate(56.000000, 160.000000)">
@@ -158,7 +158,7 @@
     </symbol>
 
     <!-- VERCEL ICON -->
-    <symbol id="vercel" role="img" aria-label="Vercel" viewBox="0 0 74 64">
+    <symbol id="vercel" role="img" aria-hidden="true" viewBox="0 0 74 64">
         <path d="M37.5896 0.25L74.5396 64.25H0.639648L37.5896 0.25Z" fill="currentColor" />
     </symbol>
 

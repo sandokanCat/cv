@@ -1,6 +1,6 @@
 export function openMenu() {
     const burgerBtn = document.getElementById("burger-btn");
-    const burguerLinks = document.getElementById("github") && document.getElementById("vercel");
+    const burguerLinks = document.getElementById("github-icon") && document.getElementById("vercel-icon");
 
     burgerBtn.addEventListener("click", () => {
         const isExpanded = burgerBtn.getAttribute("aria-expanded") === "true";
