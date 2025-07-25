@@ -14,16 +14,16 @@ nav {
 #theme-dark-btn { /* JS ENABLED  */
     background-color: var(--accent-2);
     border-radius: 50%;
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
 }
 #dark-fallback { /* WITHOUT JS */
     all: unset;
     cursor: pointer;
     background-color: var(--accent-2);
     border-radius: 50%;
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
