@@ -3,7 +3,6 @@ nav {
     position: fixed;
     top: 20px;
     left: 20px;
-    gap: 20px;
     z-index: 998;
 }
 nav ul {
@@ -14,8 +13,8 @@ nav ul {
 }
 nav a,
 nav button {
-    all: unset;
-    cursor: pointer;
+    /* all: unset; */
+    /* cursor: pointer; */
     display: flex;
     justify-content: center;
     align-items: center;
