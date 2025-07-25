@@ -1,23 +1,18 @@
+/* MAIN MENU POSITION */
 nav {
     position: fixed;
     top: 20px;
     left: 20px;
+    gap: 20px;
     z-index: 998;
 }
 
+/* LANG MENU */
 .lang-selector {
     position: relative;
 }
-
 #lang-options {
     position: absolute;
-    top: 100%;
-    left: 0;
     display: flex;
     flex-direction: column;
-}
-
-#lang-options button {
-    padding: 5px;
-    cursor: pointer;
 }
