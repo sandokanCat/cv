@@ -35,26 +35,25 @@
     transform: rotate(45deg) translate(-9px, -9px);
 }
 #burger-links {
-    display: flex;
-    flex-direction: row-reverse;
     position: relative;
     top: 13%;
+    width: 0;
+    height: 30px;
 }
-#github-icon {
-    transform: translateX(60px);
-    transition: transform 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-    z-index: 996;
-}
+#github-icon,
 #vercel-icon {
-    transform: translateX(30px);
+    position: absolute;
+    left: 0;
+    top: 0;
     transition: transform 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-    background-color: var(--accent-1);
-    z-index: 997;
 }
-#github-icon.active,
+#github-icon.active {
+    transform: translateX(-80px);
+}
 #vercel-icon.active {
-    transform: translateX(0);
+    transform: translateX(-40px);
 }
+
 
 /* FALLBACK MENU */
 #menu-fallback {
