@@ -1,13 +1,12 @@
 /* JS HAMBURGER MENU */
 #burger-nav {
-    display: flex;
-    align-items: center;
-    top: 8%;
+    /* display: flex; */
+    /* align-items: center; */
+    top: 13%;
     right: 2.5%;
 }
 #burger-links {
     position: relative;
-    top: 13%;
     width: 0;
     height: 30px;
 }
@@ -78,15 +77,14 @@
     top: 13%;
     right: 2.5%;
 }
-#menu-fallback ol {
+#menu-fallback ul {
     display: flex;
-    align-items: center;
-    list-style: none;
+    /* align-items: center; */
     gap: 20px;
 }
 
 /* RESPONSIVE LAYOUT */
-@media screen and (max-width: 768px) { /* TABLET */
+/* @media screen and (max-width: 768px) { TABLET
     #burger-nav {
         gap: 10px;
     }
@@ -94,11 +92,11 @@
         gap: 10px;
     }
 }
-@media screen and (max-width: 360px) { /* PHONE */
+@media screen and (max-width: 360px) { PHONE
     #burger-nav {
         gap: 5px;
     }
     #burger-links {
         gap: 5px;
     }
-}
+} */
