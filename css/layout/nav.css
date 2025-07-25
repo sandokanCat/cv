@@ -8,11 +8,7 @@ nav {
 }
 
 /* LANG MENU */
-.lang-selector {
-    position: relative;
-}
-#lang-options {
-    position: absolute;
+#lang-menu {
     display: flex;
     flex-direction: column;
 }
