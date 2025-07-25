@@ -2,6 +2,7 @@
 nav {
     display: flex;
     flex-direction: column;
+    align-items: center;
     position: fixed;
     top: 20px;
     left: 20px;
@@ -35,8 +36,8 @@ nav {
 }
 #lang-menu button {
     border-radius: 50%;
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
     overflow: hidden;
 }
 #lang-fallback { /* WITHOUT JS */
