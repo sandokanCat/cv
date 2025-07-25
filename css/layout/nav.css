@@ -9,8 +9,27 @@ nav {
     z-index: 998;
 }
 
+/* DARK MODE BTN */
+#theme-dark-btn { /* JS ENABLED  */
+    background-color: var(--accent-2);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+}
+#dark-fallback { /* WITHOUT JS */
+    all: unset;
+    cursor: pointer;
+    background-color: var(--accent-2);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* LANG MENU */
-#lang-menu {
+#lang-menu { /* JS ENABLED  */
     flex-direction: column;
     gap: 20px;
 }
@@ -20,9 +39,7 @@ nav {
     height: 40px;
     overflow: hidden;
 }
-
-/* LANG MENU FALLBACK */
-#lang-fallback {
+#lang-fallback { /* WITHOUT JS */
     display: flex;
     flex-direction: column;
     gap: 20px;

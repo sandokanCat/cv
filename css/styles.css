@@ -20,8 +20,6 @@
 @import url("layout/bottom-container.css");
 
 /* COMPONENTS */
-@import url("components/theme-dark.css");
-@import url("components/lang-menu.css");
 @import url("components/carousel.css");
 @import url("components/phrases.css");
 @import url("components/burguer.css");
