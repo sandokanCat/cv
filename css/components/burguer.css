@@ -29,10 +29,10 @@
     width: 0;
 }
 #burger-btn[aria-expanded="true"] #burger-icon-top {
-    transform: rotate(-45deg) translate(-8px, 9px);
+    transform: rotate(-45deg) translate(-10px, 10px);
 }
 #burger-btn[aria-expanded="true"] #burger-icon-bottom {
-    transform: rotate(45deg) translate(-8px, -9px);
+    transform: rotate(45deg) translate(-10px, -10px);
 }
 #burger-links-container {
     width: max-content;
