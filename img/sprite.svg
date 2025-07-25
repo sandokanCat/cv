@@ -4,14 +4,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xml:space="preserve" style="display: none;">
 
     <!-- CATALONIA ROUND FLAG -->
-    <symbol id="cat-flag" aria-label="Català" viewBox="0 0 40 40">
+    <symbol id="cat-flag" aria-label="Català" viewBox="0 0 38 38">
         <defs>
             <clipPath id="clip-catalonia">
             <circle cx="20" cy="20" r="20" />
             </clipPath>
         </defs>
         <g clip-path="url(#clip-catalonia)">
-            <rect width="40" height="40" fill="#ffda44"/>
+            <rect width="38" height="38" fill="#ffda44"/>
             <g fill="#d80027">
             <rect y="5" width="40" height="5"/>
             <rect y="15" width="40" height="5"/>
@@ -22,28 +22,28 @@
     </symbol>
 
     <!-- SPAIN ROUND FLAG -->
-    <symbol id="es-flag" aria-label="Español" viewBox="0 0 40 40">
+    <symbol id="es-flag" aria-label="Español" viewBox="0 0 38 38">
     <defs>
         <clipPath id="clip-spain">
         <circle cx="20" cy="20" r="20" />
         </clipPath>
     </defs>
     <g clip-path="url(#clip-spain)">
-        <rect width="40" height="40" fill="#ffda44"/>
+        <rect width="38" height="38" fill="#ffda44"/>
         <rect y="0" width="40" height="10" fill="#d80027"/>
         <rect y="30" width="40" height="10" fill="#d80027"/>
     </g>
     </symbol>
 
     <!-- UNITED KINGDOM ROUND FLAG -->
-    <symbol id="uk-flag" aria-label="English" viewBox="0 0 40 40">
+    <symbol id="uk-flag" aria-label="English" viewBox="0 0 38 38">
     <defs>
         <clipPath id="clip-uk">
         <circle cx="20" cy="20" r="20"/>
         </clipPath>
     </defs>
     <g clip-path="url(#clip-uk)">
-        <rect width="40" height="40" fill="#012169"/>
+        <rect width="38" height="38" fill="#012169"/>
         <polygon points="0,0 8,0 40,32 40,40 32,40 0,8" fill="#fff"/>
         <polygon points="40,0 32,0 0,32 0,40 8,40 40,8" fill="#fff"/>
         <polygon points="0,0 4,0 40,36 40,40 36,40 0,4" fill="#c8102e"/>
