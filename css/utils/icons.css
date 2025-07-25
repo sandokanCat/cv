@@ -7,11 +7,6 @@
     transform: scale(1.2);
 }
 
-/* SPECIFIC SCALE */
-/* #burger-links-container:hover {
-    transform: scale(1.2);
-} */
-
 /* SPECIFIC COLORS */
 .icons-color-1 { /* LEFT-PANEL & MODAL */
     color: var(--accent-1);

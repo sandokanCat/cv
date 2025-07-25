@@ -19,11 +19,11 @@
     padding: 0 5vw;
     align-items: center;
 }
-#other-data ul {
+#other-data ol {
     list-style: disc;
     margin-left: 1vw;
 }
-#other-data ul li + li {
+#other-data ol li + li {
     margin-top: 15px;
 }
 #other-data p {
