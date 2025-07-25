@@ -11,4 +11,10 @@ nav {
 #lang-menu {
     display: flex;
     flex-direction: column;
+    gap: 15px;
+}
+#lang-menu button {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
 }
