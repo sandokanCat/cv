@@ -2,7 +2,7 @@
 .accent-1-svg {
     color: var(--accent-1);
 }
-#modal-close.accent-1-svg {
+.accent-1-svg circle {
     fill: var(--accent-1);
 }
 
