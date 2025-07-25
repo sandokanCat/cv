@@ -33,6 +33,10 @@
 #burger-btn[aria-expanded="true"] #burger-icon-bottom {
     transform: rotate(45deg) translate(-8px, -9px);
 }
+#burger-links {
+    display: flex;
+    flex-direction: row-reverse;
+}
 #github,
 #vercel {
     top: 13%;
