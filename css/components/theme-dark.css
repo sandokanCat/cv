@@ -1,13 +1,9 @@
 /* JS DARK MODE BTN */
 #theme-dark-btn {
-    position: fixed;
-    top: 20px;
-    left: 20px;
     background-color: var(--accent-2);
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    z-index: 998;
     transition: transform 0.3s ease;
 }
 #theme-dark-btn:active {
@@ -18,14 +14,10 @@
 #dark-fallback {
     all: unset;
     cursor: pointer;
-    position: fixed;
-    top: 20px;
-    left: 20px;
     background-color: var(--accent-2);
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    z-index: 998;
     display: flex;
     justify-content: center;
     align-items: center;

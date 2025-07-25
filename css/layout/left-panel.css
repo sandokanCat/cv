@@ -6,12 +6,6 @@ h3 {
     border-left: 7px solid var(--accent-1);
     margin-bottom: 30px;
 }
-/* header ul,
-header ol {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-} */
 
 /* PHOTO & PERSONAL INFO */
 #my-photo {
