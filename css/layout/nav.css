@@ -1,5 +1,6 @@
 /* MAIN MENU POSITION */
 nav {
+    display: block;
     position: fixed;
     top: 20px;
     left: 20px;
@@ -9,7 +10,6 @@ nav {
 
 /* LANG MENU */
 #lang-menu {
-    display: flex;
     flex-direction: column;
     gap: 15px;
 }
@@ -17,4 +17,11 @@ nav {
     border-radius: 50%;
     width: 40px;
     height: 40px;
+}
+
+/* LANG MENU FALLBACK */
+#lang-fallback {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }

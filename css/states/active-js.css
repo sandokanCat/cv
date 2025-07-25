@@ -8,7 +8,8 @@
     display: block;
 }
 
-/* BURGER MENU EXCEPTION */
+/* EXCEPTIONS */
+#lang-menu.js-enabled,
 #burger-nav.js-enabled {
     display: flex;
 }
