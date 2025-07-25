@@ -29,6 +29,7 @@
 
 /* TRUMPS / UTILITIES / STATES */
 @import url("states/active-js.css");
+@import url("utils/scale-icons.css");
 @import url("states/cookies.css");
 @import url("states/noscript.css");
 @import url("states/signature.css");
