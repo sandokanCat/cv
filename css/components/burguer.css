@@ -29,10 +29,10 @@
     width: 0;
 }
 #burger-btn[aria-expanded="true"] #burger-icon-top {
-    transform: rotate(-45deg) translate(-10px, 10px);
+    transform: rotate(-45deg) translate(-6px, 6px);
 }
 #burger-btn[aria-expanded="true"] #burger-icon-bottom {
-    transform: rotate(45deg) translate(-10px, -10px);
+    transform: rotate(45deg) translate(-6px, -6px);
 }
 #burger-links-container {
     width: max-content;
@@ -40,9 +40,7 @@
 }
 #burger-links {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    list-style: none;
     gap: 15px;
     padding-left: 15px;
     transform: translateX(100%);
