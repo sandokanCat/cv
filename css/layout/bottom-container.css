@@ -50,11 +50,6 @@
     gap: 30px;
 }
 
-/* SVG COLOR STYLES */
-.accent-2-svg {
-    color: var(--accent-2);
-}
-
 /* RESPONSIVE BREAKPOINTS */
 @media screen and (max-width: 768px) { /* TABLET */
     #other-data {

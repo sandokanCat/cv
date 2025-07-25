@@ -27,9 +27,12 @@
 @import url("components/burguer.css");
 @import url("components/modal.css");
 
-/* TRUMPS / UTILITIES / STATES */
+/* UTILITIES */
+@import url("utils/icons-color.css");
+@import url("utils/icons-scale.css");
+
+/* STATES */
 @import url("states/active-js.css");
-@import url("utils/scale-icons.css");
 @import url("states/cookies.css");
 @import url("states/noscript.css");
 @import url("states/signature.css");

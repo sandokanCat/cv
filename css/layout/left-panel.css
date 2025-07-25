@@ -55,11 +55,6 @@ h3 {
     position: absolute;
 }
 
-/* SVG COLOR STYLES */
-.accent-1-svg {
-    color: var(--accent-1);
-}
-
 /* RESPONSIVE BREAKPOINTS */
 @media screen and (max-width: 768px) { /* TABLET */
     #my-photo img {
