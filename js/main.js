@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     components.themeDark('#theme-dark-btn');
     await components.initCarousel('.carousel-container', '.carousel-imgs', '.carousel-advance', '.carousel-back');
     await components.showRandomMsg('#random-phrases');
-    components.openMenu('#burger-nav', '#burger-text', '#burger-links');
+    components.openMenu('#burger-btn', '#github-icon', '#vercel-icon');
     await components.provisionalAlert('a[data-provisional]');
     components.openModal('.modal-link', '#modal-container', '#modal-content', '#modal-iframe', '#modal-close');
 
