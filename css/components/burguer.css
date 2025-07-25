@@ -5,8 +5,8 @@
 }
 #burger-links {
     position: relative;
-    /* width: 0;
-    height: 0; */
+    width: 0;
+    height: 0;
 }
 #burger-btn {
     z-index: 2;
