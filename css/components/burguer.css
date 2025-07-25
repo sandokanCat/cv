@@ -36,7 +36,7 @@
 #burger-links {
     position: relative;
     top: 13%;
-    /* width: 0; */
+    width: 0;
     height: 30px;
 }
 #github-icon,
@@ -44,10 +44,13 @@
     position: absolute;
     left: 0;
     top: 0;
+    width: 30px;
+    height: 30px; 
     opacity: 0;
     transition:
         transform 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6),
         opacity 0.6s ease;
+    overflow: visible
 }
 #github-icon.active {
     transform: translateX(-80px);
@@ -57,7 +60,6 @@
     transform: translateX(-40px);
     opacity: 1;
 }
-
 
 /* FALLBACK MENU */
 #menu-fallback {
