@@ -1,8 +1,8 @@
 /* JS HAMBURGER MENU */
-#burger-nav {
+/* #burger-nav {
     flex-direction: row-reverse;
     align-items: center;
-}
+} */
 #burger-btn {
     width: 30px;
     height: 30px;
@@ -49,8 +49,8 @@
     opacity: 0;
     transition:
         transform 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6),
-        opacity 0.6s ease;
-    overflow: visible
+        opacity 0.6s ease delay(0.2s);
+    overflow: visible;
 }
 #github-icon.active {
     transform: translateX(-80px);
