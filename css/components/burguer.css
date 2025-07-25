@@ -40,22 +40,20 @@
     position: relative;
     top: 13%;
 }
-#github-icon,
-#vercel-icon {
-    position: absolute;
-    transform: translateX(100%);
-    transition: transform 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-}
-#github.active,
-#vercel.active {
-    transform: translateX(0);
-}
 #github-icon {
+    transform: translateX(60px);
+    transition: transform 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
     z-index: 996;
 }
 #vercel-icon {
+    transform: translateX(30px);
+    transition: transform 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
     background-color: var(--accent-1);
     z-index: 997;
+}
+#github-icon.active,
+#vercel-icon.active {
+    transform: translateX(0);
 }
 
 /* FALLBACK MENU */
