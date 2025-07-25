@@ -2,8 +2,8 @@
 #burger-nav {
     display: flex;
     align-items: center;
-    top: 7%;
-    right: 6%;
+    top: 8%;
+    right: 2.5%;
 }
 #burger-links {
     position: relative;
