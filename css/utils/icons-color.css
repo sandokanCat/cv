@@ -2,9 +2,6 @@
 .accent-1-svg {
     color: var(--accent-1);
 }
-.accent-1-svg circle {
-    fill: var(--accent-1);
-}
 
 /* RIGHT-PANEL & BOTTOM-CONTAINER*/
 .accent-2-svg {
