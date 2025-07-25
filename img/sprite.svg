@@ -4,41 +4,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xml:space="preserve" style="display: none;">
 
     <!-- CATALONIA CIRCLE FLAG -->
-    <symbol id="catalonia-flag" data-name="Layer 1" viewBox="0 0 960 960" width="40" height="40">
+    <symbol id="catalonia-flag" data-name="Layer 1" width="40" height="40" viewBox="0 0 960 960">
         <defs>
-            <style>
-            .cls-1 {
-                fill: #ffda44;
-            }
-            .cls-1, .cls-2, .cls-3 {
-                stroke-width: 0px;
-            }
-            .cls-2 {
-                fill: #fff;
-            }
-            .cls-3 {
-                fill: #d80027;
-            }
-            .cls-4 {
-                mask: url(#mask);
-            }
-            </style>
             <mask id="mask" x=".04" y=".09" width="959.91" height="959.91" maskUnits="userSpaceOnUse">
             <g id="a">
-                <circle class="cls-2" cx="480" cy="480.04" r="479.96"/>
+                <circle class="cls-2" cx="480" cy="480.04" r="479.96" style="fill:#fff; stroke-width:0px;"/>
             </g>
             </mask>
         </defs>
-        <g class="cls-4">
+        <g class="cls-4" style="mask: url(#mask);">
             <g>
-            <path class="cls-1" d="M.04.09v106.87l59.99,54.37L.04,213.82v106.87l59.99,54.37L.04,427.55v106.87l59.99,52.5L.04,639.4v106.87l59.99,54.37L.04,853.13v106.87h959.91v-106.87l-59.99-52.5,59.99-54.37v-106.87l-59.99-52.5,59.99-52.5v-106.87l-59.99-52.5,59.99-54.37v-106.87l-59.99-52.5,59.99-54.37V.09H.04Z"/>
-            <path class="cls-3" d="M.04,106.95h959.91v106.87H.04v-106.87ZM.04,320.68h959.91v106.87H.04v-106.87ZM.04,534.41h959.91v104.99H.04v-104.99ZM.04,746.27h959.91v106.87H.04v-106.87Z"/>
+            <path class="cls-1" d="M.04.09v106.87l59.99,54.37L.04,213.82v106.87l59.99,54.37L.04,427.55v106.87l59.99,52.5L.04,639.4v106.87l59.99,54.37L.04,853.13v106.87h959.91v-106.87l-59.99-52.5,59.99-54.37v-106.87l-59.99-52.5,59.99-52.5v-106.87l-59.99-52.5,59.99-54.37v-106.87l-59.99-52.5,59.99-54.37V.09H.04Z" style="fill:#ffda44; stroke-width:0px;"/>
+            <path class="cls-3" d="M.04,106.95h959.91v106.87H.04v-106.87ZM.04,320.68h959.91v106.87H.04v-106.87ZM.04,534.41h959.91v104.99H.04v-104.99ZM.04,746.27h959.91v106.87H.04v-106.87Z" style="fill:#d80027; stroke-width:0px;"/>
             </g>
         </g>
     </symbol>
 
     <!-- SPAIN CIRCLE FLAG -->
-    <symbol id="spain-flag" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="40" height="40">
+    <symbol id="spain-flag" x="0px" y="0px" width="40" height="40" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;">
         <path style="fill:#FFDA44;" d="M0,256c0,31.314,5.633,61.31,15.923,89.043L256,367.304l240.077-22.261
             C506.367,317.31,512,287.314,512,256s-5.633-61.31-15.923-89.043L256,144.696L15.923,166.957C5.633,194.69,0,224.686,0,256z"/>
         <g>
@@ -49,12 +32,14 @@
 
     <!-- GREAT BRITAIN CIRCLE FLAG -->
     <symbol id="greatBritain-flag" width="40" height="40" viewBox="0 0 512 512">
-        <mask id="a"><circle cx="256" cy="256" r="256" fill="#fff"/></mask>
-            <g mask="url(#a)">
-                <path fill="#eee" d="m0 0 8 22-8 23v23l32 54-32 54v32l32 48-32 48v32l32 54-32 54v68l22-8 23 8h23l54-32 54 32h32l48-32 48 32h32l54-32 54 32h68l-8-22 8-23v-23l-32-54 32-54v-32l-32-48 32-48v-32l-32-54 32-54V0l-22 8-23-8h-23l-54 32-54-32h-32l-48 32-48-32h-32l-54 32L68 0H0z"/>
-                <path fill="#0052b4" d="M336 0v108L444 0Zm176 68L404 176h108zM0 176h108L0 68ZM68 0l108 108V0Zm108 512V404L68 512ZM0 444l108-108H0Zm512-108H404l108 108Zm-68 176L336 404v108z"/>
-                <path fill="#d80027" d="M0 0v45l131 131h45L0 0zm208 0v208H0v96h208v208h96V304h208v-96H304V0h-96zm259 0L336 131v45L512 0h-45zM176 336 0 512h45l131-131v-45zm160 0 176 176v-45L381 336h-45z"/>
-            </g>
+        <mask id="a">
+            <circle cx="256" cy="256" r="256" fill="#fff"/>
+        </mask>
+        <g mask="url(#a)">
+            <path fill="#eee" d="m0 0 8 22-8 23v23l32 54-32 54v32l32 48-32 48v32l32 54-32 54v68l22-8 23 8h23l54-32 54 32h32l48-32 48 32h32l54-32 54 32h68l-8-22 8-23v-23l-32-54 32-54v-32l-32-48 32-48v-32l-32-54 32-54V0l-22 8-23-8h-23l-54 32-54-32h-32l-48 32-48-32h-32l-54 32L68 0H0z"/>
+            <path fill="#0052b4" d="M336 0v108L444 0Zm176 68L404 176h108zM0 176h108L0 68ZM68 0l108 108V0Zm108 512V404L68 512ZM0 444l108-108H0Zm512-108H404l108 108Zm-68 176L336 404v108z"/>
+            <path fill="#d80027" d="M0 0v45l131 131h45L0 0zm208 0v208H0v96h208v208h96V304h208v-96H304V0h-96zm259 0L336 131v45L512 0h-45zM176 336 0 512h45l131-131v-45zm160 0 176 176v-45L381 336h-45z"/>
+        </g>
     </symbol>
 
     <!-- NATIVE LANGUAGE ICON -->

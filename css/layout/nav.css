@@ -4,3 +4,20 @@ nav {
     left: 20px;
     z-index: 998;
 }
+
+.lang-selector {
+    position: relative;
+}
+
+#lang-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#lang-options button {
+    padding: 5px;
+    cursor: pointer;
+}
