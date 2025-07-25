@@ -1,47 +1,27 @@
-/* MAIN MENU POSITION */
+/* NAV STYLES */
 nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     position: fixed;
     top: 20px;
     left: 20px;
     gap: 20px;
     z-index: 998;
 }
-
-/* DARK MODE BTN */
-#theme-dark-btn { /* JS ENABLED  */
-    background-color: var(--accent-2);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
+nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
-#dark-fallback { /* WITHOUT JS */
-    all: unset;
-    cursor: pointer;
-    background-color: var(--accent-2);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
+nav a,
+nav button {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-/* LANG MENU */
-#lang-menu { /* JS ENABLED  */
-    flex-direction: column;
-    gap: 20px;
-}
-#lang-menu button {
-    border-radius: 50%;
+    background-color: var(--accent-2);
     width: 40px;
     height: 40px;
+    border-radius: 50%;
+    all: unset;
+    cursor: pointer;
     overflow: hidden;
-}
-#lang-fallback { /* WITHOUT JS */
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
 }
