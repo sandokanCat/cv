@@ -85,21 +85,3 @@
     display: flex;
     gap: 20px;
 }
-
-/* RESPONSIVE LAYOUT */
-/* @media screen and (max-width: 768px) { TABLET
-    #burger-nav {
-        gap: 10px;
-    }
-    #burger-links {
-        gap: 10px;
-    }
-}
-@media screen and (max-width: 360px) { PHONE
-    #burger-nav {
-        gap: 5px;
-    }
-    #burger-links {
-        gap: 5px;
-    }
-} */
