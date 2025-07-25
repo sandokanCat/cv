@@ -37,7 +37,7 @@
 #burger-links {
     position: relative;
     top: 13%;
-    width: 0;
+    /* width: 0; */
     height: 30px;
 }
 #github-icon,
