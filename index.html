@@ -163,19 +163,43 @@
                 <noscript> <!-- FALLBACK -->
                     <a id="dark-fallback" href="dark-index.html" aria-label="Alternar Modo oscuro">🌙</a>
                 </noscript>
-                <button id="theme-dark-btn" class="js-disabled" aria-label="Alternar modo oscuro">🌓</button>
+                <button id="theme-dark-btn" class="js-disabled" aria-label="Alternar modo oscuro">🌓</button> <!-- JS ENABLED -->
                 <!--//END DARK MODE -->
                 <!-- LANG DROPDOWN MENU -->
                 <noscript> <!-- FALLBACK -->
-                    <button aria-label="Català">🏴</button>
-                    <button aria-label="Español">🇪🇸</button>
-                    <button aria-label="English">🇬🇧</button>
+                    <button aria-label="Català">
+                        <svg role="img" aria-label="Català" width="40" height="40" preserveAspectRatio="xMinYMin meet">
+                            <use href="img/sprite.svg#catalonia-flag"></use>
+                        </svg>
+                    </button>
+                    <button aria-label="Español">
+                        <svg role="img" aria-label="Español" width="40" height="40" preserveAspectRatio="xMinYMin meet">
+                            <use href="img/sprite.svg#spain-flag"></use>
+                        </svg>
+                    </button>
+                    <button aria-label="English">
+                        <svg role="img" aria-label="English" width="40" height="40" preserveAspectRatio="xMinYMin meet">
+                            <use href="img/sprite.svg#greatGritain-flag"></use>
+                        </svg>
+                    </button>
                 </noscript>
-                <div id="lang-menu" class="lang-selector js-disabled">
-                    <button id="lang-toggle" aria-label="Català">🏴</button>
+                <div id="lang-menu" class="lang-selector js-disabled"> <!-- JS ENABLED -->
+                    <button id="lang-toggle" aria-label="Català">
+                        <svg role="img" aria-label="Català" width="40" height="40" preserveAspectRatio="xMinYMin meet">
+                            <use href="img/sprite.svg#catalonia-flag"></use>
+                        </svg>
+                    </button>
                     <div id="lang-options" class="hidden">
-                        <button data-lang="ca" aria-label="Español">🇪🇸</button>
-                        <button data-lang="en" aria-label="English">🇬🇧</button>
+                        <button data-lang="ca" aria-label="Español">
+                            <svg role="img" aria-label="Español" width="40" height="40" preserveAspectRatio="xMinYMin meet">
+                                <use href="img/sprite.svg#spain-flag"></use>
+                            </svg>
+                        </button>
+                        <button data-lang="en" aria-label="English">
+                            <svg role="img" aria-label="English" width="40" height="40" preserveAspectRatio="xMinYMin meet">
+                                <use href="img/sprite.svg#greatGritain-flag"></use>
+                            </svg>
+                        </button>
                     </div>
                 </div>
                 <!--//LANG MENU END -->
@@ -304,7 +328,7 @@
                                 </li>
                             </ol>
                         </noscript>
-                        <figure class="carousel-container js-disabled">
+                        <figure class="carousel-container js-disabled"> <!-- JS ENABLED -->
                             <div class="carousel-imgs">
                                 <ol class="carousel-track" aria-live="polite"></ol>
                             </div>
@@ -401,7 +425,7 @@
                                 </ol>
                             </aside>
                         </noscript>
-                        <aside class="other-links js-disabled" id="burger-nav">
+                        <aside class="other-links js-disabled" id="burger-nav"> <!-- JS ENABLED -->
                             <button id="burger-btn" aria-label="Menú de repositorios" aria-expanded="false">
                                 <span id="burger-icon">
                                     <span id="burger-icon-top"></span>
