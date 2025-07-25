@@ -36,6 +36,7 @@
 }
 #burger-links-container {
     width: max-content;
+    height: max-content;
     overflow: hidden;
 }
 #burger-links {
