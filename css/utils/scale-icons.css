@@ -1,5 +1,6 @@
-.scale-icons button,
-.scale-icons svg{
-    transform: scale(1.2);
+.scale-icons {
     transition: transform 0.3s ease;
+}
+.scale-icons:hover {
+    transform: scale(1.2);
 }
