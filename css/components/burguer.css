@@ -2,8 +2,8 @@
 #burger-nav {
     display: flex;
     align-items: center;
-    top: 10%;
-    right: 5%;
+    top: 7%;
+    right: 7%;
 }
 #burger-links {
     position: relative;
@@ -55,18 +55,18 @@
     transition:
         transform 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6),
         opacity 0.6s ease;
-    /* transition-delay: 0s, 0s; */
+    transition-delay: 0s, 0s;
     pointer-events: none;
     z-index: 1;
 }
 #github-icon.active,
 #vercel-icon.active {
     opacity: 1;
-    /* transition-delay: 0s, 0.2s; */
+    transition-delay: 0s, 0.1s;
     pointer-events: auto;
 }
 #github-icon.active {
-    transform: translateX(-110px);
+    transform: translateX(-100px);
 }
 #vercel-icon.active {
     transform: translateX(-50px);
