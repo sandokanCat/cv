@@ -14,6 +14,7 @@
 
 /* OBJECTS */
 @import url("layout/grid.css");
+@import url("layout/nav.css");
 @import url("layout/left-panel.css");
 @import url("layout/right-panel.css");
 @import url("layout/bottom-container.css");
