@@ -9,7 +9,7 @@
 }
 
 /* EXCEPTIONS */
-#lang-menu.js-enabled,
+nav ul.js-enabled,
 #burger-nav.js-enabled {
     display: flex;
 }
