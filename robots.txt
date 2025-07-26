@@ -1,5 +1,6 @@
 User-agent: *
-Disallow: /newsletter.html
+Disallow: /partials
+Disallow: /fallbacks/dark
 
 Sitemap: https://sandokan.cat/sitemap.xml
 Sitemap: https://sandokan.cat/sitemaps.xml.gz
