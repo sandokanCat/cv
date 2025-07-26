@@ -1,5 +1,8 @@
-// ADD COPYRIGHT SIGNATURE TO FOOTER
-export function signature(selector = '#signature-text') {
+// ADD YEAR INTO SIGNATURE
+export function signature(selector = '#signature-year') {
 	const el = document.querySelector(selector); // GET TARGET ELEMENT
-	if (el) el.textContent = `© ${new Date().getFullYear()} sandokan.cat`; // SET CURRENT YEAR + AUTHOR
+	const year = new Date().getFullYear(); // GET CURRENT YEAR
+	if (el && el.textContent !== year.toString()) {
+		el.textContent = year; // SET CURRENT YEAR
+	}
 }

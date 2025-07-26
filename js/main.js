@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await components.provisionalAlert('a[data-provisional]');
     components.openModal('.modal-link', '#modal-container', '#modal-content', '#modal-iframe', '#modal-close');
 
-    signature('#signature-text');
+    signature('#signature-year');
     manageCookies('#cookies-bar', '#accept-cookies');
 });
 
