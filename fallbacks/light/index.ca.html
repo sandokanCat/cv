@@ -94,40 +94,44 @@
     <!-- ADD BAIDU, NAVER AND OTHERS -->
 
     <!-- SCHEMA LD+JSON -->
-    <script type="application/ld+json">
+    <script type="application/ld+json"> // MARKUP FOR THE WEBSITE IDENTITY
         {
             "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Gonzalo Cabezas Núñez",
-            "jobTitle": "Desenvolupador Frontend",
+            "@type": "WebSite",
             "url": "https://sandokan.cat/",
-            "description": "Desenvolupador Frontend especialitzat en tecnologías web modernes. Portfolio i CV",
-            "image": "https://sandokan.cat/img/og-img.jpg?version=2.0",
-            "sameAs": [
-                "https://linkedin.com/in/sandokanCat",
-                "https://github.com/sandokanCat",
-                "https://vercel.com/sandokancat",
-                "https://www.infojobs.net/candidate/cv/view/index.xhtml?dgv=3099151168547844805"
-            ],
-            "birthDate": "1992-09-16",
+            "name": "sandokan.cat | Desenvolupador Front-End Web",
+            "description": "Desenvolupador Front-End especialitzat en tecnologies web modernes. Portfolio i CV"
+        }
+    </script>
+    <script type="application/ld+json"> // MARKUP FOR THE WEBPAGE CONTENT
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "url": "https://sandokan.cat/",
+            "name": "sandokan.cat | Desenvolupador Front-End Web",
+            "author": { 
+                "@id": "#gonzalo"
+            },
+            "publisher": { 
+                "@id": "#gonzalo"
+            },
+            "mainEntity": { 
+                "@id": "#gonzalo"
+            }
+        }
+    </script>
+    <script type="application/ld+json"> // MARKUP FOR PROFESSIONAL SERVICE ENTITY
+        {
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "sandokan.cat | Desenvolupador Front-End Web",
+            "url": "https://sandokan.cat/",
             "contactPoint": {
                 "@type": "ContactPoint",
+                "contactType": "Serveis de Desenvolupament Web",
                 "email": "dev@sandokan.cat",
                 "telephone": "+34 631306583",
-                "contactType": "Serveis de desenvolupament web"
-            },
-            "knowsAbout": [
-                "HTML5",
-                "CSS3",
-                "JS Vanilla",
-                "JSON",
-                "AJAX",
-                "JAVA",
-                "PHP"
-            ],
-            "alumniOf": {
-                "@type": "EducationalOrganization",
-                "name": "Institució Pau Casals"
+                "url": "https://sandokan.cat/contact.html"
             },
             "address": {
                 "@type": "PostalAddress",
@@ -135,6 +139,40 @@
                 "addressLocality": "Barcelona",
                 "addressRegion": "B",
                 "addressCountry": "ES"
+            },
+            "sameAs": [
+                "https://github.com/sandokanCat",
+                "https://vercel.com/sandokancat"
+            ],
+            "areaServed": "ES",
+            "founder": {
+                "@id": "#gonzalo"
+            },
+            "foundingDate": "2025",
+            "priceRange": "€"
+        }          
+    </script>        
+    <script type="application/ld+json"> // MARKUP FOR AUTHOR PERSON ENTITY
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "@id": "#gonzalo",
+            "name": "Gonzalo Cabezas Núñez",
+            "jobTitle": "Desenvolupador Front-End Web",
+            "url": "https://sandokan.cat/#gonzalo",
+            "image": "https://sandokan.cat/img/og-img.jpg?version=2.0",
+            "sameAs": [
+                "https://linkedin.com/in/sandokanCat",
+                "https://www.infojobs.net/candidate/cv/view/index.xhtml?dgv=3099151168547844805"
+            ],
+            "knowsAbout": [
+                "HTML5", "CSS3", "JavaScript", "JSON", "AJAX", "JAVA", "PHP"
+            ],
+            "alumniOf": {
+                "@type": "EducationalOrganization",
+                "name": "Institució Pau Casals",
+                "url": "https://paucasals.com",
+                "logo": "https://www.paucasals.com/imagen/logo_640.png"
             }
         }
     </script>
@@ -229,7 +267,7 @@
         <main>
             <div id="left-panel">
                 <section>
-                    <figure id="my-photo">
+                    <figure id="gonzalo">
                         <picture>
                             <source type="image/webp" srcset="img/photos/gonzalo@1x.webp 1x, img/photos/gonzalo@2x.webp 2x, img/photos/gonzalo@3x.webp 3x"> <!-- WEBP SOURCES -->
                             <source type="image/png" srcset="img/photos/gonzalo@1x.png 1x, img/photos/gonzalo@2x.png 2x, img/photos/gonzalo@3x.png 3x"> <!-- PNG FALLBACK -->
