@@ -4,6 +4,9 @@ export const initI18n = async (
     path = '/js/i18n/',                    // JSON FILES DIRECTORY
     fallback = 'en'                        // FALLBACK LANGUAGE
 ) => {
+    const lang = document.documentElement.lang || 'en'; // fallback
+    document.title = translations[lang]?.title || translations.en.title;
+
     const selectedLang = ['ca', 'es', 'en',].includes(lang) ? lang : fallback;
     const url = `${path}${selectedLang}.json`;
 
@@ -79,18 +82,3 @@ function updateLangButton(lang) {
     };
     toggleBtn.textContent = flags[lang] || '🌐';
 }
-
-// Ejemplo simple
-const translations = {
-    es: {
-        title: 'Gonzalo Cabezas | Desarrollador Frontend'
-    },
-    en: {
-        title: 'Gonzalo Cabezas | Frontend Developer'
-    },
-    ca: {
-        title: 'Gonzalo Cabezas | Desenvolupador Frontend'
-    }
-    };
-const lang = document.documentElement.lang || 'en'; // fallback
-document.title = translations[lang]?.title || translations.en.title;
