@@ -38,7 +38,7 @@ console.group('EASTER EGG');
     );
     console.log( // TECH GREETINGS
         "%c💻 ¡HOLA DEV! 👋\n" +
-        "Este CV web es 100% Vanilla JS y CSS custom.\n" +
+        "Este CV web es 100% Vanilla JS y custom CSS.\n" +
         "👉 ¿Quieres echar un vistazo al código? https://github.com/sandokanCat \n" +
         "🚀 ¿Buscas un maquetador frontend? ¡Hablemos! https://linkedin.com/in/sandokanCat",
         "color: #2196f3; font-family: monospace; line-height: 1.5;"
