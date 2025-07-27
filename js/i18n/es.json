@@ -27,112 +27,112 @@
         "text": "Idiomas"
     },
     "lang.ca": {
-        "html": "Catalan <svg class='icons-color-1' role='img' aria-label='Native level' aria-hidden='false' width='124' height='18' preserveAspectRatio='xMinYMin meet'><use href='img/sprite.svg#native-lang'></use></svg>"
+        "html": "Catalán <svg class='icons-color-1' role='img' aria-label='Nivel nativo' aria-hidden='false' width='124' height='18' preserveAspectRatio='xMinYMin meet'><use href='img/sprite.svg#native-lang'></use></svg>"
     },
     "lang.es": {
-        "html": "Spanish <svg class='icons-color-1' role='img' aria-label='Native level' aria-hidden='false' width='124' height='18' preserveAspectRatio='xMinYMin meet'><use href='img/sprite.svg#native-lang'></use></svg>"
+        "html": "Español <svg class='icons-color-1' role='img' aria-label='Nivel nativo' aria-hidden='false' width='124' height='18' preserveAspectRatio='xMinYMin meet'><use href='img/sprite.svg#native-lang'></use></svg>"
     },
     "lang.en": {
-        "html": "English <svg class='icons-color-1' role='img' aria-label='Intermediate level' aria-hidden='false' width='124' height='18' preserveAspectRatio='xMinYMin meet'><use href='img/sprite.svg#native-lang'></use></svg>"
+        "html": "Inglés <svg class='icons-color-1' role='img' aria-label='Nivel medio' aria-hidden='false' width='124' height='18' preserveAspectRatio='xMinYMin meet'><use href='img/sprite.svg#medium-lang'></use></svg>"
     },
     "section.contact": {
-        "text": "Contact"
+        "text": "Contacto"
     },
     "address.mail": {
-        "aria-label": "Send an E-mail"
+        "aria-label": "Enviar E-mail"
     },
     "address.tel": {
-        "aria-label": "Send a WhatsApp or call"
+        "aria-label": "Enviar WhatsApp o llamar"
     },
     "address.linkedin": {
-        "aria-label": "Visit Linkedin profile"
+        "aria-label": "Visitar perfil de Linkedin"
     },
     "section.studies": {
-        "text": "Studies"
+        "text": "Estudios"
     },
     "studies.daw.title": {
-        "html": "<strong>Application development with web technologies</strong> <span>(studying)</span>"
+        "html": "<strong>Desarrollo de aplicaciones con tecnologias web</strong> <span>(cursando)</span>"
     },
     "studies.daw.ja": {
-        "html": "<abbr title='JavaScript Object Notation'>JSON</abbr> and <abbr title='Asynchronous JavaScript and XML'>AJAX</abbr>"
+        "html": "<abbr title='JavaScript Object Notation'>JSON</abbr> y <abbr title='Asynchronous JavaScript and XML'>AJAX</abbr>"
     },
     "studies.daw.jp": {
-        "html": "Java and <abbr title='Hypertext Preprocessor'>PHP</abbr> <span>(soon)</span>"
+        "html": "Java y <abbr title='Hypertext Preprocessor'>PHP</abbr> <span>(próximamente)</span>"
     },
     "studies.ifcd.title": {
-        "text": "Creation and publication of web pages"
+        "text": "Confección y publicación de páginas web"
     },
     "studies.ifcd.hc": {
-        "html": "<abbr title='Hypertext Markup Language'>HTML5</abbr> and <abbr title='Cascading Style Sheets'>CSS3</abbr>"
+        "html": "<abbr title='Hypertext Markup Language'>HTML5</abbr> y <abbr title='Cascading Style Sheets'>CSS3</abbr>"
     },
     "studies.ifcd.jw": {
-        "aria-label": "See certificate",
-        "html": "<abbr title='JavaScript'>JS</abbr> Vanilla and web publication"
+        "aria-label": "Ver certificado",
+        "html": "<abbr title='JavaScript'>JS</abbr> Vanilla y publicación web"
     },
     "studies.ifcd.add": {
-        "aria-label": "See certificate",
-        "text": "Additional training"
+        "aria-label": "Ver certificado",
+        "text": "Formación complementaria"
     },
     "studies.others": {
-        "text": "Other certificates"
+        "text": "Otros certificados"
     },
     "carousel.controls": {
-        "aria-label": "Carousel controls"
+        "aria-label": "Controles del carrusel"
     },
     "carousel.back": {
-        "aria-label": "Back"
+        "aria-label": "Retroceder"
     },
     "carousel.advance": {
-        "aria-label": "Advance"
+        "aria-label": "Avanzar"
     },
     "studies.uned.access": {
-        "aria-label": "See certificate",
-        "text": "Access to university"
+        "aria-label": "Ver certificado",
+        "text": "Acceso a la universidad"
     },
     "studies.eso.title": {
-        "aria-label": "See certificate",
-        "html": "<abbr title='Educación Secundaria Obligatoria'>ESO</abbr> Certificate"
+        "aria-label": "Ver certificado",
+        "html": "Certificado en <abbr title='Educación Secundaria Obligatoria'>ESO</abbr>"
     },
     "section.experience": {
-        "text": "Work experience"
+        "text": "Experiencia laboral"
     },
     "experience.sunlife.title": {
-        "text": "Public relations"
+        "text": "Relaciones públicas"
     },
     "experience.sunlife.detail": {
-        "text": "Team Coordinator"
+        "text": "Coordinador de equipo"
     },
     "experience.volunteer.title": {
-        "text": "Volunteer"
+        "text": "Voluntario"
     },
     "experience.volunteer.detail": {
-        "text": "Sorting and packaging"
+        "text": "Clasificación y empaquetado"
     },
     "section.other": {
-        "text": "Other data"
+        "text": "Otros datos"
     },
     "other.download_cv": {
-        "aria-label": "Download CV pdf"
+        "aria-label": "Descargar CV pdf"
     },
     "other.driving": {
-        "text": "Driving license B and own vehicle"
+        "text": "Permiso de conducir B y vehículo propio"
     },
     "other.availability": {
-        "text": "Full availability within the province of Barcelona"
+        "text": "Disponibilidad total dentro de la provincia de Barcelona"
     },
     "burger.btn": {
-        "aria-label": "Open menu"
+        "aria-label": "Abrir menú"
     },
     "portfolio.estopa": {
-        "alt": "Estopa Fanpage, unfinished"
+        "alt": "Página de fans de Estopa. Inacabado"
     },
     "cookies.bar": {
-        "html": "🍪🐱 <strong>sandokan.cat</strong> respect your privacy. <em>We do not track</em>, only measure anonymous visits — (if you agree). <button id='accept-cookies' class='icons-scale' aria-label='Continue browsing' type='button'>Continue</button> | <a id='info-cookies' href='https://en.wikipedia.org/wiki/HTTP_cookie' target='_blank' rel='noopener noreferrer' aria-label='More information about cookies'>What is a cookie?</a>"
+        "html": "🍪🐱 <strong>sandokan.cat</strong> respeta tu privacidad. <em>No rastreamos</em>, solo medimos visitas anónimas — (si aceptas).<button id='accept-cookies' class='icons-scale' aria-label='Seguir navegando'>Continuar</button> | <a id='info-cookies' href='https://es.wikipedia.org/wiki/Cookie_(inform%C3%A1tica)' target='_blank' rel='noopener noreferrer' aria-label='Más información sobre cookies'>¿Qué es una cookie?</a>"
     },
     "modal.iframe": {
-        "aria-label": "Official certificate"
+        "aria-label": "Certificado oficial"
     },
     "modal.close": {
-        "aria-label": "Close"
+        "aria-label": "Cerrar"
     }
 }
