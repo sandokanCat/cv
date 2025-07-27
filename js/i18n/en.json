@@ -1,0 +1,138 @@
+{
+    "dom.title": {
+        "text": "Gonzalo Cabezas | Web Frontend developer"
+    },
+    "dark.btn": {
+        "aria-label": "Toggle dark mode"                        
+    },
+    "lang.btn.ca": {
+        "aria-label": "Catalan"
+    },
+    "lang.btn.es": {
+        "aria-label": "Spanish"
+    },
+    "lang.btn.en": {
+        "aria-label": "English"
+    },
+    "gonzalo.photo": {
+        "alt": "Portrait of Gonzalo Cabezas"
+    },
+    "profile.title": {
+        "text": "Frontend developer transitioning to Fullstack"
+    },
+    "profile.bio": {
+        "text": "I’m obsessed with clean, functional code. I train every day—both through formal courses and self-learning—because learning doesn’t stop when the bell rings. I like breaking things to understand (and fix) them better, which is why Red Teaming strongly appeals to me. I don’t follow the standard path; I prefer carving my own with a keyboard and coffee. I look for projects where I can learn, contribute, and leave a mark—without pretension or empty promises. If I don’t know something, I dig into it. And if something motivates me, I won’t stop until I get it right."
+    },
+    "section.languages": {
+        "text": "Languages"
+    },
+    "lang.ca": {
+        "html": "Catalan <svg class='icons-color-1' role='img' aria-label='Native level' aria-hidden='false' width='124' height='18' preserveAspectRatio='xMinYMin meet'><use href='img/sprite.svg#native-lang'></use></svg>"
+    },
+    "lang.es": {
+        "html": "Spanish <svg class='icons-color-1' role='img' aria-label='Native level' aria-hidden='false' width='124' height='18' preserveAspectRatio='xMinYMin meet'><use href='img/sprite.svg#native-lang'></use></svg>"
+    },
+    "lang.en": {
+        "html": "English <svg class='icons-color-1' role='img' aria-label='Intermediate level' aria-hidden='false' width='124' height='18' preserveAspectRatio='xMinYMin meet'><use href='img/sprite.svg#native-lang'></use></svg>"
+    },
+    "section.contact": {
+        "text": "Contact"
+    },
+    "address.mail": {
+        "aria-label": "Send an E-mail"
+    },
+    "address.tel": {
+        "aria-label": "Send a WhatsApp or call"
+    },
+    "address.linkedin": {
+        "aria-label": "Visit Linkedin profile"
+    },
+    "section.studies": {
+        "text": "Studies"
+    },
+    "studies.daw.title": {
+        "html": "<strong>Application development with web technologies</strong> <span>(studying)</span>"
+    },
+    "studies.daw.ja": {
+        "html": "<abbr title='JavaScript Object Notation'>JSON</abbr> and <abbr title='Asynchronous JavaScript and XML'>AJAX</abbr>"
+    },
+    "studies.daw.jp": {
+        "html": "Java and <abbr title='Hypertext Preprocessor'>PHP</abbr> <span>(soon)</span>"
+    },
+    "studies.ifcd.title": {
+        "text": "Creation and publication of web pages"
+    },
+    "studies.ifcd.hc": {
+        "html": "<abbr title='Hypertext Markup Language'>HTML5</abbr> and <abbr title='Cascading Style Sheets'>CSS3</abbr>"
+    },
+    "studies.ifcd.jw": {
+        "aria-label": "See certificate",
+        "html": "<abbr title='JavaScript'>JS</abbr> Vanilla and web publication"
+    },
+    "studies.ifcd.add": {
+        "aria-label": "See certificate",
+        "text": "Additional training"
+    },
+    "studies.others": {
+        "text": "Other certificates"
+    },
+    "carousel.controls": {
+        "aria-label": "Carousel controls"
+    },
+    "carousel.back": {
+        "aria-label": "Back"
+    },
+    "carousel.advance": {
+        "aria-label": "Advance"
+    },
+    "studies.uned.access": {
+        "aria-label": "See certificate",
+        "text": "Access to university"
+    },
+    "studies.eso.title": {
+        "aria-label": "See certificate",
+        "html": "<abbr title='Educación Secundaria Obligatoria'>ESO</abbr> Certificate"
+    },
+    "section.experience": {
+        "text": "Work experience"
+    },
+    "experience.sunlife.title": {
+        "text": "Public relations"
+    },
+    "experience.sunlife.detail": {
+        "text": "Team Coordinator"
+    },
+    "experience.volunteer.title": {
+        "text": "Volunteer"
+    },
+    "experience.volunteer.detail": {
+        "text": "Sorting and packaging"
+    },
+    "section.other": {
+        "text": "Other data"
+    },
+    "other.download_cv": {
+        "aria-label": "Download CV pdf"
+    },
+    "other.driving": {
+        "text": "Driving license B and own vehicle"
+    },
+    "other.availability": {
+        "text": "Full availability within the province of Barcelona"
+    },
+    "burger.btn": {
+        "aria-label": "Open menu"
+    },
+    "portfolio.estopa": {
+        "alt": "Estopa Fanpage, unfinished"
+    },
+    "cookies.bar": {
+        "html": "🍪🐱 <strong>sandokan.cat</strong> respect your privacy. <em>We do not track</em>, only measure anonymous visits — (if you agree). <button id='accept-cookies' class='icons-scale' aria-label='Continue browsing' type='button'>Continue</button> | <a id='info-cookies' href='https://en.wikipedia.org/wiki/HTTP_cookie' target='_blank' rel='noopener noreferrer' aria-label='More information about cookies'>What is a cookie?</a>"
+    },
+    "modal.iframe": {
+        "aria-label": "Official certificate"
+    },
+    "modal.close": {
+        "aria-label": "Close"
+    }
+}
