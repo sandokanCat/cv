@@ -1,4 +1,4 @@
-## Stack
+# 💻 Stack
 
 - 🐱 sandokan.cat (CEO)
 - 👨‍🏫 GerardGPT (Code)
@@ -7,7 +7,7 @@
 
 ---
 
-## 🔐 Privacy Policy
+# 🔐 Privacy Policy
 
 We don't sell your data to:
 - 🚫 Zuckernerd
@@ -16,8 +16,10 @@ We don't sell your data to:
 
 ---
 
-> DIRIGIDO POR: sandokan.cat
-> ASESORES DE GUIÓN: Gerard, JPedro
-> ASISTENTE DE PRODUCCIÓN: ChatGPT
-> POSTPRODUCCIÓN: DeepSeek
+# 📚 About
+
+> DIRIGIDO POR: sandokan.cat \
+> ASESORES DE GUIÓN: Gerard, JPedro \
+> ASISTENTE DE PRODUCCIÓN: ChatGPT \
+> POSTPRODUCCIÓN: DeepSeek \
 > PATROCINADO POR: Ningún gobierno, gracias.
