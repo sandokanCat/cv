@@ -54,6 +54,6 @@ console.groupEnd('EASTER EGG');
 
 // A LITTE JOKE MORE
 console.assert(
-    document.title === "Gonzalo Cabezas - CV",
+    document.title === "Gonzalo Cabezas | Web Frontend developer",
     `❌ ¡Meow alert! El título actual es '${document.title}'. ¡Git push urgente! 🐾`
 );
