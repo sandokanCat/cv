@@ -18,10 +18,10 @@
         "alt": "Retrat d'en Gonzalo Cabezas"
     },
     "profile.title": {
-        "text": "Desenvolupador Frontend en transició a Fullstack"
+        "html": "Desenvolupador <span lang='en-GB'>Frontend</span> en transició a <span lang='en-GB'>Fullstack</span>"
     },
     "profile.bio": {
-        "text": "M'obsesiona el codi net i funcional. Em formo a diari, tant en academies com per lliure, perquè el coneixement no s'acaba quan sona el timbre. M'agrada trencar coses per entendre-les (i arreglar-les millor), per això el Red Team em crida fort. No segueixo el camí estàndard; prefereixo traçar el meu amb teclat i cafè. Busco projectes on pugui aprendre, aportar i deixar empremta, sense postureigs ni promeses buides. Si no sé alguna cosa, la investigo. I si alguna cosa em motiva, no paro fins a fer-ho bé."
+        "html": "M'obsesiona el codi net i funcional. Em formo a diari, tant en academies com per lliure, perquè el coneixement no s'acaba quan sona el timbre. M'agrada trencar coses per entendre-les (i arreglar-les millor), per això el <span lang='en-GB'>Red Team</span> em crida fort. No segueixo el camí estàndard; prefereixo traçar el meu amb teclat i cafè. Busco projectes on pugui aprendre, aportar i deixar empremta, sense postureigs ni promeses buides. Si no sé alguna cosa, la investigo. I si alguna cosa em motiva, no paro fins a fer-ho bé."
     },
     "section.languages": {
         "text": "Idiomes"
@@ -54,20 +54,20 @@
         "html": "<strong>Desenvolupament d'aplicacions amb tecnologies web</strong> <span>(cursant)</span>"
     },
     "studies.daw.ja": {
-        "html": "<abbr title='JavaScript Object Notation'>JSON</abbr> i <abbr title='Asynchronous JavaScript and XML'>AJAX</abbr>"
+        "html": "<abbr lang='en-GB' title='JavaScript Object Notation'>JSON</abbr> i <abbr lang='en-GB' title='Asynchronous JavaScript and XML'>AJAX</abbr>"
     },
     "studies.daw.jp": {
-        "html": "Java i <abbr title='Hypertext Preprocessor'>PHP</abbr> <span>(próximament)</span>"
+        "html": "<span lang='en-GB'>Java</span> i <abbr lang='en-GB' title='Hypertext Preprocessor'>PHP</abbr> <span>(próximament)</span>"
     },
     "studies.ifcd.title": {
         "text": "Confecció i publicació de pàgines web"
     },
     "studies.ifcd.hc": {
-        "html": "<abbr title='Hypertext Markup Language'>HTML5</abbr> i <abbr title='Cascading Style Sheets'>CSS3</abbr>"
+        "html": "<abbr lang='en-GB' title='Hypertext Markup Language'>HTML5</abbr> i <abbr lang='en-GB' title='Cascading Style Sheets'>CSS3</abbr>"
     },
     "studies.ifcd.jw": {
         "aria-label": "Veure certificat",
-        "html": "<abbr title='JavaScript'>JS</abbr> Vanilla y publicación web"
+        "html": "<span lang='en-GB'>Vanilla <abbr title='JavaScript'>JS</abbr></span> i publicació web"
     },
     "studies.ifcd.add": {
         "aria-label": "Veure certificat",
@@ -91,7 +91,7 @@
     },
     "studies.eso.title": {
         "aria-label": "Veure certificat",
-        "html": "Certificat d'<abbr title='Educación Secundaria Obligatoria'>ESO</abbr>"
+        "html": "Certificat d'<abbr lang='es-ES' title='Educación Secundaria Obligatoria'>ESO</abbr>"
     },
     "section.experience": {
         "text": "Experiència laboral"
@@ -127,7 +127,7 @@
         "alt": "Pàgina de fans d'Estopa. Inacabat"
     },
     "cookies.bar": {
-        "html": "🍪🐱 <strong>sandokan.cat</strong> respecta la teva privacitat. <em>No rastregem</em>, només mesurem visites anònimes — (si acceptes). <button id='accept-cookies' class='icons-scale' aria-label='Seguir navegant'>Continuar</button> | <a id='info-cookies' href='https://ca.wikipedia.org/wiki/Galeta_(inform%C3%A0tica)' target='_blank' rel='noopener noreferrer' aria-label='Més informació sobre cookies'>Què és una cookie?</a>"
+        "html": "🍪🐱 <strong>sandokan.cat</strong> respecta la teva privacitat. <em>No rastregem</em>, només mesurem visites anònimes — (si acceptes). <button id='accept-cookies' class='icons-scale' aria-label='Seguir navegant'>Continuar</button> | <a id='info-cookies' href='https://ca.wikipedia.org/wiki/Galeta_(inform%C3%A0tica)' target='_blank' rel='noopener noreferrer' aria-label='Més informació sobre cookies'>Què és una <span lang='en-GB'>cookie</span>?"
     },
     "modal.iframe": {
         "aria-label": "Certificat oficial"

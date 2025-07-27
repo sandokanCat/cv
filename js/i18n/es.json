@@ -18,10 +18,10 @@
         "alt": "Retrato de Gonzalo Cabezas"
     },
     "profile.title": {
-        "text": "Desarrollador Frontend en transición a Fullstack"
+        "html": "Desarrollador <span lang='en-GB'>Frontend</span> en transición a <span lang='en-GB'>Fullstack</span>"
     },
     "profile.bio": {
-        "text": "Me obsesiona el código limpio y funcional. Me formo a diario, tanto en academias como por libre, porque el conocimiento no se acaba cuando suena el timbre. Me gusta romper cosas para entenderlas (y arreglarlas mejor), por eso el Red Team me llama fuerte. No sigo el camino estándar; prefiero trazar el mío con teclado y café. Busco proyectos donde pueda aprender, aportar y dejar huella, sin postureos ni promesas vacías. Si algo no lo sé, lo investigo. Y si algo me motiva, no paro hasta hacerlo bien."
+        "html": "Me obsesiona el código limpio y funcional. Me formo a diario, tanto en academias como por libre, porque el conocimiento no se acaba cuando suena el timbre. Me gusta romper cosas para entenderlas (y arreglarlas mejor), por eso el <span lang='en-GB'>Red Team</span> me llama fuerte. No sigo el camino estándar; prefiero trazar el mío con teclado y café. Busco proyectos donde pueda aprender, aportar y dejar huella, sin postureos ni promesas vacías. Si algo no lo sé, lo investigo. Y si algo me motiva, no paro hasta hacerlo bien."
     },
     "section.languages": {
         "text": "Idiomas"
@@ -54,20 +54,20 @@
         "html": "<strong>Desarrollo de aplicaciones con tecnologias web</strong> <span>(cursando)</span>"
     },
     "studies.daw.ja": {
-        "html": "<abbr title='JavaScript Object Notation'>JSON</abbr> y <abbr title='Asynchronous JavaScript and XML'>AJAX</abbr>"
+        "html": "<abbr lang='en-GB' title='JavaScript Object Notation'>JSON</abbr> y <abbr lang='en-GB' title='Asynchronous JavaScript and XML'>AJAX</abbr>"
     },
     "studies.daw.jp": {
-        "html": "Java y <abbr title='Hypertext Preprocessor'>PHP</abbr> <span>(próximamente)</span>"
+        "html": "<span lang='en-GB'>Java</span> y <abbr lang='en-GB' title='Hypertext Preprocessor'>PHP</abbr> <span>(próximamente)</span>"
     },
     "studies.ifcd.title": {
         "text": "Confección y publicación de páginas web"
     },
     "studies.ifcd.hc": {
-        "html": "<abbr title='Hypertext Markup Language'>HTML5</abbr> y <abbr title='Cascading Style Sheets'>CSS3</abbr>"
+        "html": "<abbr lang='en-GB' title='Hypertext Markup Language'>HTML5</abbr> y <abbr lang='en-GB' title='Cascading Style Sheets'>CSS3</abbr>"
     },
     "studies.ifcd.jw": {
         "aria-label": "Ver certificado",
-        "html": "<abbr title='JavaScript'>JS</abbr> Vanilla y publicación web"
+        "html": "<span lang='en-GB'>Vanilla <abbr title='JavaScript'>JS</abbr></span> y publicación web"
     },
     "studies.ifcd.add": {
         "aria-label": "Ver certificado",
@@ -91,7 +91,7 @@
     },
     "studies.eso.title": {
         "aria-label": "Ver certificado",
-        "html": "Certificado en <abbr title='Educación Secundaria Obligatoria'>ESO</abbr>"
+        "html": "Certificado en <abbr lang='es-ES' title='Educación Secundaria Obligatoria'>ESO</abbr>"
     },
     "section.experience": {
         "text": "Experiencia laboral"
@@ -127,7 +127,7 @@
         "alt": "Página de fans de Estopa. Inacabado"
     },
     "cookies.bar": {
-        "html": "🍪🐱 <strong>sandokan.cat</strong> respeta tu privacidad. <em>No rastreamos</em>, solo medimos visitas anónimas — (si aceptas).<button id='accept-cookies' class='icons-scale' aria-label='Seguir navegando'>Continuar</button> | <a id='info-cookies' href='https://es.wikipedia.org/wiki/Cookie_(inform%C3%A1tica)' target='_blank' rel='noopener noreferrer' aria-label='Más información sobre cookies'>¿Qué es una cookie?</a>"
+        "html": "🍪🐱 <strong>sandokan.cat</strong> respeta tu privacidad. <em>No rastreamos</em>, solo medimos visitas anónimas — (si aceptas). <button id='accept-cookies' class='icons-scale' aria-label='Seguir navegando'>Continuar</button> | <a id='info-cookies' href='https://es.wikipedia.org/wiki/Cookie_(inform%C3%A1tica)' target='_blank' rel='noopener noreferrer' aria-label='Más información sobre cookies'>¿Qué es una <span lang='en-GB'>cookie</span>?"
     },
     "modal.iframe": {
         "aria-label": "Certificado oficial"

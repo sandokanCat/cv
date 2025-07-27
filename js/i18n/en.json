@@ -18,10 +18,10 @@
         "alt": "Portrait of Gonzalo Cabezas"
     },
     "profile.title": {
-        "text": "Frontend developer transitioning to Fullstack"
+        "html": "<span lang='en-GB'>Frontend</span> developer transitioning to <span lang='en-GB'>Fullstack</span>"
     },
     "profile.bio": {
-        "text": "I’m obsessed with clean, functional code. I train every day—both through formal courses and self-learning—because learning doesn’t stop when the bell rings. I like breaking things to understand (and fix) them better, which is why Red Teaming strongly appeals to me. I don’t follow the standard path; I prefer carving my own with a keyboard and coffee. I look for projects where I can learn, contribute, and leave a mark—without pretension or empty promises. If I don’t know something, I dig into it. And if something motivates me, I won’t stop until I get it right."
+        "html": "I’m obsessed with clean, functional code. I train every day—both through formal courses and self-learning—because learning doesn’t stop when the bell rings. I like breaking things to understand (and fix) them better, which is why <span lang='en-GB'>Red Teaming</span> strongly appeals to me. I don’t follow the standard path; I prefer carving my own with a keyboard and coffee. I look for projects where I can learn, contribute, and leave a mark—without pretension or empty promises. If I don’t know something, I dig into it. And if something motivates me, I won’t stop until I get it right."
     },
     "section.languages": {
         "text": "Languages"
@@ -54,20 +54,20 @@
         "html": "<strong>Application development with web technologies</strong> <span>(studying)</span>"
     },
     "studies.daw.ja": {
-        "html": "<abbr title='JavaScript Object Notation'>JSON</abbr> and <abbr title='Asynchronous JavaScript and XML'>AJAX</abbr>"
+        "html": "<abbr lang='en-GB' title='JavaScript Object Notation'>JSON</abbr> and <abbr lang='en-GB' title='Asynchronous JavaScript and XML'>AJAX</abbr>"
     },
     "studies.daw.jp": {
-        "html": "Java and <abbr title='Hypertext Preprocessor'>PHP</abbr> <span>(soon)</span>"
+        "html": "<span lang='en-GB'>Java</span> and <abbr lang='en-GB' title='Hypertext Preprocessor'>PHP</abbr> <span>(soon)</span>"
     },
     "studies.ifcd.title": {
         "text": "Creation and publication of web pages"
     },
     "studies.ifcd.hc": {
-        "html": "<abbr title='Hypertext Markup Language'>HTML5</abbr> and <abbr title='Cascading Style Sheets'>CSS3</abbr>"
+        "html": "<abbr lang='en-GB' title='Hypertext Markup Language'>HTML5</abbr> and <abbr lang='en-GB' title='Cascading Style Sheets'>CSS3</abbr>"
     },
     "studies.ifcd.jw": {
         "aria-label": "See certificate",
-        "html": "<abbr title='JavaScript'>JS</abbr> Vanilla and web publication"
+        "html": "<span lang='en-GB'>Vanilla <abbr title='JavaScript'>JS</abbr></span> and web publication"
     },
     "studies.ifcd.add": {
         "aria-label": "See certificate",
@@ -91,7 +91,7 @@
     },
     "studies.eso.title": {
         "aria-label": "See certificate",
-        "html": "<abbr title='Educación Secundaria Obligatoria'>ESO</abbr> Certificate"
+        "html": "<abbr lang='es-ES' title='Educación Secundaria Obligatoria'>ESO</abbr> Certificate"
     },
     "section.experience": {
         "text": "Work experience"
@@ -127,7 +127,7 @@
         "alt": "Estopa Fanpage, unfinished"
     },
     "cookies.bar": {
-        "html": "🍪🐱 <strong>sandokan.cat</strong> respect your privacy. <em>We do not track</em>, only measure anonymous visits — (if you agree). <button id='accept-cookies' class='icons-scale' aria-label='Continue browsing' type='button'>Continue</button> | <a id='info-cookies' href='https://en.wikipedia.org/wiki/HTTP_cookie' target='_blank' rel='noopener noreferrer' aria-label='More information about cookies'>What is a cookie?</a>"
+        "html": "🍪🐱 <strong>sandokan.cat</strong> respect your privacy. <em>We do not track</em>, only measure anonymous visits — (if you agree). <button id='accept-cookies' class='icons-scale' aria-label='Continue browsing' type='button'>Continue</button> | <a id='info-cookies' href='https://en.wikipedia.org/wiki/HTTP_cookie' target='_blank' rel='noopener noreferrer' aria-label='More information about cookies'>What is a <span lang='en-GB'>cookie</span>?"
     },
     "modal.iframe": {
         "aria-label": "Official certificate"
