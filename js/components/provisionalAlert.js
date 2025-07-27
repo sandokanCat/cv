@@ -25,7 +25,7 @@ const loadAlertsData = async () => {
 };
 
 // INIT PROVISIONAL ALERTS
-export async function provisionalAlert(selector = 'a[data-provisional]') {
+export async function provisionalAlert(selector = 'a[data-status]') {
     try {
         const alerts = await loadAlertsData(); // ENSURE ALERTS ARE LOADED
 

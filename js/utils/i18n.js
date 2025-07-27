@@ -79,3 +79,18 @@ function updateLangButton(lang) {
     };
     toggleBtn.textContent = flags[lang] || '🌐';
 }
+
+// Ejemplo simple
+const translations = {
+    es: {
+        title: 'Gonzalo Cabezas | Desarrollador Frontend'
+    },
+    en: {
+        title: 'Gonzalo Cabezas | Frontend Developer'
+    },
+    ca: {
+        title: 'Gonzalo Cabezas | Desenvolupador Frontend'
+    }
+    };
+const lang = document.documentElement.lang || 'en'; // fallback
+document.title = translations[lang]?.title || translations.en.title;
