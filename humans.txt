@@ -10,4 +10,4 @@ Contact: +34 631306583
 
 HTML5
 CSS3
-JS Vanilla
+Vanilla JS

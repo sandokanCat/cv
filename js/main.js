@@ -31,14 +31,14 @@ console.group('EASTER EGG');
     console.log( // BUSSINESS CARD
         "%c" +
         " /\\_/\\   Frontend Dev | Maquetación Creativa 🛠️\n" +
-        "( o.o )        HTML5 • CSS3 • JS Vanilla\n" +
+        "( o.o )        HTML5 • CSS3 • Vanilla JS\n" +
         " > ^ <     \"sandokan.cat loves code & purrs\" 🐱\n" +
         "  ╰─▶              dev@sandokan.cat",
         "color: #ff6d00; font-family: monospace; line-height: 1.3;"
     );
     console.log( // TECH GREETINGS
         "%c💻 ¡HOLA DEV! 👋\n" +
-        "Este CV web es 100% vanilla JS y CSS custom.\n" +
+        "Este CV web es 100% Vanilla JS y CSS custom.\n" +
         "👉 ¿Quieres echar un vistazo al código? https://github.com/sandokanCat \n" +
         "🚀 ¿Buscas un maquetador frontend? ¡Hablemos! https://linkedin.com/in/sandokanCat",
         "color: #2196f3; font-family: monospace; line-height: 1.5;"
