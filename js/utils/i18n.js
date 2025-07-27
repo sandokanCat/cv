@@ -4,8 +4,8 @@ export const initI18n = async (
     path = '/js/i18n/',                    // JSON FILES DIRECTORY
     fallback = 'en'                        // FALLBACK LANGUAGE
 ) => {
-    const lang = document.documentElement.lang || 'en'; // fallback
-    document.title = translations[lang]?.title || translations.en.title;
+    // const lang = document.documentElement.lang || 'en';
+    // document.title = translations[lang]?.title || translations.en.title;
 
     const selectedLang = ['ca', 'es', 'en',].includes(lang) ? lang : fallback;
     const url = `${path}${selectedLang}.json`;
