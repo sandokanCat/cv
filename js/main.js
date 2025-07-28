@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await components.showRandomMsg('#random-phrases');
     components.openMenu('#burger-btn', '#github-icon', '#vercel-icon');
     await components.provisionalAlert('a[data-status]');
-    // components.openModal('.modal-link', '#modal-container', '#modal-content', '#modal-iframe', '#modal-close');
+    components.openModal('.modal-link', '#modal-container', '#modal-content', '#modal-iframe', '#modal-close');
 
     signature('#signature-year');
     manageCookies('#cookies-bar', '#accept-cookies');
