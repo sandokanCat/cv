@@ -26,17 +26,17 @@ function applyLang(data, textSelector) {
         if (!value) return; // EXIT IF NO TRANSLATION
 
         // AUTO DETECT TEXT VS HTML
-        if (el.dataset.i18nType === 'html') el.innerHTML = value; // ⬅️ innerHTML
-        else el.textContent = value; // ⬅️ textContent (default)
+        if (el.dataset.i18nType === 'html') el.innerHTML = value;
+        else el.textContent = value;
     });
 }
 
 // TRANSLATE ATTRIBUTES (aria-label, alt, etc.)
 function applyAttrLang(data, attrSelector) {
-    document.querySelectorAll(attrSelector).forEach(el => {
+    document.querySelectorAll(attrSelector).forEach(el, index => {
         const attrData = el.getAttribute('data-i18n-attr');
         if (!attrData) {
-            console.warn('⚠️ Falta atributo data-i18n-attr en:', el); // DEBUG LOG
+            console.warn(`⚠️ Elemento #${index} sin data-i18n-attr:`, el.outerHTML); // DEBUG LOG
             return; // EXIT IF NO ATTRIBUTES
         }
 
