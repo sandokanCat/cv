@@ -16,25 +16,19 @@ const detectLang = () => {
 const getJsonPath = lang => `js/i18n/${lang}.json`;
 
 // GET VALUE USING dot.notation
-const getNestedValue = (obj, key) => key.split('.').reduce((o, k) => (o && o[k] !== undefined ? o[k] : null), obj);
+function getNestedValue(obj, key) {
+    return obj[key] ?? null;
+}  
 
 // TRANSLATE TEXT CONTENT OR HTML
 function applyLang(data, textSelector) {
     document.querySelectorAll(textSelector).forEach(el => {
         const key = el.getAttribute('data-i18n');
-        const htmlKey = el.getAttribute('data-i18n-html');
-
-        if (htmlKey) {
-            const htmlValue = getNestedValue(data, htmlKey);
-            if (htmlValue) el.innerHTML = htmlValue;
-            return;
-        }
-
         const value = getNestedValue(data, key);
-        if (!value) return;
+        if (!value) return; // EXIT IF NO TRANSLATION
 
         // AUTO DETECT TEXT VS HTML
-        if (el.dataset.i18nType === 'html') el.innerHTML = value;
+        if (key.endsWith('.html') || el.dataset.i18nType === 'html') el.innerHTML = value;
         else el.textContent = value;
     });
 }
