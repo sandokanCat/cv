@@ -1,94 +1,79 @@
 // IMPORTS
-import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";  // FETCH + STRUCTURE + FORMAT VALIDATION
+import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js"; // FETCH + STRUCTURE + FORMAT VALIDATION
 
-// GLOBAL VARIABLES
-const jsonFiles = { // SOURCE JSON FILES
-    en: "js/i18n/en.json",
-    es: "js/i18n/es.json",
-    ca: "js/i18n/ca.json"
+// SUPPORTED LANGUAGES
+const langs = ['en', 'es', 'ca'];
+const fallback = 'en';
+
+// DETECT OR GET LANGUAGE FROM LOCALSTORAGE
+const detectLang = () => {
+    const stored = localStorage.getItem('lang');
+    const browser = navigator.language.slice(0, 2).toLowerCase();
+    return langs.includes(stored) ? stored : langs.includes(browser) ? browser : fallback;
+};
+
+// RETURN JSON PATH FOR A GIVEN LANGUAGE
+const getJsonPath = lang => `/js/i18n/${lang}.json`;
+
+// GET NESTED VALUE USING dot.notation
+const getNestedValue = (obj, key) => key.split('.').reduce((o, k) => (o && o[k] !== undefined ? o[k] : null), obj);
+
+// APPLY TRANSLATED TEXT TO ELEMENTS
+function applyLang(data) {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const value = getNestedValue(data, key);
+        if (value) el.textContent = value;
+    });
 }
 
-// I18N MODULE - LOAD AND APPLY TRANSLATIONS FROM JSON FILES
-export const initI18n = async (
-    lang = navigator.language.slice(0, 2), // DEFAULT TO BROWSER LANG
-    path = '/js/i18n/',                    // JSON FILES DIRECTORY
-    fallback = 'en'                        // FALLBACK LANGUAGE
-) => {
-    // const lang = document.documentElement.lang || 'en';
-    // document.title = translations[lang]?.title || translations.en.title;
+// APPLY TO ATTRIBUTES
+function applyAttrLang(data) {
+    document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+        el.getAttribute('data-i18n-attr').split(';').forEach(pair => {
+            const [attr, key] = pair.split(':');
+            const value = getNestedValue(data, key);
+            if (value) el.setAttribute(attr.trim(), value);
+        });
+    });
+}
 
-    const selectedLang = ['ca', 'es', 'en',].includes(lang) ? lang : fallback;
-    const url = `${path}${selectedLang}.json`;
+// UPDATE LANGUAGE BUTTON ICON
+function updateLangButton(lang) {
+    const flag = `<svg class="icons-scale" role="img" aria-hidden="true" width="40" height="40" preserveAspectRatio="xMinYMin meet"><use href="img/sprite.svg#${lang}-flag"></use></svg>`;
+    toggleBtn.innerHTML = flag;
+}
 
+// FETCH, VALIDATE AND APPLY TRANSLATIONS
+export const initI18n = async (selectedLang = detectLang()) => {
     try {
-        const res = await fetch(url); // LOAD JSON FILE
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const translations = await res.json();
+        const jsonPath = getJsonPath(selectedLang);
+        const translations = await validateJSON(jsonPath);
 
-        applyLang(translations); // APPLY STRINGS TO DOM
-        applyAttrLang(translations); // APPLY TO ATTRIBUTES TOO
+        applyLang(translations);
+        applyAttrLang(translations);
+        updateLangButton(selectedLang);
 
-        updateLangBtn(userLang);
-
-        localStorage.setItem('lang', selectedLang); // SAVE PREFERENCE
+        localStorage.setItem('lang', selectedLang);
+        document.documentElement.lang = selectedLang;
     } catch (err) {
         console.error('I18N ERROR:', err);
     }
 };
 
-// APPLY TRANSLATED TEXTS TO ELEMENTS WITH data-i18n ATTRIBUTES
-function applyLang(data) {
-    const elements = document.querySelectorAll('[data-i18n]');
-    elements.forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      const value = getNestedValue(data, key);
-      if (value) el.textContent = value; // REPLACE TEXT
-    });
-}
-
-// APPLY I18N TO HTML ATTRIBUTES DEFINED IN data-i18n-attr
-function applyAttrLang(data) {
-    const attrElements = document.querySelectorAll('[data-i18n-attr]');
-    attrElements.forEach(el => {
-        const mappings = el.getAttribute('data-i18n-attr').split(';');
-
-        mappings.forEach(pair => {
-            const [attr, key] = pair.split(':');
-            const value = getNestedValue(data, key);
-            if (value) el.setAttribute(attr.trim(), value); // SET TRANSLATED ATTR
-        });
-    });
-}
-
-// GET NESTED VALUE USING dot.notation
-function getNestedValue(obj, key) {
-    return key.split('.').reduce((o, k) => (o && o[k] !== undefined ? o[k] : null), obj);
-}
-
+// HANDLE DROPDOWN TOGGLE
 const toggleBtn = document.getElementById('lang-toggle');
 const optionsBox = document.getElementById('lang-options');
 
-// TOGGLE DROPDOWN
-toggleBtn.addEventListener('click', () => {
-    optionsBox.classList.toggle('hidden');
+toggleBtn?.addEventListener('click', () => {
+    optionsBox?.classList.toggle('hidden');
 });
 
-// HANDLE LANGUAGE SWITCH
+// HANDLE LANGUAGE SWITCH BUTTONS
 document.querySelectorAll('#lang-options [data-lang]').forEach(btn => {
     btn.addEventListener('click', async () => {
         const lang = btn.getAttribute('data-lang');
         await initI18n(lang);
-        updateLangButton(lang); // UPDATE MAIN FLAG
-        optionsBox.classList.add('hidden'); // CLOSE MENU
+        optionsBox.classList.add('hidden');
     });
 });
-
-// SET FLAG ICON IN MAIN BUTTON
-function updateLangButton(lang) {
-    const flags = {
-        ca: '🏴',
-        es: '🇪🇸',
-        en: '🇬🇧'
-    };
-    toggleBtn.textContent = flags[lang] || '🌐';
-}
