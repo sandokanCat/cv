@@ -34,10 +34,10 @@ function applyLang(data, textSelector) {
 // TRANSLATE ATTRIBUTES (aria-label, alt, etc.)
 function applyAttrLang(data, attrSelector) {
     document.querySelectorAll(attrSelector).forEach(el => {
-        const attrPairs = el.getAttribute('data-i18n-attr');
-        if (!attrPairs) return;
+        const attrData = el.getAttribute('data-i18n-attr');
+        if (!attrData) return; // SALIR SI NO HAY ATRIBUTO
 
-        attrPairs.split(';').forEach(pair => {
+        attrData.split(';').forEach(pair => {
             const [attr, key] = pair.split(':');
             const value = getNestedValue(data, key);
             if (value) el.setAttribute(attr.trim(), value);
