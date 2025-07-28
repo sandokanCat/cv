@@ -72,8 +72,8 @@ export const initI18n = async (
         const jsonPath = getJsonPath(lang);
         const translations = await validateJSON(jsonPath);
 
-        applyLang(translations, textSelector);
-        applyAttrLang(translations, attrSelector);
+        applyLang(translations);
+        applyAttrLang(translations);
         setLangMetadata(lang, htmlSelector);
 
         // SET PAGE TITLE
