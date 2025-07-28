@@ -1,138 +1,138 @@
 {
-    "dom.title": {
+    "title": {
         "text": "Gonzalo Cabezas | Web Frontend developer"
     },
-    "dark.btn": {
+    "darkBtn": {
         "aria-label": "Toggle dark mode"                        
     },
-    "lang.btn.ca": {
+    "langBtnCa": {
         "aria-label": "Catalan"
     },
-    "lang.btn.es": {
+    "langBtnEs": {
         "aria-label": "Spanish"
     },
-    "lang.btn.en": {
+    "langBtnEn": {
         "aria-label": "English"
     },
-    "gonzalo.photo": {
+    "gonzalo": {
         "alt": "Portrait of Gonzalo Cabezas"
     },
-    "profile.title": {
+    "profile": {
         "html": "<span lang='en-GB'>Frontend</span> developer transitioning to <span lang='en-GB'>Fullstack</span>"
     },
-    "profile.bio": {
+    "biography": {
         "html": "I’m obsessed with clean, functional code. I train every day—both through formal courses and self-learning—because learning doesn’t stop when the bell rings. I like breaking things to understand (and fix) them better, which is why <span lang='en-GB'>Red Teaming</span> strongly appeals to me. I don’t follow the standard path; I prefer carving my own with a keyboard and coffee. I look for projects where I can learn, contribute, and leave a mark—without pretension or empty promises. If I don’t know something, I dig into it. And if something motivates me, I won’t stop until I get it right."
     },
-    "section.languages": {
+    "languages": {
         "text": "Languages"
     },
-    "lang.ca": {
+    "catalan": {
         "html": "Catalan <svg class='icons-color-1' role='img' aria-label='Native level' aria-hidden='false' width='124' height='18' preserveAspectRatio='xMinYMin meet'><use href='img/sprite.svg#native-lang'></use></svg>"
     },
-    "lang.es": {
+    "spanish": {
         "html": "Spanish <svg class='icons-color-1' role='img' aria-label='Native level' aria-hidden='false' width='124' height='18' preserveAspectRatio='xMinYMin meet'><use href='img/sprite.svg#native-lang'></use></svg>"
     },
-    "lang.en": {
+    "english": {
         "html": "English <svg class='icons-color-1' role='img' aria-label='Intermediate level' aria-hidden='false' width='124' height='18' preserveAspectRatio='xMinYMin meet'><use href='img/sprite.svg#native-lang'></use></svg>"
     },
-    "section.contact": {
+    "contact": {
         "text": "Contact"
     },
-    "address.mail": {
+    "mail": {
         "aria-label": "Send an E-mail"
     },
-    "address.tel": {
+    "mobile": {
         "aria-label": "Send a WhatsApp or call"
     },
-    "address.linkedin": {
+    "linkedin": {
         "aria-label": "Visit Linkedin profile"
     },
-    "section.studies": {
+    "studies": {
         "text": "Studies"
     },
-    "studies.daw.title": {
+    "appDev": {
         "html": "<strong>Application development with web technologies</strong> <span>(studying)</span>"
     },
-    "studies.daw.ja": {
+    "JSONandAJAX": {
         "html": "<abbr lang='en-GB' title='JavaScript Object Notation'>JSON</abbr> and <abbr lang='en-GB' title='Asynchronous JavaScript and XML'>AJAX</abbr>"
     },
-    "studies.daw.jp": {
+    "JAVAandPHP": {
         "html": "<span lang='en-GB'>Java</span> and <abbr lang='en-GB' title='Hypertext Preprocessor'>PHP</abbr> <span>(soon)</span>"
     },
-    "studies.ifcd.title": {
+    "webDev": {
         "text": "Creation and publication of web pages"
     },
-    "studies.ifcd.hc": {
+    "HTMLandCSS": {
         "html": "<abbr lang='en-GB' title='Hypertext Markup Language'>HTML5</abbr> and <abbr lang='en-GB' title='Cascading Style Sheets'>CSS3</abbr>"
     },
-    "studies.ifcd.jw": {
+    "JSandWP": {
         "aria-label": "See certificate",
         "html": "<span lang='en-GB'>Vanilla <abbr title='JavaScript'>JS</abbr></span> and web publication"
     },
-    "studies.ifcd.add": {
+    "AddTraining": {
         "aria-label": "See certificate",
         "text": "Additional training"
     },
-    "studies.others": {
+    "otherCert": {
         "text": "Other certificates"
     },
-    "carousel.controls": {
+    "carouselCtrl": {
         "aria-label": "Carousel controls"
     },
-    "carousel.back": {
+    "carouselBack": {
         "aria-label": "Back"
     },
-    "carousel.advance": {
+    "carouselAdvance": {
         "aria-label": "Advance"
     },
-    "studies.uned.access": {
+    "UNEDacces": {
         "aria-label": "See certificate",
         "text": "Access to university"
     },
-    "studies.eso.title": {
+    "ESO": {
         "aria-label": "See certificate",
         "html": "<abbr lang='es-ES' title='Educación Secundaria Obligatoria'>ESO</abbr> Certificate"
     },
-    "section.experience": {
+    "workExp": {
         "text": "Work experience"
     },
-    "experience.sunlife.title": {
+    "RRPP": {
         "text": "Public relations"
     },
-    "experience.sunlife.detail": {
+    "teamCoord": {
         "text": "Team Coordinator"
     },
-    "experience.volunteer.title": {
+    "volunteer": {
         "text": "Volunteer"
     },
-    "experience.volunteer.detail": {
+    "sorting": {
         "text": "Sorting and packaging"
     },
-    "section.other": {
+    "otherData": {
         "text": "Other data"
     },
-    "other.download_cv": {
+    "downloadCV": {
         "aria-label": "Download CV pdf"
     },
-    "other.driving": {
+    "drivingLic": {
         "text": "Driving license B and own vehicle"
     },
-    "other.availability": {
-        "text": "Full availability within the province of Barcelona"
+    "availability": {
+        "html": "Full availability within the province of <span lang='ca-ES'>Barcelona</span>"
     },
-    "burger.btn": {
+    "burgerBtn": {
         "aria-label": "Open menu"
     },
-    "portfolio.estopa": {
+    "estopa": {
         "alt": "Estopa Fanpage, unfinished"
     },
-    "cookies.bar": {
+    "cookies": {
         "html": "🍪🐱 <strong>sandokan.cat</strong> respect your privacy. <em>We do not track</em>, only measure anonymous visits — (if you agree). <button id='accept-cookies' class='icons-scale' aria-label='Continue browsing' type='button'>Continue</button> | <a id='info-cookies' href='https://en.wikipedia.org/wiki/HTTP_cookie' target='_blank' rel='noopener noreferrer' aria-label='More information about cookies'>What is a <span lang='en-GB'>cookie</span>?"
     },
-    "modal.iframe": {
+    "modaliframe": {
         "aria-label": "Official certificate"
     },
-    "modal.close": {
+    "modalClose": {
         "aria-label": "Close"
     }
 }

@@ -70,7 +70,7 @@ export const initI18n = async (
         // SET PAGE TITLE
         const titleEl = document.querySelector(titleSelector);
         if (titleEl) {
-            const titleValue = getNestedValue(translations, 'dom.title');
+            const titleValue = getNestedValue(translations, 'title');
             if (titleValue) titleEl.textContent = titleValue;
         }
 

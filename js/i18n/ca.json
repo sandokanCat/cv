@@ -1,138 +1,138 @@
 {
-    "dom.title": {
+    "title": {
         "text": "Gonzalo Cabezas | Desenvolupador Frontend web"
     },
-    "dark.btn": {
+    "darkBtn": {
         "aria-label": "Alternar mode fosc"                        
     },
-    "lang.btn.ca": {
+    "langBtnCa": {
         "aria-label": "Català"
     },
-    "lang.btn.es": {
+    "langBtnEs": {
         "aria-label": "Espanyol"
     },
-    "lang.btn.en": {
+    "langBtnEn": {
         "aria-label": "Anglès"
     },
-    "gonzalo.photo": {
+    "gonzalo": {
         "alt": "Retrat d'en Gonzalo Cabezas"
     },
-    "profile.title": {
+    "profile": {
         "html": "Desenvolupador <span lang='en-GB'>Frontend</span> en transició a <span lang='en-GB'>Fullstack</span>"
     },
-    "profile.bio": {
+    "biography": {
         "html": "M'obsesiona el codi net i funcional. Em formo a diari, tant en academies com per lliure, perquè el coneixement no s'acaba quan sona el timbre. M'agrada trencar coses per entendre-les (i arreglar-les millor), per això el <span lang='en-GB'>Red Team</span> em crida fort. No segueixo el camí estàndard; prefereixo traçar el meu amb teclat i cafè. Busco projectes on pugui aprendre, aportar i deixar empremta, sense postureigs ni promeses buides. Si no sé alguna cosa, la investigo. I si alguna cosa em motiva, no paro fins a fer-ho bé."
     },
-    "section.languages": {
+    "languages": {
         "text": "Idiomes"
     },
-    "lang.ca": {
+    "catalan": {
         "html": "Català <svg class='icons-color-1' role='img' aria-label='Nivell nadiu' aria-hidden='false' width='124' height='18' preserveAspectRatio='xMinYMin meet'><use href='img/sprite.svg#native-lang'></use></svg>"
     },
-    "lang.es": {
+    "spanish": {
         "html": "Espanyol <svg class='icons-color-1' role='img' aria-label='Nivell nadiu' aria-hidden='false' width='124' height='18' preserveAspectRatio='xMinYMin meet'><use href='img/sprite.svg#native-lang'></use></svg>"
     },
-    "lang.en": {
+    "english": {
         "html": "Anglès <svg class='icons-color-1' role='img' aria-label='Nivell mitjà' aria-hidden='false' width='124' height='18' preserveAspectRatio='xMinYMin meet'><use href='img/sprite.svg#medium-lang'></use></svg>"
     },
-    "section.contact": {
+    "contact": {
         "text": "Contacte"
     },
-    "address.mail": {
+    "mail": {
         "aria-label": "Enviar E-mail"
     },
-    "address.tel": {
+    "mobile": {
         "aria-label": "Enviar WhatsApp o trucar"
     },
-    "address.linkedin": {
+    "linkedin": {
         "aria-label": "Visitar perfil de Linkedin"
     },
-    "section.studies": {
+    "studies": {
         "text": "Estudis"
     },
-    "studies.daw.title": {
+    "appDev": {
         "html": "<strong>Desenvolupament d'aplicacions amb tecnologies web</strong> <span>(cursant)</span>"
     },
-    "studies.daw.ja": {
+    "JSONandAJAX": {
         "html": "<abbr lang='en-GB' title='JavaScript Object Notation'>JSON</abbr> i <abbr lang='en-GB' title='Asynchronous JavaScript and XML'>AJAX</abbr>"
     },
-    "studies.daw.jp": {
+    "JAVAandPHP": {
         "html": "<span lang='en-GB'>Java</span> i <abbr lang='en-GB' title='Hypertext Preprocessor'>PHP</abbr> <span>(próximament)</span>"
     },
-    "studies.ifcd.title": {
+    "webDev": {
         "text": "Confecció i publicació de pàgines web"
     },
-    "studies.ifcd.hc": {
+    "HTMLandCSS": {
         "html": "<abbr lang='en-GB' title='Hypertext Markup Language'>HTML5</abbr> i <abbr lang='en-GB' title='Cascading Style Sheets'>CSS3</abbr>"
     },
-    "studies.ifcd.jw": {
+    "JSandWP": {
         "aria-label": "Veure certificat",
         "html": "<span lang='en-GB'>Vanilla <abbr title='JavaScript'>JS</abbr></span> i publicació web"
     },
-    "studies.ifcd.add": {
+    "AddTraining": {
         "aria-label": "Veure certificat",
         "text": "Formació complementària"
     },
-    "studies.others": {
+    "otherCert": {
         "text": "Altres certificats"
     },
-    "carousel.controls": {
+    "carouselCtrl": {
         "aria-label": "Controls del carrusel"
     },
-    "carousel.back": {
+    "carouselBack": {
         "aria-label": "Retrocedir"
     },
-    "carousel.advance": {
+    "carouselAdvance": {
         "aria-label": "Avançar"
     },
-    "studies.uned.access": {
+    "UNEDacces": {
         "aria-label": "Veure certificat",
         "text": "Accès a la universitat"
     },
-    "studies.eso.title": {
+    "ESO": {
         "aria-label": "Veure certificat",
         "html": "Certificat d'<abbr lang='es-ES' title='Educación Secundaria Obligatoria'>ESO</abbr>"
     },
-    "section.experience": {
+    "workExp": {
         "text": "Experiència laboral"
     },
-    "experience.sunlife.title": {
+    "RRPP": {
         "text": "Relacions públiques"
     },
-    "experience.sunlife.detail": {
+    "teamCoord": {
         "text": "Coordinador d'equip"
     },
-    "experience.volunteer.title": {
+    "volunteer": {
         "text": "Voluntari"
     },
-    "experience.volunteer.detail": {
+    "sorting": {
         "text": "Clasificació i empaquetat"
     },
-    "section.other": {
+    "otherData": {
         "text": "Altres dades"
     },
-    "other.download_cv": {
+    "downloadCV": {
         "aria-label": "Descarregar CV pdf"
     },
-    "other.driving": {
+    "drivingLic": {
         "text": "Permís de conduir B i vehicle propi"
     },
-    "other.availability": {
-        "text": "Disponibilitat total dins de la província de Barcelona"
+    "availability": {
+        "html": "Disponibilitat total dins de la província de <span lang='ca-ES'>Barcelona</span>"
     },
-    "burger.btn": {
+    "burgerBtn": {
         "aria-label": "Obrir menú"
     },
-    "portfolio.estopa": {
+    "estopa": {
         "alt": "Pàgina de fans d'Estopa. Inacabat"
     },
-    "cookies.bar": {
+    "cookies": {
         "html": "🍪🐱 <strong>sandokan.cat</strong> respecta la teva privacitat. <em>No rastregem</em>, només mesurem visites anònimes — (si acceptes). <button id='accept-cookies' class='icons-scale' aria-label='Seguir navegant'>Continuar</button> | <a id='info-cookies' href='https://ca.wikipedia.org/wiki/Galeta_(inform%C3%A0tica)' target='_blank' rel='noopener noreferrer' aria-label='Més informació sobre cookies'>Què és una <span lang='en-GB'>cookie</span>?"
     },
-    "modal.iframe": {
+    "modaliframe": {
         "aria-label": "Certificat oficial"
     },
-    "modal.close": {
+    "modalClose": {
         "aria-label": "Tancar"
     }
 }
