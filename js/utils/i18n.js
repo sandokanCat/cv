@@ -5,6 +5,10 @@ import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/
 const langs = ['en', 'es', 'ca'];
 const fallback = 'en';
 
+// GLOBAL VARIABLES
+const i18nElements = document.querySelectorAll('[data-i18n]');
+const i18nAttrElements = document.querySelectorAll('[data-i18n-attr]');
+
 // DETECT LANGUAGE
 const detectLang = () => {
     const stored = localStorage.getItem('lang');
@@ -22,20 +26,22 @@ function getNestedValue(obj, path) {
 
 // TRANSLATE TEXT CONTENT OR HTML
 function applyLang(data, textSelector) {
-    document.querySelectorAll('[data-i18n]').forEach(el => {
+    i18nElements.forEach(el => {
         const key = el.getAttribute('data-i18n');
-        const value = getNestedValue(translations, key);
+        const value = getNestedValue(data, key);
         if (value) el.innerHTML = value;
     });
 }
 
 // TRANSLATE ATTRIBUTES (aria-label, alt, etc.)
 function applyAttrLang(data, attrSelector) {
-    document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+    i18nAttrElements.forEach(el => {
         const pairs = el.getAttribute('data-i18n-attr').split(',');
+        if (!attr || !key) return;
+
         pairs.forEach(pair => {
             const [attr, key] = pair.split(':');
-            const value = getNestedValue(translations, key);
+            const value = getNestedValue(data, key);
             if (value) el.setAttribute(attr, value);
         });
     });
