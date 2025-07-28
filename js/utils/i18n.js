@@ -1,6 +1,6 @@
 // IMPORTS
 import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";
-import { showRandomMsg } from "../components/randomPhrases.js";
+import { reloadRandomMsg } from "../components/randomPhrases.js";
 
 // SUPPORTED LANGUAGES
 const langs = ['en', 'es', 'ca'];
@@ -64,7 +64,7 @@ function setLangMetadata(lang) {
 
 // MAIN INIT FUNCTION
 export const initI18n = async (selectedLang = null) => {
-    await showRandomMsg('#random-phrases');
+    await reloadRandomMsg('#random-phrases');
 
     const lang = selectedLang || detectLang();
 
@@ -88,7 +88,7 @@ export const initI18n = async (selectedLang = null) => {
         });
 
     } catch (err) {
-        console.error('I18N ERROR:', err);
+        console.error('i18n.js ERROR:', json, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
     }
 };
 

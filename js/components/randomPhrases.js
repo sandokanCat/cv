@@ -31,8 +31,23 @@ const loadPhrasesData = async () => {
     return phrasesCache; // RETURN VALIDATED PHRASES DATA
 };
 
+// RELOAD RANDOM PHRASES
+export async function reloadRandomMsg(selector = "#random-phrases") {
+    resetRandomMsg(selector);
+    await showRandomMsg(selector);
+}
+
+// RESET RANDOM PHRASES
+function resetRandomMsg(selector = "#random-phrases") {
+    intervalStarted = false;
+    lastPhrase = null;
+    phrasesPool = [];
+    const target = document.querySelector(selector);
+    if (target) target.textContent = ""; // RESET CONTENT
+}
+
 // INIT RANDOM PHRASES
-export async function showRandomMsg(selector = "#random-phrases") {
+function showRandomMsg(selector = "#random-phrases") {
     if (intervalStarted) return; // PREVENT MULTIPLE LOOPS
     intervalStarted = true;
 
