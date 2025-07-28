@@ -14,17 +14,14 @@ const loadPhrasesData = async () => {
     if (phrasesCache.length) return phrasesCache; // USE CACHE IF ALREADY LOADED
 
     // FETCH AND BASE VALIDATION
-    const raw = await validateJSON(json, {
-        allowedTypes: "object", // ENSURE ARRAY OF OBJECTS
-        requireContent: true,   // FAIL IF EMPTY
-    });
+    const raw = await validateJSON(json);
 
-    const locale = document.documentElement.lang?.toLowerCase() || "es-es"; // FULL LOCALE (e.g., es-es)
+    const locale = document.documentElement.lang?.toLowerCase() || "en-gb"; // FULL LOCALE (e.g., es-es)
     const lang = locale.split("-")[0]; // BASE LANGUAGE (e.g., es)
 
     // FILTER VALID OBJECTS WITH LOCALE/LANG FALLBACK
     phrasesCache = raw.filter(p =>
-        p && typeof p === "object" && (p[locale] || p[lang] || p["es-es"])
+        p && typeof p === "object" && (p[locale] || p[lang] || p["en-gb"])
     );
 
     // THROW IF RESULTING CACHE IS EMPTY
@@ -49,7 +46,7 @@ export async function showRandomMsg(selector = "#random-phrases") {
 
     try {
         await loadPhrasesData(); // ENSURE PHRASES ARE LOADED
-        const locale = document.documentElement.lang?.toLowerCase() || "es-es"; // DETECT FULL LOCALE
+        const locale = document.documentElement.lang?.toLowerCase() || "en-gb"; // DETECT FULL LOCALE
         const lang = locale.split("-")[0]; // FALLBACK TO BASE LANGUAGE (e.g., 'es')
         const MAX_SHUFFLE_ATTEMPTS = 10; // LIMIT LOOP TO AVOID INFINITE SHUFFLES
 
@@ -88,7 +85,7 @@ export async function showRandomMsg(selector = "#random-phrases") {
 
                 // SHOW TEXT WITH LOCALE/LANG FALLBACK
                 liveTarget.textContent =
-                    selected[locale] || selected[lang] || selected["es-es"] || "";
+                    selected[locale] || selected[lang] || selected["en-gb"] || "";
                 liveTarget.classList.remove("fade-out"); // TRIGGER FADE-IN
             }, 1200);
 
