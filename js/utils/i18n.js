@@ -23,7 +23,7 @@ function applyLang(data, textSelector) {
     document.querySelectorAll(textSelector).forEach(el => {
         const key = el.getAttribute('data-i18n');
         const value = getNestedValue(data, key);
-        if (!value) return;
+        if (!value) return; // EXIT IF NO TRANSLATION
 
         // AUTO DETECT TEXT VS HTML
         if (el.dataset.i18nType === 'html') el.innerHTML = value; // ⬅️ innerHTML
@@ -35,7 +35,10 @@ function applyLang(data, textSelector) {
 function applyAttrLang(data, attrSelector) {
     document.querySelectorAll(attrSelector).forEach(el => {
         const attrData = el.getAttribute('data-i18n-attr');
-        if (!attrData) return; // SALIR SI NO HAY ATRIBUTO
+        if (!attrData) {
+            console.warn('⚠️ Falta atributo data-i18n-attr en:', el); // DEBUG LOG
+            return; // EXIT IF NO ATTRIBUTES
+        }
 
         attrData.split(';').forEach(pair => {
             const [attr, key] = pair.split(':');
