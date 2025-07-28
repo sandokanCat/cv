@@ -2,7 +2,7 @@
 import { validateCarousel } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateCarousel.js"; // FETCH + STRUCTURE + FORMAT VALIDATION
 
 // GLOBAL VARIABLES
-const json = "js/data/carousel.json"; // SOURCE
+const json = "js/data/carousel.json"; // SOURCE JSON FILE
 
 // FETCHES AND VALIDATES REMOTE JSON VIA PUBLIC LIBRARY
 const loadCarouselData = async () => {
@@ -33,9 +33,7 @@ export async function initCarousel(
 
 		// FETCH + VALIDATE IMAGES (IF NOT PASSED MANUALLY)
 		const validImgs = imgs || await loadCarouselData();
-		// const validImgs = imgs || await validateCarousel(sources[mode], {
-		// 	debug: mode !== "prod" // LOG ONLY OUTSIDE PRODUCTION
-		// });
+        
 		if (!validImgs.length) throw new Error("initCarousel: EMPTY VALID IMAGE LIST");
 
 		// LOOP EACH MATCHING CONTAINER

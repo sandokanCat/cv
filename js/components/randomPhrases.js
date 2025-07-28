@@ -2,7 +2,8 @@
 import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";  // FETCH + STRUCTURE + FORMAT VALIDATION
 
 // GLOBAL VARIABLES
-const json = "js/data/phrases.json"; // SOURCE
+const json = "js/data/phrases.json"; // SOURCE JSON FILE
+
 let phrasesCache = []; // FULL JSON CACHED
 let phrasesPool = [];  // TEMPORARY SHUFFLED LIST
 let lastPhrase = null; // LAST SHOWN PHRASE

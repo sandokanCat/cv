@@ -1,6 +1,13 @@
 // IMPORTS
 import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";  // FETCH + STRUCTURE + FORMAT VALIDATION
 
+// GLOBAL VARIABLES
+const jsonFiles = { // SOURCE JSON FILES
+    en: "js/i18n/en.json",
+    es: "js/i18n/es.json",
+    ca: "js/i18n/en.json"
+}
+
 // I18N MODULE - LOAD AND APPLY TRANSLATIONS FROM JSON FILES
 export const initI18n = async (
     lang = navigator.language.slice(0, 2), // DEFAULT TO BROWSER LANG

@@ -2,7 +2,8 @@
 import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";  // FETCH + STRUCTURE + FORMAT VALIDATION
 
 // GLOBAL VARIABLES
-const json = "js/data/alerts.json"; // SOURCE
+const json = "js/data/alerts.json"; // SOURCE JSON FILE
+
 let lastAlert = null; // LAST SHOWN ALERT
 
 // FETCHES AND VALIDATES REMOTE JSON VIA PUBLIC LIBRARY
