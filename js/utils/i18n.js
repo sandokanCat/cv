@@ -27,7 +27,7 @@ function getNestedValue(obj, path) {
 }    
 
 // TRANSLATE TEXT CONTENT OR HTML
-function applyLang(data, textSelector) {
+function applyLang(data) {
     i18nElements.forEach(el => {
         const key = el.getAttribute('data-i18n');
         const value = getNestedValue(data, key);
@@ -36,7 +36,7 @@ function applyLang(data, textSelector) {
 }
 
 // TRANSLATE ATTRIBUTES (aria-label, alt, etc.)
-function applyAttrLang(data, attrSelector) {
+function applyAttrLang(data) {
     i18nAttrElements.forEach(el => {
         const pairs = el.getAttribute('data-i18n-attr').split(',');
 
@@ -60,6 +60,8 @@ function setLangMetadata(lang, htmlSelector) {
 export const initI18n = async (
     htmlSelector = 'html',
     titleSelector = 'title',
+    textSelector = '[data-i18n]',
+    attrSelector = '[data-i18n-attr]',
     selectedLang = null
 ) => {
     await showRandomMsg('#random-phrases');
@@ -94,7 +96,6 @@ export const initI18n = async (
 };
 
 // LANG SWITCH LISTENER
-// (This must be called once at startup to ensure it binds)
 document.addEventListener('DOMContentLoaded', () => {
     i18nBtns.forEach(btn => {
         btn.addEventListener('click', async () => {
