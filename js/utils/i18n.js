@@ -3,9 +3,9 @@ import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/
 
 // SUPPORTED LANGUAGES
 const langs = ['en', 'es', 'ca'];
-const fallback = 'en';
+const fallback = 'en'; // DEFAULT
 
-// DETECT OR GET LANGUAGE FROM LOCALSTORAGE
+// DETECT LANGUAGE FROM STORAGE OR BROWSER
 const detectLang = () => {
     const stored = localStorage.getItem('lang');
     const browser = navigator.language.slice(0, 2).toLowerCase();
@@ -18,18 +18,18 @@ const getJsonPath = lang => `/js/i18n/${lang}.json`;
 // GET NESTED VALUE USING dot.notation
 const getNestedValue = (obj, key) => key.split('.').reduce((o, k) => (o && o[k] !== undefined ? o[k] : null), obj);
 
-// APPLY TRANSLATED TEXT TO ELEMENTS
-function applyLang(data) {
-    document.querySelectorAll('[data-i18n]').forEach(el => {
+// APPLY TEXT CONTENT TO SELECTED ELEMENTS
+function applyLang(data, textSelector) {
+    document.querySelectorAll(textSelector).forEach(el => {
         const key = el.getAttribute('data-i18n');
         const value = getNestedValue(data, key);
         if (value) el.textContent = value;
     });
 }
 
-// APPLY TO ATTRIBUTES
-function applyAttrLang(data) {
-    document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+// APPLY ATTRIBUTE TRANSLATIONS
+function applyAttrLang(data, attrSelector) {
+    document.querySelectorAll(attrSelector).forEach(el => {
         el.getAttribute('data-i18n-attr').split(';').forEach(pair => {
             const [attr, key] = pair.split(':');
             const value = getNestedValue(data, key);
@@ -38,42 +38,62 @@ function applyAttrLang(data) {
     });
 }
 
-// UPDATE LANGUAGE BUTTON ICON
-function updateLangButton(lang) {
+// SET MAIN FLAG ICON
+function updateLangButton(lang, toggleBtnSelector) {
+    const toggleBtn = document.querySelector(toggleBtnSelector);
+    if (!toggleBtn) return;
+
     const flag = `<svg class="icons-scale" role="img" aria-hidden="true" width="40" height="40" preserveAspectRatio="xMinYMin meet"><use href="img/sprite.svg#${lang}-flag"></use></svg>`;
     toggleBtn.innerHTML = flag;
 }
 
-// FETCH, VALIDATE AND APPLY TRANSLATIONS
-export const initI18n = async (selectedLang = detectLang()) => {
+// MAIN FUNCTION
+export const initI18n = async (
+    htmlSelector = 'html',
+    titleSelector = 'title',
+    toggleBtnSelector = '#lang-toggle',
+    textSelector = '[data-i18n]',
+    attrSelector = '[data-i18n-attr]',
+    selectedLang = null
+) => {
+    const lang = selectedLang || detectLang();
+
     try {
-        const jsonPath = getJsonPath(selectedLang);
+        const jsonPath = getJsonPath(lang);
         const translations = await validateJSON(jsonPath);
 
-        applyLang(translations);
-        applyAttrLang(translations);
-        updateLangButton(selectedLang);
+        applyLang(translations, textSelector);
+        applyAttrLang(translations, attrSelector);
+        updateLangButton(lang, toggleBtnSelector);
 
-        localStorage.setItem('lang', selectedLang);
-        document.documentElement.lang = selectedLang;
+        localStorage.setItem('lang', lang);
+
+        // UPDATE <html lang="">
+        const htmlElement = document.querySelector(htmlSelector);
+        if (htmlElement) htmlElement.setAttribute('lang', lang);
+
+        // UPDATE <title> IF TRANSLATED
+        const titleEl = document.querySelector(titleSelector);
+        if (titleEl && translations.title) titleEl.textContent = translations.title;
+
     } catch (err) {
         console.error('I18N ERROR:', err);
     }
 };
 
-// HANDLE DROPDOWN TOGGLE
-const toggleBtn = document.getElementById('lang-toggle');
-const optionsBox = document.getElementById('lang-options');
+// TOGGLE DROPDOWN
+const toggleBtn = document.querySelector('#lang-toggle');
+const optionsBox = document.querySelector('#lang-options');
 
 toggleBtn?.addEventListener('click', () => {
     optionsBox?.classList.toggle('hidden');
 });
 
-// HANDLE LANGUAGE SWITCH BUTTONS
+// SWITCH LANGUAGE ON BUTTON CLICK
 document.querySelectorAll('#lang-options [data-lang]').forEach(btn => {
     btn.addEventListener('click', async () => {
         const lang = btn.getAttribute('data-lang');
-        await initI18n(lang);
-        optionsBox.classList.add('hidden');
+        await initI18n('html', 'title', '#lang-toggle', '[data-i18n]', '[data-i18n-attr]', lang);
+        optionsBox?.classList.add('hidden');
     });
 });
