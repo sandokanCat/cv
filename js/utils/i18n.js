@@ -33,11 +33,11 @@ function applyLang(data, textSelector) {
 
 // TRANSLATE ATTRIBUTES (aria-label, alt, etc.)
 function applyAttrLang(data, attrSelector) {
-    document.querySelectorAll(attrSelector).forEach(el, index => {
+    document.querySelectorAll(attrSelector).forEach((el, index) => {
         const attrData = el.getAttribute('data-i18n-attr');
         if (!attrData) {
             console.warn(`⚠️ Elemento #${index} sin data-i18n-attr:`, el.outerHTML); // DEBUG LOG
-            return; // EXIT IF NO ATTRIBUTES
+            return;
         }
 
         attrData.split(';').forEach(pair => {
@@ -45,16 +45,16 @@ function applyAttrLang(data, attrSelector) {
                 console.warn(`⚠️ data-i18n-attr mal formado (falta ':'):`, el);
                 return;
             }
-        
+
             const [attr, key] = pair.split(':');
             if (!attr || !key) {
                 console.warn(`⚠️ data-i18n-attr incompleto:`, el);
                 return;
             }
-        
+
             const value = getNestedValue(data, key.trim());
             if (value) el.setAttribute(attr.trim(), value);
-        });        
+        });
     });
 }
 
