@@ -1,26 +1,19 @@
 // IMPORTS
 import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";  // FETCH + STRUCTURE + FORMAT VALIDATION
 
-// VARIABLES FOR DEVELOPMENT
-const mode = "prod"; // CHANGE AS NEEDED: dev | ngrok | prod
-const sources = {
-    dev: "http://127.0.0.1:5500/js/data/phrases.json",
-    ngrok: "https://example.ngrok-free.app/js/data/phrases.json",
-    prod: "js/data/phrases.json"
-};
-
 // GLOBAL VARIABLES
+const json = "js/data/phrases.json"; // SOURCE
 let phrasesCache = []; // FULL JSON CACHED
 let phrasesPool = [];  // TEMPORARY SHUFFLED LIST
 let lastPhrase = null; // LAST SHOWN PHRASE
 let intervalStarted = false; // PREVENT MULTIPLE INSTANCES
 
-// FETCHES AND VALIDATES REMOTE PHRASES.JSON VIA PUBLIC LIBRARY
+// FETCHES AND VALIDATES REMOTE JSON VIA PUBLIC LIBRARY
 const loadPhrasesData = async () => {
     if (phrasesCache.length) return phrasesCache; // USE CACHE IF ALREADY LOADED
 
     // FETCH AND BASE VALIDATION
-    const raw = await validateJSON(sources[mode], {
+    const raw = await validateJSON(json, {
         requireContent: true, // FAIL IF EMPTY JSON
         debug: mode !== "prod" // LOG ONLY IN DEV OR NGROK
     });
@@ -103,6 +96,6 @@ export async function showRandomMsg(selector = "#random-phrases") {
 
         loop(); // START LOOP
     } catch (err) {
-        console.error("randomPhrases.js ERROR", sources[mode], "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
+        console.error("randomPhrases.js ERROR", json, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
     }
 }

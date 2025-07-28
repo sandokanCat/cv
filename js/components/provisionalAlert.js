@@ -1,24 +1,16 @@
 // IMPORTS
 import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";  // FETCH + STRUCTURE + FORMAT VALIDATION
 
-// VARIABLES FOR DEVELOPMENT
-const mode = "prod"; // CHANGE AS NEEDED: dev | ngrok | prod
-const sources = {
-    dev: "http://127.0.0.1:5500/js/data/alerts.json",
-    ngrok: "https://example.ngrok-free.app/js/data/alerts.json",
-    prod: "js/data/alerts.json"
-};
-
 // GLOBAL VARIABLES
+const json = "js/data/alerts.json"; // SOURCE
 let lastAlert = null; // LAST SHOWN ALERT
 
-// FETCHES AND VALIDATES REMOTE ALERTS.JSON VIA PUBLIC LIBRARY
+// FETCHES AND VALIDATES REMOTE JSON VIA PUBLIC LIBRARY
 const loadAlertsData = async () => {
     // FETCH AND BASE VALIDATION
-    const alerts = await validateJSON(sources[mode], {
+    const alerts = await validateJSON(json, {
         allowedTypes: "string", // ENSURE ARRAY OF STRINGS
         requireContent: true,   // FAIL IF EMPTY
-        debug: mode !== "prod"  // LOG ONLY IN DEV OR NGROK
     });
 
     return alerts; // RETURN VALIDATED ALERT LIST
@@ -51,6 +43,6 @@ export async function provisionalAlert(selector = 'a[data-status]') {
         });
 
     } catch (err) {
-        console.error("provisionalAlert.js ERROR", sources[mode], "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
+        console.error("provisionalAlert.js ERROR", json, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
     }
 }

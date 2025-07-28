@@ -1,17 +1,12 @@
 // IMPORTS
 import { validateCarousel } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateCarousel.js"; // FETCH + STRUCTURE + FORMAT VALIDATION
 
-// VARIABLES FOR DEVELOPMENT
-const mode = "prod"; // CHANGE AS NEEDED: dev | ngrok | prod
-const sources = {
-	dev: "http://127.0.0.1:5500/js/data/carousel.json",
-	ngrok: "https://example.ngrok-free.app/js/data/carousel.json",
-	prod: "js/data/carousel.json"
-};
+// GLOBAL VARIABLES
+const json = "js/data/carousel.json"; // SOURCE
 
 // FETCHES AND VALIDATES REMOTE CAROUSEL.JSON VIA PUBLIC LIBRARY
 const loadCarouselData = async () => {
-    return await validateCarousel(sources[mode], { debug: mode !== "prod" });
+    return await validateCarousel(json, { debug: mode !== "prod" });
 };
 
 // INIT CAROUSEL WITH AUTOSCROLL + MANUAL CONTROLS
@@ -120,6 +115,6 @@ export async function initCarousel(
 		});
 
 	} catch (err) {
-		console.error("carousel.js ERROR", sources[mode], "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
+		console.error("carousel.js ERROR", json, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
 	}
 }
