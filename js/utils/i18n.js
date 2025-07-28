@@ -16,46 +16,27 @@ const detectLang = () => {
 const getJsonPath = lang => `js/i18n/${lang}.json`;
 
 // GET VALUE USING dot.notation
-function getNestedValue(obj, key) {
-    return obj[key] ?? null;
-}  
+function getNestedValue(obj, path) {
+    return path.split('.').reduce((acc, key) => acc?.[key], obj);
+}    
 
 // TRANSLATE TEXT CONTENT OR HTML
 function applyLang(data, textSelector) {
-    document.querySelectorAll(textSelector).forEach(el => {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        const value = getNestedValue(data, key);
-        if (!value) return; // EXIT IF NO TRANSLATION
-
-        // AUTO DETECT TEXT VS HTML
-        if (key.endsWith('.html') || el.dataset.i18nType === 'html') el.innerHTML = value;
-        else el.textContent = value;
+        const value = getNestedValue(translations, key);
+        if (value) el.innerHTML = value;
     });
 }
 
 // TRANSLATE ATTRIBUTES (aria-label, alt, etc.)
 function applyAttrLang(data, attrSelector) {
-    document.querySelectorAll(attrSelector).forEach((el, index) => {
-        const attrData = el.getAttribute('data-i18n-attr');
-        if (!attrData) {
-            console.warn(`⚠️ Elemento #${index} sin data-i18n-attr:`, el.outerHTML); // DEBUG LOG
-            return;
-        }
-
-        attrData.split(';').forEach(pair => {
-            if (!pair.includes(':')) {
-                console.warn(`⚠️ data-i18n-attr mal formado (falta ':'):`, el);
-                return;
-            }
-
+    document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+        const pairs = el.getAttribute('data-i18n-attr').split(',');
+        pairs.forEach(pair => {
             const [attr, key] = pair.split(':');
-            if (!attr || !key) {
-                console.warn(`⚠️ data-i18n-attr incompleto:`, el);
-                return;
-            }
-
-            const value = getNestedValue(data, key.trim());
-            if (value) el.setAttribute(attr.trim(), value);
+            const value = getNestedValue(translations, key);
+            if (value) el.setAttribute(attr, value);
         });
     });
 }
