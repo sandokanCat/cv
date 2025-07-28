@@ -1,5 +1,6 @@
 // IMPORTS
 import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";
+import { showRandomMsg } from "../components/randomPhrases.js";
 
 // SUPPORTED LANGUAGES
 const langs = ['en', 'es', 'ca'];
@@ -63,6 +64,8 @@ export const initI18n = async (
     attrSelector = '[data-i18n-attr]',
     selectedLang = null
 ) => {
+    await components.showRandomMsg('#random-phrases');
+
     const lang = selectedLang || detectLang();
 
     try {
