@@ -41,10 +41,20 @@ function applyAttrLang(data, attrSelector) {
         }
 
         attrData.split(';').forEach(pair => {
+            if (!pair.includes(':')) {
+                console.warn(`⚠️ data-i18n-attr mal formado (falta ':'):`, el);
+                return;
+            }
+        
             const [attr, key] = pair.split(':');
-            const value = getNestedValue(data, key);
+            if (!attr || !key) {
+                console.warn(`⚠️ data-i18n-attr incompleto:`, el);
+                return;
+            }
+        
+            const value = getNestedValue(data, key.trim());
             if (value) el.setAttribute(attr.trim(), value);
-        });
+        });        
     });
 }
 
