@@ -22,8 +22,16 @@ const getNestedValue = (obj, key) => key.split('.').reduce((o, k) => (o && o[k] 
 function applyLang(data, textSelector) {
     document.querySelectorAll(textSelector).forEach(el => {
         const key = el.getAttribute('data-i18n');
+        const htmlKey = el.getAttribute('data-i18n-html');
+
+        if (htmlKey) {
+            const htmlValue = getNestedValue(data, htmlKey);
+            if (htmlValue) el.innerHTML = htmlValue;
+            return;
+        }
+
         const value = getNestedValue(data, key);
-        if (!value) return; // EXIT IF NO TRANSLATION
+        if (!value) return;
 
         // AUTO DETECT TEXT VS HTML
         if (el.dataset.i18nType === 'html') el.innerHTML = value;
