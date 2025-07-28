@@ -7,6 +7,7 @@ const langs = ['en', 'es', 'ca'];
 const fallback = 'en';
 
 // GLOBAL VARIABLES
+const i18nBtns = document.querySelectorAll('[data-lang]');
 const i18nElements = document.querySelectorAll('[data-i18n]');
 const i18nAttrElements = document.querySelectorAll('[data-i18n-attr]');
 
@@ -18,7 +19,7 @@ const detectLang = () => {
 };
 
 // JSON PATH BY LANGUAGE
-const getJsonPath = lang => `js/i18n/${lang}.json`;
+const getJsonPath = lang => `js/i18n/${langs.includes(lang) ? lang : fallback}.json`;
 
 // GET VALUE USING dot.notation
 function getNestedValue(obj, path) {
@@ -38,10 +39,10 @@ function applyLang(data, textSelector) {
 function applyAttrLang(data, attrSelector) {
     i18nAttrElements.forEach(el => {
         const pairs = el.getAttribute('data-i18n-attr').split(',');
-        if (!attr || !key) return;
 
         pairs.forEach(pair => {
             const [attr, key] = pair.split(':');
+            if (!attr || !key) return; // EXIT IF INVALID PAIR
             const value = getNestedValue(data, key);
             if (value) el.setAttribute(attr, value);
         });
@@ -59,12 +60,9 @@ function setLangMetadata(lang, htmlSelector) {
 export const initI18n = async (
     htmlSelector = 'html',
     titleSelector = 'title',
-    toggleBtnSelector = '[data-lang]',
-    textSelector = '[data-i18n]',
-    attrSelector = '[data-i18n-attr]',
     selectedLang = null
 ) => {
-    await components.showRandomMsg('#random-phrases');
+    await showRandomMsg('#random-phrases');
 
     const lang = selectedLang || detectLang();
 
@@ -84,7 +82,7 @@ export const initI18n = async (
         }
 
         // UPDATE FLAG ICONS
-        document.querySelectorAll(toggleBtnSelector).forEach(btn => {
+        i18nBtns.forEach(btn => {
             const btnLang = btn.getAttribute('data-lang');
             const use = btn.querySelector('use');
             if (use && btnLang) use.setAttribute('href', `img/sprite.svg#${btnLang}-flag`);
@@ -98,10 +96,10 @@ export const initI18n = async (
 // LANG SWITCH LISTENER
 // (This must be called once at startup to ensure it binds)
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('[data-lang]').forEach(btn => {
+    i18nBtns.forEach(btn => {
         btn.addEventListener('click', async () => {
             const lang = btn.getAttribute('data-lang');
-            await initI18n('html', 'title', '[data-lang]', '[data-i18n]', '[data-i18n-attr]', lang);
+            await initI18n('html', 'title', lang);
         });
     });
 });
