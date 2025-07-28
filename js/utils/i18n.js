@@ -7,9 +7,16 @@ const langs = ['en', 'es', 'ca'];
 const fallback = 'en';
 
 // GLOBAL VARIABLES
+const htmlEl = document.querySelector('html');
+const titleEl = document.querySelector('title');
 const i18nBtns = document.querySelectorAll('[data-lang]');
 const i18nElements = document.querySelectorAll('[data-i18n]');
 const i18nAttrElements = document.querySelectorAll('[data-i18n-attr]');
+const flagIcons = Array.from(i18nBtns).map(btn => ({
+    btn,
+    lang: btn.getAttribute('data-lang'),
+    use: btn.querySelector('use')
+}));
 
 // DETECT LANGUAGE
 const detectLang = () => {
@@ -31,7 +38,7 @@ function applyLang(data) {
     i18nElements.forEach(el => {
         const key = el.getAttribute('data-i18n');
         const value = getNestedValue(data, key);
-        if (value) el.innerHTML = value;
+        if (typeof value !== 'undefined') el.innerHTML = value;
     });
 }
 
@@ -44,26 +51,19 @@ function applyAttrLang(data) {
             const [attr, key] = pair.split(':');
             if (!attr || !key) return; // EXIT IF INVALID PAIR
             const value = getNestedValue(data, key);
-            if (value) el.setAttribute(attr, value);
+            if (typeof value !== 'undefined') el.setAttribute(attr, value);
         });
     });
 }
 
 // SET <html lang=""> AND STORE IN localStorage
-function setLangMetadata(lang, htmlSelector) {
+function setLangMetadata(lang) {
     localStorage.setItem('lang', lang);
-    const htmlEl = document.querySelector(htmlSelector);
     if (htmlEl) htmlEl.setAttribute('lang', lang);
 }
 
 // MAIN INIT FUNCTION
-export const initI18n = async (
-    htmlSelector = 'html',
-    titleSelector = 'title',
-    textSelector = '[data-i18n]',
-    attrSelector = '[data-i18n-attr]',
-    selectedLang = null
-) => {
+export const initI18n = async (selectedLang = null) => {
     await showRandomMsg('#random-phrases');
 
     const lang = selectedLang || detectLang();
@@ -74,20 +74,17 @@ export const initI18n = async (
 
         applyLang(translations);
         applyAttrLang(translations);
-        setLangMetadata(lang, htmlSelector);
+        setLangMetadata(lang);
 
         // SET PAGE TITLE
-        const titleEl = document.querySelector(titleSelector);
         if (titleEl) {
             const titleValue = getNestedValue(translations, 'title');
-            if (titleValue) titleEl.textContent = titleValue;
+            if (typeof titleValue !== 'undefined') titleEl.textContent = titleValue;
         }
 
         // UPDATE FLAG ICONS
-        i18nBtns.forEach(btn => {
-            const btnLang = btn.getAttribute('data-lang');
-            const use = btn.querySelector('use');
-            if (use && btnLang) use.setAttribute('href', `img/sprite.svg#${btnLang}-flag`);
+        flagIcons.forEach(({ lang, use }) => {
+            if (use && lang) use.setAttribute('href', `img/sprite.svg#${lang}-flag`);
         });
 
     } catch (err) {
@@ -100,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
     i18nBtns.forEach(btn => {
         btn.addEventListener('click', async () => {
             const lang = btn.getAttribute('data-lang');
-            await initI18n('html', 'title', lang);
+            await initI18n(lang);
         });
     });
 });
