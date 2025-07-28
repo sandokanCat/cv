@@ -13,7 +13,7 @@ const detectLang = () => {
 };
 
 // JSON PATH BY LANGUAGE
-const getJsonPath = lang => `/js/i18n/${lang}.json`;
+const getJsonPath = lang => `js/i18n/${lang}.json`;
 
 // GET VALUE USING dot.notation
 const getNestedValue = (obj, key) => key.split('.').reduce((o, k) => (o && o[k] !== undefined ? o[k] : null), obj);
