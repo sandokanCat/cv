@@ -14,8 +14,8 @@ const loadPhrasesData = async () => {
 
     // FETCH AND BASE VALIDATION
     const raw = await validateJSON(json, {
-        requireContent: true, // FAIL IF EMPTY JSON
-        debug: mode !== "prod" // LOG ONLY IN DEV OR NGROK
+        allowedTypes: "string", // ENSURE ARRAY OF STRINGS
+        requireContent: true,   // FAIL IF EMPTY
     });
 
     const locale = document.documentElement.lang?.toLowerCase() || "es-es"; // FULL LOCALE (e.g., es-es)
@@ -30,7 +30,7 @@ const loadPhrasesData = async () => {
     if (!phrasesCache.length)
         throw new Error(`EMPTY OR INVALID JSON DATA: ${JSON.stringify(raw)}`);
 
-    return phrasesCache; // RETURN FILTERED PHRASES
+    return phrasesCache; // RETURN VALIDATED PHRASES DATA
 };
 
 // INIT RANDOM PHRASES

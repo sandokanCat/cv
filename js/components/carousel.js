@@ -4,9 +4,9 @@ import { validateCarousel } from "https://open-utils-dev-sandokan-cat.vercel.app
 // GLOBAL VARIABLES
 const json = "js/data/carousel.json"; // SOURCE
 
-// FETCHES AND VALIDATES REMOTE CAROUSEL.JSON VIA PUBLIC LIBRARY
+// FETCHES AND VALIDATES REMOTE JSON VIA PUBLIC LIBRARY
 const loadCarouselData = async () => {
-    return await validateCarousel(json, { debug: mode !== "prod" });
+    return await validateCarousel(json); // RETURN VALIDATED CAROUSEL DATA
 };
 
 // INIT CAROUSEL WITH AUTOSCROLL + MANUAL CONTROLS

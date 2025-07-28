@@ -13,7 +13,7 @@ const loadAlertsData = async () => {
         requireContent: true,   // FAIL IF EMPTY
     });
 
-    return alerts; // RETURN VALIDATED ALERT LIST
+    return alerts; // RETURN VALIDATED ALERT DATA
 };
 
 // INIT PROVISIONAL ALERTS
