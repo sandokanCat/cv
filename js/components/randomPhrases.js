@@ -15,7 +15,7 @@ const loadPhrasesData = async () => {
 
     // FETCH AND BASE VALIDATION
     const raw = await validateJSON(json, {
-        allowedTypes: "string", // ENSURE ARRAY OF STRINGS
+        allowedTypes: "object", // ENSURE ARRAY OF OBJECTS
         requireContent: true,   // FAIL IF EMPTY
     });
 
