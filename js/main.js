@@ -2,7 +2,7 @@
 import { activeJS } from './utils/activeJS.js';
 import { initI18n } from './utils/i18n.js';
 
-import { themeDark, openMenu, openModal } from './components/index.js';
+import { themeDark, openMenu/*, openModal*/ } from './components/index.js';
 
 import { signature } from './utils/signature.js';
 import { manageCookies } from './utils/manageCookies.js';
