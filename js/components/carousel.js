@@ -9,8 +9,22 @@ const loadCarouselData = async () => {
     return await validateCarousel(json); // RETURN VALIDATED CAROUSEL DATA
 };
 
+// RELOAD RANDOM PHRASES
+export async function reloadCarousel() {
+    resetRandomMsg();
+    await initCarousel();
+}
+
+// RESET RANDOM PHRASES
+function resetCarousel() {
+    intervalStarted = false;
+    lastPhrase = null;
+    phrasesPool = [];
+    if (target) target.textContent = ""; // RESET CONTENT
+}
+
 // INIT CAROUSEL WITH AUTOSCROLL + MANUAL CONTROLS
-export async function initCarousel(
+async function initCarousel(
 	containerSelector = '.carousel-container', // REQUIRED WRAPPER WITH .carousel-track INSIDE
 	imgsSelector = '.carousel-imgs', // WRAPPER AROUND IMAGES (USED FOR AUTOSCROLL PAUSE)
 	nextSelector = '.carousel-advance', // OPTIONAL NEXT BUTTON

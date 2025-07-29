@@ -15,8 +15,19 @@ const loadAlertsData = async () => {
     return alerts; // RETURN VALIDATED ALERT DATA
 };
 
+// RELOAD PROVISIONAL ALERT
+export async function reloadProvisionalAlert() {
+    resetProvisionalAlert();
+    await provisionalAlert();
+}
+
+// RESET PROVISIONAL ALERT
+function resetProvisionalAlert() {
+    if (alertLinks) alertLinks.textContent = ""; // RESET CONTENT
+}
+
 // INIT PROVISIONAL ALERTS
-export async function provisionalAlert() {
+async function provisionalAlert() {
     try {
         const alerts = await loadAlertsData(); // ENSURE ALERTS ARE LOADED
 

@@ -1,39 +1,45 @@
 // IMPORTS
 import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";
+import { reloadCarousel } from "../components/carousel.js";
 import { reloadRandomMsg } from "../components/randomPhrases.js";
+import { reloadProvisionalAlert } from "../components/provisionalAlerts.js";
 
-// SUPPORTED LANGUAGES
-const langs = ['en-GB', 'es-ES', 'ca-ES'].split("-")[0] || "en-GB";
+// SUPPORTED LOCALES
+const supportedLocales = ['en-GB', 'es-ES', 'ca-ES'];
 
-const locale = document.documentElement.lang?.toLowerCase() || "en-GB"; // FULL LOCALE (e.g., es-ES)
-const lang = locale.split("-")[0]; // BASE LANGUAGE (e.g., es)
+// GET PATH TO JSON FILE BASED ON LOCALE
+const getJsonPath = locale => `js/i18n/${locale}.json`; // SOURCE JSON FILES
 
-// GLOBAL VARIABLES
+// GET <html lang="xx-XX"> OR DEFAULT
+const htmlLang = document.documentElement.lang?.trim() || 'en-GB';
+const htmlLangBase = htmlLang.split('-')[0].toLowerCase(); // e.g., 'es'
+const fallbackLocale = 'en-GB';
+
+// RESOLVE ACTUAL LOCALE
+const getCurrentLocale = (selectedLang = null) => {
+    const stored = localStorage.getItem('lang')?.trim();
+    const preferred = selectedLang || stored || navigator.language;
+    const normalized = preferred.trim();
+
+    // Match exact
+    if (supportedLocales.includes(normalized)) return normalized;
+
+    // Match base lang
+    const base = normalized.split('-')[0];
+    return supportedLocales.find(l => l.startsWith(base)) || fallbackLocale;
+};
+
+// NESTED PROPERTY ACCESSOR
+function getNestedValue(obj, path) {
+    return path.split('.').reduce((acc, key) => acc?.[key], obj);
+}
+
+// GLOBAL ELEMENTS
 const htmlEl = document.querySelector('html');
 const titleEl = document.querySelector('title');
 const i18nBtns = document.querySelectorAll('[data-lang]');
 const i18nElements = document.querySelectorAll('[data-i18n]');
 const i18nAttrElements = document.querySelectorAll('[data-i18n-attr]');
-const flagIcons = Array.from(i18nBtns).map(btn => ({
-    btn,
-    lang: btn.getAttribute('data-lang'),
-    use: btn.querySelector('use')
-}));
-
-// DETECT LANGUAGE
-const detectLang = () => {
-    const stored = localStorage.getItem('lang')?.toLowerCase();
-    const browser = navigator.language.slice(0, 2).toLowerCase();
-    return langs.includes(stored) ? stored : langs.includes(browser) ? browser : fallback;
-};
-
-// JSON PATH BY LANGUAGE
-const getJsonPath = lang => `js/i18n/${langs.includes(lang) ? lang : fallback}.json`;
-
-// GET VALUE USING dot.notation
-function getNestedValue(obj, path) {
-    return path.split('.').reduce((acc, key) => acc?.[key], obj);
-}    
 
 // TRANSLATE TEXT CONTENT OR HTML
 function applyLang(data) {
@@ -51,32 +57,32 @@ function applyAttrLang(data) {
 
         pairs.forEach(pair => {
             const [attr, key] = pair.split(':');
-            if (!attr || !key) return; // EXIT IF INVALID PAIR
+            if (!attr || !key) return;
             const value = getNestedValue(data, key);
             if (typeof value !== 'undefined') el.setAttribute(attr, value);
         });
     });
 }
 
-// SET <html lang=""> AND STORE IN localStorage
-function setLangMetadata(lang) {
-    localStorage.setItem('lang', lang);
-    if (htmlEl) htmlEl.setAttribute('lang', lang);
+// SET <html lang="xx-XX"> + STORE IN localStorage
+function setLangMetadata(locale) {
+    localStorage.setItem('lang', locale);
+    if (htmlEl) htmlEl.setAttribute('lang', locale);
 }
 
 // MAIN INIT FUNCTION
 export const initI18n = async (selectedLang = null) => {
     await reloadRandomMsg('#random-phrases');
 
-    const lang = selectedLang || detectLang();
+    const locale = getCurrentLocale(selectedLang);
+    const jsonPath = getJsonPath(locale);
 
     try {
-        const jsonPath = getJsonPath(lang);
         const translations = await validateJSON(jsonPath);
 
         applyLang(translations);
         applyAttrLang(translations);
-        setLangMetadata(lang);
+        setLangMetadata(locale);
 
         // SET PAGE TITLE
         if (titleEl) {
@@ -84,13 +90,15 @@ export const initI18n = async (selectedLang = null) => {
             if (typeof titleValue !== 'undefined') titleEl.textContent = titleValue;
         }
 
-        // UPDATE FLAG ICONS
-        flagIcons.forEach(({ lang, use }) => {
-            if (use && lang) use.setAttribute('href', `img/sprite.svg#${lang}-flag`);
+        // UPDATE FLAGS (only country code in lowercase)
+        const countryCode = locale.split('-')[1].toLowerCase(); // e.g., 'ES'
+        i18nBtns.forEach(btn => {
+            const use = btn.querySelector('use');
+            if (use) use.setAttribute('href', `img/sprite.svg#${countryCode}-flag`);
         });
 
     } catch (err) {
-        console.error('i18n.js ERROR:', json, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
+        console.error('i18n.js ERROR:', jsonPath, "→", err.name, err.message, err.stack);
     }
 };
 
@@ -98,8 +106,8 @@ export const initI18n = async (selectedLang = null) => {
 document.addEventListener('DOMContentLoaded', () => {
     i18nBtns.forEach(btn => {
         btn.addEventListener('click', async () => {
-            const lang = btn.getAttribute('data-lang');
-            await initI18n(lang);
+            const lang = btn.getAttribute('data-lang')?.trim();
+            if (lang) await initI18n(lang);
         });
     });
 });
