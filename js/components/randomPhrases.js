@@ -4,6 +4,7 @@ import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/
 // GLOBAL VARIABLES
 const json = "js/data/phrases.json"; // SOURCE JSON FILE
 
+const target = document.getElementById('random-phrases'); // CACHED ID
 let phrasesCache = []; // FULL JSON CACHED
 let phrasesPool = [];  // TEMPORARY SHUFFLED LIST
 let lastPhrase = null; // LAST SHOWN PHRASE
@@ -32,22 +33,21 @@ const loadPhrasesData = async () => {
 };
 
 // RELOAD RANDOM PHRASES
-export async function reloadRandomMsg(selector = "#random-phrases") {
-    resetRandomMsg(selector);
-    await showRandomMsg(selector);
+export async function reloadRandomMsg() {
+    resetRandomMsg();
+    await showRandomMsg();
 }
 
 // RESET RANDOM PHRASES
-function resetRandomMsg(selector = "#random-phrases") {
+function resetRandomMsg() {
     intervalStarted = false;
     lastPhrase = null;
     phrasesPool = [];
-    const target = document.querySelector(selector);
     if (target) target.textContent = ""; // RESET CONTENT
 }
 
 // INIT RANDOM PHRASES
-async function showRandomMsg(selector = "#random-phrases") {
+async function showRandomMsg() {
     if (intervalStarted) return; // PREVENT MULTIPLE LOOPS
     intervalStarted = true;
 
@@ -85,9 +85,8 @@ async function showRandomMsg(selector = "#random-phrases") {
             lastPhrase = selected;
 
             // FIND TARGET ELEMENT
-            const target = document.querySelector(selector);
             if (!target) {
-                console.error(`${selector} NOT FOUND`);
+                console.error('NOT FOUND → ', target?.outerHTML);
                 return;
             }
 
@@ -95,13 +94,12 @@ async function showRandomMsg(selector = "#random-phrases") {
 
             // UPDATE TEXT AFTER FADE
             setTimeout(() => {
-                const liveTarget = document.querySelector(selector); // ENSURE TARGET STILL EXISTS
-                if (!liveTarget) return;
+                if (!target) return;
 
                 // SHOW TEXT WITH LOCALE/LANG FALLBACK
-                liveTarget.textContent =
+                target.textContent =
                     selected[locale] || selected[lang] || selected["en-gb"] || "";
-                liveTarget.classList.remove("fade-out"); // TRIGGER FADE-IN
+                target.classList.remove("fade-out"); // TRIGGER FADE-IN
             }, 1200);
 
             setTimeout(loop, 12000); // RECURSIVE TIMER
