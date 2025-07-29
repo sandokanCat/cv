@@ -4,6 +4,7 @@ import { reloadCarousel, reloadRandomMsg, reloadProvisionalAlert } from "../comp
 
 // SUPPORTED LOCALES
 const supportedLocales = ['en-GB', 'es-ES', 'ca-ES'];
+const fallbackLocale = 'en-GB';
 
 // GET PATH TO JSON FILE BASED ON LOCALE
 const getJsonPath = locale => `js/i18n/${locale}.json`; // SOURCE JSON FILES
@@ -14,16 +15,17 @@ const htmlLangBase = htmlLang.split('-')[0].toLowerCase();
 const fallbackLocale = 'en-GB';
 
 // RESOLVE ACTUAL LOCALE
-const getCurrentLocale = (selectedLang = null) => {
+export const getLocale = (selectedLang = null) => {
     const stored = localStorage.getItem('lang');
-    const preferred = selectedLang || stored || navigator.language;
+    const preferred = selectedLang || stored || navigator.language || fallbackLocale;
     const normalized = preferred.trim();
 
     if (supportedLocales.includes(normalized)) return normalized;
 
-    const base = normalized.split('-')[0];
-    return supportedLocales.find(l => l.startsWith(base)) || fallbackLocale;
-};
+    const base = normalized.split('-')[0].toLowerCase();
+
+    return supportedLocales.find(l => l.toLowerCase().startsWith(base)) || fallbackLocale;
+}
 
 // NESTED PROPERTY ACCESSOR
 function getNestedValue(obj, path) {

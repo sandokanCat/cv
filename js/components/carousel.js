@@ -1,11 +1,11 @@
 // IMPORTS
 import { validateCarousel } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateCarousel.js"; // FETCH + STRUCTURE + FORMAT VALIDATION
-import { getLang } from "../utils/i18n.js"; // USE GLOBAL i18n LOCALE DETECTION
+import { getLocale } from "../utils/i18n.js"; // USE GLOBAL i18n LOCALE DETECTION
 
 // GLOBAL VARIABLES
 const json = "js/data/carousel.json"; // SOURCE JSON FILE
 
-const locale = getLang(); // FULL LOCALE FROM GLOBAL FUNC
+const locale = getLocale(); // FULL LOCALE FROM GLOBAL FUNC
 
 // FETCHES AND VALIDATES REMOTE JSON VIA PUBLIC LIBRARY
 const loadCarouselData = async () => {

@@ -1,12 +1,11 @@
 // IMPORTS
 import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";  // FETCH + STRUCTURE + FORMAT VALIDATION
-import { getLang } from "../utils/i18n.js"; // USE GLOBAL i18n LOCALE DETECTION
+import { getLocale } from "../utils/i18n.js"; // USE GLOBAL i18n LOCALE DETECTION
 
 // GLOBAL VARIABLES
 const json = "js/data/phrases.json"; // SOURCE JSON FILE
 
-const locale = getLang(); // FULL LOCALE FROM GLOBAL FUNC
-const lang = locale.split("-")[0]; // FALLBACK LANGUAGE
+const locale = getLocale(); // FULL LOCALE FROM GLOBAL FUNC
 
 const target = document.getElementById('random-phrases'); // CACHED ID
 let phrasesCache = []; // FULL JSON CACHED
@@ -63,7 +62,7 @@ async function showRandomMsg() {
     try {
         await loadPhrasesData(); // ENSURE PHRASES ARE LOADED
         
-        const locale = getLang(); // GLOBAL FUNC TO GET LOCALE
+        const locale = getLocale(); // GLOBAL FUNC TO GET LOCALE
         const lang = locale.split("-")[0]; // FALLBACK TO BASE LANGUAGE (e.g., 'es')
 
         const MAX_SHUFFLE_ATTEMPTS = 10; // LIMIT LOOP TO AVOID INFINITE SHUFFLES
