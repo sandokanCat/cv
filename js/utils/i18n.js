@@ -3,8 +3,10 @@ import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/
 import { reloadRandomMsg } from "../components/randomPhrases.js";
 
 // SUPPORTED LANGUAGES
-const langs = ['en', 'es', 'ca'];
-const fallback = 'en';
+const langs = ['en-GB', 'es-ES', 'ca-ES'].split("-")[0] || "en-GB";
+
+const locale = document.documentElement.lang?.toLowerCase() || "en-GB"; // FULL LOCALE (e.g., es-ES)
+const lang = locale.split("-")[0]; // BASE LANGUAGE (e.g., es)
 
 // GLOBAL VARIABLES
 const htmlEl = document.querySelector('html');

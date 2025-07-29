@@ -1,72 +1,72 @@
 [
   {
-    "es-es": "🦉 \"En el frontend, el 90% de los bugs son CSS, el 9% son errores tontos, y el 1% son problemas reales de lógica\"",
-    "ca-es": "🦉 \"Al frontend, el 90% dels bugs són CSS, el 9% són errors ximples i l'1% són problemes de lògica de veritat\"",
-    "en-gb": "🦉 \"In frontend, 90% of bugs are CSS, 9% are dumb mistakes, and 1% are actual logic problems\""
+    "en-GB": "🦉 \"In frontend, 90% of bugs are CSS, 9% are dumb mistakes, and 1% are actual logic problems\"",
+    "es-ES": "🦉 \"En el frontend, el 90% de los bugs son CSS, el 9% son errores tontos, y el 1% son problemas reales de lógica\"",
+    "ca-ES": "🦉 \"Al frontend, el 90% dels bugs són CSS, el 9% són errors ximples i l'1% són problemes de lògica de veritat\""
   },
   {
-    "es-es": "🚀 ¿CSS? Lo escribí con los <div> alineados a la fuerza... de voluntad 💪",
-    "ca-es": "🚀 CSS? L’he escrit amb els <div> alineats a la força... de voluntat 💪",
-    "en-gb": "🚀 CSS? I aligned the <div>s with the sheer force... of will 💪"
+    "en-GB": "🚀 CSS? I aligned the <div>s with the sheer force... of will 💪",
+    "es-ES": "🚀 ¿CSS? Lo escribí con los <div> alineados a la fuerza... de voluntad 💪",
+    "ca-ES": "🚀 CSS? L’he escrit amb els <div> alineats a la força... de voluntat 💪"
   },
   {
-    "es-es": "🧙‍♂️ Debuggear CSS es como magia: ¡el problema siempre fue el z-index! ✨",
-    "ca-es": "🧙‍♂️ Fer debug a CSS és com fer màgia: el problema sempre era el z-index! ✨",
-    "en-gb": "🧙‍♂️ Debugging CSS is like magic: it was always the z-index! ✨"
+    "en-GB": "🧙‍♂️ Debugging CSS is like magic: it was always the z-index! ✨",
+    "es-ES": "🧙‍♂️ Debuggear CSS es como magia: ¡el problema siempre fue el z-index! ✨",
+    "ca-ES": "🧙‍♂️ Fer debug a CSS és com fer màgia: el problema sempre era el z-index! ✨"
   },
   {
-    "es-es": "¿Los convencionalismos sociales? 🚫🐑 \"Si no afecta al rendimiento, no es mi problema\"",
-    "ca-es": "Els convencionalismes socials? 🚫🐑 \"Si no afecta el rendiment, no és el meu problema\"",
-    "en-gb": "Social conventions? 🚫🐑 \"If it doesn't affect performance, not my problem\""
+    "en-GB": "Social conventions? 🚫🐑 \"If it doesn't affect performance, not my problem\"",
+    "es-ES": "¿Los convencionalismos sociales? 🚫🐑 \"Si no afecta al rendimiento, no es mi problema\"",
+    "ca-ES": "Els convencionalismes socials? 🚫🐑 \"Si no afecta el rendiment, no és el meu problema\""
   },
   {
-    "es-es": "🤯 ¿Sabías que el 80% de mi código son comentarios sarcásticos? // Como este",
-    "ca-es": "🤯 Sabies que el 80% del meu codi són comentaris sarcàstics? // Com aquest",
-    "en-gb": "🤯 Did you know 80% of my code is sarcastic comments? // Like this one"
+    "en-GB": "🤯 Did you know 80% of my code is sarcastic comments? // Like this one",
+    "es-ES": "🤯 ¿Sabías que el 80% de mi código son comentarios sarcásticos? // Como este",
+    "ca-ES": "🤯 Sabies que el 80% del meu codi són comentaris sarcàstics? // Com aquest"
   },
   {
-    "es-es": "⚠️ ¿Sabías que este CV no usa jQuery? ¡Vanilla JS power!",
-    "ca-es": "⚠️ Sabies que aquest CV no fa servir jQuery? Vanilla JS power!",
-    "en-gb": "⚠️ Did you know this CV doesn't use jQuery? Vanilla JS power!"
+    "en-GB": "⚠️ Did you know this CV doesn't use jQuery? Vanilla JS power!",
+    "es-ES": "⚠️ ¿Sabías que este CV no usa jQuery? ¡Vanilla JS power!",
+    "ca-ES": "⚠️ Sabies que aquest CV no fa servir jQuery? Vanilla JS power!"
   },
   {
-    "es-es": "💡 Tip: pasa el mouse por mis proyectos para ver efectos CSS",
-    "ca-es": "💡 Tip: passa el ratolí pels meus projectes per veure efectes CSS",
-    "en-gb": "💡 Tip: hover over my projects to see some CSS effects"
+    "en-GB": "💡 Tip: hover over my projects to see some CSS effects",
+    "es-ES": "💡 Tip: pasa el mouse por mis proyectos para ver efectos CSS",
+    "ca-ES": "💡 Tip: passa el ratolí pels meus projectes per veure efectes CSS"
   },
   {
-    "es-es": "🔍 ¿Eres reclutador o dev? ¡Mira mi GitHub! ;)",
-    "ca-es": "🔍 Ets reclutador o dev? Dona un cop d’ull al meu GitHub! ;)",
-    "en-gb": "🔍 Recruiter or dev? Check out my GitHub! ;)"
+    "en-GB": "🔍 Recruiter or dev? Check out my GitHub! ;)",
+    "es-ES": "🔍 ¿Eres reclutador o dev? ¡Mira mi GitHub! ;)",
+    "ca-ES": "🔍 Ets reclutador o dev? Dona un cop d’ull al meu GitHub! ;)"
   },
   {
-    "es-es": "IA usada: DeepSeek 🐉🔒 (porque aquí no vendemos datos a Silicon Valley)",
-    "ca-es": "IA utilitzada: DeepSeek 🐉🔒 (aquí no venem dades a Silicon Valley)",
-    "en-gb": "AI used: DeepSeek 🐉🔒 (because we don't sell data to Silicon Valley here)"
+    "en-GB": "AI used: DeepSeek 🐉🔒 (because we don't sell data to Silicon Valley here)",
+    "es-ES": "IA usada: DeepSeek 🐉🔒 (porque aquí no vendemos datos a Silicon Valley)",
+    "ca-ES": "IA utilitzada: DeepSeek 🐉🔒 (aquí no venem dades a Silicon Valley)"
   },
   {
-    "es-es": "🌐 El dominio .cat fue creado en 2005 para promocionar la lengua y cultura catalanas en Internet",
-    "ca-es": "🌐 El domini .cat va ser creat el 2005 per promocionar la llengua i cultura catalanes a Internet",
-    "en-gb": "🌐 The .cat domain was created in 2005 to promote Catalan language and culture online"
+    "en-GB": "🌐 The .cat domain was created in 2005 to promote Catalan language and culture online",
+    "es-ES": "🌐 El dominio .cat fue creado en 2005 para promocionar la lengua y cultura catalanas en Internet",
+    "ca-ES": "🌐 El domini .cat va ser creat el 2005 per promocionar la llengua i cultura catalanes a Internet"
   },
   {
-    "es-es": "📱 Mobile First? Siempre. A menos que me distraiga con un gif de gatos 🐈",
-    "ca-es": "📱 Mobile First? Sempre. A no ser que em distregui amb un gif de gats 🐈",
-    "en-gb": "📱 Mobile First? Always. Unless I get distracted by a cat gif 🐈"
+    "en-GB": "📱 Mobile First? Always. Unless I get distracted by a cat gif 🐈",
+    "es-ES": "📱 Mobile First? Siempre. A menos que me distraiga con un gif de gatos 🐈",
+    "ca-ES": "📱 Mobile First? Sempre. A no ser que em distregui amb un gif de gats 🐈"
   },
   {
-    "es-es": "🐱 Los gatos tienen 7 vidas... los devs solo necesitamos 1 buena terminal 💻",
-    "ca-es": "🐱 Els gats tenen 7 vides... els devs només necessitem 1 bona terminal 💻",
-    "en-gb": "🐱 Cats have 7 lives... devs just need 1 good terminal 💻"
+    "en-GB": "🐱 Cats have 7 lives... devs just need 1 good terminal 💻",
+    "es-ES": "🐱 Los gatos tienen 7 vidas... los devs solo necesitamos 1 buena terminal 💻",
+    "ca-ES": "🐱 Els gats tenen 7 vides... els devs només necessitem 1 bona terminal 💻"
   },
   {
-    "es-es": "🐾 Psst... ¿Sabías que los gatos maquetan mejor que los humanos? ¡Pruébalo!",
-    "ca-es": "🐾 Psst... Sabies que els gats maqueten millor que els humans? Prova-ho!",
-    "en-gb": "🐾 Psst... Did you know cats layout better than humans? Try it!"
+    "en-GB": "🐾 Psst... Did you know cats layout better than humans? Try it!",
+    "es-ES": "🐾 Psst... ¿Sabías que los gatos maquetan mejor que los humanos? ¡Pruébalo!",
+    "ca-ES": "🐾 Psst... Sabies que els gats maqueten millor que els humans? Prova-ho!"
   },
   {
-    "es-es": "Bonus: Los gatos maquetan con 💜, pero yo uso HTML",
-    "ca-es": "Bonus: Els gats maqueten amb 💜, però jo faig servir HTML",
-    "en-gb": "Bonus: Cats layout with 💜, but I use HTML"
+    "en-GB": "Bonus: Cats layout with 💜, but I use HTML",
+    "es-ES": "Bonus: Los gatos maquetan con 💜, pero yo uso HTML",
+    "ca-ES": "Bonus: Els gats maqueten amb 💜, però jo faig servir HTML"
   }
 ]
