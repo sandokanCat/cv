@@ -47,7 +47,7 @@ function resetRandomMsg(selector = "#random-phrases") {
 }
 
 // INIT RANDOM PHRASES
-function showRandomMsg(selector = "#random-phrases") {
+async function showRandomMsg(selector = "#random-phrases") {
     if (intervalStarted) return; // PREVENT MULTIPLE LOOPS
     intervalStarted = true;
 

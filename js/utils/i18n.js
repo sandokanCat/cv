@@ -20,7 +20,7 @@ const flagIcons = Array.from(i18nBtns).map(btn => ({
 
 // DETECT LANGUAGE
 const detectLang = () => {
-    const stored = localStorage.getItem('lang');
+    const stored = localStorage.getItem('lang')?.toLowerCase();
     const browser = navigator.language.slice(0, 2).toLowerCase();
     return langs.includes(stored) ? stored : langs.includes(browser) ? browser : fallback;
 };
