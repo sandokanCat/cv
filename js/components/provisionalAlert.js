@@ -4,26 +4,26 @@ import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/
 // GLOBAL VARIABLES
 const json = "js/data/alerts.json"; // SOURCE JSON FILE
 
+const alertLinks = document.querySelectorAll('a[data-status]'); // CACHED ALL ALERT LINKS
 let lastAlert = null; // LAST SHOWN ALERT
 
 // FETCHES AND VALIDATES REMOTE JSON VIA PUBLIC LIBRARY
 const loadAlertsData = async () => {
     // FETCH AND BASE VALIDATION
-    const alerts = await validateJSON(json, {
-        allowedTypes: "string", // ENSURE ARRAY OF STRINGS
-        requireContent: true,   // FAIL IF EMPTY
-    });
+    const alerts = await validateJSON(json, { allowedTypes: "string" }); // ENSURE ARRAY OF STRINGS
 
     return alerts; // RETURN VALIDATED ALERT DATA
 };
 
 // INIT PROVISIONAL ALERTS
-export async function provisionalAlert(selector = 'a[data-status]') {
+export async function provisionalAlert() {
     try {
         const alerts = await loadAlertsData(); // ENSURE ALERTS ARE LOADED
 
         // ATTACH CLICK EVENTS TO ALL MATCHING LINKS
-        document.querySelectorAll(selector).forEach(link => {
+        alertLinks.forEach(link => {
+            if (link.dataset.alertBound === "true") return;
+
             link.addEventListener('click', (event) => {
                 event.preventDefault(); // PREVENT DEFAULT NAVIGATION
 
@@ -41,6 +41,8 @@ export async function provisionalAlert(selector = 'a[data-status]') {
                     window.open(link.href, '_blank');
                 }
             });
+
+            link.dataset.alertBound = "true"; // PREVENT MULTIPLE BINDINGS
         });
 
     } catch (err) {
