@@ -2,7 +2,7 @@
 import { activeJS } from './utils/activeJS.js';
 import { initI18n } from './utils/i18n.js';
 
-import * as components from './components/index.js';
+import { themeDark, openMenu, openModal } from './components/index.js';
 
 import { signature } from './utils/signature.js';
 import { manageCookies } from './utils/manageCookies.js';
@@ -10,14 +10,11 @@ import { manageCookies } from './utils/manageCookies.js';
 // CALLING FUNCTIONS
 document.addEventListener("DOMContentLoaded", async () => {
     activeJS('js-disabled', 'js-enabled');
-
-    initI18n('html[lang]', 'title', 'button[data-lang]', '*[data-i18n]', '*[data-i18n-attr]');
+    await initI18n('html[lang]', 'title', 'button[data-lang]', '*[data-i18n]', '*[data-i18n-attr]');
     
-    components.themeDark('#theme-dark-btn');
-    await components.initCarousel('.carousel-container', '.carousel-imgs', '.carousel-advance', '.carousel-back');
-    components.openMenu('#burger-btn', '#github-icon', '#vercel-icon');
-    await components.provisionalAlert('a[data-status]');
-    components.openModal('.modal-link', '#modal-container', '#modal-content', '#modal-iframe', '#modal-close');
+    themeDark('#theme-dark-btn');
+    openMenu('#burger-btn', '#github-icon', '#vercel-icon');
+    openModal('.modal-link', '#modal-container', '#modal-content', '#modal-iframe', '#modal-close');
 
     signature('#signature-year');
     manageCookies('#cookies-bar', '#accept-cookies');

@@ -1,8 +1,6 @@
 // IMPORTS
 import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";
-import { reloadCarousel } from "../components/carousel.js";
-import { reloadRandomMsg } from "../components/randomPhrases.js";
-import { reloadProvisionalAlert } from "../components/provisionalAlerts.js";
+import { reloadCarousel, reloadRandomMsg, reloadProvisionalAlert } from "../components/index.js";
 
 // SUPPORTED LOCALES
 const supportedLocales = ['en-GB', 'es-ES', 'ca-ES'];
@@ -12,19 +10,17 @@ const getJsonPath = locale => `js/i18n/${locale}.json`; // SOURCE JSON FILES
 
 // GET <html lang="xx-XX"> OR DEFAULT
 const htmlLang = document.documentElement.lang?.trim() || 'en-GB';
-const htmlLangBase = htmlLang.split('-')[0].toLowerCase(); // e.g., 'es'
+const htmlLangBase = htmlLang.split('-')[0].toLowerCase();
 const fallbackLocale = 'en-GB';
 
 // RESOLVE ACTUAL LOCALE
 const getCurrentLocale = (selectedLang = null) => {
-    const stored = localStorage.getItem('lang')?.trim();
+    const stored = localStorage.getItem('lang');
     const preferred = selectedLang || stored || navigator.language;
     const normalized = preferred.trim();
 
-    // Match exact
     if (supportedLocales.includes(normalized)) return normalized;
 
-    // Match base lang
     const base = normalized.split('-')[0];
     return supportedLocales.find(l => l.startsWith(base)) || fallbackLocale;
 };
@@ -34,7 +30,7 @@ function getNestedValue(obj, path) {
     return path.split('.').reduce((acc, key) => acc?.[key], obj);
 }
 
-// GLOBAL ELEMENTS
+// DOM ELEMENTS
 const htmlEl = document.querySelector('html');
 const titleEl = document.querySelector('title');
 const i18nBtns = document.querySelectorAll('[data-lang]');
@@ -70,11 +66,17 @@ function setLangMetadata(locale) {
     if (htmlEl) htmlEl.setAttribute('lang', locale);
 }
 
-// MAIN INIT FUNCTION
-export const initI18n = async (selectedLang = null) => {
-    await reloadRandomMsg('#random-phrases');
+// RELOAD DYNAMIC CONTENTS
+async function reloadDynamicContent(locale) {
+    await reloadCarousel('.carousel-container', '.carousel-imgs', '.carousel-advance', '.carousel-back', locale);
+    await reloadRandomMsg('#random-phrases', locale);
+    await reloadProvisionalAlert('a[data-status]', locale);
+}
 
-    const locale = getCurrentLocale(selectedLang);
+// MAIN INIT FUNCTION
+export const initI18n = async (locale) => {
+    if (document.documentElement.lang === locale) return; // AVOID REDUNDANT INIT
+
     const jsonPath = getJsonPath(locale);
 
     try {
@@ -96,6 +98,8 @@ export const initI18n = async (selectedLang = null) => {
             const use = btn.querySelector('use');
             if (use) use.setAttribute('href', `img/sprite.svg#${countryCode}-flag`);
         });
+
+        await reloadDynamicContent(locale); // CALL DYNAMIC CONTENT RELOAD
 
     } catch (err) {
         console.error('i18n.js ERROR:', jsonPath, "→", err.name, err.message, err.stack);
