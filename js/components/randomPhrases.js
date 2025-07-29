@@ -85,10 +85,7 @@ async function showRandomMsg() {
             lastPhrase = selected;
 
             // FIND TARGET ELEMENT
-            if (!target) {
-                console.error('NOT FOUND → ', target?.outerHTML);
-                return;
-            }
+            if (!target) throw new Error(`NOT FOUND TARGET ELEMENT: ${target?.outerHTML ?? '[null]'}`);
 
             target.classList.add("fade-out"); // TRIGGER FADE-OUT
 
