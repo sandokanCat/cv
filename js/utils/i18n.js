@@ -9,10 +9,6 @@ const fallbackLocale = 'en-GB';
 // GET PATH TO JSON FILE BASED ON LOCALE
 const getJsonPath = locale => `js/i18n/${locale}.json`; // SOURCE JSON FILES
 
-// GET <html lang="xx-XX"> OR DEFAULT
-const htmlLang = document.documentElement.lang?.trim() || 'en-GB';
-const htmlLangBase = htmlLang.split('-')[0].toLowerCase();
-
 // RESOLVE ACTUAL LOCALE
 export const getLocale = (selectedLang = null) => {
     const stored = localStorage.getItem('lang');
@@ -31,7 +27,7 @@ function getNestedValue(obj, path) {
     return path.split('.').reduce((acc, key) => acc?.[key], obj);
 }
 
-// DOM ELEMENTS
+// CACHED DOM ELEMENTS
 const htmlEl = document.querySelector('html');
 const titleEl = document.querySelector('title');
 const i18nBtns = document.querySelectorAll('[data-lang]');

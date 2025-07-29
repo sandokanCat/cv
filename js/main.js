@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     
     themeDark('#theme-dark-btn');
     openMenu('#burger-btn', '#github-icon', '#vercel-icon');
-    openModal('.modal-link', '#modal-container', '#modal-content', '#modal-iframe', '#modal-close');
+    // openModal('.modal-link', '#modal-container', '#modal-content', '#modal-iframe', '#modal-close');
 
     signature('#signature-year');
     manageCookies('#cookies-bar', '#accept-cookies');
