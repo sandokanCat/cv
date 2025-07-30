@@ -1,6 +1,6 @@
 // IMPORTS
 import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";
-import { reloadCarousel, reloadRandomMsg, reloadProvisionalAlert } from "../components/index.js";
+// import { reloadCarousel, reloadRandomMsg, reloadProvisionalAlert } from "../components/index.js";
 
 // SUPPORTED LOCALES
 const supportedLocales = ['en-GB', 'es-ES', 'ca-ES'];
@@ -65,9 +65,9 @@ function setLangMetadata(locale) {
 
 // RELOAD DYNAMIC CONTENTS
 async function reloadDynamicContent(locale) {
-    await reloadCarousel('.carousel-container', '.carousel-imgs', '.carousel-advance', '.carousel-back', locale);
-    await reloadRandomMsg('#random-phrases', locale);
-    await reloadProvisionalAlert('a[data-status]', locale);
+    // await reloadCarousel('.carousel-container', '.carousel-imgs', '.carousel-advance', '.carousel-back', locale);
+    // await reloadRandomMsg('#random-phrases', locale);
+    // await reloadProvisionalAlert('a[data-status]', locale);
 }
 
 // MAIN INIT FUNCTION
