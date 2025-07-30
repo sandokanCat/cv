@@ -38,8 +38,8 @@ export const initI18n = async (locale = getLocale()) => {
     if (document.documentElement.lang === locale) return; // AVOID REDUNDANT INIT
 
     // NESTED PROPERTY ACCESSOR
-    function getNestedValue(obj, path) {
-        return path.split('.').reduce((acc, key) => acc?.[key], obj);
+    function getNestedValue(obj, key) {
+        return key.split('.').reduce((acc, part) => acc && acc[part], obj);
     }
     
     const jsonPath = getJsonPath(locale);
@@ -68,18 +68,17 @@ export const initI18n = async (locale = getLocale()) => {
             const key = el.getAttribute('data-i18n');
             const value = getNestedValue(translations, key);
             
-            if (typeof value === 'object') {
-                if ('html' in value) { // CHECK FOR HTML
-                    el.innerHTML = value.html;
-                } else if ('text' in value) { // CHECK FOR TEXT
-                    el.textContent = value.text;
-                } else {
-                    console.error(`NO html/text IN "${key}"`);
-                }
+            if (!value) {
+                console.error(`TRANSLATION KEY "${key}" NOT FOUND`);
+                return;
+            } else if (typeof value === 'object' && 'html' in value) {
+                el.innerHTML = value.html;
+            } else if (typeof value === 'object' && 'text' in value) {
+                el.textContent = value.text;
             } else if (typeof value === 'string') {
                 el.textContent = value;
             } else {
-                console.error(`MISSING KEY "${key}"`);
+                console.error(`UNSUPPORTED VALUE TYPE FOR KEY "${key}"`, value);
             }
         });
 
