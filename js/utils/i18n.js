@@ -10,15 +10,14 @@ const fallbackLocale = 'en-GB';
 const getJsonPath = locale => `js/i18n/${locale}.json`; // SOURCE JSON FILES
 
 // RESOLVE ACTUAL LOCALE
-export const getLocale = (selectedLang = null) => {
+export const getLocale = () => {
     const stored = localStorage.getItem('lang');
-    const preferred = selectedLang || stored || navigator.language || fallbackLocale;
+    const preferred = stored || navigator.language || fallbackLocale;
     const normalized = preferred.trim();
 
     if (supportedLocales.includes(normalized)) return normalized;
 
     const base = normalized.split('-')[0].toLowerCase();
-
     return supportedLocales.find(l => l.toLowerCase().startsWith(base)) || fallbackLocale;
 }
 
@@ -72,6 +71,8 @@ async function reloadDynamicContent(locale) {
 
 // MAIN INIT FUNCTION
 export const initI18n = async (locale) => {
+    const locale = getLocale();
+
     if (document.documentElement.lang === locale) return; // AVOID REDUNDANT INIT
 
     const jsonPath = getJsonPath(locale);
@@ -84,13 +85,11 @@ export const initI18n = async (locale) => {
         setLangMetadata(locale);
 
         // SET PAGE TITLE
-        if (titleEl) {
-            const titleValue = getNestedValue(translations, 'title');
-            if (typeof titleValue !== 'undefined') titleEl.textContent = titleValue;
-        }
+        const titleValue = getNestedValue(translations, 'title');
+        if (titleValue) titleEl.textContent = titleValue;
 
-        // UPDATE FLAGS (only country code in lowercase)
-        const countryCode = locale.split('-')[1].toLowerCase(); // e.g., 'ES'
+        // UPDATE FLAGS
+        const countryCode = locale.split('-')[1].toLowerCase();
         i18nBtns.forEach(btn => {
             const use = btn.querySelector('use');
             if (use) use.setAttribute('href', `img/sprite.svg#${countryCode}-flag`);
