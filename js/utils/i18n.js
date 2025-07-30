@@ -71,11 +71,12 @@ export const initI18n = async (locale = getLocale()) => {
             if (!value) {
                 console.error(`TRANSLATION KEY "${key}" NOT FOUND`);
                 return;
-            } else if (typeof value === 'object' && 'html' in value) {
-                el.innerHTML = value.html;
-            } else if (typeof value === 'object' && 'text' in value) {
-                el.textContent = value.text;
-            } else if (typeof value === 'string') {
+            }
+            
+            if (typeof value === 'object' && 'html' in value) el.innerHTML = value.html;
+            if (typeof value === 'object' && 'text' in value) el.textContent = value.text;
+            
+            if (typeof value === 'string') {
                 el.textContent = value;
             } else {
                 console.error(`UNSUPPORTED VALUE TYPE FOR KEY "${key}"`, value);
