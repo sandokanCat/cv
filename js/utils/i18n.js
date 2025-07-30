@@ -52,7 +52,7 @@ export const initI18n = async (locale = getLocale()) => {
         if (htmlEl) {
             htmlEl.setAttribute('lang', locale);
         } else {
-            console.error("setLangMetadata: ERROR ON APPLY LANG METADATA OR STORE IN localStorage");
+            console.error("ERROR ON APPLY LANG METADATA OR STORE IN localStorage");
         }
         
         // TRANSLATE PAGE TITLE
@@ -60,18 +60,27 @@ export const initI18n = async (locale = getLocale()) => {
         if (titleValue) {
             titleEl.textContent = titleValue;
         } else {
-            console.error("setLangMetadata: ERROR ON TRANSLATE PAGE TITLE");
+            console.error("ERROR ON TRANSLATE PAGE TITLE");
         }
         
-        // TRANSLATE TEXT CONTENT OR HTML
+        // TRANSLATE CONTENT
         i18nElements.forEach(el => {
             const key = el.getAttribute('data-i18n');
             const value = getNestedValue(translations, key);
-            if (value !== undefined) {
-                el.textContent = value
+            
+            if (typeof value === 'object') {
+                if ('html' in value) { // CHECK FOR HTML
+                    el.innerHTML = value.html;
+                } else if ('text' in value) { // CHECK FOR TEXT
+                    el.textContent = value.text;
+                } else {
+                    console.error(`NO html/text IN "${key}"`);
+                }
+            } else if (typeof value === 'string') {
+                el.textContent = value;
             } else {
-                console.error("setLangMetadata: ERROR ON TRANSLATE TEXT CONTENT OR HTML");
-            };
+                console.error(`MISSING KEY "${key}"`);
+            }
         });
 
         // TRANSLATE ATTRIBUTES
@@ -83,19 +92,10 @@ export const initI18n = async (locale = getLocale()) => {
                 if (attr && key && value !== undefined) {
                     el.setAttribute(attr, value);
                 } else {
-                    console.error(`setLangMetadata: ERROR ON TRANSLATE ATTRIBUTE "${attr}" WITH KEY "${key}"`);
+                    console.error(`ERROR ON TRANSLATE ATTRIBUTE "${attr}" WITH KEY "${key}"`);
                 }
             });
         });
-
-        // UPDATE FLAGS
-        // const countryCode = locale.split('-')[1].toLowerCase();
-        // i18nBtns.forEach(btn => {
-        //     const use = btn.querySelector('use');
-        //     if (use) use.setAttribute('href', `img/sprite.svg#${countryCode}-flag`);
-        // });
-
-        // await reloadDynamicContent(locale);
 
     } catch (err) {
         console.error('i18n.js ERROR:', jsonPath, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
@@ -118,8 +118,13 @@ export async function initLangSwitcher(locale = getLocale()) {
             const lang = btn.getAttribute('data-lang')?.trim();
             if (lang) {
                 localStorage.setItem('lang', lang);
-                const newLocale = await initI18n(); // RE-INIT Y OBTIENE NUEVO LOCALE
+                const newLocale = await initI18n();
                 setAriaPressed(newLocale);
+
+                // const use = btn.querySelector('use');
+                // if (use) use.setAttribute('href', `img/sprite.svg#${locale}`);
+
+                // await reloadDynamicContent(locale);
             }
         });
     });
