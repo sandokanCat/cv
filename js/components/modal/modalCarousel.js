@@ -1,5 +1,5 @@
 // IMPORTS
-import { initCarousel } from "../carousel.js";
+import { reloadCarousel } from "../carousel.js";
 
 // BUILD & INIT NEW CAROUSEL IN MODAL
 export async function modalCarousel(link, imgWrapper) {
@@ -97,7 +97,7 @@ export async function modalCarousel(link, imgWrapper) {
 	imgWrapper.appendChild(figure);
 
 	// INIT CAROUSEL
-	initCarousel(
+	reloadCarousel(
 		figure,
 		'.carousel-imgs',
 		'.carousel-advance',
