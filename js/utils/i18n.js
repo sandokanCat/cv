@@ -9,6 +9,13 @@ const fallbackLocale = 'en-GB';
 // GET PATH TO JSON FILE BASED ON LOCALE
 const getJsonPath = locale => `js/i18n/${locale}.json`; // SOURCE JSON FILES
 
+// RELOAD DYNAMIC CONTENTS
+// async function reloadDynamicContent(locale) {
+//     await reloadCarousel('.carousel-container', '.carousel-imgs', '.carousel-advance', '.carousel-back', locale);
+//     await reloadRandomMsg('#random-phrases', locale);
+//     await reloadProvisionalAlert('a[data-status]', locale);
+// };
+
 // CACHED DOM ELEMENTS
 const htmlEl = document.querySelector('html');
 const titleEl = document.querySelector('title');
@@ -18,19 +25,16 @@ const i18nAttrElements = document.querySelectorAll('[data-i18n-attr]');
 
 // RESOLVE ACTUAL LOCALE
 export const getLocale = () => {
-    const stored = localStorage.getItem('lang');
-    const preferred = stored || navigator.language || fallbackLocale;
-    const normalized = preferred.trim();
+    const locale = (localStorage.getItem('lang') || navigator.language || fallbackLocale).trim();
 
-    if (supportedLocales.includes(normalized)) return normalized;
+    if (supportedLocales.includes(locale)) return locale;
 
-    const base = normalized.split('-')[0].toLowerCase();
+    const base = locale.split('-')[0].toLowerCase();
     return supportedLocales.find(l => l.toLowerCase().startsWith(base)) || fallbackLocale;
 }
 
-// MAIN INIT FUNCTION
-export const initI18n = async () => {
-    const locale = getLocale();
+// INIT i18n TO TRANSLATE PAGE
+export const initI18n = async (locale = getLocale()) => {
     if (document.documentElement.lang === locale) return; // AVOID REDUNDANT INIT
 
     // NESTED PROPERTY ACCESSOR
@@ -48,25 +52,29 @@ export const initI18n = async () => {
         if (htmlEl) {
             htmlEl.setAttribute('lang', locale);
         } else {
-            throw new Error("setLangMetadata: ERROR ON APPLY LANG METADATA OR STORE IN localStorage");
+            console.error("setLangMetadata: ERROR ON APPLY LANG METADATA OR STORE IN localStorage");
         }
         
-        // SET PAGE TITLE
+        // TRANSLATE PAGE TITLE
         const titleValue = getNestedValue(translations, 'title');
         if (titleValue) {
             titleEl.textContent = titleValue;
         } else {
-            throw new Error("setLangMetadata: ERROR ON TRANSLATE PAGE TITLE");
+            console.error("setLangMetadata: ERROR ON TRANSLATE PAGE TITLE");
         }
         
         // TRANSLATE TEXT CONTENT OR HTML
         i18nElements.forEach(el => {
             const key = el.getAttribute('data-i18n');
             const value = getNestedValue(translations, key);
-            if (value !== undefined) el.innerHTML = value;
+            if (value !== undefined) {
+                el.textContent = value
+            } else {
+                console.error("setLangMetadata: ERROR ON TRANSLATE TEXT CONTENT OR HTML");
+            };
         });
 
-        // TRANSLATE ATTRIBUTES (aria-label, alt, etc.)
+        // TRANSLATE ATTRIBUTES
         i18nAttrElements.forEach(el => {
             const pairs = el.getAttribute('data-i18n-attr').split(',');
             pairs.forEach(pair => {
@@ -74,6 +82,8 @@ export const initI18n = async () => {
                 const value = getNestedValue(translations, key);
                 if (attr && key && value !== undefined) {
                     el.setAttribute(attr, value);
+                } else {
+                    console.error(`setLangMetadata: ERROR ON TRANSLATE ATTRIBUTE "${attr}" WITH KEY "${key}"`);
                 }
             });
         });
@@ -85,12 +95,6 @@ export const initI18n = async () => {
         //     if (use) use.setAttribute('href', `img/sprite.svg#${countryCode}-flag`);
         // });
 
-        // RELOAD DYNAMIC CONTENTS
-        // async function reloadDynamicContent(locale) {
-        //     await reloadCarousel('.carousel-container', '.carousel-imgs', '.carousel-advance', '.carousel-back', locale);
-        //     await reloadRandomMsg('#random-phrases', locale);
-        //     await reloadProvisionalAlert('a[data-status]', locale);
-        // };
         // await reloadDynamicContent(locale);
 
     } catch (err) {
@@ -98,12 +102,25 @@ export const initI18n = async () => {
     }
 };
 
-// LANG SWITCH LISTENER
-document.addEventListener('DOMContentLoaded', () => {
+// INIT LANG SWITCHER
+export async function initLangSwitcher(locale = getLocale()) {
+    const setAriaPressed = (locale) => {
+        i18nBtns.forEach(btn => {
+            const btnLang = btn.getAttribute('data-lang')?.trim();
+            btn.setAttribute('aria-pressed', btnLang === locale ? 'true' : 'false');
+        });
+    };
+
+    setAriaPressed(locale);
+
     i18nBtns.forEach(btn => {
         btn.addEventListener('click', async () => {
             const lang = btn.getAttribute('data-lang')?.trim();
-            if (lang) await initI18n(lang);
+            if (lang) {
+                localStorage.setItem('lang', lang);
+                const newLocale = await initI18n(); // RE-INIT Y OBTIENE NUEVO LOCALE
+                setAriaPressed(newLocale);
+            }
         });
     });
-});
+}

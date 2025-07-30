@@ -1,6 +1,6 @@
 // IMPORTS
 import { activeJS } from './utils/activeJS.js';
-import { initI18n } from './utils/i18n.js';
+import { initI18n, initLangSwitcher } from './utils/i18n.js';
 
 import { themeDark, openMenu/*, openModal*/ } from './components/index.js';
 
@@ -10,7 +10,8 @@ import { manageCookies } from './utils/manageCookies.js';
 // CALLING FUNCTIONS
 document.addEventListener("DOMContentLoaded", async () => {
     activeJS('js-disabled', 'js-enabled');
-    await initI18n('html[lang]', 'title', 'button[data-lang]', '*[data-i18n]', '*[data-i18n-attr]');
+    await initI18n('html[lang]', 'title', '*[data-i18n]', '*[data-i18n-attr]');
+    await initLangSwitcher('button[data-lang]');
     
     themeDark('#theme-dark-btn');
     openMenu('#burger-btn', '#github-icon', '#vercel-icon');
