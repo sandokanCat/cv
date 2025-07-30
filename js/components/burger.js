@@ -1,5 +1,5 @@
 export function openMenu() {
-    const burgerBtn = document.getElementById("burger-btn");
+    const burgerBtn = document.getElementById("burger-btn").querySelector("button");
     const githubIcon = document.getElementById("github-icon");
     const vercelIcon = document.getElementById("vercel-icon");
 
@@ -8,7 +8,7 @@ export function openMenu() {
         const newState = !isExpanded;
 
         burgerBtn.setAttribute("aria-expanded", newState);
-        burgerBtn.setAttribute("aria-label", newState ? "Cerrar menú" : "Abrir menú");
+        burgerBtn.setAttribute("aria-label", newState ? "Close menu" : "Open menu");
 
         githubIcon.classList.toggle("active");
         vercelIcon.classList.toggle("active");
