@@ -74,14 +74,14 @@ export const initI18n = async (locale = getLocale()) => {
             }
             
             if (typeof value === 'object') {
-                if ('html' in value) {
+                if ('html' in value) { // CHECK FOR HTML
                     el.innerHTML = value.html;
-                } else if ('text' in value) {
+                } else if ('text' in value) { // CHECK FOR TEXT
                     el.textContent = value.text;
                 } else {
                     console.error(`NO html/text IN "${key}"`);
                 }
-            } else if (typeof value === 'string') {
+            } else if (typeof value === 'string') { // FALLBACK
                 el.textContent = value;
             } else {
                 console.error(`UNSUPPORTED VALUE TYPE FOR KEY "${key}"`, value);

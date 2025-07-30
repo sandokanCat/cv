@@ -10,7 +10,7 @@ import { manageCookies } from './utils/manageCookies.js';
 // CALLING FUNCTIONS
 document.addEventListener("DOMContentLoaded", async () => {
     activeJS('js-disabled', 'js-enabled');
-    await initI18n('html[lang]', 'title', '*[data-i18n]', '*[data-i18n-attr]');
+    await initI18n(/*'html[lang]', 'title', '*[data-i18n]', '*[data-i18n-attr]'*/);
     await initLangSwitcher('button[data-lang]');
     
     themeDark('#theme-dark-btn');
