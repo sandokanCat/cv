@@ -121,7 +121,10 @@
         "html": "Disponibilidad total dentro de la provincia de <span lang='ca-ES'>Barcelona</span>"
     },
     "burgerBtn": {
-        "aria-label": "Abrir menú"
+        "aria-label": {
+            "open": "Abrir menú",
+            "close": "Cerrar menú"
+        }
     },
     "estopa": {
         "alt": "Página de fans de Estopa. Inacabado"

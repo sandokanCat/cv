@@ -1,5 +1,6 @@
 // IMPORTS
 import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";
+import { locales } from "../i18n/locales.js";
 // import { reloadCarousel, reloadRandomMsg, reloadProvisionalAlert } from "../components/index.js";
 
 // SUPPORTED LOCALES
@@ -31,6 +32,11 @@ export const getLocale = () => {
 
     const base = locale.split('-')[0].toLowerCase();
     return supportedLocales.find(l => l.toLowerCase().startsWith(base)) || fallbackLocale;
+}
+
+// RETURN I18N DATA
+export function getI18nData(locale = getLocale()) {
+    return locales[locale] || locales['en-GB'];
 }
 
 // INIT i18n TO TRANSLATE PAGE

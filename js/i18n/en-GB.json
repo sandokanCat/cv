@@ -121,7 +121,10 @@
         "html": "Full availability within the province of <span lang='ca-ES'>Barcelona</span>"
     },
     "burgerBtn": {
-        "aria-label": "Open menu"
+        "aria-label": {
+            "open": "Open menu",
+            "close": "Close menu"
+        }
     },
     "estopa": {
         "alt": "Estopa Fanpage, unfinished"
