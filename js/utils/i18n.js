@@ -1,6 +1,6 @@
 // IMPORTS
 import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";
-import { locales } from "../i18n/locales.js";
+import { loadLocaleData } from "../i18n/locales.js";
 // import { reloadCarousel, reloadRandomMsg, reloadProvisionalAlert } from "../components/index.js";
 
 // SUPPORTED LOCALES
@@ -35,8 +35,8 @@ export const getLocale = () => {
 }
 
 // RETURN I18N DATA
-export function getI18nData(locale = getLocale()) {
-    return locales[locale] || locales['en-GB'];
+export async function getI18nData(locale) {
+    return await loadLocaleData(locale);
 }
 
 // INIT i18n TO TRANSLATE PAGE

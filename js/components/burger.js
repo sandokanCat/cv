@@ -7,8 +7,8 @@ const githubIcon = document.getElementById("github-icon");
 const vercelIcon = document.getElementById("vercel-icon");
 
 // OPEN HAMBURGER MENU
-export function openMenu(locale) {
-    const { burgerBtn: burgerLabels } = getI18nData(locale);
+export async function openMenu(locale) {
+    const { burgerBtn: burgerLabels } = await getI18nData(locale);
     const labels = burgerLabels?.["aria-label"];
 
     burgerBtn.addEventListener("click", () => {
