@@ -1,5 +1,6 @@
+// HAMBURGER MENU
 export function openMenu() {
-    const burgerBtn = document.getElementById("burger-btn").querySelector("button");
+    const burgerBtn = document.getElementById("burger-btn");
     const githubIcon = document.getElementById("github-icon");
     const vercelIcon = document.getElementById("vercel-icon");
 
@@ -7,9 +8,12 @@ export function openMenu() {
         const isExpanded = burgerBtn.getAttribute("aria-expanded") === "true";
         const newState = !isExpanded;
 
-        burgerBtn.setAttribute("aria-expanded", newState);
+        // SET ARIA STATES
+        burgerBtn.setAttribute("aria-expanded", newState.toString());
+        burgerBtn.setAttribute("aria-pressed", newState.toString());
         burgerBtn.setAttribute("aria-label", newState ? "Close menu" : "Open menu");
 
+        // TOGGLE ICONS
         githubIcon.classList.toggle("active");
         vercelIcon.classList.toggle("active");
 

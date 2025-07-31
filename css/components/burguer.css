@@ -12,12 +12,12 @@
     width: 0;
     height: 30px;
 }
-#burger-btn {
+#burger-btn-wrapper {
     display: flex;
     align-items: center;
     z-index: 2;
 }
-#burger-btn,
+#burger-btn-wrapper,
 #github-icon,
 #vercel-icon {
     position: absolute;
