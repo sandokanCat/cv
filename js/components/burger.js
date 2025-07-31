@@ -9,8 +9,8 @@ export function openMenu() {
         const newState = !isExpanded;
 
         // SET ARIA STATES
-        burgerBtn.setAttribute("aria-expanded", newState.toString());
-        burgerBtn.setAttribute("aria-pressed", newState.toString());
+        burgerBtn.setAttribute("aria-expanded", newState);
+        burgerBtn.setAttribute("aria-pressed", newState);
         burgerBtn.setAttribute("aria-label", newState ? "Close menu" : "Open menu");
 
         // TOGGLE ICONS
