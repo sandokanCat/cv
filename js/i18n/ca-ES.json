@@ -3,7 +3,7 @@
         "text": "Gonzalo Cabezas | Desenvolupador Frontend web"
     },
     "darkBtn": {
-        "aria-label": "Alternar mode fosc"                        
+        "aria-label": "Alternar mode fosc"
     },
     "langBtnCa": {
         "aria-label": "Català"
