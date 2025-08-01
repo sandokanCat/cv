@@ -1,19 +1,20 @@
 // IMPORTS
 import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";
-import { loadLocaleData } from "../i18n/locales.js";
-// import { reloadCarousel, reloadRandomMsg, reloadProvisionalAlert } from "../components/index.js";
+// import { loadLocaleData } from "../i18n/locales.js";
+// import { reloadCarousel, reloadRandomMsg, reloadBurgerData, reloadProvisionalAlert } from "../components/index.js";
 
 // SUPPORTED LOCALES
 const supportedLocales = ['en-GB', 'es-ES', 'ca-ES'];
 const fallbackLocale = 'en-GB';
 
 // GET PATH TO JSON FILE BASED ON LOCALE
-const getJsonPath = locale => `js/i18n/${locale}.json`; // SOURCE JSON FILES
+export const getJsonPath = locale => `js/i18n/${locale}.json`; // SOURCE JSON FILES
 
 // RELOAD DYNAMIC CONTENTS
 // async function reloadDynamicContent(locale) {
 //     await reloadCarousel('.carousel-container', '.carousel-imgs', '.carousel-advance', '.carousel-back', locale);
 //     await reloadRandomMsg('#random-phrases', locale);
+//     await reloadBurgerData('#burger-btn', '#github-icon', '#vercel-icon', locale);
 //     await reloadProvisionalAlert('a[data-status]', locale);
 // };
 
@@ -34,10 +35,40 @@ export const getLocale = () => {
     return supportedLocales.find(l => l.toLowerCase().startsWith(base)) || fallbackLocale;
 }
 
+// GET TRANSLATION JSON BASED ON LOCALE
+export const getI18nData = async (locale) => {
+    try {
+        const res = await fetch(getJsonPath(locale));
+        if (!res.ok) throw new Error(`${locale} JSON LOAD FAILED`);
+
+        const data = await res.json();
+
+        if (!validateJSON(data)) throw new Error(`${locale} INVALID JSON STRUCTURE`);
+
+        return data;
+    } catch (err) {
+        console.error(`LOCALE FALLBACK: ${locale} → ${fallbackLocale}`, err.name, err.message, err.stack);
+
+        try {
+            const fallbackRes = await fetch(getJsonPath(fallbackLocale));
+            if (!fallbackRes.ok) throw new Error(`${fallbackLocale} JSON LOAD FAILED`);
+
+            const fallbackData = await fallbackRes.json();
+
+            if (!validateJSON(fallbackData)) throw new Error(`${fallbackLocale} INVALID JSON STRUCTURE`);
+
+            return fallbackData;
+        } catch (fallbackErr) {
+            console.error(`FATAL: FALLBACK ${fallbackLocale} ALSO FAILED`, fallbackErr.name, fallbackErr.message, fallbackErr.stack);
+            return {}; // PREVENT APP CRASH
+        }
+    }
+};
+
 // RETURN I18N DATA
-export async function getI18nData(locale) {
-    return await loadLocaleData(locale);
-}
+// export async function getI18nData(locale) {
+//     return await loadLocaleData(locale);
+// }
 
 // INIT i18n TO TRANSLATE PAGE
 export const initI18n = async (locale = getLocale()) => {
@@ -47,11 +78,9 @@ export const initI18n = async (locale = getLocale()) => {
     function getNestedValue(obj, key) {
         return key.split('.').reduce((acc, part) => acc && acc[part], obj);
     }
-    
-    const jsonPath = getJsonPath(locale);
 
     try {
-        const translations = await validateJSON(jsonPath);
+        const translations = await getI18nData(locale);
 
         // SET HTML LANG & STORE IT
         localStorage.setItem('lang', locale);
@@ -109,7 +138,7 @@ export const initI18n = async (locale = getLocale()) => {
         });
 
     } catch (err) {
-        console.error('i18n.js ERROR:', jsonPath, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
+        console.error('i18n.js ERROR:', getJsonPath, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
     }
 };
 

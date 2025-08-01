@@ -2,7 +2,7 @@
 import { activeJS } from './utils/activeJS.js';
 import { initI18n, initLangSwitcher } from './utils/i18n.js';
 
-import { themeDark, openMenu/*, openModal*/ } from './components/index.js';
+import { themeDark, openBurger/*, openModal*/ } from './components/index.js';
 
 import { signature } from './utils/signature.js';
 import { manageCookies } from './utils/manageCookies.js';
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await initLangSwitcher(/*'button[data-lang]'*/);
     
     themeDark('#theme-dark-btn');
-    openMenu('#burger-btn', '#github-icon', '#vercel-icon');
+    openBurger('#burger-btn', '#github-icon', '#vercel-icon');
     // openModal('.modal-link', '#modal-container', '#modal-content', '#modal-iframe', '#modal-close');
 
     signature('#signature-year');

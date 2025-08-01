@@ -1,6 +1,6 @@
 // COMPONENTS
 export { themeDark } from './themeDark.js';
-export { openMenu } from './burger.js';
+export { openBurger } from './burger.js';
 export { openModal } from './modal/modal.js';
 
 // I18N HELPERS
