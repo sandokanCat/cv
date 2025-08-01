@@ -33,7 +33,8 @@ export async function reloadBurgerData(locale = getLocale()) {
 
     // SET INITIAL ARIA-LABEL BASED ON CURRENT STATE
     const isExpanded = burgerBtn.getAttribute("aria-expanded") === "true";
-    updateBurgerAriaLabel(isExpanded);
+    const newState = !isExpanded;
+    updateBurgerAriaLabel(newState);
 }
 
 // TOGGLE BURGER MENU STATES
