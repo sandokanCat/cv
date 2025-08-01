@@ -22,12 +22,19 @@ export async function reloadBurgerData(locale = getLocale()) {
     if (!burgerBtn) return console.error(`${burgerBtn} BURGER BUTTON NOT FOUND`);
 
     // GET LABELS FROM JSON
-    const { burgerBtn: burgerLabels } = await getI18nData(locale);
-    const labels = burgerLabels?.["aria-label"];
+    // const { burgerBtn: burgerLabels } = await getI18nData(locale);
+    // const labels = burgerLabels?.["aria-label"];
+
+    const data = await getI18nData(locale);
+    console.log("🧩 burger.js I18N DATA:", data); // 🔍 DEPURACIÓN
+    const { burgerBtn: burgerLabels } = data;
 
     if (!burgerLabels) {
         console.error(`⚠️ MISSING "burgerBtn" IN LOCALE "${locale}" JSON`);
     }
+
+    const labels = burgerLabels?.["aria-label"];
+
     if (!labels) {
         console.error(`⚠️ MISSING "aria-label" IN "burgerBtn" IN LOCALE "${locale}"`);
     }
