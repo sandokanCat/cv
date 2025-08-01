@@ -123,19 +123,14 @@ export const initI18n = async (locale = getLocale()) => {
             pairs.forEach(pair => {
                 const [attr, key] = pair.split(':');
                 const nested = getNestedValue(translations, key);
-                const value = (nested && typeof nested === "object")
-                    ? nested[attr] ?? nested.text ?? nested.html
-                    : nested;
-
-                if (!value) {
-                    console.error(`TRANSLATION KEY "${key}" NOT FOUND`);
-                    return;
-                }
+                const value = (nested && typeof nested === "object") ? nested[attr] : nested;
 
                 if (typeof value === "string") {
                     el.setAttribute(attr, value);
+                } else if (el.hasAttribute(attr)) {
+                    console.error(`MISSING TRANSLATION FOR REQUIRED ATTRIBUTE "${attr}" IN KEY "${key}"`);
                 } else {
-                    console.error(`ERROR TRANSLATING ATTRIBUTE "${attr}" WITH KEY "${key}" →`, value);
+                    console.error(`TRANSLATION KEY "${key}" NOT FOUND OR INVALID VALUE →`, value);
                 }
             });
         });
