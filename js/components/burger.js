@@ -26,18 +26,11 @@ export async function reloadBurgerData(locale = getLocale()) {
     // const labels = burgerLabels?.["aria-label"];
 
     const data = await getI18nData(locale);
-    console.log("🧩 burger.js I18N DATA:", data); // 🔍 DEPURACIÓN
-    const { burgerBtn: burgerLabels } = data;
+    console.log("🧩 i18n keys:", Object.keys(data)); // 🔍 DEPURACIÓN
 
-    if (!burgerLabels) {
-        console.error(`⚠️ MISSING "burgerBtn" IN LOCALE "${locale}" JSON`);
-    }
+    const labels = data?.burgerBtn?.["aria-label"];
 
-    const labels = burgerLabels?.["aria-label"];
-
-    if (!labels) {
-        console.error(`⚠️ MISSING "aria-label" IN "burgerBtn" IN LOCALE "${locale}"`);
-    }
+    if (!labels) console.error(`MISSING ${data.burgerBtn} IN ${locale}.json FILE`);
 
     // CACHE LABELS FOR RUNTIME USE
     cachedLabels = {
