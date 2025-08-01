@@ -14,7 +14,7 @@ let cachedLabels = {
 
 // UPDATE ARIA-LABEL BASED ON STATE
 function updateBurgerAriaLabel(newState) {
-    burgerBtn.setAttribute("aria-label", cachedLabels[newState ? "open" : "close"]);
+    burgerBtn.setAttribute("aria-label", cachedLabels[!newState ? "open" : "close"]);
 }
 
 // RELOAD I18N LABELS ON INIT
