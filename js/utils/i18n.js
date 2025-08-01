@@ -1,6 +1,6 @@
 // IMPORTS
 import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";
-// import { reloadCarousel, reloadRandomMsg, reloadBurgerData, reloadProvisionalAlert } from "../components/index.js";
+import { /*reloadCarousel, reloadRandomMsg,*/ reloadBurgerData/*, reloadProvisionalAlert*/ } from "../components/index.js";
 
 // SUPPORTED LOCALES
 const supportedLocales = ['en-GB', 'es-ES', 'ca-ES'];
@@ -64,11 +64,6 @@ export const getI18nData = async (locale) => {
     }
 };
 
-// RETURN I18N DATA
-// export async function getI18nData(locale) {
-//     return await loadLocaleData(locale);
-// }
-
 // INIT i18n TO TRANSLATE PAGE
 export const initI18n = async (locale = getLocale()) => {
     if (document.documentElement.lang === locale) return; // AVOID REDUNDANT INIT
@@ -94,7 +89,7 @@ export const initI18n = async (locale = getLocale()) => {
         if (titleValue) {
             titleEl.textContent = titleValue;
         } else {
-            console.error("ERROR ON TRANSLATE PAGE TITLE");
+            console.error("ERROR TRANSLATING PAGE TITLE");
         }
         
         // TRANSLATE CONTENT
@@ -118,7 +113,7 @@ export const initI18n = async (locale = getLocale()) => {
             } else if (typeof value === 'string') { // FALLBACK
                 el.textContent = value;
             } else {
-                console.error(`UNSUPPORTED VALUE TYPE FOR KEY "${key}"`, value);
+                console.error(`UNSUPPORTED VALUE TYPE FOR KEY "${key}" →`, value);
             }
         });
 
@@ -129,13 +124,18 @@ export const initI18n = async (locale = getLocale()) => {
                 const [attr, key] = pair.split(':');
                 const nested = getNestedValue(translations, key);
                 const value = (nested && typeof nested === "object")
-                    ? nested.text ?? nested.html ?? String(nested)
+                    ? nested[attr] ?? nested.text ?? nested.html
                     : nested;
 
-                if (attr && key && typeof value === "string") {
+                if (!value) {
+                    console.error(`TRANSLATION KEY "${key}" NOT FOUND`);
+                    return;
+                }
+
+                if (typeof value === "string") {
                     el.setAttribute(attr, value);
                 } else {
-                    console.error(`ERROR ON TRANSLATE ATTRIBUTE "${attr}" WITH KEY "${key}" →`, value);
+                    console.error(`ERROR TRANSLATING ATTRIBUTE "${attr}" WITH KEY "${key}" →`, value);
                 }
             });
         });
