@@ -137,6 +137,7 @@ export const initI18n = async (locale = getLocale()) => {
             });
         });
 
+        await reloadDynamicContent(locale);
     } catch (err) {
         console.error('i18n.js ERROR:', getJsonPath, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
     }
