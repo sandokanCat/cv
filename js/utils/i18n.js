@@ -101,7 +101,6 @@ export const initI18n = async (locale = getLocale()) => {
         i18nElements.forEach(el => {
             const key = el.getAttribute('data-i18n');
             const value = getNestedValue(translations, key);
-            console.log("KEY:", key, "→ VALUE:", value);
             
             if (!value) {
                 console.error(`TRANSLATION KEY "${key}" NOT FOUND`);
@@ -128,11 +127,15 @@ export const initI18n = async (locale = getLocale()) => {
             const pairs = el.getAttribute('data-i18n-attr').split(',');
             pairs.forEach(pair => {
                 const [attr, key] = pair.split(':');
-                const value = getNestedValue(translations, key);
-                if (attr && key && value !== undefined) {
+                const nested = getNestedValue(translations, key);
+                const value = (nested && typeof nested === "object")
+                    ? nested.text ?? nested.html ?? String(nested)
+                    : nested;
+
+                if (attr && key && typeof value === "string") {
                     el.setAttribute(attr, value);
                 } else {
-                    console.error(`ERROR ON TRANSLATE ATTRIBUTE "${attr}" WITH KEY "${key}"`);
+                    console.error(`ERROR ON TRANSLATE ATTRIBUTE "${attr}" WITH KEY "${key}" →`, value);
                 }
             });
         });

@@ -1,4 +1,4 @@
-/*TEAM*/
+/* TEAM */
 
 Position: Front-End Developer
 Name: Gonzalo Cabezas Núñez
@@ -6,8 +6,15 @@ Email: dev [at] sandokan.cat
 Contact: +34 631306583
 
 
-/*TECH*/
+/* TECH */
 
 HTML5
 CSS3
 Vanilla JS
+JSON
+AJAX
+
+
+/* SEE */
+
+https://sandokan.cat/README.md
