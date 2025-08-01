@@ -11,10 +11,10 @@ export const getJsonPath = locale => `js/i18n/${locale}.json`; // SOURCE JSON FI
 
 // RELOAD DYNAMIC CONTENTS
 async function reloadDynamicContent(locale) {
-    // await reloadCarousel('.carousel-container', '.carousel-imgs', '.carousel-advance', '.carousel-back', locale);
-    // await reloadRandomMsg('#random-phrases', locale);
-    await reloadBurgerData('#burger-btn', locale);
-    // await reloadProvisionalAlert('a[data-status]', locale);
+    await reloadCarousel(locale);
+    await reloadRandomMsg(locale);
+    await reloadBurgerData(locale);
+    await reloadProvisionalAlert(locale);
 };
 
 // CACHED DOM ELEMENTS
