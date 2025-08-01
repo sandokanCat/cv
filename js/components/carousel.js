@@ -21,7 +21,7 @@ const loadCarouselData = async () => {
 };
 
 // RELOAD RANDOM PHRASES
-export async function reloadCarousel(locale) {
+export async function reloadCarousel() {
     await initCarousel();
 }
 
