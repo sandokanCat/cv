@@ -120,6 +120,9 @@
     "availability": {
         "html": "Full availability within the province of <span lang='ca-ES'>Barcelona</span>"
     },
+    "burger": {
+        "aria-label": "Repository menu"
+    },
     "burgerBtn": {
         "aria-label": {
             "open": "Open menu",

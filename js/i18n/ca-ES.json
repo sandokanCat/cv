@@ -120,6 +120,9 @@
     "availability": {
         "html": "Disponibilitat total dins de la província de <span lang='ca-ES'>Barcelona</span>"
     },
+    "burger": {
+        "aria-label": "Menú de repositoris"
+    },
     "burgerBtn": {
         "aria-label": {
             "open": "Obrir menú",
