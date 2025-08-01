@@ -5,7 +5,7 @@ import { getLocale } from "../utils/i18n.js"; // USE GLOBAL i18n LOCALE DETECTIO
 // GLOBAL VARIABLES
 const json = "js/data/carousel.json"; // SOURCE JSON FILE
 
-const locale = getLocale(); // FULL LOCALE FROM GLOBAL FUNC
+// const locale = getLocale(); // FULL LOCALE FROM GLOBAL FUNC
 
 // CACHED DOM ELEMENTS
 const container = document.querySelector('.carousel-container');
