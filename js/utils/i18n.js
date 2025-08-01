@@ -11,12 +11,12 @@ const fallbackLocale = 'en-GB';
 export const getJsonPath = locale => `js/i18n/${locale}.json`; // SOURCE JSON FILES
 
 // RELOAD DYNAMIC CONTENTS
-// async function reloadDynamicContent(locale) {
-//     await reloadCarousel('.carousel-container', '.carousel-imgs', '.carousel-advance', '.carousel-back', locale);
-//     await reloadRandomMsg('#random-phrases', locale);
-//     await reloadBurgerData('#burger-btn', '#github-icon', '#vercel-icon', locale);
-//     await reloadProvisionalAlert('a[data-status]', locale);
-// };
+async function reloadDynamicContent(locale) {
+    // await reloadCarousel('.carousel-container', '.carousel-imgs', '.carousel-advance', '.carousel-back', locale);
+    // await reloadRandomMsg('#random-phrases', locale);
+    await reloadBurgerData('#burger-btn', locale);
+    // await reloadProvisionalAlert('a[data-status]', locale);
+};
 
 // CACHED DOM ELEMENTS
 const htmlEl = document.querySelector('html');
