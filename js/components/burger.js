@@ -25,6 +25,13 @@ export async function reloadBurgerData(locale = getLocale()) {
     const { burgerBtn: burgerLabels } = await getI18nData(locale);
     const labels = burgerLabels?.["aria-label"];
 
+    if (!burgerLabels) {
+        console.error(`⚠️ MISSING "burgerBtn" IN LOCALE "${locale}" JSON`);
+    }
+    if (!labels) {
+        console.error(`⚠️ MISSING "aria-label" IN "burgerBtn" IN LOCALE "${locale}"`);
+    }
+
     // CACHE LABELS FOR RUNTIME USE
     cachedLabels = {
         open: labels?.open || "Open menu",
