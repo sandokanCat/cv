@@ -1,6 +1,5 @@
 // IMPORTS
 import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";
-// import { loadLocaleData } from "../i18n/locales.js";
 // import { reloadCarousel, reloadRandomMsg, reloadBurgerData, reloadProvisionalAlert } from "../components/index.js";
 
 // SUPPORTED LOCALES
@@ -102,6 +101,7 @@ export const initI18n = async (locale = getLocale()) => {
         i18nElements.forEach(el => {
             const key = el.getAttribute('data-i18n');
             const value = getNestedValue(translations, key);
+            console.log("KEY:", key, "→ VALUE:", value);
             
             if (!value) {
                 console.error(`TRANSLATION KEY "${key}" NOT FOUND`);
