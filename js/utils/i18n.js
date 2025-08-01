@@ -37,26 +37,12 @@ export const getLocale = () => {
 // GET TRANSLATION JSON BASED ON LOCALE
 export const getI18nData = async (locale) => {
     try {
-        const res = await fetch(getJsonPath(locale));
-        if (!res.ok) throw new Error(`${locale} JSON LOAD FAILED`);
-
-        const data = await res.json();
-
-        if (!validateJSON(data)) throw new Error(`${locale} INVALID JSON STRUCTURE`);
-
-        return data;
+        return await validateJSON(getJsonPath(locale));
     } catch (err) {
         console.error(`LOCALE FALLBACK: ${locale} → ${fallbackLocale}`, err.name, err.message, err.stack);
 
         try {
-            const fallbackRes = await fetch(getJsonPath(fallbackLocale));
-            if (!fallbackRes.ok) throw new Error(`${fallbackLocale} JSON LOAD FAILED`);
-
-            const fallbackData = await fallbackRes.json();
-
-            if (!validateJSON(fallbackData)) throw new Error(`${fallbackLocale} INVALID JSON STRUCTURE`);
-
-            return fallbackData;
+            return await validateJSON(getJsonPath(fallbackLocale));
         } catch (fallbackErr) {
             console.error(`FATAL: FALLBACK ${fallbackLocale} ALSO FAILED`, fallbackErr.name, fallbackErr.message, fallbackErr.stack);
             return {}; // PREVENT APP CRASH
