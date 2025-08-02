@@ -17,13 +17,6 @@ async function reloadDynamicContent(locale) {
     // await updateProvisionalAlert(locale);
 };
 
-// CACHED DOM ELEMENTS
-// const root = document.querySelector('html');
-// const titleSelector = document.querySelector('title');
-// const i18nBtns = document.querySelectorAll('[data-lang]');
-// const textSelector = document.querySelectorAll('[data-i18n]');
-// const attrSelector = document.querySelectorAll('[data-i18n-attr]');
-
 // RESOLVE ACTUAL LOCALE
 export const getLocale = () => {
     const locale = (localStorage.getItem('lang') || navigator.language || fallbackLocale).trim();
@@ -78,31 +71,33 @@ export const initI18n = async ({
         
         // TRANSLATE PAGE TITLE
         const titleValue = getNestedValue(translations, 'title');
-        if (titleValue) {
-            titleSelector.textContent = titleValue;
+        const titleEl = root.querySelector(titleSelector);
+        if (titleEl && titleValue) {
+            titleEl.textContent = titleValue;
         } else {
             console.error("ERROR TRANSLATING PAGE TITLE");
         }
-        
+
         // TRANSLATE CONTENT
-        textSelector.forEach(el => {
+        const textElements = root.querySelectorAll(textSelector);
+        textElements.forEach(el => {
             const key = el.getAttribute('data-i18n');
             const value = getNestedValue(translations, key);
-            
+
             if (!value) {
                 console.error(`TRANSLATION KEY "${key}" NOT FOUND`);
                 return;
             }
-            
+
             if (typeof value === 'object') {
-                if ('html' in value) { // CHECK FOR HTML
+                if ('html' in value) {
                     el.innerHTML = value.html;
-                } else if ('text' in value) { // CHECK FOR TEXT
+                } else if ('text' in value) {
                     el.textContent = value.text;
                 } else {
                     console.error(`NO html/text IN "${key}"`);
                 }
-            } else if (typeof value === 'string') { // FALLBACK
+            } else if (typeof value === 'string') {
                 el.textContent = value;
             } else {
                 console.error(`UNSUPPORTED VALUE TYPE FOR KEY "${key}" →`, value);
@@ -110,7 +105,8 @@ export const initI18n = async ({
         });
 
         // TRANSLATE ATTRIBUTES
-        attrSelector.forEach(el => {
+        const attrElements = root.querySelectorAll(attrSelector);
+        attrElements.forEach(el => {
             const pairs = el.getAttribute('data-i18n-attr').split(',');
             pairs.forEach(pair => {
                 const [attr, key] = pair.split(':');
