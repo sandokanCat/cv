@@ -7,7 +7,10 @@ const supportedLocales = ['en-GB', 'es-ES', 'ca-ES'];
 export const fallbackLocale = 'en-GB';
 
 // GET PATH TO JSON FILE BASED ON LOCALE
-const getJsonPath = locale => `js/i18n/${locale}.json`; // SOURCE JSON FILES
+const getJsonPath = locale => `js/i18n/${locale}.json`;
+
+// SET LOCALE IN LOCAL STORAGE
+const setLocaleStorage = (locale) => localStorage.setItem('lang', locale);
 
 // RELOAD DYNAMIC CONTENTS
 async function reloadDynamicContent(locale) {
@@ -62,7 +65,7 @@ export const initI18n = async ({
         const translations = await getI18nData(locale);
 
         // SET HTML LANG & STORE IT
-        localStorage.setItem('lang', locale);
+        setLocaleStorage(locale);
         if (root) {
             root.setAttribute('lang', locale);
         } else {
@@ -132,31 +135,41 @@ export const initI18n = async ({
 // INIT LANG SWITCHER
 export async function initLangSwitcher(selector, onChange) {
     const langBtns = document.querySelectorAll(selector);
-    const currentLocale = getLocale();
+    let currentLocale = getLocale();
 
     const setAriaPressed = (locale) => {
+        let found = false;
         langBtns.forEach(btn => {
             const btnLang = btn.getAttribute('data-lang')?.trim();
+            if (btnLang === locale) found = true;
             btn.setAttribute('aria-pressed', btnLang === locale ? 'true' : 'false');
         });
-    };
+        if (!found) console.error(`NO LANG BUTTON FOUND FOR LOCALE "${locale}"`);
+    };    
 
     setAriaPressed(currentLocale);
 
     langBtns.forEach(btn => {
         btn.addEventListener('click', async () => {
-            const lang = btn.getAttribute('data-lang')?.trim();
-            if (lang && lang !== currentLocale) {
-                localStorage.setItem('lang', lang);
-                if (typeof onChange === 'function') {
-                    await onChange(lang); // 🧠 OPTIONAL CALLBACK
+            try {
+                const lang = btn.getAttribute('data-lang')?.trim();
+                if (lang && lang !== currentLocale) {
+                    setLocaleStorage(lang);
+                    if (typeof onChange === 'function') {
+                        await onChange(lang);
+                    } else {
+                        await initI18n({ locale: lang });
+                    }
+                    setAriaPressed(lang);
+                    currentLocale = lang;
+                    
+                    // const use = btn.querySelector('use');
+                    // if (use) use.setAttribute('href', `img/sprite.svg#${lang}`);
+                    
+                    // await reloadDynamicContent(lang);
                 }
-                setAriaPressed(lang);
-    
-            // const use = btn.querySelector('use');
-            // if (use) use.setAttribute('href', `img/sprite.svg#${lang}`);
-            
-            // await reloadDynamicContent(lang);
+            } catch (err) {
+                console.error('ERROR CHANGING LANGUAGE:', err.name, err.message, err.stack);
             }
         });
     });

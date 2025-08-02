@@ -13,6 +13,16 @@ const i18nConfig = {
     attrSelector: '*[data-i18n-attr]',
 };
 
+// 📦 CAROUSEL CONFIG
+const carouselRefs = {
+    container: document.querySelector('.carousel-container'),
+    track: document.querySelector('.carousel-track'),
+    scrollbar: document.querySelector('.carousel-scrollbar'),
+    advanceBtn: document.querySelector('.carousel-advance'),
+    backBtn: document.querySelector('.carousel-back'),
+    imgWrapper: document.querySelector('.carousel-imgs')
+};
+
 // 🧠 FUNCTION CALLS STRUCTURED FOR TRACEABILITY + REUSABILITY
 document.addEventListener("DOMContentLoaded", async () => {
     activeJS('js-disabled', 'js-enabled');
@@ -27,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     themeDark('#theme-dark-btn', document.documentElement);
 
-    await initCarousel(locale);
+    await initCarousel(null, 0, 6000, carouselRefs, getLocale());
 
     openBurger('#burger-btn', '#github-icon', '#vercel-icon');
 
