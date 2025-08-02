@@ -1,6 +1,6 @@
 // IMPORTS
 import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";
-import { updateCarouselAlts, /*reloadRandomMsg,*/ updateBurgerData/*, reloadProvisionalAlert*/ } from "../components/index.js";
+import { updateCarouselAlts, /*reloadRandomMsg,*/ updateBurgerData/*, updateProvisionalAlert*/ } from "../components/index.js";
 
 // SUPPORTED LOCALES
 const supportedLocales = ['en-GB', 'es-ES', 'ca-ES'];
@@ -14,7 +14,7 @@ async function reloadDynamicContent(locale) {
     await updateCarouselAlts(locale);
     // await reloadRandomMsg(locale);
     await updateBurgerData(locale);
-    // await reloadProvisionalAlert(locale);
+    // await updateProvisionalAlert(locale);
 };
 
 // CACHED DOM ELEMENTS

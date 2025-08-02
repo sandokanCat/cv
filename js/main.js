@@ -10,11 +10,11 @@ import { manageCookies } from './utils/manageCookies.js';
 // CALLING FUNCTIONS
 document.addEventListener("DOMContentLoaded", async () => {
     activeJS('js-disabled', 'js-enabled');
-    await initI18n(/*'html[lang]', 'title', '*[data-i18n]', '*[data-i18n-attr]'*/);
-    await initLangSwitcher(/*'button[data-lang]'*/);
+    await initI18n(locale);
+    await initLangSwitcher(locale);
     
     themeDark('#theme-dark-btn');
-    initCarousel();
+    await initCarousel(locale);
     openBurger('#burger-btn', '#github-icon', '#vercel-icon');
     // openModal('.modal-link', '#modal-container', '#modal-content', '#modal-iframe', '#modal-close');
 

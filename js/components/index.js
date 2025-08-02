@@ -7,4 +7,4 @@ export { openBurger, updateBurgerData } from './burger.js';
 // I18N HELPERS
 export { updateCarouselAlts } from "./carousel.js";
 export { reloadRandomMsg } from "./randomPhrases.js";
-export { reloadProvisionalAlert } from "./provisionalAlert.js";
+export { updateProvisionalAlert } from "./provisionalAlert.js";

@@ -123,7 +123,7 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
         if (btn) {
             btn.addEventListener('click', acceptConsent);
         } else {
-            console.warn(`No se encontró el botón: ${acceptBtnSelector}`);
+            console.error(`BUTTON ${acceptBtnSelector} NOT FOUND`);
         }
     }
 

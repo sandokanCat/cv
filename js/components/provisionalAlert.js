@@ -20,7 +20,7 @@ function resetProvisionalAlert() {
 }
 
 // RELOAD PROVISIONAL ALERT (EXPORTED)
-export async function reloadProvisionalAlert(locale = getLocale()) {
+export async function updateProvisionalAlert(locale = getLocale()) {
     resetProvisionalAlert();
     await provisionalAlert(locale);
 }
