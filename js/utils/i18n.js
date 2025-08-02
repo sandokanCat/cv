@@ -130,8 +130,8 @@ export const initI18n = async ({
 };
 
 // INIT LANG SWITCHER
-export async function initLangSwitcher(langBtnsSelector) {
-    const langBtns = document.querySelectorAll(langBtnsSelector);
+export async function initLangSwitcher(selector, onChange) {
+    const langBtns = document.querySelectorAll(selector);
     const currentLocale = getLocale();
 
     const setAriaPressed = (locale) => {
@@ -146,16 +146,20 @@ export async function initLangSwitcher(langBtnsSelector) {
     langBtns.forEach(btn => {
         btn.addEventListener('click', async () => {
             const lang = btn.getAttribute('data-lang')?.trim();
-            if (lang) {
+            if (lang && lang !== currentLocale) {
                 localStorage.setItem('lang', lang);
-                await initI18n({ locale: lang });
+                if (typeof onChange === 'function') {
+                    await onChange(lang); // 🧠 OPTIONAL CALLBACK
+                }
                 setAriaPressed(lang);
-
-                // const use = btn.querySelector('use');
-                // if (use) use.setAttribute('href', `img/sprite.svg#${lang}`);
-
-                // await reloadDynamicContent(lang);
+    
+            // const use = btn.querySelector('use');
+            // if (use) use.setAttribute('href', `img/sprite.svg#${lang}`);
+            
+            // await reloadDynamicContent(lang);
             }
         });
     });
+
+    return currentLocale;
 }
