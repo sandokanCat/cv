@@ -20,7 +20,7 @@ const loadCarouselData = async () => {
 
 // RELOAD I18N LABELS ON INIT
 export async function reloadCarousel(locale = getLocale()) {
-    await initCarousel(locale);
+    await initCarousel(null, 0, 6000, locale);
 }
 
 // INIT CAROUSEL WITH AUTOSCROLL + MANUAL CONTROLS
