@@ -1,6 +1,6 @@
 // IMPORTS
 import { validateCarousel } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateCarousel.js"; // FETCH + STRUCTURE + FORMAT VALIDATION
-import { getLocale } from "../utils/i18n.js"; // USE GLOBAL i18n LOCALE DETECTION
+import { getLocale, fallbackLocale } from "../utils/i18n.js"; // USE GLOBAL i18n LOCALE DETECTION
 
 // GLOBAL VARIABLES
 const json = "js/data/carousel.json"; // SOURCE JSON FILE
@@ -14,7 +14,7 @@ const backBtn = container.querySelector('.carousel-back');
 const imgWrapper = container.querySelector('.carousel-imgs');
 
 // FETCHES AND VALIDATES REMOTE JSON VIA PUBLIC LIBRARY
-const loadCarouselData = async () => {
+const loadCarouselData = async (locale) => {
     return await validateCarousel(json); // RETURN VALIDATED CAROUSEL DATA
 }
 
@@ -32,7 +32,7 @@ async function initCarousel(
 ) {
 	try {
 		// FETCH + VALIDATE IMAGES (IF NOT PASSED MANUALLY)
-		const validImgs = imgs || await loadCarouselData();
+		const validImgs = imgs || await loadCarouselData(locale);
         
 		if (!validImgs.length) throw new Error("initCarousel: EMPTY VALID IMAGE LIST");
 
@@ -59,7 +59,7 @@ async function initCarousel(
 
 			const img = document.createElement("img"); // IMG FALLBACK
 			img.src = png.fallback;
-            img.alt = alt[locale];
+            img.alt = alt[locale] || alt[fallbackLocale] || Object.values(alt)[0] || '';
 			img.className = "modal-link";
 			img.setAttribute("data-modal", png.fallback);
 			img.decoding = "async";
