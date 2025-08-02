@@ -5,8 +5,6 @@ import { getLocale } from "../utils/i18n.js"; // USE GLOBAL i18n LOCALE DETECTIO
 // GLOBAL VARIABLES
 const json = "js/data/alerts.json"; // SOURCE JSON FILE
 
-// const locale = getLocale(); // FULL LOCALE FROM GLOBAL FUNC
-
 const alertLinks = document.querySelectorAll('a[data-status]'); // CACHED ALL ALERT LINKS
 let lastAlert = null; // LAST SHOWN ALERT
 

@@ -7,7 +7,7 @@ const supportedLocales = ['en-GB', 'es-ES', 'ca-ES'];
 const fallbackLocale = 'en-GB';
 
 // GET PATH TO JSON FILE BASED ON LOCALE
-export const getJsonPath = locale => `js/i18n/${locale}.json`; // SOURCE JSON FILES
+const getJsonPath = locale => `js/i18n/${locale}.json`; // SOURCE JSON FILES
 
 // RELOAD DYNAMIC CONTENTS
 async function reloadDynamicContent(locale) {

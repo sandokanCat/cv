@@ -20,18 +20,9 @@ const loadCarouselData = async () => {
     return await validateCarousel(json); // RETURN VALIDATED CAROUSEL DATA
 }
 
-// RELOAD RANDOM PHRASES
+// RELOAD I18N LABELS ON INIT
 export async function reloadCarousel(locale = getLocale()) {
-    resetCarousel();
     await initCarousel();
-}
-
-// RESET RANDOM PHRASES
-function resetCarousel() {
-    intervalStarted = false;
-    lastPhrase = null;
-    phrasesPool = [];
-    if (target) target.textContent = ""; // RESET CONTENT
 }
 
 // INIT CAROUSEL WITH AUTOSCROLL + MANUAL CONTROLS
