@@ -58,7 +58,7 @@ async function initCarousel(
 
 			const img = document.createElement("img"); // IMG FALLBACK
 			img.src = png.fallback;
-			img.alt = alt[locale];
+            img.alt = alt[locale] || alt[fallbackLocale] || 'Image description missing';
 			img.className = "modal-link";
 			img.setAttribute("data-modal", png.fallback);
 			img.decoding = "async";
