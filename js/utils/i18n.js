@@ -166,7 +166,7 @@ export async function initLangSwitcher(selector, onChange) {
                     // const use = btn.querySelector('use');
                     // if (use) use.setAttribute('href', `img/sprite.svg#${lang}`);
                     
-                    // await reloadDynamicContent(lang);
+                    await reloadDynamicContent(lang);
                 }
             } catch (err) {
                 console.error('ERROR CHANGING LANGUAGE:', err.name, err.message, err.stack);
