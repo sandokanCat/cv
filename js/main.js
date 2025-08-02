@@ -1,6 +1,6 @@
-// IMPORTS
+// IMPORTS IN DESCENDING ORDER IN THE DOM
 import { activeJS } from './utils/activeJS.js';
-import { initI18n, initLangSwitcher } from './utils/i18n.js';
+import { getLocale, initI18n, initLangSwitcher } from './utils/i18n.js';
 import { themeDark, initCarousel, openBurger/*, openModal*/ } from './components/index.js';
 import { signature } from './utils/signature.js';
 import { manageCookies } from './utils/manageCookies.js';
