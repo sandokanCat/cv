@@ -1,9 +1,10 @@
 // COMPONENTS
 export { themeDark } from './themeDark.js';
-export { openBurger, updateBurqerData } from './burger.js';
+export { initCarousel } from "./carousel.js";
+export { openBurger, updateBurgerData } from './burger.js';
 export { openModal } from './modal/modal.js';
 
 // I18N HELPERS
-export { reloadCarousel } from "./carousel.js";
+export { updateCarouselAlts } from "./carousel.js";
 export { reloadRandomMsg } from "./randomPhrases.js";
 export { reloadProvisionalAlert } from "./provisionalAlert.js";

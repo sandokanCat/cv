@@ -5,6 +5,7 @@ import { getLocale, fallbackLocale } from "../utils/i18n.js"; // USE GLOBAL i18n
 // GLOBAL VARIABLES
 const json = "js/data/carousel.json"; // SOURCE JSON FILE
 let cachedCarouselImgs = null;
+let currentLocaleForCarousel = null;
 
 // CACHED DOM ELEMENTS
 const container = document.querySelector('.carousel-container');
@@ -22,13 +23,11 @@ const loadCarouselData = async (forceReload = false) => {
     return cachedCarouselImgs;
 }
 
-// RELOAD I18N LABELS ON INIT
-async function reloadCarousel(locale = getLocale()) {
-    await initCarousel(null, 0, 6000, locale);
-}
-
 // UPDATE ONLY IMG ALTS BASED ON CURRENT LOCALE
 export async function updateCarouselAlts(locale = getLocale(), validImgs = null) {
+    if (locale === currentLocaleForCarousel) return;
+    currentLocaleForCarousel = locale;
+
     const imgs = track.querySelectorAll("img.modal-link");
     if (!imgs.length) return;
 
@@ -43,7 +42,7 @@ export async function updateCarouselAlts(locale = getLocale(), validImgs = null)
 }
 
 // INIT CAROUSEL WITH AUTOSCROLL + MANUAL CONTROLS
-async function initCarousel(
+export async function initCarousel(
 	imgs = null, // OPTIONAL: ALLOW PASSING CUSTOM IMG ARRAY (SKIPS FETCH)
 	startIndex = 0, // OPTIONAL: INITIAL SLIDE INDEX
 	interval = 6000, // OPTIONAL: AUTOSCROLL INTERVAL
@@ -78,7 +77,7 @@ async function initCarousel(
 
 			const img = document.createElement("img"); // IMG FALLBACK
 			img.src = png.fallback;
-            img.alt = alt[locale] || alt[fallbackLocale] || Object.values(alt)[0] || '';
+            img.alt = ''; // SET TEMPORARY EMPTY ALT – UPDATED LATER BY i18n
 			img.className = "modal-link";
 			img.setAttribute("data-modal", png.fallback);
 			img.decoding = "async";
@@ -121,6 +120,8 @@ async function initCarousel(
 		imgWrapper.addEventListener("mouseleave", update);
 
 		update(); // START LOOP
+
+        await updateCarouselAlts(locale, validImgs); // SET i18n ALT TEXTS
 
 	} catch (err) {
 		console.error("carousel.js ERROR", json, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING

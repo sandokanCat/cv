@@ -18,7 +18,7 @@ function updateBurgerAriaLabel(newState) {
 }
 
 // RELOAD I18N LABELS ON INIT
-export async function updateBurqerData(locale = getLocale()) {
+export async function updateBurgerData(locale = getLocale()) {
     if (!burgerBtn) return console.error(`${burgerBtn} BURGER BUTTON NOT FOUND`);
 
     const data = await getI18nData(locale);
