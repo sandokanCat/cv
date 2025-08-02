@@ -1,27 +1,10 @@
 // 📥 IMPORTS ORDERED TO MATCH DOM HIERARCHY (TOP TO BOTTOM)
 import { activeJS } from './utils/activeJS.js';
+import { i18nConfig, carouselRefs } from './config.js';
 import { getLocale, initI18n, initLangSwitcher } from './utils/i18n.js';
 import { themeDark, initCarousel, openBurger/*, openModal*/ } from './components/index.js';
 import { signature } from './utils/signature.js';
 import { manageCookies } from './utils/manageCookies.js';
-
-// 💡 COMMON CONFIG FOR initI18n
-const i18nConfig = {
-    root: document.documentElement,
-    titleSelector: 'title',
-    textSelector: '*[data-i18n]',
-    attrSelector: '*[data-i18n-attr]',
-};
-
-// 📦 CAROUSEL CONFIG
-const carouselRefs = {
-    container: document.querySelector('.carousel-container'),
-    track: document.querySelector('.carousel-track'),
-    scrollbar: document.querySelector('.carousel-scrollbar'),
-    advanceBtn: document.querySelector('.carousel-advance'),
-    backBtn: document.querySelector('.carousel-back'),
-    imgWrapper: document.querySelector('.carousel-imgs')
-};
 
 // 🧠 FUNCTION CALLS STRUCTURED FOR TRACEABILITY + REUSABILITY
 document.addEventListener("DOMContentLoaded", async () => {
