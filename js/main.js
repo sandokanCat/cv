@@ -1,9 +1,7 @@
 // IMPORTS
 import { activeJS } from './utils/activeJS.js';
 import { initI18n, initLangSwitcher } from './utils/i18n.js';
-
 import { themeDark, initCarousel, openBurger/*, openModal*/ } from './components/index.js';
-
 import { signature } from './utils/signature.js';
 import { manageCookies } from './utils/manageCookies.js';
 
@@ -23,7 +21,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     themeDark('#theme-dark-btn', document.documentElement);
     await initCarousel(locale);
     openBurger('#burger-btn', '#github-icon', '#vercel-icon');
-    // openModal('.modal-link', '#modal-container', '#modal-content', '#modal-iframe', '#modal-close');
+    // openModal({
+    //     linkSelector: '.modal-link',
+    //     containerSelector: '#modal-container',
+    //     contentSelector: '#modal-content',
+    //     iframeSelector: '#modal-iframe',
+    //     closeSelector: '#modal-close'
+    // });
     signature('#signature-year');
     manageCookies('#cookies-bar', '#accept-cookies');
 });
