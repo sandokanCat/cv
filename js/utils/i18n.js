@@ -1,6 +1,6 @@
 // IMPORTS
 import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";
-import { /*reloadCarousel, reloadRandomMsg,*/ reloadBurgerData/*, reloadProvisionalAlert*/ } from "../components/index.js";
+import { reloadCarousel, reloadRandomMsg, reloadBurgerData, reloadProvisionalAlert } from "../components/index.js";
 
 // SUPPORTED LOCALES
 const supportedLocales = ['en-GB', 'es-ES', 'ca-ES'];
