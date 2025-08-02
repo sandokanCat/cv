@@ -130,28 +130,31 @@ export const initI18n = async ({
 };
 
 // INIT LANG SWITCHER
-export async function initLangSwitcher(i18nBtns, locale = getLocale()) {
+export async function initLangSwitcher(langBtnsSelector) {
+    const langBtns = document.querySelectorAll(langBtnsSelector);
+    const currentLocale = getLocale();
+
     const setAriaPressed = (locale) => {
-        i18nBtns.forEach(btn => {
+        langBtns.forEach(btn => {
             const btnLang = btn.getAttribute('data-lang')?.trim();
             btn.setAttribute('aria-pressed', btnLang === locale ? 'true' : 'false');
         });
     };
 
-    setAriaPressed(locale);
+    setAriaPressed(currentLocale);
 
-    i18nBtns.forEach(btn => {
+    langBtns.forEach(btn => {
         btn.addEventListener('click', async () => {
             const lang = btn.getAttribute('data-lang')?.trim();
             if (lang) {
                 localStorage.setItem('lang', lang);
-                const newLocale = await initI18n();
-                setAriaPressed(newLocale);
+                await initI18n({ locale: lang });
+                setAriaPressed(lang);
 
                 // const use = btn.querySelector('use');
-                // if (use) use.setAttribute('href', `img/sprite.svg#${locale}`);
+                // if (use) use.setAttribute('href', `img/sprite.svg#${lang}`);
 
-                // await reloadDynamicContent(locale);
+                // await reloadDynamicContent(lang);
             }
         });
     });
