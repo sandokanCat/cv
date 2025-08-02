@@ -22,13 +22,13 @@ function resetProvisionalAlert() {
 }
 
 // RELOAD PROVISIONAL ALERT (EXPORTED)
-export async function reloadProvisionalAlert(locale = "en-GB") {
+export async function reloadProvisionalAlert(locale = getLocale()) {
     resetProvisionalAlert();
     await provisionalAlert(locale);
 }
 
 // INIT PROVISIONAL ALERTS
-async function provisionalAlert(locale) {
+async function provisionalAlert() {
     try {
         const alerts = await loadAlertsData(); // ENSURE ALERTS ARE LOADED
 

@@ -21,13 +21,7 @@ function updateBurgerAriaLabel(newState) {
 export async function reloadBurgerData(locale = getLocale()) {
     if (!burgerBtn) return console.error(`${burgerBtn} BURGER BUTTON NOT FOUND`);
 
-    // GET LABELS FROM JSON
-    // const { burgerBtn: burgerLabels } = await getI18nData(locale);
-    // const labels = burgerLabels?.["aria-label"];
-
     const data = await getI18nData(locale);
-    console.log("🧩 i18n keys:", Object.keys(data)); // 🔍 DEPURACIÓN
-
     const labels = data?.burgerBtn?.["aria-label"];
 
     if (!labels) console.error(`MISSING ${data.burgerBtn} IN ${locale}.json FILE`);

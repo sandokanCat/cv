@@ -18,10 +18,11 @@ const imgWrapper = container.querySelector('.carousel-imgs');
 // FETCHES AND VALIDATES REMOTE JSON VIA PUBLIC LIBRARY
 const loadCarouselData = async () => {
     return await validateCarousel(json); // RETURN VALIDATED CAROUSEL DATA
-};
+}
 
 // RELOAD RANDOM PHRASES
-export async function reloadCarousel() {
+export async function reloadCarousel(locale = getLocale()) {
+    resetCarousel();
     await initCarousel();
 }
 

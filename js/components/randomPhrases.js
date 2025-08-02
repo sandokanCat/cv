@@ -33,9 +33,9 @@ const loadPhrasesData = async () => {
 };
 
 // RELOAD RANDOM PHRASES
-export async function reloadRandomMsg() {
+export async function reloadRandomMsg(locale = getLocale()) {
     resetRandomMsg();
-    await showRandomMsg();
+    await showRandomMsg(locale);
 }
 
 // RESET RANDOM PHRASES
