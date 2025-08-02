@@ -39,7 +39,7 @@ export async function updateBurgerData(locale = getLocale()) {
 }
 
 // TOGGLE BURGER MENU STATES
-export function openBurger() {
+export function openBurger(burgerBtn, githubIcon, vercelIcon) {
     if (!burgerBtn) return console.error(`${burgerBtn} BURGER BUTTON NOT FOUND`);
 
     burgerBtn.addEventListener("click", () => {

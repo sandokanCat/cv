@@ -18,11 +18,11 @@ async function reloadDynamicContent(locale) {
 };
 
 // CACHED DOM ELEMENTS
-const htmlEl = document.querySelector('html');
-const titleEl = document.querySelector('title');
-const i18nBtns = document.querySelectorAll('[data-lang]');
-const i18nElements = document.querySelectorAll('[data-i18n]');
-const i18nAttrElements = document.querySelectorAll('[data-i18n-attr]');
+// const root = document.querySelector('html');
+// const titleSelector = document.querySelector('title');
+// const i18nBtns = document.querySelectorAll('[data-lang]');
+// const textSelector = document.querySelectorAll('[data-i18n]');
+// const attrSelector = document.querySelectorAll('[data-i18n-attr]');
 
 // RESOLVE ACTUAL LOCALE
 export const getLocale = () => {
@@ -51,7 +51,13 @@ export const getI18nData = async (locale) => {
 };
 
 // INIT i18n TO TRANSLATE PAGE
-export const initI18n = async (locale = getLocale()) => {
+export const initI18n = async ({
+    root = document.documentElement,
+    titleSelector = 'title',
+    textSelector = '*[data-i18n]',
+    attrSelector = '*[data-i18n-attr]',
+    locale = getLocale()
+} = {}) => {
     if (document.documentElement.lang === locale) return; // AVOID REDUNDANT INIT
 
     // NESTED PROPERTY ACCESSOR
@@ -64,8 +70,8 @@ export const initI18n = async (locale = getLocale()) => {
 
         // SET HTML LANG & STORE IT
         localStorage.setItem('lang', locale);
-        if (htmlEl) {
-            htmlEl.setAttribute('lang', locale);
+        if (root) {
+            root.setAttribute('lang', locale);
         } else {
             console.error("ERROR ON APPLY LANG METADATA OR STORE IN localStorage");
         }
@@ -73,13 +79,13 @@ export const initI18n = async (locale = getLocale()) => {
         // TRANSLATE PAGE TITLE
         const titleValue = getNestedValue(translations, 'title');
         if (titleValue) {
-            titleEl.textContent = titleValue;
+            titleSelector.textContent = titleValue;
         } else {
             console.error("ERROR TRANSLATING PAGE TITLE");
         }
         
         // TRANSLATE CONTENT
-        i18nElements.forEach(el => {
+        textSelector.forEach(el => {
             const key = el.getAttribute('data-i18n');
             const value = getNestedValue(translations, key);
             
@@ -104,7 +110,7 @@ export const initI18n = async (locale = getLocale()) => {
         });
 
         // TRANSLATE ATTRIBUTES
-        i18nAttrElements.forEach(el => {
+        attrSelector.forEach(el => {
             const pairs = el.getAttribute('data-i18n-attr').split(',');
             pairs.forEach(pair => {
                 const [attr, key] = pair.split(':');
@@ -128,7 +134,7 @@ export const initI18n = async (locale = getLocale()) => {
 };
 
 // INIT LANG SWITCHER
-export async function initLangSwitcher(locale = getLocale()) {
+export async function initLangSwitcher(i18nBtns, locale = getLocale()) {
     const setAriaPressed = (locale) => {
         i18nBtns.forEach(btn => {
             const btnLang = btn.getAttribute('data-lang')?.trim();

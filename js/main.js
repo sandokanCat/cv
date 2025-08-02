@@ -7,17 +7,23 @@ import { themeDark, initCarousel, openBurger/*, openModal*/ } from './components
 import { signature } from './utils/signature.js';
 import { manageCookies } from './utils/manageCookies.js';
 
-// CALLING FUNCTIONS
+// 🧠 FUNCTION CALLS STRUCTURED FOR TRACEABILITY + REUSABILITY
 document.addEventListener("DOMContentLoaded", async () => {
+    const locale = getLocale()
+
     activeJS('js-disabled', 'js-enabled');
-    await initI18n(locale);
-    await initLangSwitcher(locale);
-    
-    themeDark('#theme-dark-btn');
+    await initI18n({
+        root: document.documentElement,
+        titleSelector: 'title',
+        textSelector: '*[data-i18n]',
+        attrSelector: '*[data-i18n-attr]',
+        locale: locale
+    });
+    await initLangSwitcher('button[data-lang]', locale);
+    themeDark('#theme-dark-btn', document.documentElement);
     await initCarousel(locale);
     openBurger('#burger-btn', '#github-icon', '#vercel-icon');
     // openModal('.modal-link', '#modal-container', '#modal-content', '#modal-iframe', '#modal-close');
-
     signature('#signature-year');
     manageCookies('#cookies-bar', '#accept-cookies');
 });

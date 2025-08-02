@@ -1,4 +1,4 @@
-export const themeDark = (buttonSelector = '#theme-dark-btn', htmlSelector = document.documentElement) => {
+export const themeDark = (buttonSelector, htmlSelector) => {
     const themeDarkToggle = document.querySelector(buttonSelector); // TOGGLE BUTTON
     const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)'); // SYSTEM PREFERENCE
 
