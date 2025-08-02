@@ -4,6 +4,7 @@ import { getLocale, fallbackLocale } from "../utils/i18n.js"; // USE GLOBAL i18n
 
 // GLOBAL VARIABLES
 const json = "js/data/carousel.json"; // SOURCE JSON FILE
+let cachedCarouselImgs = null;
 
 // CACHED DOM ELEMENTS
 const container = document.querySelector('.carousel-container');
@@ -14,8 +15,11 @@ const backBtn = container.querySelector('.carousel-back');
 const imgWrapper = container.querySelector('.carousel-imgs');
 
 // FETCHES AND VALIDATES REMOTE JSON VIA PUBLIC LIBRARY
-const loadCarouselData = async (locale) => {
-    return await validateCarousel(json); // RETURN VALIDATED CAROUSEL DATA
+const loadCarouselData = async (forceReload = false) => {
+    if (forceReload || !cachedCarouselImgs) {
+        cachedCarouselImgs = await validateCarousel(json);
+    }
+    return cachedCarouselImgs;
 }
 
 // RELOAD I18N LABELS ON INIT
@@ -32,7 +36,7 @@ async function initCarousel(
 ) {
 	try {
 		// FETCH + VALIDATE IMAGES (IF NOT PASSED MANUALLY)
-		const validImgs = imgs || await loadCarouselData(locale);
+		const validImgs = imgs || await loadCarouselData();
         
 		if (!validImgs.length) throw new Error("initCarousel: EMPTY VALID IMAGE LIST");
 
