@@ -20,14 +20,15 @@ const loadCarouselData = async () => {
 
 // RELOAD I18N LABELS ON INIT
 export async function reloadCarousel(locale = getLocale()) {
-    await initCarousel();
+    await initCarousel(locale);
 }
 
 // INIT CAROUSEL WITH AUTOSCROLL + MANUAL CONTROLS
 async function initCarousel(
 	imgs = null, // OPTIONAL: ALLOW PASSING CUSTOM IMG ARRAY (SKIPS FETCH)
 	startIndex = 0, // OPTIONAL: INITIAL SLIDE INDEX
-	interval = 6000 // OPTIONAL: AUTOSCROLL INTERVAL
+	interval = 6000, // OPTIONAL: AUTOSCROLL INTERVAL
+    locale = getLocale() // CURRENT LOCALE
 ) {
 	try {
 		// FETCH + VALIDATE IMAGES (IF NOT PASSED MANUALLY)
