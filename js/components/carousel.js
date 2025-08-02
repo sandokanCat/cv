@@ -23,8 +23,23 @@ const loadCarouselData = async (forceReload = false) => {
 }
 
 // RELOAD I18N LABELS ON INIT
-export async function reloadCarousel(locale = getLocale()) {
+async function reloadCarousel(locale = getLocale()) {
     await initCarousel(null, 0, 6000, locale);
+}
+
+// UPDATE ONLY IMG ALTS BASED ON CURRENT LOCALE
+export async function updateCarouselAlts(locale = getLocale(), validImgs = null) {
+    const imgs = track.querySelectorAll("img.modal-link");
+    if (!imgs.length) return;
+
+    const data = validImgs || await loadCarouselData();
+
+    imgs.forEach((img, i) => {
+        const altData = data[i]?.alt;
+        if (altData) {
+            img.alt = altData[locale] || altData[fallbackLocale] || Object.values(altData)[0] || '';
+        }
+    });
 }
 
 // INIT CAROUSEL WITH AUTOSCROLL + MANUAL CONTROLS

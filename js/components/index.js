@@ -1,6 +1,6 @@
 // COMPONENTS
 export { themeDark } from './themeDark.js';
-export { openBurger, reloadBurgerData } from './burger.js';
+export { openBurger, updateBurqerData } from './burger.js';
 export { openModal } from './modal/modal.js';
 
 // I18N HELPERS

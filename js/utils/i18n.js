@@ -1,6 +1,6 @@
 // IMPORTS
 import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";
-import { reloadCarousel, /*reloadRandomMsg,*/ reloadBurgerData/*, reloadProvisionalAlert*/ } from "../components/index.js";
+import { updateCarouselAlts, /*reloadRandomMsg,*/ updateBurqerData/*, reloadProvisionalAlert*/ } from "../components/index.js";
 
 // SUPPORTED LOCALES
 const supportedLocales = ['en-GB', 'es-ES', 'ca-ES'];
@@ -11,9 +11,9 @@ const getJsonPath = locale => `js/i18n/${locale}.json`; // SOURCE JSON FILES
 
 // RELOAD DYNAMIC CONTENTS
 async function reloadDynamicContent(locale) {
-    await reloadCarousel(locale);
+    await updateCarouselAlts(locale);
     // await reloadRandomMsg(locale);
-    await reloadBurgerData(locale);
+    await updateBurqerData(locale);
     // await reloadProvisionalAlert(locale);
 };
 
