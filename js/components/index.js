@@ -1,6 +1,5 @@
 // COMPONENTS
 export { themeDark } from './themeDark.js';
-export { initLangSwitcher } from './langBtns.js';
 export { initCarousel } from "./carousel.js";
 // export { openModal } from './modal/modal.js';
 

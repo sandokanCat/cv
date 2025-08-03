@@ -1,5 +1,5 @@
 // IMPORTS
-import { getLocale, getI18nData } from "../utils/index.js";
+import { getLocale, getI18nData } from "./index.js";
 
 // RELOAD I18N LABELS ON INIT
 export async function updateBurgerData(locale = getLocale()) {

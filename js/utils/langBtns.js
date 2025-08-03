@@ -14,7 +14,7 @@ export async function initLangSwitcher(selector, onChange) {
             btn.setAttribute('aria-pressed', btnLang === locale ? 'true' : 'false');
         });
         if (!found) console.error(`NO LANG BUTTON FOUND FOR LOCALE "${locale}"`);
-    };    
+    };
 
     setAriaPressed(currentLocale);
 
