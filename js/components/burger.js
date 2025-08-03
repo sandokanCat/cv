@@ -1,5 +1,5 @@
 // IMPORTS
-import { getLocale, getI18nData } from "../utils/i18n.js"; // USE GLOBAL i18n LOCALE DETECTION
+import { getLocale, getI18nData } from "../utils/index.js";
 
 // CACHED DOM ELEMENTS
 const burgerBtn = document.getElementById("burger-btn");

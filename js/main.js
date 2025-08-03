@@ -1,29 +1,23 @@
-// 📥 IMPORTS ORDERED TO MATCH DOM HIERARCHY (TOP TO BOTTOM)
-import { activeJS } from './utils/activeJS.js';
+// 📥 IMPORTS ORDERED BY LAYER: CONFIG → UTILS → COMPONENTS
 import { i18nConfig, carouselRefs } from './config.js';
-import { getLocale, initI18n, initLangSwitcher } from './utils/i18n.js';
-import { themeDark, initCarousel, openBurger/*, openModal*/ } from './components/index.js';
-import { signature } from './utils/signature.js';
-import { manageCookies } from './utils/manageCookies.js';
+import { replaceClass, getLocale, initI18n, signature, manageCookies } from './utils/index.js';
+import { themeDark, initLangSwitcher, initCarousel, openBurger/*, openModal*/ } from './components/index.js';
 
-// 🧠 FUNCTION CALLS STRUCTURED FOR TRACEABILITY + REUSABILITY
+// 🧠 APP INITIALIZATION SEQUENCE: FROM GLOBALS TO INTERACTIVE UI
 document.addEventListener("DOMContentLoaded", async () => {
-    activeJS('js-disabled', 'js-enabled');
-
     const locale = getLocale();
 
+    replaceClass('js-disabled', 'js-enabled');
     await initI18n({ ...i18nConfig, locale });
-
+    signature('#signature-year');
+    manageCookies('#cookies-bar', '#accept-cookies');
+    
+    themeDark('#theme-dark-btn', document.documentElement);
     await initLangSwitcher('[data-lang]', async (lang) => {
         await initI18n({ ...i18nConfig, locale: lang });
     });
-
-    themeDark('#theme-dark-btn', document.documentElement);
-
-    await initCarousel(null, 0, 6000, carouselRefs, getLocale());
-
+    await initCarousel(null, 0, 6000, carouselRefs, locale);
     openBurger('#burger-btn', '#github-icon', '#vercel-icon');
-
     // openModal({
     //     linkSelector: '.modal-link',
     //     containerSelector: '#modal-container',
@@ -31,10 +25,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     //     iframeSelector: '#modal-iframe',
     //     closeSelector: '#modal-close'
     // });
-
-    signature('#signature-year');
-    
-    manageCookies('#cookies-bar', '#accept-cookies');
 });
 
 console.group('EASTER EGG');

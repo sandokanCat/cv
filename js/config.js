@@ -1,4 +1,4 @@
-// 💡 COMMON CONFIG FOR initI18n
+// COMMON CONFIG FOR initI18n
 export const i18nConfig = {
     root: document.documentElement,
     titleSelector: 'title',
@@ -6,7 +6,7 @@ export const i18nConfig = {
     attrSelector: '*[data-i18n-attr]',
 };
 
-// 📦 CAROUSEL CONFIG
+// CAROUSEL CONFIG
 export const carouselRefs = {
     container: document.querySelector('.carousel-container'),
     track: document.querySelector('.carousel-track'),
