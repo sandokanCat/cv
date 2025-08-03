@@ -1,5 +1,5 @@
 // IMPORTS
-import { getLocale, setLocaleStorage, reloadDynamicContent } from '../utils/i18n.js';
+import { getLocale, fallbackLocale, getI18nData, initI18n, reloadDynamicContent, initToggler } from '../utils/index.js';
 
 // INIT LANG SWITCHER
 export async function initLangSwitcher(selector, onChange) {

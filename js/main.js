@@ -1,23 +1,21 @@
 // 📥 IMPORTS ORDERED BY LAYER: CONFIG → UTILS → COMPONENTS
-import { i18nConfig, carouselRefs } from './config.js';
-import { replaceClass, getLocale, initI18n, signature, manageCookies } from './utils/index.js';
-import { themeDark, initLangSwitcher, initCarousel, openBurger/*, openModal*/ } from './components/index.js';
+import { i18nConfig, langMenuConfig, carouselRefs, burgerConfig } from './config.js';
+import { replaceClass, getLocale, initI18n, initToggler, signature, manageCookies } from './utils/index.js';
+import { themeDark, initCarousel, openBurger/*, openModal*/ } from './components/index.js';
 
 // 🧠 APP INITIALIZATION SEQUENCE: FROM GLOBALS TO INTERACTIVE UI
 document.addEventListener("DOMContentLoaded", async () => {
-    const locale = getLocale();
-
     replaceClass('js-disabled', 'js-enabled');
-    await initI18n({ ...i18nConfig, locale });
+    await initI18n({ ...i18nConfig, locale: getLocale() });
     signature('#signature-year');
     manageCookies('#cookies-bar', '#accept-cookies');
     
     themeDark('#theme-dark-btn', document.documentElement);
-    await initLangSwitcher('[data-lang]', async (lang) => {
+    await initToggler(langMenuConfig, async (lang) => {
         await initI18n({ ...i18nConfig, locale: lang });
     });
-    await initCarousel(null, 0, 6000, carouselRefs, locale);
-    openBurger('#burger-btn', '#github-icon', '#vercel-icon');
+    await initCarousel(null, 0, 6000, carouselRefs, getLocale());
+    initToggler(burgerConfig);
     // openModal({
     //     linkSelector: '.modal-link',
     //     containerSelector: '#modal-container',

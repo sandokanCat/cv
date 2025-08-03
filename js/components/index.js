@@ -1,8 +1,7 @@
 // COMPONENTS
 export { themeDark } from './themeDark.js';
-export { initLangSwitcher } from './i18nBtns.js';
+export { initLangSwitcher } from './langBtns.js';
 export { initCarousel } from "./carousel.js";
-export { openBurger, updateBurgerData } from './burger.js';
 // export { openModal } from './modal/modal.js';
 
 // I18N HELPERS

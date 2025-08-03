@@ -52,7 +52,7 @@ export const initI18n = async ({
     titleSelector = 'title',
     textSelector = '*[data-i18n]',
     attrSelector = '*[data-i18n-attr]',
-    locale = getLocale()
+    locale
 } = {}) => {
     if (document.documentElement.lang === locale) return; // AVOID REDUNDANT INIT
 

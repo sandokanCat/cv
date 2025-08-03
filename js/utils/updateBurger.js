@@ -1,0 +1,33 @@
+// IMPORTS
+import { getLocale, getI18nData } from "../utils/index.js";
+
+// RELOAD I18N LABELS ON INIT
+export async function updateBurgerData(locale = getLocale()) {
+    const burgerBtn = document.getElementById("burger-btn");
+    if (!burgerBtn) return console.error(`${burgerBtn} BURGER BUTTON NOT FOUND`);
+
+    let cachedLabels = {
+        open: "Open menu",
+        close: "Close menu"
+    };
+
+    const data = await getI18nData(locale);
+    const labels = data?.burgerBtn?.["aria-label"];
+
+    if (!labels) console.error(`MISSING ${data.burgerBtn} IN ${locale}.json FILE`);
+
+    // CACHE LABELS FOR RUNTIME USE
+    cachedLabels = {
+        open: labels?.open || "Open menu",
+        close: labels?.close || "Close menu"
+    };
+
+    // SET INITIAL ARIA-LABEL BASED ON CURRENT STATE
+    const isExpanded = burgerBtn.getAttribute("aria-expanded") === "true";
+    const newState = !isExpanded;
+
+    // UPDATE ARIA-LABEL BASED ON STATE
+    function updateBurgerAriaLabel(newState) {
+        burgerBtn.setAttribute("aria-label", cachedLabels[!newState ? "open" : "close"]);
+    };
+}
