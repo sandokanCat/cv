@@ -1,12 +1,14 @@
 // 📥 IMPORTS ORDERED BY LAYER: CONFIG → UTILS → COMPONENTS
-import { i18nConfig, langMenuConfig, carouselRefs, burgerConfig } from './config.js';
+import { i18nConfig, langMenuConfig, getCarouselRefs, burgerConfig } from './config.js';
 import { replaceClass, getLocale, initI18n, initToggler, signature, manageCookies } from './utils/index.js';
 import { themeDark, initCarousel/*, openModal*/ } from './components/index.js';
 
 // 🧠 APP INITIALIZATION SEQUENCE: FROM GLOBALS TO INTERACTIVE UI
 document.addEventListener("DOMContentLoaded", async () => {
+    const locale = getLocale();
+
     replaceClass('js-disabled', 'js-enabled');
-    await initI18n({ ...i18nConfig, locale: getLocale() });
+    await initI18n({ ...i18nConfig, locale });
     await initToggler(langMenuConfig, async (lang) => {
         await initI18n({ ...i18nConfig, locale: lang });
     });
@@ -15,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     
     themeDark('#theme-dark-btn', document.documentElement);
     
-    await initCarousel(null, 0, 6000, carouselRefs, getLocale());
+    await initCarousel(null, 0, 6000, getCarouselRefs(), locale);
     initToggler(burgerConfig);
     // openModal({
     //     linkSelector: '.modal-link',

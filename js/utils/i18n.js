@@ -6,25 +6,28 @@ import { updateCarouselAlts, /*reloadRandomMsg, updateProvisionalAlert*/ } from 
 // SUPPORTED LOCALES
 const supportedLocales = ['en-GB', 'es-ES', 'ca-ES'];
 export const fallbackLocale = 'en-GB';
+const rtlLangs = ['ar', 'he'];
 
 // GET PATH TO JSON FILE BASED ON LOCALE
 const getJsonPath = locale => `js/i18n/${locale}.json`;
+
+// TRANSLATION CACHE
+const cachedTranslations = {};
 
 // SET LOCALE IN LOCAL STORAGE
 export const setLocaleStorage = (locale) => localStorage.setItem('lang', locale);
 
 // RELOAD DYNAMIC CONTENTS
 export async function reloadDynamicContent(locale) {
-    await updateCarouselAlts(locale);
-    // await reloadRandomMsg(locale);
-    await updateBurgerData(locale);
-    // await updateProvisionalAlert(locale);
+    if (typeof updateCarouselAlts === 'function') await updateCarouselAlts(locale);
+    // if (typeof reloadRandomMsg === 'function') await reloadRandomMsg(locale);
+    if (typeof updateBurgerData === 'function') await updateBurgerData(locale);
+    // if (typeof updateProvisionalAlert === 'function') await updateProvisionalAlert(locale);
 };
 
 // RESOLVE ACTUAL LOCALE
 export const getLocale = () => {
     const locale = (localStorage.getItem('lang') || navigator.language || fallbackLocale).trim();
-
     if (supportedLocales.includes(locale)) return locale;
 
     const base = locale.split('-')[0].toLowerCase();
@@ -33,8 +36,15 @@ export const getLocale = () => {
 
 // GET TRANSLATION JSON BASED ON LOCALE
 export const getI18nData = async (locale) => {
+    const fallbackData = null;
+    
     try {
-        return await validateJSON(getJsonPath(locale));
+        if (cachedTranslations[locale]) return cachedTranslations[locale];
+        else if (fallbackLocale !== locale) cachedTranslations[fallbackLocale] = fallbackData;
+
+        const data = await validateJSON(getJsonPath(locale));
+        cachedTranslations[locale] = data;
+        return data || fallbackData;
     } catch (err) {
         console.error(`LOCALE FALLBACK: ${locale} → ${fallbackLocale}`, err.name, err.message, err.stack);
 
@@ -51,16 +61,20 @@ export const getI18nData = async (locale) => {
 export const initI18n = async ({
     root = document.documentElement,
     titleSelector = 'title',
-    textSelector = '*[data-i18n]',
-    attrSelector = '*[data-i18n-attr]',
+    textSelector = '[data-i18n]',
+    attrSelector = '[data-i18n-attr]',
     locale
 } = {}) => {
+    if (!locale || typeof locale !== 'string') {
+        console.error('LOCALE IS UNDEFINED OR INVALID');
+        return;
+    }    
     if (document.documentElement.lang === locale) return; // AVOID REDUNDANT INIT
 
     // NESTED PROPERTY ACCESSOR
     function getNestedValue(obj, key) {
-        return key.split('.').reduce((acc, part) => acc && acc[part], obj);
-    }
+        return key.split('.').reduce((acc, part) => (acc && typeof acc === 'object') ? acc[part] : undefined, obj);
+    }    
 
     try {
         const translations = await getI18nData(locale);
@@ -69,8 +83,10 @@ export const initI18n = async ({
         setLocaleStorage(locale);
         if (root) {
             root.setAttribute('lang', locale);
-        } else {
-            console.error("ERROR ON APPLY LANG METADATA OR STORE IN localStorage");
+
+            const base = locale.split('-')[0].toLowerCase();
+            const direction = rtlLangs.includes(base) ? 'rtl' : 'ltr';            ;
+            root.setAttribute('dir', direction);
         }
         
         // TRANSLATE PAGE TITLE
@@ -111,9 +127,12 @@ export const initI18n = async ({
         // TRANSLATE ATTRIBUTES
         const attrElements = root.querySelectorAll(attrSelector);
         attrElements.forEach(el => {
-            const pairs = el.getAttribute('data-i18n-attr').split(',');
+            const attrRaw = el.getAttribute('data-i18n-attr');
+            if (!attrRaw) return;
+            const pairs = attrRaw.split(',');
+
             pairs.forEach(pair => {
-                const [attr, key] = pair.split(':');
+                const [attr, key] = pair.split(':').map(s => s.trim());
                 const nested = getNestedValue(translations, key);
                 const value = (nested && typeof nested === "object") ? nested[attr] : nested;
 
@@ -129,6 +148,6 @@ export const initI18n = async ({
 
         await reloadDynamicContent(locale);
     } catch (err) {
-        console.error('i18n.js ERROR:', getJsonPath, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
+        console.error(`i18n.js ERROR: ${getJsonPath(locale)} →`, err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
     }
 };
