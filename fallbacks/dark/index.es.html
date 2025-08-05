@@ -54,10 +54,10 @@
     <meta property="og:profile:picture" content="https://sandokan.cat/img/photos/gonzalo@3x.png">
 
     <!-- FAVICON -->
-    <link rel="icon" href="../..//img/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 
     <!-- MAIN CSS -->
-    <link rel="stylesheet" href="../..//css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 
     <!-- THEME COLOR FOR MOBILE BROWSERS -->
     <meta name="theme-color" content="#1d2a42">
@@ -81,7 +81,7 @@
     <meta name="rating" content="general">
 
     <!-- HUMANS TXT (CREDITS FILE) -->
-    <link type="text/plain" rel="author" href="../..//humans.txt">
+    <link type="text/plain" rel="author" href="humans.txt">
 
     <!-- GEOLOCATION FOR LOCAL SEO -->
     <meta name="distribution" content="national">
@@ -181,7 +181,7 @@
     </script>
 
     <!-- MAIN JS -->
-    <script type="module" src="../../js/main.js"></script>
+    <script type="module" src="js/main.js"></script>
 </head>
 
 <body>
@@ -200,20 +200,20 @@
                 <noscript>
                     <ul>
                         <li> <!-- DARK MODE -->
-                            <a class="dark-mode-btn icons-scale" aria-label="Alternar modo oscuro" href="../light/index.es.html">☀️</a>
+                            <a class="dark-mode-btn icons-scale" aria-label="Alternar modo oscuro" href="fallbacks/light/index.es.html">☀️</a>
                         </li>
                         <!-- LANG MENU -->
                         <li>
-                            <a aria-label="Catalán" href="index.ca.html">
+                            <a aria-label="Catalán" href="fallbacks/dark/index.ca.html">
                                 <svg class="icons-scale" role="img" width="40" height="40" preserveAspectRatio="xMinYMin meet">
-                                    <use href="../../img/sprite.svg#ca-ES"></use>
+                                    <use href="img/sprite.svg#ca-ES"></use>
                                 </svg>
                             </a>
                         </li>
                         <li>
-                            <a aria-label="Inglés" href="../dark/index.en.html">
+                            <a aria-label="Inglés" href="fallbacks/dark/index.en.html">
                                 <svg class="icons-scale" role="img" width="40" height="40" preserveAspectRatio="xMinYMin meet">
-                                    <use href="../../img/sprite.svg#en-GB"></use>
+                                    <use href="img/sprite.svg#en-GB"></use>
                                 </svg>
                             </a>
                         </li>
@@ -229,21 +229,21 @@
                     <li>
                         <button data-i18n-attr="aria-label:langBtnCa" data-lang="ca-ES" class="icons-scale" id="lang-toggle" aria-label="Catalán" type="button">
                             <svg class="icons-scale" role="img" aria-hidden="true" width="40" height="40" preserveAspectRatio="xMinYMin meet">
-                                <use href="../../img/sprite.svg#ca-ES"></use>
+                                <use href="img/sprite.svg#ca-ES"></use>
                             </svg>
                         </button>
                     </li>
                     <li>
                         <button data-i18n-attr="aria-label:langBtnEs" data-lang="es-ES" class="icons-scale" aria-label="Español" type="button">
                             <svg class="icons-scale" role="img" aria-hidden="true" width="40" height="40" preserveAspectRatio="xMinYMin meet">
-                                <use href="../../img/sprite.svg#es-ES"></use>
+                                <use href="img/sprite.svg#es-ES"></use>
                             </svg>
                         </button>
                     </li>
                     <li>
                         <button data-i18n-attr="aria-label:langBtnEn" class="icons-scale" data-lang="en-GB" aria-label="Inglés" type="button">
                             <svg class="icons-scale" role="img" aria-hidden="true" width="40" height="40" preserveAspectRatio="xMinYMin meet">
-                                <use href="../../img/sprite.svg#en-GB"></use>
+                                <use href="img/sprite.svg#en-GB"></use>
                             </svg>
                         </button>
                     </li>
@@ -256,9 +256,9 @@
                 <section>
                     <figure id="gonzalo">
                         <picture>
-                            <source type="image/webp" srcset="../../img/photos/gonzalo@1x.webp 1x, ../../img/photos/gonzalo@2x.webp 2x, ../../img/photos/gonzalo@3x.webp 3x"> <!-- WEBP SOURCES -->
-                            <source type="image/png" srcset="../../img/photos/gonzalo@1x.png 1x, ../../img/photos/gonzalo@2x.png 2x, ../../img/photos/gonzalo@3x.png 3x"> <!-- PNG FALLBACK -->
-                            <img data-i18n-attr="alt:gonzalo" src="../../img/photos/gonzalo@3x.png" fetchpriority="high" decoding="async" loading="eager" alt="Retrato de Gonzalo Cabezas"> <!-- FALLBACK IMG (LAST RESORT) -->
+                            <source type="image/webp" srcset="img/photos/gonzalo@1x.webp 1x, img/photos/gonzalo@2x.webp 2x, img/photos/gonzalo@3x.webp 3x"> <!-- WEBP SOURCES -->
+                            <source type="image/png" srcset="img/photos/gonzalo@1x.png 1x, img/photos/gonzalo@2x.png 2x, img/photos/gonzalo@3x.png 3x"> <!-- PNG FALLBACK -->
+                            <img data-i18n-attr="alt:gonzalo" src="img/photos/gonzalo@3x.png" fetchpriority="high" decoding="async" loading="eager" alt="Retrato de Gonzalo Cabezas"> <!-- FALLBACK IMG (LAST RESORT) -->
                         </picture>
                         <figcaption>
                             <h1 lang="es-ES">Gonzalo Cabezas Núñez</h1>
@@ -272,17 +272,17 @@
                     <ul id="languages">
                         <li data-i18n="catalan">Catalán
                             <svg class="icons-color-1" role="img" aria-label="Nivel nativo" aria-hidden="false" width="124" height="18" preserveAspectRatio="xMinYMin meet">
-                                <use href="../../img/sprite.svg#native-lang"></use>
+                                <use href="img/sprite.svg#native-lang"></use>
                             </svg>
                         </li>
                         <li data-i18n="spanish">Español
                             <svg class="icons-color-1" role="img" aria-label="Nivel nativo" aria-hidden="false" width="124" height="18" preserveAspectRatio="xMinYMin meet">
-                                <use href="../../img/sprite.svg#native-lang"></use>
+                                <use href="img/sprite.svg#native-lang"></use>
                             </svg>
                         </li>
                         <li data-i18n="english">Inglés
                             <svg class="icons-color-1" role="img" aria-label="Nivel medio" aria-hidden="false" width="124" height="18" preserveAspectRatio="xMinYMin meet">
-                                <use href="../../img/sprite.svg#medium-lang"></use>
+                                <use href="img/sprite.svg#medium-lang"></use>
                             </svg>
                         </li>
                     </ul>
@@ -295,7 +295,7 @@
                                 <a data-i18n-attr="aria-label:mail" href="mailto:dev@sandokan.cat" aria-label="Enviar E-mail"><strong>dev@sandokan.cat</strong></a>
                             </address>
                             <svg class="icons-color-1" aria-hidden="true" width="25" height="25" preserveAspectRatio="xMinYMin meet">
-                                <use href="../../img/sprite.svg#email"></use>
+                                <use href="img/sprite.svg#email"></use>
                             </svg>
                         </li>
                         <li>
@@ -303,7 +303,7 @@
                                 <a data-i18n-attr="aria-label:mobile" href="tel:+34631306583" aria-label="Enviar WhatsApp o llamar">+34 631306583</a>
                             </address>
                             <svg class="icons-color-1" aria-hidden="true" width="22" height="22" preserveAspectRatio="xMinYMin meet">
-                                <use href="../../img/sprite.svg#whatsapp"></use>
+                                <use href="img/sprite.svg#whatsapp"></use>
                             </svg>
                         </li>
                         <li>
@@ -311,13 +311,13 @@
                                 <a data-i18n-attr="aria-label:linkedin" href="https://linkedin.com/in/sandokanCat" target="_blank" rel="noopener noreferrer" aria-label="Visitar perfil de Linkedin">https://linkedin.com/in/sandokanCat</a>
                             </address>
                             <svg class="icons-color-1" aria-hidden="true" width="22" height="22" preserveAspectRatio="xMinYMin meet">
-                                <use href="../../img/sprite.svg#linkedin"></use>
+                                <use href="img/sprite.svg#linkedin"></use>
                             </svg>
                         </li>
                         <li>
                             <address>08014 <span lang="ca-ES">Barcelona</span></address>
                             <svg class="icons-color-1" aria-hidden="true" width="22" height="22" preserveAspectRatio="xMinYMin meet">
-                                <use href="../../img/sprite.svg#address"></use>
+                                <use href="img/sprite.svg#address"></use>
                             </svg>
                         </li>
                     </ol>
@@ -348,10 +348,10 @@
                                 <abbr lang="en-GB" title="Hypertext Markup Language">HTML5</abbr> y <abbr lang="en-GB" title="Cascading Style Sheets">CSS3</abbr>
                             </li>
                             <li>
-                                <a data-i18n-attr="aria-label:JSandWP" data-i18n="JSandWP" class="modal-link" href="../../doc/IFCD0110-JSyPW_gonzalo.pdf" target="_blank" data-modal="../../doc/IFCD0110-JSyPW_gonzalo.pdf" aria-label="Ver certificado"><span lang="en-GB">Vanilla <abbr title="JavaScript">JS</abbr></span> y publicación web</a>
+                                <a data-i18n-attr="aria-label:JSandWP" data-i18n="JSandWP" class="modal-link" href="doc/IFCD0110-JSyPW_gonzalo.pdf" target="_blank" data-modal="doc/IFCD0110-JSyPW_gonzalo.pdf" aria-label="Ver certificado"><span lang="en-GB">Vanilla <abbr title="JavaScript">JS</abbr></span> y publicación web</a>
                             </li>
                             <li>
-                                <a data-i18n-attr="aria-label:AddTraining" data-i18n="AddTraining" class="modal-link" href="../../doc/IFCD0110-FC_gonzalo.pdf" target="_blank" data-modal="../../doc/IFCD0110-FC_gonzalo.pdf" aria-label="Ver certificado">Formación complementaria</a>
+                                <a data-i18n-attr="aria-label:AddTraining" data-i18n="AddTraining" class="modal-link" href="doc/IFCD0110-FC_gonzalo.pdf" target="_blank" data-modal="doc/IFCD0110-FC_gonzalo.pdf" aria-label="Ver certificado">Formación complementaria</a>
                             </li>
                         </ol>
                     </article>
@@ -361,22 +361,22 @@
                         <noscript> <!-- FALLBACK -->
                             <ol id="carousel-fallback" class="carousel-track">
                                 <li>
-                                    <img src="../../img/carousel/FRONT-END_certificate@3x.png" fetchpriority="high" decoding="async" loading="eager" alt="Certificado de Front-End">
+                                    <img src="img/carousel/FRONT-END_certificate@3x.png" fetchpriority="high" decoding="async" loading="eager" alt="Certificado de Front-End">
                                 </li>
                                 <li>
-                                    <img src="../../img/carousel/WEB-DEV_certificate@3x.png" decoding="async" loading="lazy" alt="Certificado de desarrollo Web">
+                                    <img src="img/carousel/WEB-DEV_certificate@3x.png" decoding="async" loading="lazy" alt="Certificado de desarrollo Web">
                                 </li>
                                 <li>
-                                    <img src="../../img/carousel/HTML_certificate@3x.png" decoding="async" loading="lazy" alt="Certificado de HTML">
+                                    <img src="img/carousel/HTML_certificate@3x.png" decoding="async" loading="lazy" alt="Certificado de HTML">
                                 </li>
                                 <li>
-                                    <img src="../../img/carousel/CSS_certificate@3x.png" decoding="async" loading="lazy" alt="Certificado de CSS">
+                                    <img src="img/carousel/CSS_certificate@3x.png" decoding="async" loading="lazy" alt="Certificado de CSS">
                                 </li>
                                 <li>
-                                    <img src="../../img/carousel/JS_certificate@3x.png" decoding="async" loading="lazy" alt="Certificado de JavaScript">
+                                    <img src="img/carousel/JS_certificate@3x.png" decoding="async" loading="lazy" alt="Certificado de JavaScript">
                                 </li>
                                 <li>
-                                    <img src="../../img/carousel/JS-2_certificate@3x.png" decoding="async" loading="lazy" alt="Certificado de JavaScript intermedio">
+                                    <img src="img/carousel/JS-2_certificate@3x.png" decoding="async" loading="lazy" alt="Certificado de JavaScript intermedio">
                                 </li>
                             </ol>
                         </noscript>
@@ -387,12 +387,12 @@
                             <aside data-i18n-attr="aria-label:carouselCtrl" class="carousel-control" aria-label="Controles del carrusel">
                                 <button data-i18n-attr="aria-label:carouselBack" class="carousel-back" aria-label="Retroceder" type="button">
                                     <svg class="icons-scale" aria-hidden="true" width="30" height="30" preserveAspectRatio="xMinYMin meet">
-                                        <use href="../../img/sprite.svg#arrow-left"></use>
+                                        <use href="img/sprite.svg#arrow-left"></use>
                                     </svg>
                                 </button>
                                 <button data-i18n-attr="aria-label:carouselAdvance" class="carousel-advance" aria-label="Avanzar" type="button">
                                     <svg class="icons-scale" aria-hidden="true" width="30" height="30" preserveAspectRatio="xMinYMin meet">
-                                        <use href="../../img/sprite.svg#arrow-right"></use>
+                                        <use href="img/sprite.svg#arrow-right"></use>
                                     </svg>
                                 </button>
                             </aside>
@@ -404,7 +404,7 @@
                         <h6 lang="es-ES">Universidad Nacional de Educación a Distancia</h6>
                         <ol>
                             <li>
-                                <a data-i18n-attr="aria-label:UNEDacces" data-i18n="UNEDacces" class="modal-link" href="../../doc/accesoUNED_gonzalo.pdf" target="_blank" data-modal="../../doc/accesoUNED_gonzalo.pdf" aria-label="Ver certificado">Acceso a la universidad</a>
+                                <a data-i18n-attr="aria-label:UNEDacces" data-i18n="UNEDacces" class="modal-link" href="doc/accesoUNED_gonzalo.pdf" target="_blank" data-modal="doc/accesoUNED_gonzalo.pdf" aria-label="Ver certificado">Acceso a la universidad</a>
                             </li>
                         </ol>
                     </article>
@@ -412,7 +412,7 @@
                         <h6 lang="ca-ES">IES Joan Coromines</h6>
                         <ol>
                             <li>
-                                <a data-i18n-attr="aria-label:ESO" data-i18n="ESO" class="modal-link" href="../../doc/certificatESO_gonzalo.pdf" target="_blank" data-modal="../../doc/certificatESO_gonzalo.pdf" aria-label="See certificate">Certificado en <abbr lang="es-ES" title="Educación Secundaria Obligatoria">ESO</abbr></a>
+                                <a data-i18n-attr="aria-label:ESO" data-i18n="ESO" class="modal-link" href="doc/certificatESO_gonzalo.pdf" target="_blank" data-modal="doc/certificatESO_gonzalo.pdf" aria-label="See certificate">Certificado en <abbr lang="es-ES" title="Educación Secundaria Obligatoria">ESO</abbr></a>
                             </li>
                         </ol>
                     </article>
@@ -439,9 +439,9 @@
                 <section>
                     <div class="others">
                         <h4 data-i18n="otherData">Otros datos</h4>
-                        <a data-i18n-attr="aria-label:downloadCV" class="other-links" href="../../doc/CV_gonzalo.pdf" download="CV_gonzalo.pdf" aria-label="Descargar CV pdf">
+                        <a data-i18n-attr="aria-label:downloadCV" class="other-links" href="doc/CV_gonzalo.pdf" download="CV_gonzalo.pdf" aria-label="Descargar CV pdf">
                             <svg class="icons-color-2 icons-scale" aria-hidden="true" width="30" height="30" preserveAspectRatio="xMinYMin meet">
-                                <use href="../../img/sprite.svg#pdf"></use>
+                                <use href="img/sprite.svg#pdf"></use>
                             </svg>
                         </a>
                     </div>
@@ -463,14 +463,14 @@
                                     <li>
                                         <a href="https://github.com/sandokanCat?tab=repositories" target="_blank" rel="noopener noreferrer" aria-label="Github">
                                             <svg class="icons-color-2 icons-scale" role="img" aria-hidden="true" width="28" height="28" preserveAspectRatio="xMinYMin meet">
-                                                <use href="../../img/sprite.svg#github"></use>
+                                                <use href="img/sprite.svg#github"></use>
                                             </svg>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="https://vercel.com/dev-sandokan-cat" target="_blank" rel="noopener noreferrer" aria-label="Vercel">
                                             <svg class="icons-color-2 icons-scale" role="img" aria-hidden="true" width="30" height="30" preserveAspectRatio="xMinYMin meet">
-                                                <use href="../../img/sprite.svg#vercel"></use>
+                                                <use href="img/sprite.svg#vercel"></use>
                                             </svg>
                                         </a>
                                     </li>
@@ -491,14 +491,14 @@
                                 <li id="github-icon">
                                     <a href="https://github.com/sandokanCat?tab=repositories" target="_blank" rel="noopener noreferrer" aria-label="Github">
                                         <svg class="icons-color-2 icons-scale" role="img" aria-hidden="true" width="30" height="30" preserveAspectRatio="xMinYMin meet">
-                                            <use href="../../img/sprite.svg#github"></use>
+                                            <use href="img/sprite.svg#github"></use>
                                         </svg>
                                     </a>
                                 </li>
                                 <li id="vercel-icon">
                                     <a href="https://vercel.com/dev-sandokan-cat" target="_blank" rel="noopener noreferrer" aria-label="Vercel">
                                         <svg class="icons-color-2 icons-scale" role="img" aria-hidden="true" width="30" height="30" preserveAspectRatio="xMinYMin meet">
-                                            <use href="../../img/sprite.svg#vercel"></use>
+                                            <use href="img/sprite.svg#vercel"></use>
                                         </svg>
                                     </a>
                                 </li>
@@ -542,7 +542,7 @@
             <div id="modal-img-wrapper"></div>
             <button data-i18n-attr="aria-label:modalClose" id="modal-close" class="icons-color-1" aria-label="Cerrar" type="button">
                 <svg class="icons-scale" aria-hidden="true" width="50" height="50" preserveAspectRatio="xMinYMin meet">
-                    <use href="../../img/sprite.svg#close"></use>
+                    <use href="img/sprite.svg#close"></use>
                 </svg>
             </button>
         </div>
