@@ -84,8 +84,8 @@ export async function initCarousel(
             img.alt = ''; // SET TEMPORARY EMPTY ALT – UPDATED LATER BY i18n
 			img.className = "modal-link";
 			img.setAttribute("data-modal", png.fallback);
-			img.decoding = "async";
-			img.loading = "lazy";
+			img.fetchPriority = "high";
+			img.loading = "eager";
 
 			picture.appendChild(sourceWebp); // APPEND CHILDREN TO PICTURE
 			picture.appendChild(sourcePng);
