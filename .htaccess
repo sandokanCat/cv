@@ -104,7 +104,7 @@ FileETag None
     Header always set Cross-Origin-Opener-Policy "same-origin"
 
     # CSP
-    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://open-utils-dev-sandokan-cat.vercel.app https://www.googletagmanager.com/gtag/js?id=G-JMZTXS94TS https://www.clarity.ms/tag/sgweog5585 https://mc.yandex.ru/metrika/tag.js?id=103528686; style-src 'self' 'unsafe-inline' https://open-utils-dev-sandokan-cat.vercel.app; connect-src 'self' https://www.google-analytics.com https://region1.analytics.google.com https://www.clarity.ms; img-src 'self' https://sandokanCat.github.io data:; font-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; report-uri https://sandokan.cat/csp-report; report-to csp-endpoint"
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://open-utils-dev-sandokan-cat.vercel.app https://www.googletagmanager.com/gtag/js?id=G-JMZTXS94TS https://www.clarity.ms/tag/sgweog5585 https://mc.yandex.ru/metrika/tag.js?id=103528686; style-src 'self' 'unsafe-inline' https://open-utils-dev-sandokan-cat.vercel.app; connect-src 'self' https://www.googletagmanager.com/gtag/js?id=G-JMZTXS94TS https://www.clarity.ms/tag/sgweog5585 https://mc.yandex.ru/metrika/tag.js?id=103528686; img-src 'self' https://sandokanCat.github.io data:; font-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; report-uri https://sandokan.cat/csp-report; report-to csp-endpoint"
     Header always set Report-To '{"group":"csp-endpoint","max_age":10886400,"endpoints":[{"url":"https://sandokan.cat/csp-report"}],"include_subdomains":true}'
 </IfModule>
 
@@ -122,6 +122,6 @@ RewriteRule ^csp-report$ csp-report.php [L]
 ############################################################
 
 FallbackResource /index.html
-ErrorDocument 404 /error404.html
 ErrorDocument 403 /error403.html
+ErrorDocument 404 /error404.html
 ErrorDocument 500 /error500.html

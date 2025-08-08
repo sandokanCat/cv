@@ -1,10 +1,11 @@
+// IMPORTS
 import {
     getLocale,
-    // fallbackLocale,
     setLocaleStorage,
     initI18n,
     reloadDynamicContent } from '../utils/index.js';
 
+// LANG MENU CONFIG
 export async function getLangMenuConfig() {
     return {
         triggerSelector: '[data-lang]',
@@ -14,7 +15,7 @@ export async function getLangMenuConfig() {
             const lang = btn.getAttribute('data-lang')?.trim();
             if (!lang) return;
 
-            const current = getLocale()/* || fallbackLocale*/;
+            const current = getLocale();
             if (lang === current) return;
 
             setLocaleStorage(lang);

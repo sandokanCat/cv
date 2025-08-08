@@ -84,21 +84,13 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
             gtag('js', new Date());
             gtag('config', 'G-JMZTXS94TS');
         };
-
-        script.onerror = () => console.warn('❌ No se pudo cargar Google Analytics');
     }
 
     function loadBingClarity() {
-        (function (c, l, a, r, i, t, y) {
-            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-            t = l.createElement(r);
-            t.async = 1;
-            t.src = "https://www.clarity.ms/tag/" + i;
-
-            t.onerror = () => console.warn('❌ No se pudo cargar Microsoft Clarity');
-
-            y = l.getElementsByTagName(r)[0];
-            y.parentNode.insertBefore(t, y);
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "sgweog5585");
     }
 
@@ -107,13 +99,9 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
             m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
             m[i].l=1*new Date();
             for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r;
-            
-            k.onerror = () => console.warn('❌ No se pudo cargar Yandex Metrika');
-            
-            a.parentNode.insertBefore(k,a);
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
         })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103528686', 'ym');
-
+    
         ym(103528686, 'init', {ssr:true, webvisor:true, trackHash:true, clickmap:true, accurateTrackBounce:true, trackLinks:true});
     }
 
