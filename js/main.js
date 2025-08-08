@@ -1,7 +1,22 @@
 // 📥 IMPORTS ORDERED BY LAYER: CONFIG → UTILS → COMPONENTS
-import { i18nConfig, langMenuConfig, getCarouselRefs, burgerConfig } from './config.js';
-import { replaceClass, getLocale, initI18n, initToggler, updateBurgerData, getLangMenuConfig, signature, manageCookies } from './utils/index.js';
-import { themeDark, initCarousel/*, openModal*/ } from './components/index.js';
+import {
+    i18nConfig,
+    langMenuConfig,
+    getCarouselRefs,
+    burgerConfig } from './config.js';
+import {
+    replaceClass,
+    getLocale,
+    initI18n,
+    initToggler,
+    getLangMenuConfig,
+    updateBurgerData,
+    signature,
+    manageCookies } from './utils/index.js';
+import {
+    themeDark,
+    initCarousel/*,
+    openModal*/ } from './components/index.js';
 
 // 🧠 APP INITIALIZATION SEQUENCE: FROM GLOBALS TO INTERACTIVE UI
 document.addEventListener("DOMContentLoaded", async () => {

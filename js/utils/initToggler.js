@@ -1,5 +1,11 @@
 // IMPORTS
-export { getLocale, fallbackLocale, getI18nData, initI18n, getLangMenuConfig, reloadDynamicContent } from './i18n.js';
+import {
+    getLocale,
+    fallbackLocale,
+    getI18nData,
+    initI18n,
+    getLangMenuConfig,
+    reloadDynamicContent } from './index.js';
 
 // TOGGLE BURGER MENU STATES
 export async function initToggler({
