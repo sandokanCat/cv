@@ -1,4 +1,9 @@
-import { getLocale, setLocaleStorage, fallbackLocale, initI18n, reloadDynamicContent } from '../utils/index.js';
+import {
+    getLocale,
+    setLocaleStorage,
+    fallbackLocale,
+    initI18n,
+    reloadDynamicContent } from '../utils/index.js';
 
 export function getLangMenuConfig() {
     return {
@@ -9,7 +14,7 @@ export function getLangMenuConfig() {
             const lang = btn.getAttribute('data-lang')?.trim();
             if (!lang) return;
 
-            const current = getLocale();
+            const current = getLocale() || fallbackLocale;
             if (lang === current) return;
 
             setLocaleStorage(lang);
@@ -30,15 +35,6 @@ export function getLangMenuConfig() {
     };
 }
 
-
-// IMPORTS
-// import {
-//     getLocale,
-//     fallbackLocale,
-//     getI18nData,
-//     initI18n,
-//     reloadDynamicContent,
-//     initToggler } from '../utils/index.js';
 
 // INIT LANG SWITCHER
 // export async function initLangSwitcher(selector, onChange) {

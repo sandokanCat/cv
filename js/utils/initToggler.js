@@ -29,7 +29,7 @@ export async function initToggler({
             }
 
             if (typeof labelFn === 'function') {
-                labelFn(newState); // solo cambia etiqueta
+                labelFn(newState);
             }
 
             if (typeof customToggleFn === 'function') {
@@ -42,7 +42,7 @@ export async function initToggler({
                 try {
                     await onClick(trigger, newState);
                 } catch (err) {
-                    console.error('ERROR IN TOGGLER onClick():', err.name, err.message);
+                    console.error('ERROR IN TOGGLER onClick():', err.name, err.message, err.stack);
                 }
             }
         });
