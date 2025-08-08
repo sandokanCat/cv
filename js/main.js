@@ -12,13 +12,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     await initToggler(langMenuConfig, async (lang) => {
         await initI18n({ ...i18nConfig, locale: lang });
     });
-    signature('#signature-year');
-    manageCookies('#cookies-bar', '#accept-cookies');
     
     themeDark('#theme-dark-btn', document.documentElement);
     
     await initCarousel(null, 0, 6000, locale, getCarouselRefs());
     initToggler(burgerConfig, burgerConfig.labelFn = updateBurgerData);
+
+    signature('#signature-year');
+    manageCookies('#cookies-bar', '#accept-cookies');
+    
     // openModal({
     //     linkSelector: '.modal-link',
     //     containerSelector: '#modal-container',

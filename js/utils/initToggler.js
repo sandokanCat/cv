@@ -41,8 +41,6 @@ export async function initToggler({
                 elements.forEach(el => el.classList.toggle('active'));
             }
 
-            customToggleFn(btn);
-
             // ASYNC LOGIC (like changing language)
             if (typeof onClick === 'function') {
                 try {

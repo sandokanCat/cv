@@ -27,12 +27,11 @@ export const langMenuConfig = {
         el.setAttribute('aria-pressed', el === btn ? 'true' : 'false')
         );
     },
-    customToggleFn: (btn) => {
-        // Cambia el icono SVG si es necesario
+    customToggleFn: (btn, elements, newState) => {
         const use = btn.querySelector('use');
         const lang = btn.getAttribute('data-lang');
         if (use && lang) {
-        use.setAttribute('href', `img/sprite.svg#${lang}`);
+            use.setAttribute('href', `img/sprite.svg#${lang}`);
         }
     }
 }
