@@ -26,14 +26,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     replaceClass('js-disabled', 'js-enabled');
 
     await initI18n({ ...i18nConfig, locale });
-    await initToggler(getLangMenuConfig());
+
+    await initToggler(await getLangMenuConfig());
     
     themeDark('#theme-dark-btn', document.documentElement);
     
     await initCarousel(null, 0, 6000, locale, getCarouselRefs());
 
-    const burgerConfig = await getBurgerConfig(locale);
-    initToggler(burgerConfig);
+    await initToggler(await getBurgerConfig(locale));
 
     signature('#signature-year');
 

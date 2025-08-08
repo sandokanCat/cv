@@ -1,6 +1,6 @@
-import { getLocale, fallbackLocale, getI18nData } from "../utils/index.js";
+import { getLocale, /*fallbackLocale, */getI18nData } from "../utils/index.js";
 
-export async function getBurgerConfig(locale = getLocale() || fallbackLocale) {
+export async function getBurgerConfig(locale = getLocale()/* || fallbackLocale*/) {
     const burgerBtn = document.getElementById("burger-btn");
     if (!burgerBtn) {
         console.error("BURGER BUTTON NOT FOUND");

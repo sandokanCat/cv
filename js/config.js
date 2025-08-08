@@ -1,17 +1,10 @@
-// COMMON CONFIG FOR initI18n
+// I18N CONFIG
 export const i18nConfig = {
     root: document.documentElement,
     titleSelector: 'title',
     textSelector: '[data-i18n]',
     attrSelector: '[data-i18n-attr]',
 };
-
-// LANGUAGE MENU CONFIG
-// export const langMenuConfig = {
-//     triggerSelector: '[data-lang]',
-//     multiple: true,
-//     aria: true,
-// }
 
 // CAROUSEL CONFIG
 export function getCarouselRefs() {
@@ -25,20 +18,13 @@ export function getCarouselRefs() {
     };
 }
 
-// BURGER MENU CONFIG
-// export const burgerConfig = {
-//     triggerSelector: '#burger-btn',
-//     targets: ['#github-icon', '#vercel-icon'],
-//     aria: true,
-// };
-
 // MODAL CONFIG
-// export function getModalRefs() {
-//     return {
-//         linkSelector: '.modal-link',
-//         containerSelector: '#modal-container',
-//         contentSelector: '#modal-content',
-//         iframeSelector: '#modal-iframe',
-//         closeSelector: '#modal-close'
-//     };
-// }
+export function getModalRefs() {
+    return {
+        linkSelector: '.modal-link',
+        containerSelector: '#modal-container',
+        contentSelector: '#modal-content',
+        iframeSelector: '#modal-iframe',
+        closeSelector: '#modal-close'
+    };
+}
