@@ -4,6 +4,8 @@ export { initCarousel } from "./carousel.js";
 // export { openModal } from './modal/modal.js';
 
 // I18N HELPERS
+export { initLangSwitcher } from './langBtns.js';
 export { updateCarouselAlts } from "./carousel.js";
-export { reloadRandomMsg } from "./randomPhrases.js";
-export { updateProvisionalAlert } from "./provisionalAlert.js";
+// export { reloadRandomMsg } from "./randomPhrases.js";
+export { updateBurgerData } from './updateBurger.js'
+// export { updateProvisionalAlert } from "./provisionalAlert.js";

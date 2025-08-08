@@ -1,8 +1,11 @@
 // IMPORTS
-import { getLocale, fallbackLocale, getI18nData } from "./index.js";
+import {
+    getLocale,
+    fallbackLocale,
+    getI18nData } from "../utils/index.js";
 
 // RELOAD I18N LABELS ON INIT
-export async function updateBurgerData(locale = getLocale()) {
+export async function updateBurgerData(locale = getLocale() || fallbackLocale) {
     const burgerBtn = document.getElementById("burger-btn");
     if (!burgerBtn) return console.error(`${burgerBtn} BURGER BUTTON NOT FOUND`);
 

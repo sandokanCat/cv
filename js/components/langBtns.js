@@ -1,6 +1,7 @@
 // IMPORTS
 import {
     getLocale,
+    fallbackLocale,
     getI18nData,
     initI18n,
     reloadDynamicContent,
@@ -9,7 +10,7 @@ import {
 // INIT LANG SWITCHER
 export async function initLangSwitcher(selector, onChange) {
     const langBtns = document.querySelectorAll(selector);
-    let currentLocale = getLocale();
+    let currentLocale = getLocale() || fallbackLocale;
 
     const setAriaPressed = (locale) => {
         let found = false;
@@ -28,7 +29,7 @@ export async function initLangSwitcher(selector, onChange) {
             try {
                 const lang = btn.getAttribute('data-lang')?.trim();
                 if (!lang) return;
-                
+
                 if (lang && lang !== currentLocale) {
                     setLocaleStorage(lang);
                     if (typeof onChange === 'function') {
