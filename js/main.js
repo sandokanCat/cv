@@ -3,13 +3,13 @@ import {
     i18nConfig,
     langMenuConfig,
     getCarouselRefs,
-    burgerConfig } from './config.js';
+    burgerConfig/*,
+    getModalRefs*/ } from './config.js';
 import {
     replaceClass,
     getLocale,
     initI18n,
     initToggler,
-    getLangMenuConfig,
     updateBurgerData,
     signature,
     manageCookies } from './utils/index.js';
@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const locale = getLocale();
 
     replaceClass('js-disabled', 'js-enabled');
+
     await initI18n({ ...i18nConfig, locale });
     await initToggler(langMenuConfig, async (lang) => {
         await initI18n({ ...i18nConfig, locale: lang });
@@ -31,18 +32,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     themeDark('#theme-dark-btn', document.documentElement);
     
     await initCarousel(null, 0, 6000, locale, getCarouselRefs());
-    initToggler({ ...burgerConfig, labelFn: updateBurgerData, locale});
+
+    initToggler({ ...burgerConfig, locale});
 
     signature('#signature-year');
+
     manageCookies('#cookies-bar', '#accept-cookies');
 
-    // openModal({
-    //     linkSelector: '.modal-link',
-    //     containerSelector: '#modal-container',
-    //     contentSelector: '#modal-content',
-    //     iframeSelector: '#modal-iframe',
-    //     closeSelector: '#modal-close'
-    // });
+    // openModal(getModalRefs());
 });
 
 console.group('EASTER EGG');

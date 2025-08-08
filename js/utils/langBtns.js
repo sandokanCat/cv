@@ -1,5 +1,10 @@
 // IMPORTS
-import { getLocale, fallbackLocale, getI18nData, initI18n, reloadDynamicContent, initToggler } from '../utils/index.js';
+import {
+    getLocale,
+    getI18nData,
+    initI18n,
+    reloadDynamicContent,
+    initToggler } from '../utils/index.js';
 
 // INIT LANG SWITCHER
 export async function initLangSwitcher(selector, onChange) {
@@ -32,8 +37,25 @@ export async function initLangSwitcher(selector, onChange) {
                     setAriaPressed(lang);
                     currentLocale = lang;
                     
-                    // const use = btn.querySelector('use');
-                    // if (use) use.setAttribute('href', `img/sprite.svg#${lang}`);
+                    const lang = btn.getAttribute('data-lang')?.trim();
+                    if (!lang) return;
+
+                    const current = getLocale();
+                    if (lang === current) return;
+
+                    setLocaleStorage(lang);
+                    await initI18n({ locale: lang });
+                    await reloadDynamicContent(lang);
+
+                    document.querySelectorAll('[data-lang]').forEach(el =>
+                        el.setAttribute('aria-pressed', el === btn ? 'true' : 'false')
+                    );
+
+                    const use = btn.querySelector('use');
+                    const lang = btn.getAttribute('data-lang');
+                    if (use && lang) {
+                        use.setAttribute('href', `img/sprite.svg#${lang}`);
+                    }
                     
                     await reloadDynamicContent(lang);
                 }

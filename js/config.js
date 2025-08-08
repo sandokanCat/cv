@@ -31,3 +31,14 @@ export const burgerConfig = {
     targets: ['#github-icon', '#vercel-icon'],
     aria: true,
 };
+
+// MODAL CONFIG
+// export function getModalRefs() {
+//     return {
+//         linkSelector: '.modal-link',
+//         containerSelector: '#modal-container',
+//         contentSelector: '#modal-content',
+//         iframeSelector: '#modal-iframe',
+//         closeSelector: '#modal-close'
+//     };
+// }

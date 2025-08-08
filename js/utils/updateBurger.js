@@ -1,5 +1,5 @@
 // IMPORTS
-import { getLocale, getI18nData } from "./index.js";
+import { getLocale, fallbackLocale, getI18nData } from "./index.js";
 
 // RELOAD I18N LABELS ON INIT
 export async function updateBurgerData(locale = getLocale()) {
@@ -29,5 +29,13 @@ export async function updateBurgerData(locale = getLocale()) {
     // UPDATE ARIA-LABEL BASED ON STATE
     function updateBurgerAriaLabel(newState) {
         burgerBtn.setAttribute("aria-label", cachedLabels[!newState ? "open" : "close"]);
+
+        if (newState) {
+            // EASTER EGG
+            console.log(
+                "%c🍔 Menú desplegable hecho con CSS puro y amor. ¡No jQuery aquí!",
+                "color: #2ecc71;"
+            );
+        }
     };
 }

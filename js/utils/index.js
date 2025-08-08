@@ -5,7 +5,6 @@ export {
     fallbackLocale,
     getI18nData,
     initI18n,
-    getLangMenuConfig,
     reloadDynamicContent } from './i18n.js';
 export { initToggler } from './initToggler.js';
 export { initLangSwitcher } from './langBtns.js';
