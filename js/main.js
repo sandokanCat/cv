@@ -10,11 +10,11 @@ import {
     getLocale,
     initI18n,
     initToggler,
-    updateBurgerData,
     signature,
     manageCookies } from './utils/index.js';
 import {
     themeDark,
+    updateBurgerData,
     initCarousel/*,
     openModal*/ } from './components/index.js';
 
