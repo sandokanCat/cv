@@ -2,7 +2,7 @@
 import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";
 import {
     updateCarouselAlts,
-    // updateBurgerData,
+    getBurgerConfig,
     /*reloadRandomMsg,
     updateProvisionalAlert*/ } from "../components/index.js";
 
@@ -24,7 +24,7 @@ export const setLocaleStorage = (locale) => localStorage.setItem('lang', locale)
 export async function reloadDynamicContent(locale) {
     if (typeof updateCarouselAlts === 'function') await updateCarouselAlts(locale);
     // if (typeof reloadRandomMsg === 'function') await reloadRandomMsg(locale);
-    // if (typeof updateBurgerData === 'function') await updateBurgerData(locale);
+    if (typeof getBurgerConfig === 'function') await getBurgerConfig(locale);
     // if (typeof updateProvisionalAlert === 'function') await updateProvisionalAlert(locale);
 };
 
