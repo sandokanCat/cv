@@ -1,3 +1,6 @@
+// IMPORTS
+import { reloadDynamicContent } from "./index.js";
+
 // COMMON TOOGLE MENU FUNCTION
 export async function initToggler({
     triggerSelector,

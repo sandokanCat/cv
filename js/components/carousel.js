@@ -39,9 +39,9 @@ export async function updateCarouselAlts(validImgs = null, locale = getLocale(),
 
 // INIT CAROUSEL WITH AUTOSCROLL + MANUAL CONTROLS
 export async function initCarousel(
-	imgs = null, // OPTIONAL: ALLOW PASSING CUSTOM IMG ARRAY (SKIPS FETCH)
-	startIndex = 0, // OPTIONAL: INITIAL SLIDE INDEX
-	interval = 6000, // OPTIONAL: AUTOSCROLL INTERVAL
+	imgs,
+	startIndex,
+	interval,
     locale = getLocale(),
     refs = {}
 ) {
