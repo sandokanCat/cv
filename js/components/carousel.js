@@ -1,6 +1,5 @@
 // IMPORTS
-import { validateCarousel } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateCarousel.js"; // FETCH + STRUCTURE + FORMAT VALIDATION
-import { getLocale, fallbackLocale } from "../utils/index.js"; // USE GLOBAL i18n LOCALE DETECTION
+import { getLocale, fallbackLocale, validateCarousel } from "../utils/index.js"; // USE GLOBAL i18n LOCALE DETECTION
 
 // JSON FILE PATH
 const json = "js/data/carousel.json";
