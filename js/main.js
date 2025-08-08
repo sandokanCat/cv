@@ -33,7 +33,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     
     await initCarousel(null, 0, 6000, locale, getCarouselRefs());
 
-    await initToggler(await getBurgerConfig(locale));
+    await initToggler(getLangMenuConfig, async (lang) => {
+        await initI18n({ ...i18nConfig, locale: lang });
+    
+        const newBurgerConfig = await getBurgerConfig(lang);
+        initToggler(newBurgerConfig);
+    });
 
     signature('#signature-year');
 
