@@ -27,6 +27,8 @@ export async function initLangSwitcher(selector, onChange) {
         btn.addEventListener('click', async () => {
             try {
                 const lang = btn.getAttribute('data-lang')?.trim();
+                if (!lang) return;
+                
                 if (lang && lang !== currentLocale) {
                     setLocaleStorage(lang);
                     if (typeof onChange === 'function') {
@@ -36,9 +38,6 @@ export async function initLangSwitcher(selector, onChange) {
                     }
                     setAriaPressed(lang);
                     currentLocale = lang;
-                    
-                    const lang = btn.getAttribute('data-lang')?.trim();
-                    if (!lang) return;
 
                     const current = getLocale();
                     if (lang === current) return;
