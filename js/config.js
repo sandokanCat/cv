@@ -54,5 +54,5 @@ export const burgerConfig = {
     triggerSelector: '#burger-btn',
     targets: ['#github-icon', '#vercel-icon'],
     aria: true,
-    labelFn: updateBurgerData
+    labelFn: null
 };

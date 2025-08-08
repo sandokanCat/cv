@@ -1,16 +1,16 @@
 /* TYPOGRAPHY STYLES */
 body {
-    font-family: 'PT Sans', Tahoma, Geneva, sans-serif;
+    font-family: 'PT Sans', Tahoma, Geneva;
 }
 h1, h3, h4 {
-    font-family: 'League Spartan', Impact, Charcoal, sans-serif;
+    font-family: 'League Spartan', Impact, Charcoal;
 }
 h2, h6 {
-    font-family: Montserrat, 'Segoe UI', 'Lucida Grande', sans-serif;
+    font-family: Montserrat, 'Segoe UI', 'Lucida Grande';
 }
 h3:first-child + ul,
 h5 {
-    font-family: Kollektif, Verdana, 'Bitstream Vera Sans', sans-serif;
+    font-family: Kollektif, Verdana, 'Bitstream Vera Sans';
     letter-spacing: 0.05em;
 }
 strong, b {

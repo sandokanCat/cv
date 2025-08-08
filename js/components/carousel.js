@@ -87,7 +87,7 @@ export async function initCarousel(
 			img.fetchPriority = "high"; //primera foto
             img.decoding = "async"; //primera foto
 			img.loading = "eager"; //primera foto
-            // RESTO FOTOS: auto, lazy, async   <==========================================================================
+            // RESTO FOTOS: auto, lazy, async   <=============================VOLVER AQUI=====================================
 
 			picture.appendChild(sourceWebp); // APPEND CHILDREN TO PICTURE
 			picture.appendChild(sourcePng);
