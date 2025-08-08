@@ -1,3 +1,6 @@
+// IMPORTS
+export { getLocale, fallbackLocale, getI18nData, initI18n, getLangMenuConfig, reloadDynamicContent } from './i18n.js';
+
 // TOGGLE BURGER MENU STATES
 export async function initToggler({
     triggerSelector,
@@ -5,7 +8,7 @@ export async function initToggler({
     targets = [],
     aria = false,
     labelFn = null,
-    onClick = null, // async optional
+    onClick = null,
     customToggleFn = null
 }) {
     const triggers = multiple

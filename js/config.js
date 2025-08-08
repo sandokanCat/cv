@@ -11,29 +11,6 @@ export const langMenuConfig = {
     triggerSelector: '[data-lang]',
     multiple: true,
     aria: true,
-    onClick: async (btn, newState) => {
-        const lang = btn.getAttribute('data-lang')?.trim();
-        if (!lang) return;
-
-        const current = getLocale();
-        if (lang === current) return;
-
-        setLocaleStorage(lang);
-        await initI18n({ locale: lang });
-        await reloadDynamicContent(lang);
-
-        // SET ARIA PRESSED TO TRUE ONLY ON CLICKED LANG BUTTON
-        document.querySelectorAll('[data-lang]').forEach(el =>
-        el.setAttribute('aria-pressed', el === btn ? 'true' : 'false')
-        );
-    },
-    customToggleFn: (btn, elements, newState) => {
-        const use = btn.querySelector('use');
-        const lang = btn.getAttribute('data-lang');
-        if (use && lang) {
-            use.setAttribute('href', `img/sprite.svg#${lang}`);
-        }
-    }
 }
 
 // CAROUSEL CONFIG
@@ -53,5 +30,4 @@ export const burgerConfig = {
     triggerSelector: '#burger-btn',
     targets: ['#github-icon', '#vercel-icon'],
     aria: true,
-    labelFn: null
 };

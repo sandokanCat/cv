@@ -85,7 +85,7 @@ export const initI18n = async ({
             root.setAttribute('lang', locale);
 
             const base = locale.split('-')[0].toLowerCase();
-            const direction = rtlLangs.includes(base) ? 'rtl' : 'ltr';            ;
+            const direction = rtlLangs.includes(base) ? 'rtl' : 'ltr';
             root.setAttribute('dir', direction);
         }
         
@@ -151,3 +151,62 @@ export const initI18n = async ({
         console.error(`i18n.js ERROR: ${getJsonPath(locale)} →`, err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
     }
 };
+
+export function getLangMenuConfig() {
+    return {
+        triggerSelector: '[data-lang]',
+        multiple: true,
+        aria: true,
+
+        // ASYNC LOGIC WHEN LANG BUTTON CLICKED
+        onClick: async (btn, newState) => {
+            const lang = btn.getAttribute('data-lang')?.trim();
+            if (!lang) return;
+
+            const current = getLocale();
+            if (lang === current) return;
+
+            setLocaleStorage(lang);
+            await initI18n({ locale: lang });
+            await reloadDynamicContent(lang);
+
+            // SET ARIA PRESSED TO TRUE ONLY ON CLICKED LANG BUTTON
+            document.querySelectorAll('[data-lang]').forEach(el =>
+                el.setAttribute('aria-pressed', el === btn ? 'true' : 'false')
+            );
+        },
+
+        // CUSTOM SVG ICON HANDLING
+        customToggleFn: (btn, elements, newState) => {
+            const use = btn.querySelector('use');
+            const lang = btn.getAttribute('data-lang');
+            if (use && lang) {
+                use.setAttribute('href', `img/sprite.svg#${lang}`);
+            }
+        }
+    };
+}
+
+// function onClick: async (btn, newState) => {
+//     const lang = btn.getAttribute('data-lang')?.trim();
+//     if (!lang) return;
+
+//     const current = getLocale();
+//     if (lang === current) return;
+
+//     setLocaleStorage(lang);
+//     await initI18n({ locale: lang });
+//     await reloadDynamicContent(lang);
+
+//     // SET ARIA PRESSED TO TRUE ONLY ON CLICKED LANG BUTTON
+//     document.querySelectorAll('[data-lang]').forEach(el =>
+//     el.setAttribute('aria-pressed', el === btn ? 'true' : 'false')
+//     );
+// },
+// function customToggleFn: (btn, elements, newState) => {
+//     const use = btn.querySelector('use');
+//     const lang = btn.getAttribute('data-lang');
+//     if (use && lang) {
+//         use.setAttribute('href', `img/sprite.svg#${lang}`);
+//     }
+// }
