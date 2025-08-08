@@ -1,5 +1,5 @@
 // EXPORTS
-export { logger } from './logger.js';
+// export { logger } from './logger.js';
 export { replaceClass } from './replaceClass.js';
 export {
     getLocale,
