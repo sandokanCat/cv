@@ -1,10 +1,10 @@
 // 📥 IMPORTS ORDERED BY LAYER: CONFIG → UTILS → COMPONENTS
 import {
     i18nConfig,
-    langMenuConfig,
+    // langMenuConfig,
     getCarouselRefs,
-    burgerConfig/*,
-    getModalRefs*/ } from './config.js';
+    // burgerConfig,
+    /*getModalRefs*/ } from './config.js';
 import {
     replaceClass,
     getLocale,
@@ -14,7 +14,8 @@ import {
     manageCookies } from './utils/index.js';
 import {
     themeDark,
-    updateBurgerData,
+    getLangMenuConfig,
+    getBurgerConfig,
     initCarousel/*,
     openModal*/ } from './components/index.js';
 
@@ -25,15 +26,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     replaceClass('js-disabled', 'js-enabled');
 
     await initI18n({ ...i18nConfig, locale });
-    await initToggler(langMenuConfig, async (lang) => {
-        await initI18n({ ...i18nConfig, locale: lang });
-    });
+    await initToggler(getLangMenuConfig());
     
     themeDark('#theme-dark-btn', document.documentElement);
     
     await initCarousel(null, 0, 6000, locale, getCarouselRefs());
 
-    initToggler({ ...burgerConfig, locale});
+    const burgerConfig = await getBurgerConfig(locale);
+    initToggler(burgerConfig);
 
     signature('#signature-year');
 

@@ -1,13 +1,15 @@
-// TOGGLE BURGER MENU STATES
 export async function initToggler({
     triggerSelector,
     multiple = false,
     targets = [],
     aria = false,
+    labelFn = null,
+    onClick = null,
+    customToggleFn = null
 }) {
     const triggers = multiple
-    ? document.querySelectorAll(triggerSelector)
-    : [document.querySelector(triggerSelector)];
+        ? document.querySelectorAll(triggerSelector)
+        : [document.querySelector(triggerSelector)];
 
     if (!triggers.length) {
         console.error(`NO TRIGGER(S) FOUND FOR SELECTOR: "${triggerSelector}"`);
@@ -26,7 +28,23 @@ export async function initToggler({
                 trigger.setAttribute("aria-pressed", newState.toString());
             }
 
-            elements.forEach(el => el.classList.toggle('active'));
+            if (typeof labelFn === 'function') {
+                labelFn(newState); // solo cambia etiqueta
+            }
+
+            if (typeof customToggleFn === 'function') {
+                customToggleFn(trigger, elements, newState);
+            } else {
+                elements.forEach(el => el.classList.toggle('active'));
+            }
+
+            if (typeof onClick === 'function') {
+                try {
+                    await onClick(trigger, newState);
+                } catch (err) {
+                    console.error('ERROR IN TOGGLER onClick():', err.name, err.message);
+                }
+            }
         });
     });
 }

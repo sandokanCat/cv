@@ -7,11 +7,11 @@ export const i18nConfig = {
 };
 
 // LANGUAGE MENU CONFIG
-export const langMenuConfig = {
-    triggerSelector: '[data-lang]',
-    multiple: true,
-    aria: true,
-}
+// export const langMenuConfig = {
+//     triggerSelector: '[data-lang]',
+//     multiple: true,
+//     aria: true,
+// }
 
 // CAROUSEL CONFIG
 export function getCarouselRefs() {
@@ -26,11 +26,11 @@ export function getCarouselRefs() {
 }
 
 // BURGER MENU CONFIG
-export const burgerConfig = {
-    triggerSelector: '#burger-btn',
-    targets: ['#github-icon', '#vercel-icon'],
-    aria: true,
-};
+// export const burgerConfig = {
+//     triggerSelector: '#burger-btn',
+//     targets: ['#github-icon', '#vercel-icon'],
+//     aria: true,
+// };
 
 // MODAL CONFIG
 // export function getModalRefs() {
