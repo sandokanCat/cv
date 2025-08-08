@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     
     themeDark('#theme-dark-btn', document.documentElement);
     
-    await initCarousel(null, 0, 6000, getCarouselRefs(), locale);
+    await initCarousel(null, 0, 6000, locale, getCarouselRefs());
     initToggler(burgerConfig, burgerConfig.labelFn = updateBurgerData);
     // openModal({
     //     linkSelector: '.modal-link',
