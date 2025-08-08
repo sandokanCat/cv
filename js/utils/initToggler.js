@@ -1,3 +1,4 @@
+// COMMON TOOGLE MENU FUNCTION
 export async function initToggler({
     triggerSelector,
     multiple = false,

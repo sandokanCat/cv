@@ -1,10 +1,8 @@
 // 📥 IMPORTS ORDERED BY LAYER: CONFIG → UTILS → COMPONENTS
 import {
     i18nConfig,
-    // langMenuConfig,
-    getCarouselRefs,
-    // burgerConfig,
-    /*getModalRefs*/ } from './config.js';
+    getCarouselRefs/*,
+    getModalRefs*/ } from './config.js';
 import {
     replaceClass,
     getLocale,
@@ -15,8 +13,8 @@ import {
 import {
     themeDark,
     getLangMenuConfig,
-    getBurgerConfig,
-    initCarousel/*,
+    initCarousel,
+    getBurgerConfig/*,
     openModal*/ } from './components/index.js';
 
 // 🧠 APP INITIALIZATION SEQUENCE: FROM GLOBALS TO INTERACTIVE UI
@@ -27,18 +25,18 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     await initI18n({ ...i18nConfig, locale });
 
-    await initToggler(await getLangMenuConfig());
+    await initToggler(await getLangMenuConfig(async (newLang) => {
+        await initI18n({ ...i18nConfig, locale: newLang });
+    
+        await initToggler(await getBurgerConfig(newLang));
+    }));
     
     themeDark('#theme-dark-btn', document.documentElement);
     
     await initCarousel(null, 0, 6000, locale, getCarouselRefs());
 
-    await initToggler(getBurgerConfig, async (lang) => {
-        await initI18n({ ...i18nConfig, locale: lang });
-    
-        const newBurgerConfig = await getBurgerConfig(lang);
-        initToggler(newBurgerConfig);
-    });
+    const burgerConfig = await getBurgerConfig(locale);
+    await initToggler(burgerConfig);
 
     signature('#signature-year');
 

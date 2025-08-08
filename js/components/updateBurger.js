@@ -1,7 +1,6 @@
 // IMPORTS
 import { getLocale, getI18nData } from "../utils/index.js";
 
-
 // BURGER MENU CONFIG
 export async function getBurgerConfig(locale = getLocale()) {
     const burgerBtn = document.getElementById("burger-btn");
