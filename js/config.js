@@ -27,10 +27,10 @@ export const carouselConfig = {
 // MODAL CONFIG
 export function getModalRefs() {
     return {
-        linkSelector: '.modal-link',
-        containerSelector: '#modal-container',
-        contentSelector: '#modal-content',
-        iframeSelector: '#modal-iframe',
-        closeSelector: '#modal-close'
+        linkSelector: document.querySelectorAll('.modal-link'),
+        containerSelector: document.getElementById('#modal-container'),
+        contentSelector: document.getElementById('#modal-content'),
+        iframeSelector: document.getElementById('#modal-iframe'),
+        closeSelector: document.getElementById('#modal-close')
     };
 }

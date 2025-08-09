@@ -2,7 +2,7 @@
 import { getLocale, validateJSON } from "../utils/index.js"; // USE GLOBAL i18n LOCALE DETECTION
 
 // GLOBAL VARIABLES
-const json = "js/data/phrases.json"; // SOURCE JSON FILE
+const json = "./js/data/phrases.json"; // SOURCE JSON FILE
 
 const target = document.getElementById('random-phrases'); // CACHED ID
 let phrasesCache = []; // FULL JSON CACHED

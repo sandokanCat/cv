@@ -2,7 +2,7 @@
 import { getLocale, fallbackLocale, validateCarousel } from "../utils/index.js"; // USE GLOBAL i18n LOCALE DETECTION
 
 // JSON FILE PATH
-const json = "js/data/carousel.json";
+const json = "./js/data/carousel.json";
 
 // CACHED DATA
 let cachedCarouselImgs = null;
@@ -84,9 +84,9 @@ export async function initCarousel(
 			img.className = "modal-link";
 			img.setAttribute("data-modal", png.fallback);
 			img.fetchPriority = "high"; //primera foto
-            img.decoding = "async"; //primera foto
+            img.decoding = "sync"; //primera foto
 			img.loading = "eager"; //primera foto
-            // RESTO FOTOS: auto, lazy, async   <=============================VOLVER AQUI=====================================
+            // RESTO FOTOS: auto, async, lazy   <=============================VOLVER AQUI=====================================
 
 			picture.appendChild(sourceWebp); // APPEND CHILDREN TO PICTURE
 			picture.appendChild(sourcePng);
