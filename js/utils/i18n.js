@@ -2,9 +2,9 @@
 import { validateJSON } from "./index.js";
 import {
     updateCarouselAlts,
-    // reloadRandomMsg,
+    reloadRandomMsg,
     getBurgerConfig,
-    /*updateProvisionalAlert*/ } from "../components/index.js";
+    updateProvisionalAlert } from "../components/index.js";
 
 // SUPPORTED LOCALES
 const supportedLocales = ['en-GB', 'es-ES', 'ca-ES'];
