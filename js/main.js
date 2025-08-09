@@ -30,12 +30,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     await initToggler(await getLangMenuConfig(async (newLang) => {
         await initI18n({ ...i18nConfig, locale: newLang });
         
-        await initCarousel({ ...carouselConfig, locale: newLang });
+        await initCarousel({ ...carouselConfig, locale: newLang, refs: carouselConfig.refs() });
         
         await initToggler(await getBurgerConfig(newLang));
     }));
     
-    await initCarousel({ ...carouselConfig, locale });
+    await initCarousel({ ...carouselConfig, locale, refs: carouselConfig.refs() });
 
     await initToggler(await getBurgerConfig(locale));
 
