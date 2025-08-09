@@ -1,9 +1,3 @@
-if (window.__mainJsExecuted) {
-    console.warn("main.js ya se ejecutó antes. Duplicado detectado.");
-  } else {
-    window.__mainJsExecuted = true;
-    console.log("main.js ejecución única OK.");
-
 // 📥 IMPORTS ORDERED BY LAYER: CONFIG → UTILS → COMPONENTS
 import {
     i18nConfig,
@@ -27,8 +21,11 @@ import {
     updateProvisionalAlert/*,
     openModal*/ } from './components/index.js';
 
-if (!window.hasInit) {
-    window.hasInit = true;
+if (window.__mainJsExecuted) {
+    console.warn("main.js ya se ejecutó antes. Duplicado detectado.");
+    } else {
+    window.__mainJsExecuted = true;
+    console.log("main.js ejecución única OK.");
 
     // 🧠 APP INITIALIZATION SEQUENCE: FROM GLOBALS TO INTERACTIVE UI
     document.addEventListener("DOMContentLoaded", async () => {
@@ -54,7 +51,6 @@ if (!window.hasInit) {
 
         // openModal({getModalRefs(), locale});
     });
-}
 
 console.group('EASTER EGG');
     console.log( // BUSSINESS CARD
