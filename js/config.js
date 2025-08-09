@@ -14,12 +14,12 @@ export const carouselConfig = {
     locale: null,
     refs: function getCarouselRefs() {
         return {
-            container: document.querySelector('.carousel-container'),
-            track: document.querySelector('.carousel-track'),
-            scrollbar: document.querySelector('.carousel-scrollbar'),
-            advanceBtn: document.querySelector('.carousel-advance'),
-            backBtn: document.querySelector('.carousel-back'),
-            imgWrapper: document.querySelector('.carousel-imgs')
+            containerSelector: document.querySelector('.carousel-container'),
+            trackSelector: document.querySelector('.carousel-track'),
+            scrollbarSelector: document.querySelector('.carousel-scrollbar'),
+            advanceBtnSelector: document.querySelector('.carousel-advance'),
+            backBtnSelector: document.querySelector('.carousel-back'),
+            imgWrapperSelector: document.querySelector('.carousel-imgs')
         };
     }
 }
@@ -28,11 +28,11 @@ export const carouselConfig = {
 // export function getModalRefs() {
 //     return {
 //         siteSelector: document.getElementById('site-wrapper'),
-//         linkSelector: document.getElementsByClassName('.modal-link'),
-//         containerSelector: document.getElementById('#modal-container'),
-//         contentSelector: document.getElementById('#modal-content'),
-//         iframeSelector: document.getElementById('#modal-iframe'),
+//         linkSelector: document.getElementsByClassName('modal-link'),
+//         containerSelector: document.getElementById('modal-container'),
+//         contentSelector: document.getElementById('modal-content'),
+//         iframeSelector: document.getElementById('modal-iframe'),
 //         imgWrapperSelector: document.getElementById('modal-img-wrapper'),
-//         closeSelector: document.getElementById('#modal-close')
+//         closeSelector: document.getElementById('modal-close')
 //     };
 // }

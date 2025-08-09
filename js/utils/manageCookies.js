@@ -1,11 +1,5 @@
-// GLOBAL VARIABLES
-let manageCookiesInitialized = false;
-
 // GET/SET COOKIE WITH EXPIRATION DAYS
 export function manageCookies(cookieBarSelector, acceptBtnSelector) {
-    if (manageCookiesInitialized) return;
-    manageCookiesInitialized = true;
-
     const cookieName = 'sandokan.cat_consent'; // COOKIE NAME
 
     // SET COOKIE WITH EXPIRATION DAYS
@@ -126,9 +120,7 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
         if (btn && !btn.dataset.listenerAdded) {
             btn.addEventListener('click', acceptConsent);
             btn.dataset.listenerAdded = 'true';
-        } else if (btn) {
-            btn.addEventListener('click', acceptConsent);
-        } else {
+        } else if (!btn) {
             console.error(`BUTTON ${acceptBtnSelector} NOT FOUND`);
         }
     }

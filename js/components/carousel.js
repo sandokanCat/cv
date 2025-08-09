@@ -20,10 +20,10 @@ const loadCarouselData = async (forceReload = false) => {
 export async function updateCarouselAlts(validImgs = null, locale = getLocale(), refs = {}) {
     currentLocaleForCarousel = locale;
 
-    const { track } = refs;
-    if (!track) return;
+    const { trackSelector } = refs;
+    if (!trackSelector) return;
 
-    const imgs = track.querySelectorAll("img.modal-link");
+    const imgs = trackSelector.querySelectorAll("img.modal-link");
     if (!imgs.length) return;
 
     const data = validImgs || await loadCarouselData();
@@ -52,20 +52,20 @@ export async function initCarousel({
 
         // DESTRUCTURE REFS
         const {
-            container,
-            track,
-            scrollbar,
-            advanceBtn,
-            backBtn,
-            imgWrapper
+            containerSelector,
+            trackSelector,
+            scrollbarSelector,
+            advanceBtnSelector,
+            backBtnSelector,
+            imgWrapperSelector
         } = refs;
 
 		// MANDATORY ELEMENTS CHECK
-		if (!track || !scrollbar || !imgWrapper)
+		if (!trackSelector || !scrollbarSelector || !imgWrapperSelector)
 			throw new Error("initCarousel: MISSING REQUIRED ELEMENTS IN CONTAINER");
 
 		let index = startIndex, timer;
-		track.innerHTML = ''; // CLEAN PREVIOUS SLIDES
+		trackSelector.innerHTML = ''; // CLEAN PREVIOUS SLIDES
 
 		// RENDER <picture> SLIDES
 		validImgs.forEach(({ webp, png, alt }) => {
@@ -93,15 +93,15 @@ export async function initCarousel({
 			picture.appendChild(sourcePng);
 			picture.appendChild(img);
 			li.appendChild(picture); // APPEND PICTURE TO LI
-			track.appendChild(li); // APPEND LI TO TRACK
+			trackSelector.appendChild(li); // APPEND LI TO trackSelector
 		});
 
 		// MOVE TRACK + UPDATE SCROLLBAR
 		const update = () => {
-			track.style.transform = `translateX(${-index * 100}%)`;
+			trackSelector.style.transform = `translateX(${-index * 100}%)`;
 			const width = 100 / validImgs.length;
-			scrollbar.style.setProperty('--scrollbar-offset', `${index * width}%`);
-			scrollbar.style.setProperty('--scrollbar-width', `${width}%`);
+			scrollbarSelector.style.setProperty('--scrollbar-offset', `${index * width}%`);
+			scrollbarSelector.style.setProperty('--scrollbar-width', `${width}%`);
 			clearTimeout(timer);
 			timer = setTimeout(() => {
 				index = (index + 1) % validImgs.length;
@@ -110,18 +110,18 @@ export async function initCarousel({
 		};
 
 		// MANUAL BUTTON CONTROLS
-		advanceBtn?.addEventListener("click", () => {
+		advanceBtnSelector?.addEventListener("click", () => {
 			index = (index + 1) % validImgs.length;
 			update();
 		});
-		backBtn?.addEventListener("click", () => {
+		backBtnSelector?.addEventListener("click", () => {
 			index = (index - 1 + validImgs.length) % validImgs.length;
 			update();
 		});
 
 		// AUTOSCROLL PAUSE ON HOVER
-		imgWrapper.addEventListener("mouseenter", () => clearTimeout(timer));
-		imgWrapper.addEventListener("mouseleave", update);
+		imgWrapperSelector.addEventListener("mouseenter", () => clearTimeout(timer));
+		imgWrapperSelector.addEventListener("mouseleave", update);
 
 		update(); // START LOOP
 

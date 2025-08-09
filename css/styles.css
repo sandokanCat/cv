@@ -1,11 +1,8 @@
 /* SETTINGS */
 @import url("base/variables.css");
 
-/* TOOLS */
-/* helpers.css here */
-
 /* GENERIC */
-@import url("https://open-utils-dev-sandokan-cat.vercel.app/css/custom-reset.css");
+@import url("base/custom-reset.css");
 
 /* ELEMENTS */
 @import url("base/base.css");

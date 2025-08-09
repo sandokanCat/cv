@@ -104,7 +104,7 @@ FileETag None
     Header always set Cross-Origin-Opener-Policy "same-origin"
 
     # CSP
-    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://www.googletagmanager.com/gtag/js?id=G-JMZTXS94TS https://www.clarity.ms/tag/sgweog5585 https://mc.yandex.ru/metrika/tag.js?id=103528686; style-src 'self' 'unsafe-inline' https://open-utils-dev-sandokan-cat.vercel.app; connect-src 'self' https://www.googletagmanager.com/gtag/js?id=G-JMZTXS94TS https://www.clarity.ms/tag/sgweog5585 https://mc.yandex.ru/metrika/tag.js?id=103528686; img-src 'self' https://sandokanCat.github.io data:; font-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; report-uri https://sandokan.cat/csp-report; report-to csp-endpoint"
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.clarity.ms https://mc.yandex.ru; style-src 'self'; connect-src 'self' https://www.googletagmanager.com https://www.clarity.ms https://mc.yandex.ru; img-src 'self' https://sandokanCat.github.io data:; font-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; report-to csp-endpoint"
     Header always set Report-To '{"group":"csp-endpoint","max_age":10886400,"endpoints":[{"url":"https://sandokan.cat/csp-report"}],"include_subdomains":true}'
 </IfModule>
 
