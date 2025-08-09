@@ -2,7 +2,7 @@
 import { getLocale, fallbackLocale, validateCarousel } from "../utils/index.js"; // USE GLOBAL i18n LOCALE DETECTION
 
 // JSON FILE PATH
-const json = "./js/data/carousel.json";
+const json = `${location.pathname.replace(/\/[^\/]*$/, '')}/js/data/carousel.json`;
 
 // CACHED DATA
 let cachedCarouselImgs = null;
