@@ -42,7 +42,7 @@ export async function initCarousel(
 	startIndex,
 	interval,
     locale = getLocale(),
-    refs = {}
+    refs,
 ) {
 	try {
 		// FETCH + VALIDATE IMAGES (IF NOT PASSED MANUALLY)
