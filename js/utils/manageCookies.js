@@ -1,4 +1,11 @@
+// GLOBAL VARIABLES
+let manageCookiesInitialized = false;
+
+// GET/SET COOKIE WITH EXPIRATION DAYS
 export function manageCookies(cookieBarSelector, acceptBtnSelector) {
+    if (manageCookiesInitialized) return;
+    manageCookiesInitialized = true;
+
     const cookieName = 'sandokan.cat_consent'; // COOKIE NAME
 
     // SET COOKIE WITH EXPIRATION DAYS
@@ -73,6 +80,8 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
     }
 
     function loadGoogleAnalytics() {
+        if (document.querySelector('script[src="https://www.googletagmanager.com/gtag/js?id=G-JMZTXS94TS"]')) return;
+
         const script = document.createElement('script');
         script.async = true;
         script.src = 'https://www.googletagmanager.com/gtag/js?id=G-JMZTXS94TS';
@@ -87,6 +96,8 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
     }
 
     function loadBingClarity() {
+        if (document.querySelector('script[src="https://www.clarity.ms/tag/sgweog5585"]')) return;
+
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
             t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
@@ -95,6 +106,8 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
     }
 
     function loadYandexMetrika() {
+        if (document.querySelector('script[src="https://mc.yandex.ru/metrika/tag.js?id=103528686"]')) return;
+
         (function(m,e,t,r,i,k,a){
             m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
             m[i].l=1*new Date();
@@ -107,8 +120,13 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
 
     function initCookieBar() {
         checkAndShowCookieBar();
+        
         const btn = document.querySelector(acceptBtnSelector);
-        if (btn) {
+
+        if (btn && !btn.dataset.listenerAdded) {
+            btn.addEventListener('click', acceptConsent);
+            btn.dataset.listenerAdded = 'true';
+        } else if (btn) {
             btn.addEventListener('click', acceptConsent);
         } else {
             console.error(`BUTTON ${acceptBtnSelector} NOT FOUND`);
