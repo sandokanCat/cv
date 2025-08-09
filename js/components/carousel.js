@@ -10,6 +10,7 @@ let currentLocaleForCarousel = null;
 
 // FETCHES AND VALIDATES REMOTE JSON VIA PUBLIC LIBRARY
 const loadCarouselData = async (forceReload = false) => {
+    console.log("loadCarouselData called", forceReload);
     if (forceReload || !cachedCarouselImgs) {
         cachedCarouselImgs = await validateCarousel(json);
         console.log("Loaded carousel data:", cachedCarouselImgs);
@@ -48,6 +49,7 @@ export async function initCarousel(
 	try {
 		// FETCH + VALIDATE IMAGES (IF NOT PASSED MANUALLY)
 		const validImgs = imgs || await loadCarouselData();
+        console.log("validImgs:", validImgs);
 		if (!validImgs.length) throw new Error("initCarousel: EMPTY VALID IMAGE LIST");
 
         // DESTRUCTURE REFS

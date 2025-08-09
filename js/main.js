@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         
         await initToggler(await getBurgerConfig(newLang));
     }));
-    
+    console.log("carouselConfig.refs():", carouselConfig.refs());
     await initCarousel({ ...carouselConfig, locale, refs: carouselConfig.refs() });
 
     await initToggler(await getBurgerConfig(locale));
