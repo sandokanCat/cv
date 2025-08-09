@@ -31,7 +31,7 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
             const daysRemaining = Math.floor((new Date(expires) - new Date()) / (1000 * 60 * 60 * 24));
             return { name: cookieName, value: value === 'true', daysRemaining };
         } catch (err) {
-            console.warn('Error al parsear la cookie:', err);
+            console.warn('Error al parsear la cookie:', err.name, err.message, err.stack);
             return null;
         }
     }
@@ -48,8 +48,7 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
         } else {
             bar.style.display = 'none';
             loadConsentScripts();
-            console.info(`Consentimiento para cookies analíticas: %c${consent.value}%c. Expira en %c${consent.daysRemaining}%c días.`,
-                'color: rgb(0,255,0)', '', 'color: rgb(0,255,0)', '');
+            logConsent(consent);
         }
     }
 
@@ -64,15 +63,19 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
         if (bar) bar.style.display = 'none';
 
         loadConsentScripts();
+        
+        const newConsent = { name: cookieName, value: true, daysRemaining: 365 };
+        logConsent(newConsent);
     }
 
     // LOAD EXTERNAL TRACKERS AFTER CONSENT
     function loadConsentScripts() {
         loadGoogleAnalytics();
-        loadBingClarity();
+        loadMicrosoftClarity();
         loadYandexMetrika();
     }
 
+    // GOOGLE ANALYTICS SCRIPT
     function loadGoogleAnalytics() {
         if (document.querySelector('script[src="https://www.googletagmanager.com/gtag/js?id=G-JMZTXS94TS"]')) return;
 
@@ -89,7 +92,8 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
         };
     }
 
-    function loadBingClarity() {
+    // MICROSOFT CLARITY SCRIPT
+    function loadMicrosoftClarity() {
         if (document.querySelector('script[src="https://www.clarity.ms/tag/sgweog5585"]')) return;
 
         (function(c,l,a,r,i,t,y){
@@ -99,6 +103,7 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
         })(window, document, "clarity", "script", "sgweog5585");
     }
 
+    // YANDEX METRIKA SCRIPT
     function loadYandexMetrika() {
         if (document.querySelector('script[src="https://mc.yandex.ru/metrika/tag.js?id=103528686"]')) return;
 
@@ -112,6 +117,7 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
         ym(103528686, 'init', {ssr:true, webvisor:true, trackHash:true, clickmap:true, accurateTrackBounce:true, trackLinks:true});
     }
 
+    // COOKIE BAR INITIALIZATION
     function initCookieBar() {
         checkAndShowCookieBar();
 
@@ -123,6 +129,12 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
         } else if (!btn) {
             console.error(`BUTTON ${acceptBtnSelector} NOT FOUND`);
         }
+    }
+
+    // LOG CONSENT INFO
+    function logConsent(consent) {
+        console.log(`Consentimiento para cookies analíticas: %c${consent.value}%c. Expira en %c${consent.daysRemaining}%c días.`,
+            'color: rgb(0,255,0)', '', 'color: rgb(0,255,0)', '');
     }
 
     initCookieBar();
