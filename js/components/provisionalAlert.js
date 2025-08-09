@@ -25,7 +25,7 @@ export async function updateProvisionalAlert(locale = getLocale()) {
 }
 
 // INIT PROVISIONAL ALERTS
-async function provisionalAlert() {
+async function provisionalAlert(locale = getLocale()) {
     try {
         const alerts = await loadAlertsData(); // ENSURE ALERTS ARE LOADED
 
