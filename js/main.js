@@ -1,4 +1,8 @@
-console.count('main.js script loaded'); // PROVISIONAL
+if (window.__mainJsExecuted) {
+    console.warn("main.js ya se ejecutó antes. Duplicado detectado.");
+  } else {
+    window.__mainJsExecuted = true;
+    console.log("main.js ejecución única OK.");
 
 // 📥 IMPORTS ORDERED BY LAYER: CONFIG → UTILS → COMPONENTS
 import {
@@ -84,3 +88,5 @@ console.assert(
     (document.title === "Gonzalo Cabezas | Desenvolupador Frontend web") 
     `❌ ¡Meow alert! El título actual es '${document.title}'. ¡Git push urgente! 🐾`
 );
+
+}
