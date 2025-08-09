@@ -12,6 +12,7 @@ let currentLocaleForCarousel = null;
 const loadCarouselData = async (forceReload = false) => {
     if (forceReload || !cachedCarouselImgs) {
         cachedCarouselImgs = await validateCarousel(json);
+        console.log("Loaded carousel data:", cachedCarouselImgs);
     }
     return cachedCarouselImgs;
 }
