@@ -73,11 +73,11 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
     }
 
     // LOAD EXTERNAL TRACKERS AFTER CONSENT
-    function loadConsentScripts() {
-        loadGoogleAnalytics();
-        loadBingClarity();
-        loadYandexMetrika();
-    }
+    // function loadConsentScripts() {
+    //     loadGoogleAnalytics();
+    //     loadBingClarity();
+    //     loadYandexMetrika();
+    // }
 
     function loadGoogleAnalytics() {
         if (document.querySelector('script[src="https://www.googletagmanager.com/gtag/js?id=G-JMZTXS94TS"]')) return;
@@ -120,7 +120,7 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
 
     function initCookieBar() {
         checkAndShowCookieBar();
-        
+
         const btn = document.querySelector(acceptBtnSelector);
 
         if (btn && !btn.dataset.listenerAdded) {

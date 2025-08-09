@@ -21,9 +21,11 @@ import {
     updateProvisionalAlert/*,
     openModal*/ } from './components/index.js';
 
+window.__mainRunCount = (window.__mainRunCount || 0) + 1;
+console.log(`main.js executed count: ${window.__mainRunCount}`);    
+
 // 🧠 APP INITIALIZATION SEQUENCE: FROM GLOBALS TO INTERACTIVE UI
 document.addEventListener("DOMContentLoaded", async () => {
-    console.log('DOMContentLoaded fired and main.js runs only once');
     const locale = getLocale();
 
     replaceClass('js-disabled', 'js-enabled');
