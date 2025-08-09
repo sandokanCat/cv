@@ -39,13 +39,13 @@ export async function updateCarouselAlts(validImgs = null, locale = getLocale(),
 }
 
 // INIT CAROUSEL WITH AUTOSCROLL + MANUAL CONTROLS
-export async function initCarousel(
+export async function initCarousel({
 	imgs,
 	startIndex,
 	interval,
     locale = getLocale(),
-    refs,
-) {
+    refs = {}
+}) {
 	try {
 		// FETCH + VALIDATE IMAGES (IF NOT PASSED MANUALLY)
 		const validImgs = imgs || await loadCarouselData();
