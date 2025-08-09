@@ -23,9 +23,9 @@ export const setLocaleStorage = (locale) => localStorage.setItem('lang', locale)
 // RELOAD DYNAMIC CONTENTS
 export async function reloadDynamicContent(locale) {
     if (typeof updateCarouselAlts === 'function') await updateCarouselAlts(locale);
-    // if (typeof reloadRandomMsg === 'function') await reloadRandomMsg(locale);
+    if (typeof reloadRandomMsg === 'function') await reloadRandomMsg(locale);
     if (typeof getBurgerConfig === 'function') await getBurgerConfig(locale);
-    // if (typeof updateProvisionalAlert === 'function') await updateProvisionalAlert(locale);
+    if (typeof updateProvisionalAlert === 'function') await updateProvisionalAlert(locale);
 };
 
 // RESOLVE ACTUAL LOCALE

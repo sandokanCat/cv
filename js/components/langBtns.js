@@ -25,13 +25,13 @@ export async function getLangMenuConfig() {
             document.querySelectorAll('[data-lang]').forEach(el =>
                 el.setAttribute('aria-pressed', el === btn ? 'true' : 'false')
             );
-        },
-        customToggleFn: (btn) => {
-            const use = btn.querySelector('use');
-            const lang = btn.getAttribute('data-lang');
-            if (use && lang) {
-                use.setAttribute('href', `img/sprite.svg#${lang}`);
-            }
-        }
+        }//,
+        // customToggleFn: (btn) => {
+        //     const use = btn.querySelector('use');
+        //     const lang = btn.getAttribute('data-lang');
+        //     if (use && lang) {
+        //         use.setAttribute('href', `img/sprite.svg#${lang}`);
+        //     }
+        // }
     };
 }

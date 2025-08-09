@@ -2,7 +2,7 @@
 import { getLocale, validateJSON } from "../utils/index.js"; // USE GLOBAL i18n LOCALE DETECTION
 
 // GLOBAL VARIABLES
-const json = `${location.pathname.replace(/\/[^\/]*$/, '')}/js/data/alerts.json`; // SOURCE JSON FILE
+const json = "./js/data/alerts.json"; // SOURCE JSON FILE
 
 const alertLinks = document.querySelectorAll('a[data-status]'); // CACHED ALL ALERT LINKS
 let lastAlert = null; // LAST SHOWN ALERT
