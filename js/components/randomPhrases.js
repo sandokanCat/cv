@@ -59,8 +59,7 @@ async function showRandomMsg(locale = getLocale()) {
     try {
         await loadPhrasesData(locale); // ENSURE PHRASES ARE LOADED
         
-        const locale = getLocale(); // GLOBAL FUNC TO GET LOCALE
-        const lang = locale.split("-")[0]; // FALLBACK TO BASE LANGUAGE (e.g., 'es')
+        const lang = locale.split("-")[0]; // FALLBACK TO BASE LANGUAGE (e.g., 'en')
 
         const MAX_SHUFFLE_ATTEMPTS = 10; // LIMIT LOOP TO AVOID INFINITE SHUFFLES
 
