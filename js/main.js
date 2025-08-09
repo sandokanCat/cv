@@ -14,7 +14,9 @@ import {
     themeDark,
     getLangMenuConfig,
     initCarousel,
-    getBurgerConfig/*,
+    reloadRandomMsg,
+    getBurgerConfig,
+    updateProvisionalAlert/*,
     openModal*/ } from './components/index.js';
 
 // 🧠 APP INITIALIZATION SEQUENCE: FROM GLOBALS TO INTERACTIVE UI
@@ -31,13 +33,21 @@ document.addEventListener("DOMContentLoaded", async () => {
         await initI18n({ ...i18nConfig, locale: newLang });
         
         await initCarousel({ ...carouselConfig, newLang, refs: carouselConfig.refs() });
+
+        await reloadRandomMsg(newLang);
         
         await initToggler(await getBurgerConfig(newLang));
+
+        await updateProvisionalAlert(newLang);
     }));
     
     await initCarousel({ ...carouselConfig, locale, refs: carouselConfig.refs() });
 
+    await reloadRandomMsg(locale);
+
     await initToggler(await getBurgerConfig(locale));
+
+    await updateProvisionalAlert(locale);
 
     signature('#signature-year');
 
