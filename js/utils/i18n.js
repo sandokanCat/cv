@@ -22,11 +22,25 @@ export const setLocaleStorage = (locale) => localStorage.setItem('lang', locale)
 
 // RELOAD DYNAMIC CONTENTS
 export async function reloadDynamicContent(locale) {
-    if (typeof updateCarouselAlts === 'function') await updateCarouselAlts(locale);
-    if (typeof reloadRandomMsg === 'function') await reloadRandomMsg(locale);
-    if (typeof getBurgerConfig === 'function') await getBurgerConfig(locale);
-    if (typeof updateProvisionalAlert === 'function') await updateProvisionalAlert(locale);
-};
+    console.log('reloadDynamicContent called with locale:', locale);
+
+    if (typeof updateCarouselAlts === 'function') {
+        console.log('Calling updateCarouselAlts...');
+        await updateCarouselAlts(locale);
+    }
+    if (typeof reloadRandomMsg === 'function') {
+        console.log('Calling reloadRandomMsg...');
+        await reloadRandomMsg(locale);
+    }
+    if (typeof getBurgerConfig === 'function') {
+        console.log('Calling getBurgerConfig...');
+        await getBurgerConfig(locale);
+    }
+    if (typeof updateProvisionalAlert === 'function') {
+        console.log('Calling updateProvisionalAlert...');
+        await updateProvisionalAlert(locale);
+    }
+}
 
 // RESOLVE ACTUAL LOCALE
 export const getLocale = () => {
