@@ -1,10 +1,14 @@
 // IMPORTS
+// import { getLocale } from "../../utils/index.js";
 import { handlePdf } from "./pdfLogic.js"; // ADDING PDF LOGIC
 import { validateCarousel } from "../../utils/index.js"; // FETCH + STRUCTURE + FORMAT VALIDATION
 import { modalCarousel } from "./modalCarousel.js"; // ADDING CAROUSEL LOGIC CLONER
 
 // OPEN MODAL HANDLER
-export function openModal() {
+export function openModal(/*{
+    getCarouselRefs,
+    locale = getLocale()
+}*/) {
     // DOM ELEMENTS
     const site = document.getElementById('site-wrapper');
     const links = document.getElementsByClassName('modal-link');
@@ -12,6 +16,17 @@ export function openModal() {
     const iframe = document.getElementById('modal-iframe');
     const imgWrapper = document.getElementById('modal-img-wrapper');
     const closeBtn = document.getElementById('modal-close');
+
+    // DESTRUCTURE REFS
+    // const {
+    //     siteSelector,
+    //     linkSelector,
+    //     containerSelector,
+    //     contentSelector,
+    //     iframeSelector,
+    //     imgWrapperSelector,
+    //     closeSelector
+    // } = getCarouselRefs();
 
     // LOOP THROUGH ALL MODAL LINKS
     Array.from(links).forEach(link => {

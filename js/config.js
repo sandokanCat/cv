@@ -25,12 +25,14 @@ export const carouselConfig = {
 }
 
 // MODAL CONFIG
-export function getModalRefs() {
-    return {
-        linkSelector: document.querySelectorAll('.modal-link'),
-        containerSelector: document.getElementById('#modal-container'),
-        contentSelector: document.getElementById('#modal-content'),
-        iframeSelector: document.getElementById('#modal-iframe'),
-        closeSelector: document.getElementById('#modal-close')
-    };
-}
+// export function getModalRefs() {
+//     return {
+//         siteSelector: document.getElementById('site-wrapper'),
+//         linkSelector: document.getElementsByClassName('.modal-link'),
+//         containerSelector: document.getElementById('#modal-container'),
+//         contentSelector: document.getElementById('#modal-content'),
+//         iframeSelector: document.getElementById('#modal-iframe'),
+//         imgWrapperSelector: document.getElementById('modal-img-wrapper'),
+//         closeSelector: document.getElementById('#modal-close')
+//     };
+// }

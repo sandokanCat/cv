@@ -14,6 +14,7 @@ import {
     themeDark,
     getLangMenuConfig,
     initCarousel,
+    updateCarouselAlts,
     reloadRandomMsg,
     getBurgerConfig,
     updateProvisionalAlert/*,
@@ -24,36 +25,26 @@ document.addEventListener("DOMContentLoaded", async () => {
     const locale = getLocale();
 
     replaceClass('js-disabled', 'js-enabled');
-    
     themeDark('#theme-dark-btn', document.documentElement);
-
     await initI18n({ ...i18nConfig, locale });
 
     await initToggler(await getLangMenuConfig(async (newLang) => {
         await initI18n({ ...i18nConfig, locale: newLang });
-        
-        await initCarousel({ ...carouselConfig, newLang, refs: carouselConfig.refs() });
-
-        await reloadRandomMsg(newLang);
-        
-        await initToggler(await getBurgerConfig(newLang));
-
-        await updateProvisionalAlert(newLang);
+        await updateCarouselAlts(locale = newLang);
+        await reloadRandomMsg(locale = newLang);
+        await initToggler(await getBurgerConfig(locale = newLang));
+        await updateProvisionalAlert(locale = newLang);
     }));
     
     await initCarousel({ ...carouselConfig, locale, refs: carouselConfig.refs() });
-
     await reloadRandomMsg(locale);
-
     await initToggler(await getBurgerConfig(locale));
-
     await updateProvisionalAlert(locale);
 
     signature('#signature-year');
-
     manageCookies('#cookies-bar', '#accept-cookies');
 
-    // openModal(getModalRefs());
+    // openModal({getModalRefs(), locale});
 });
 
 console.group('EASTER EGG');
