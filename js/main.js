@@ -1,3 +1,5 @@
+console.count('main.js script loaded'); // PROVISIONAL
+
 // 📥 IMPORTS ORDERED BY LAYER: CONFIG → UTILS → COMPONENTS
 import {
     i18nConfig,
@@ -8,6 +10,7 @@ import {
     getLocale,
     initI18n,
     initToggler,
+    reloadDynamicContent,
     signature,
     manageCookies } from './utils/index.js';
 import {
@@ -20,32 +23,34 @@ import {
     updateProvisionalAlert/*,
     openModal*/ } from './components/index.js';
 
-// 🧠 APP INITIALIZATION SEQUENCE: FROM GLOBALS TO INTERACTIVE UI
-document.addEventListener("DOMContentLoaded", async () => {
-    const locale = getLocale();
+if (!window.hasInit) {
+    window.hasInit = true;
 
-    replaceClass('js-disabled', 'js-enabled');
-    themeDark('#theme-dark-btn', document.documentElement);
-    await initI18n({ ...i18nConfig, locale });
+    // 🧠 APP INITIALIZATION SEQUENCE: FROM GLOBALS TO INTERACTIVE UI
+    document.addEventListener("DOMContentLoaded", async () => {
+        console.count('DOMContentLoaded fired'); // PROVISIONAL
+        const locale = getLocale();
 
-    await initToggler(await getLangMenuConfig(async (newLang) => {
-        await initI18n({ ...i18nConfig, locale: newLang });
-        await updateCarouselAlts(newLang);
-        await reloadRandomMsg(newLang);
-        await initToggler(await getBurgerConfig(newLang));
-        await updateProvisionalAlert(newLang);
-    }));
-    
-    await initCarousel({ ...carouselConfig, locale, refs: carouselConfig.refs() });
-    await reloadRandomMsg(locale);
-    await initToggler(await getBurgerConfig(locale));
-    await updateProvisionalAlert(locale);
+        replaceClass('js-disabled', 'js-enabled');
+        themeDark('#theme-dark-btn', document.documentElement);
+        await initI18n({ ...i18nConfig, locale });
 
-    signature('#signature-year');
-    manageCookies('#cookies-bar', '#accept-cookies');
+        await initToggler(await getLangMenuConfig(async (newLang) => {
+            await initI18n({ ...i18nConfig, locale: newLang });
+            await reloadDynamicContent(newLang);
+        }));
+        
+        await initCarousel({ ...carouselConfig, locale, refs: carouselConfig.refs() });
+        await reloadRandomMsg(locale);
+        await initToggler(await getBurgerConfig(locale));
+        await updateProvisionalAlert(locale);
 
-    // openModal({getModalRefs(), locale});
-});
+        signature('#signature-year');
+        manageCookies('#cookies-bar', '#accept-cookies');
+
+        // openModal({getModalRefs(), locale});
+    });
+}
 
 console.group('EASTER EGG');
     console.log( // BUSSINESS CARD
