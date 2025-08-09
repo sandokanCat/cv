@@ -11,11 +11,11 @@ let lastPhrase = null; // LAST SHOWN PHRASE
 let intervalStarted = false; // PREVENT MULTIPLE INSTANCES
 
 // FETCHES AND VALIDATES REMOTE JSON VIA PUBLIC LIBRARY
-const loadPhrasesData = async () => {
+const loadPhrasesData = async (locale) => {
     if (phrasesCache.length) return phrasesCache; // USE CACHE IF ALREADY LOADED
 
-    // FETCH AND BASE VALIDATION
-    const raw = await validateJSON(json);
+    const raw = await validateJSON(json); // FETCH AND BASE VALIDATION
+    const lang = locale.split("-")[0]; // LANG FALLBACK
 
     // FILTER VALID OBJECTS WITH LOCALE/LANG FALLBACK
     phrasesCache = raw.filter(p =>
@@ -44,7 +44,7 @@ function resetRandomMsg() {
 }
 
 // INIT RANDOM PHRASES
-async function showRandomMsg() {
+async function showRandomMsg(locale = getLocale()) {
     if (intervalStarted) return; // PREVENT MULTIPLE LOOPS
     intervalStarted = true;
 
@@ -57,7 +57,7 @@ async function showRandomMsg() {
     };
 
     try {
-        await loadPhrasesData(); // ENSURE PHRASES ARE LOADED
+        await loadPhrasesData(locale); // ENSURE PHRASES ARE LOADED
         
         const locale = getLocale(); // GLOBAL FUNC TO GET LOCALE
         const lang = locale.split("-")[0]; // FALLBACK TO BASE LANGUAGE (e.g., 'es')
