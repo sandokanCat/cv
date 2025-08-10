@@ -102,8 +102,8 @@ const log = (level = 'log', ...args) => {
 
     const timestamp = `%c${new Date().toLocaleString()}`; // GET CURRENT DATE
     const timestampStyle = 'color: rgba(150, 150, 150, 0.5); font-size: 0.85em'; // STYLE TIMESTAMP
-    const icon = icons[level] ?? '📋'; // PICK ICON
 
+    const icon = icons[level] ?? '📋'; // PICK ICON
     const isCallback = typeof args[args.length - 1] === 'function';
     const callback = isCallback ? args.pop() : undefined; // EXTRACT CALLBACK
 
@@ -114,21 +114,20 @@ const log = (level = 'log', ...args) => {
         logGrouped(level, args, true, callback, timestamp, timestampStyle); // GROUPED BEHAVIOUR FOR CERTAIN LEVELS
 
     } else {
-        console.log(`%c${timestamp}`, timestampStyle); // PREFIX ICON + TIMESTAMP
+        // PREFIX ICON + TIMESTAMP
+        const firstStringIndex = args.findIndex(arg => typeof arg === 'string');
+        if (firstStringIndex !== -1) {
+            args[firstStringIndex] = `${icon} %c${timestamp}  %c${args[firstStringIndex]}`;
+            args.splice(firstStringIndex + 1, 0, timestampStyle, '');
+        } else {
+            args.unshift(`${icon} %c${timestamp}`, timestampStyle);
+        }
 
-        if (typeof callback === 'function') callback();
-        else if (level ==='assert') {
+        if (level ==='assert') {
             const [condition, ...rest] = args; // ASSERTUSAGE: CONDITION, THEN MESSAGE(S)
             console.assert(condition, ...rest);
         } else {
-            const firstStringIndex = args.findIndex(arg => typeof arg === 'string');
-            if (firstStringIndex !== -1) {
-                args[firstStringIndex] = `${icons[level] ?? '📋'} %c${args[firstStringIndex]}`;
-                args.splice(firstStringIndex + 1, 0, 'font-weight: bold; text-transform: uppercase;');
-            } else {
-                args.unshift(`${icons[level] ?? '📋'}`, '');
-            }
-
+            // DEFAULT LOG LEVELS
             const method = typeof console[level] === 'function' ? console[level] : console.log;
             method(...args);
             if (!console[level]) handleInvalidLevel(level, timestamp, args);
