@@ -142,7 +142,7 @@ const log = (level = 'log', ...args) => {
 };
 
 // GROUPS LOGS BY LEVEL
-function logGrouped(level, timestamp, args = [], collapsed = true, callback) {
+function logGrouped(level, args = [], collapsed = true, callback) {
     const groupFn = collapsed ? console.groupCollapsed : console.group;
     groupFn(`${icons[level]} ${timestamp} — console.${level}`);
     const method = typeof console[level] === 'function' ? console[level] : console.log;
