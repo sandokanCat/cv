@@ -100,24 +100,26 @@ const invalidLogsByLevel = new Map();
 const log = (level = 'log', ...args) => {
     if ((!isDev && !forceLogs) || isSilent) return; // SKIP IF NOT ALLOWED
 
-    const timestamp = new Date().toLocaleString(); // CREATE TIMESTAMP
+    const timestamp = `%c${new Date().toLocaleString()}`; // GET CURRENT DATE
+    const timestampStyle = 'color: rgba(150, 150, 150, 0.5); font-size: 0.85em'; // STYLE TIMESTAMP
     const icon = icons[level] ?? '📋'; // PICK ICON
 
     const isCallback = typeof args[args.length - 1] === 'function';
     const callback = isCallback ? args.pop() : undefined; // EXTRACT CALLBACK
 
     if (level === 'group') {
-        logGrouped(level, args, false, callback, timestamp); // EXPANDED GROUP
+        logGrouped(level, args, false, callback, timestamp, timestampStyle); // EXPANDED GROUP
 
     } else if (['groupCollapse', 'dir', 'table', 'count', 'countReset', 'time', 'timeEnd', 'timeLog'].includes(level)) {
-        logGrouped(level, args, true, callback, timestamp); // GROUPED BEHAVIOUR FOR CERTAIN LEVELS
+        logGrouped(level, args, true, callback, timestamp, timestampStyle); // GROUPED BEHAVIOUR FOR CERTAIN LEVELS
 
     } else {
         // PREFIX ICON+TIMESTAMP ON THE FIRST STRING ARGUMENT (KEEP %c ORDER)
         const firstStringIndex = args.findIndex(arg => typeof arg === 'string');
         if (firstStringIndex !== -1) {
-            args[firstStringIndex] = `${icon} ${timestamp}\n\n${args[firstStringIndex]}`;
-        } else args.unshift(`${icon} ${timestamp}\n\n`);
+            args[firstStringIndex] = `${icon} %c${args[firstStringIndex]}\n\n%c${timestamp}`;
+            args.splice(firstStringIndex + 1, 0, 'font-weight: bold; text-transform: uppercase;', timestampStyle);
+        } else args.unshift(`${icon} %c${timestamp}\n\n`, timestampStyle);
 
         if (level ==='assert') {
             const [condition, ...rest] = args; // ASSERTUSAGE: CONDITION, THEN MESSAGE(S)
@@ -131,13 +133,14 @@ const log = (level = 'log', ...args) => {
 };
 
 /* GROUPS LOGS BY LEVEL */
-function logGrouped(level, args = [], collapsed = true, callback, timestamp = new Date().toLocaleString()) {
+function logGrouped(level, args = [], collapsed = true, callback, timestamp = new Date().toLocaleString(), timestampStyle) {
     const groupFn = collapsed ? console.groupCollapsed : console.group;
     const title = args.length && typeof args[0] === 'string' ? args[0] : '';
     const restArgs = args.slice(1);
-    const header = `${icons[level] ?? icons.group} ${title} ${timestamp}\n`.trim();
+    const headerStyle = 'font-weight: bold; text-transform: uppercase;';
+    const header = `${icons[level] ?? icons.group} %c${title} %c${timestamp}`.trim();
 
-    groupFn(header, ...restArgs);
+    groupFn(header, headerStyle, timestampStyle);
 
     const method = typeof console[level] === 'function' ? console[level] : console.log;
     if (typeof callback === 'function') callback();
@@ -164,7 +167,7 @@ const handleInvalidLevel = (level, timestamp, args) => {
     }
 };
 
-// LOGGER API EXPORT
+/* LOGGER API EXPORT */
 const logger = {
     enable: () => document.cookie = 'log:silent=false; path=/; max-age=31536000',
     disable: () => document.cookie = 'log:silent=true; path=/; max-age=31536000',
