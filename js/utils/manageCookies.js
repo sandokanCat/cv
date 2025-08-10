@@ -1,3 +1,6 @@
+// IMPORTS
+import { logger } from './index.js';
+
 // GET/SET COOKIE WITH EXPIRATION DAYS
 export function manageCookies(cookieBarSelector, acceptBtnSelector) {
     const cookieName = 'sandokan.cat_consent'; // COOKIE NAME
@@ -133,7 +136,7 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
 
     // LOG CONSENT INFO
     function logConsent(consent) {
-        console.log(`Consentimiento para cookies analíticas: %c${consent.value}%c. Expira en %c${consent.daysRemaining}%c días.`,
+        logger.lg(`Consentimiento para cookies analíticas: %c${consent.value}%c. Expira en %c${consent.daysRemaining}%c días.`,
             'color: rgb(0,255,0)', '', 'color: rgb(0,255,0)', '');
     }
 
