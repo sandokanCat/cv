@@ -116,8 +116,8 @@ const log = (level = 'log', ...args) => {
         // PREFIX ICON+TIMESTAMP ON THE FIRST STRING ARGUMENT (KEEP %c ORDER)
         const firstStringIndex = args.findIndex(arg => typeof arg === 'string');
         if (firstStringIndex !== -1) {
-            args[firstStringIndex] = `${icon} ${timestamp}\n${args[firstStringIndex]}`;
-        } else args.unshift(`${icon} ${timestamp}\n`);
+            args[firstStringIndex] = `${icon} ${timestamp}\n\n${args[firstStringIndex]}`;
+        } else args.unshift(`${icon} ${timestamp}\n\n`);
 
         if (level ==='assert') {
             const [condition, ...rest] = args; // ASSERTUSAGE: CONDITION, THEN MESSAGE(S)
@@ -135,7 +135,7 @@ function logGrouped(level, args = [], collapsed = true, callback, timestamp = ne
     const groupFn = collapsed ? console.groupCollapsed : console.group;
     const title = args.length && typeof args[0] === 'string' ? args[0] : '';
     const restArgs = args.slice(1);
-    const header = `${icons[level] ?? icons.group} ${title} ${timestamp}`.trim();
+    const header = `${icons[level] ?? icons.group} ${title} ${timestamp}\n`.trim();
 
     groupFn(header, ...restArgs);
 
