@@ -128,7 +128,7 @@ const log = (level = 'log', ...args) => {
 
         default:
             const method = typeof console[level] === 'function' ? console[level] : console.log;
-            method(`${icon} ${timestamp} — `, ...args);
+            method(`${icon} ${timestamp}\n`, ...args);
             if (!console[level]) handleInvalidLevel(level, timestamp, args);
     }
 };
