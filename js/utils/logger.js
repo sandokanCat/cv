@@ -148,7 +148,8 @@ const log = (level = 'log', ...args) => {
 /* GROUPS LOGS BY LEVEL */
 function logGrouped(level, args = [], collapsed = true, callback, timestamp = new Date().toLocaleString()) {
     const groupFn = collapsed ? console.groupCollapsed : console.group; // CHOOSE GROUP FUNCTION
-    groupFn(`${icons[level] ?? icons.group} ${timestamp} — console.${level}`); // GROUP HEADER
+    const title = args.length ? args.shift() : ''; // FIRST ARG LIKE TITLE
+    groupFn(`${icons[level] ?? icons.group} ${title} ${timestamp}`); // ICON + TITLE + DATE
     const method = typeof console[level] === 'function' ? console[level] : console.log; // SELECT METHOD
     if (typeof callback === 'function') callback(); // EXECUTE CALLBACK IF PROVIDED
     else args.forEach(arg => method(arg)); // LOG EACH ARG INDIVIDUALLY
