@@ -18,25 +18,25 @@
  * @exports default – `logger` object with logging methods and controls.
  *
  * @typedef {Object} Logger
- * @property {Function} enable        – Explicitly enables logs via cookie
- * @property {Function} disable       – Silences all logs regardless of environment
- * @property {Function} clear         – Clears the console if enabled
- * @property {Function} error         – ❌ Logs errors
- * @property {Function} warn          – ⚠️ Logs warnings
- * @property {Function} info          – ℹ️ Informational logs
- * @property {Function} debug         – 🛠️ Debug logs
- * @property {Function} normal        – 📋 Standard logs (console.log)
- * @property {Function} trace         – 🔎 Stack traces
- * @property {Function} assert        – 🚨 Conditional assertions
- * @property {Function} dir           – 📂 Object structures
- * @property {Function} table         – 📊 Tabular data
- * @property {Function} count         – 🔢 Increments a named counter
- * @property {Function} countReset    – 🔄 Resets a named counter
- * @property {Function} time          – ⏱️ Starts a timer
- * @property {Function} timeEnd       – 💥 Ends and logs a timer
- * @property {Function} timeLog       – ⌛ Logs intermediate timer value
- * @property {Function} group         – 📦 Expanded log group
- * @property {Function} groupCollapse – 👉 Collapsed log group
+ * @property {Function} enable/en          – Explicitly enables logs via cookie
+ * @property {Function} disable/ds         – Silences all logs regardless of environment
+ * @property {Function} clear/cl           – Clears the console if enabled
+ * @property {Function} error/er           – ❌ Logs errors
+ * @property {Function} warn/wa            – ⚠️ Logs warnings
+ * @property {Function} info/in            – ℹ️ Informational logs
+ * @property {Function} debug/db           – 🛠️ Debug logs
+ * @property {Function} log/lg             – 📋 Standard logs (console.log)
+ * @property {Function} trace/tr           – 🔎 Stack traces
+ * @property {Function} assert/as          – 🚨 Conditional assertions
+ * @property {Function} dir/di             – 📂 Object structures
+ * @property {Function} table/tb           – 📊 Tabular data
+ * @property {Function} count/ct           – 🔢 Increments a named counter
+ * @property {Function} countReset/cr      – 🔄 Resets a named counter
+ * @property {Function} time/tm            – ⏱️ Starts a timer
+ * @property {Function} timeEnd/te         – 💥 Ends and logs a timer
+ * @property {Function} timeLog/tl         – ⌛ Logs intermediate timer value
+ * @property {Function} group/gp           – 📦 Expanded log group
+ * @property {Function} groupCollapse/gc   – 👉 Collapsed log group
  *
  * @param {string} [label="default"] – Optional label for timers, counters, or groups
  * @param {boolean} [condition] – Boolean condition for logAssert
@@ -180,25 +180,64 @@ const handleInvalidLevel = (level, timestamp, args) => {
 /* LOGGER API EXPORT */
 const logger = {
     enable: () => document.cookie = 'log:silent=false; path=/; max-age=31536000',
+    en: () => document.cookie = 'log:silent=false; path=/; max-age=31536000',
+  
     disable: () => document.cookie = 'log:silent=true; path=/; max-age=31536000',
+    ds: () => document.cookie = 'log:silent=true; path=/; max-age=31536000',
+  
     clear: () => { if (isDev && !isSilent) console.clear(); },
+    cl: () => { if (isDev && !isSilent) console.clear(); },
+  
     custom: (level, ...args) => log(level, ...args),
+    cu: (level, ...args) => log(level, ...args),
+  
     error: (...args) => log('error', ...args),
+    er: (...args) => log('error', ...args),
+  
     warn: (...args) => log('warn', ...args),
+    wa: (...args) => log('warn', ...args),
+  
     info: (...args) => log('info', ...args),
+    in: (...args) => log('info', ...args),
+  
     debug: (...args) => log('debug', ...args),
-    normal: (...args) => log('log', ...args),
+    db: (...args) => log('debug', ...args),
+  
+    log: (...args) => log('log', ...args),
+    lg: (...args) => log('log', ...args),
+  
     trace: (...args) => log('trace', ...args),
+    tr: (...args) => log('trace', ...args),
+  
     assert: (condition, ...args) => log('assert', condition, ...args),
+    as: (condition, ...args) => log('assert', condition, ...args),
+  
     dir: (...args) => log('dir', ...args),
+    di: (...args) => log('dir', ...args),
+  
     table: (...args) => log('table', ...args),
+    tb: (...args) => log('table', ...args),
+  
     count: (...args) => log('count', ...args),
+    ct: (...args) => log('count', ...args),
+  
     countReset: (...args) => log('countReset', ...args),
+    cr: (...args) => log('countReset', ...args),
+  
     time: (...args) => log('time', ...args),
+    tm: (...args) => log('time', ...args),
+  
     timeEnd: (...args) => log('timeEnd', ...args),
+    te: (...args) => log('timeEnd', ...args),
+  
     timeLog: (...args) => log('timeLog', ...args),
+    tl: (...args) => log('timeLog', ...args),
+  
     group: (label, callback) => log('group', label, callback),
-    groupCollapse: (label, callback) => log('groupCollapse', label, callback)
-};
+    gp: (label, callback) => log('group', label, callback),
+  
+    groupCollapse: (label, callback) => log('groupCollapse', label, callback),
+    gc: (label, callback) => log('groupCollapse', label, callback),
+};  
 
 export default logger;

@@ -46,32 +46,32 @@ document.addEventListener("DOMContentLoaded", async () => {
     // openModal({getModalRefs(), locale});
 });
 
-logger.group("EASTER EGG", () => {
-    logger.normal( // BUSSINESS CARD
+logger.gp("easter egg", () => {
+    logger.lg( // BUSSINESS CARD
         "%c" +
         " /\\_/\\   Frontend Dev | Maquetación Creativa 🛠️\n" +
         "( o.o )        HTML5 • CSS3 • Vanilla JS\n" +
         " > ^ <     \"sandokan.cat loves code & purrs\" 🐱\n" +
         "  ╰─▶              dev@sandokan.cat",
         "color: #ff6d00; font-family: monospace; line-height: 1.3;");
-    logger.normal( // TECH GREETINGS
+    logger.lg( // TECH GREETINGS
         "%c💻 ¡HOLA DEV! 👋\n" +
         "Este CV web es 100% Vanilla JS y custom CSS.\n" +
         "👉 ¿Quieres echar un vistazo al código? https://github.com/sandokanCat \n" +
         "🚀 ¿Buscas un maquetador frontend? ¡Hablemos! https://linkedin.com/in/sandokanCat",
         "color: #2196f3; font-family: monospace; line-height: 1.5;"
     );
-    logger.normal( // THANKS
+    logger.lg( // THANKS
         "%cGracias por inspeccionar. ¡Prepara más café, elige tu música y sigamos picando código! ☕️🎧",
         "color: #9b59b6; font-family: monospace; font-weight: 700;"
     )
-    logger.info( // FOOTER
+    logger.in( // FOOTER
         `© ${new Date().getFullYear()} sandokan.cat. Todos los derechos reservados.`
     )
 });
 
 // A LITTE JOKE MORE
-logger.assert(
+logger.as(
     (document.title === "Gonzalo Cabezas | Web Frontend developer") || 
     (document.title === "Gonzalo Cabezas | Desarrollador Frontend web") || 
     (document.title === "Gonzalo Cabezas | Desenvolupador Frontend web"), 
