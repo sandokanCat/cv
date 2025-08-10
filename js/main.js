@@ -72,9 +72,9 @@ logger.gp("easter egg", () => {
 
 // A LITTE JOKE MORE
 logger.as(
-    (document.title === "Gonzalo Cabezas | Web Frontend developer") || 
-    (document.title === "Gonzalo Cabezas | Desarrollador Frontend web") || 
-    (document.title === "Gonzalo Cabezas | Desenvolupador Frontend web"), 
+    (document.title === "Gonzalo Cabeza | Web Frontend developer") || 
+    (document.title === "Gonzalo Cabeza | Desarrollador Frontend web") || 
+    (document.title === "Gonzalo Cabeza | Desenvolupador Frontend web"), 
     `❌ ¡Meow alert! El título actual es '${document.title}'. ¡Git push urgente! 🐾`
 )
 
