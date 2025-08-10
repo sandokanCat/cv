@@ -106,38 +106,23 @@ const log = (level = 'log', ...args) => {
     const isCallback = typeof args[args.length - 1] === 'function';
     const callback = isCallback ? args.pop() : undefined; // EXTRACT CALLBACK
 
-    // PREFIX ICON+TIMESTAMP ON THE FIRST STRING ARGUMENT (KEEP %c ORDER)
-    const firstStringIndex = args.findIndex(arg => typeof arg === 'string');
-    if (firstStringIndex !== -1) {
-        args[firstStringIndex] = `${icon} ${timestamp}\n${args[firstStringIndex]}`;
+    if (level === 'group') {
+        logGrouped(level, args, false, callback, timestamp); // EXPANDED GROUP
+
+    } else if (['groupCollapse', 'dir', 'table', 'count', 'countReset', 'time', 'timeEnd', 'timeLog'].includes(level)) {
+        logGrouped(level, args, true, callback, timestamp); // GROUPED BEHAVIOUR FOR CERTAIN LEVELS
+
     } else {
-        args.unshift(`${icon} ${timestamp}\n`);
-    }
+        // PREFIX ICON+TIMESTAMP ON THE FIRST STRING ARGUMENT (KEEP %c ORDER)
+        const firstStringIndex = args.findIndex(arg => typeof arg === 'string');
+        if (firstStringIndex !== -1) {
+            args[firstStringIndex] = `${icon} ${timestamp}\n${args[firstStringIndex]}`;
+        } else args.unshift(`${icon} ${timestamp}\n`);
 
-    switch (level) {
-        case 'assert': {
-            const [condition, ...rest] = args; // ASSERTUSAGE: condition, then message(s)
+        if (level ==='assert') {
+            const [condition, ...rest] = args; // ASSERTUSAGE: CONDITION, THEN MESSAGE(S)
             console.assert(condition, ...rest);
-            break;
-        }
-
-        // GROUPED BEHAVIOUR FOR CERTAIN LEVELS
-        case 'dir':
-        case 'table':
-        case 'count':
-        case 'countReset':
-        case 'time':
-        case 'timeEnd':
-        case 'timeLog':
-        case 'groupCollapse':
-            logGrouped(level, args, true, callback, timestamp); // PASS ARGS + TIMESTAMP
-            break;
-
-        case 'group':
-            logGrouped(level, args, false, callback, timestamp); // EXPANDED GROUP
-            break;
-
-        default: {
+        } else {
             const method = typeof console[level] === 'function' ? console[level] : console.log;
             method(...args); // PRINT USING ORIGINAL ARGS (PREFIX ALREADY ADDED)
             if (!console[level]) handleInvalidLevel(level, timestamp, args); // HANDLE FALLBACK
@@ -147,15 +132,18 @@ const log = (level = 'log', ...args) => {
 
 /* GROUPS LOGS BY LEVEL */
 function logGrouped(level, args = [], collapsed = true, callback, timestamp = new Date().toLocaleString()) {
-    const groupFn = collapsed ? console.groupCollapsed : console.group; // CHOOSE GROUP FUNCTION
-    const headerText = `${icons[level] ?? icons.group} ${args[0]} ${timestamp}`; // args[0] = título
-    const headerRest = args.slice(1); // REST OF ARGS
-    const title = headerRest.join(' '); // JOIN REST OF ARGS TOGETHER
-    groupFn(headerText, ...headerRest); // ICON + TITLE + DATE
-    const method = typeof console[level] === 'function' ? console[level] : console.log; // SELECT METHOD
-    if (typeof callback === 'function') callback(); // EXECUTE CALLBACK IF PROVIDED
-    else args.forEach(arg => method(arg)); // LOG EACH ARG INDIVIDUALLY
-    console.groupEnd(); // CLOSE GROUP
+    const groupFn = collapsed ? console.groupCollapsed : console.group;
+    const title = args.length && typeof args[0] === 'string' ? args[0] : '';
+    const restArgs = args.slice(1);
+    const header = `${icons[level] ?? icons.group} ${title} ${timestamp}`.trim();
+
+    groupFn(header, ...restArgs);
+
+    const method = typeof console[level] === 'function' ? console[level] : console.log;
+    if (typeof callback === 'function') callback();
+    else restArgs.forEach(arg => method(arg));
+
+    console.groupEnd();
 }
 
 /* HANDLES FALLBACK FOR UNKNOWN LOG LEVELS */
