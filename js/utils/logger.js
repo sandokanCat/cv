@@ -100,7 +100,7 @@ const invalidLogsByLevel = new Map();
 const log = (level = 'log', ...args) => {
     if ((!isDev && !forceLogs) || isSilent) return; // SKIP IF NOT ALLOWED
 
-    const timestamp = `%c${new Date().toLocaleString()}%c\n\n`; // GET CURRENT DATE
+    const timestamp = `%c${new Date().toLocaleString()}%c\n`; // GET CURRENT DATE
     const timestampStyle = 'color: rgba(150, 150, 150, 0.5); font-size: 0.85em'; // STYLE TIMESTAMP
 
     const icon = icons[level] ?? '📋'; // PICK ICON
