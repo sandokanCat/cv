@@ -33,7 +33,7 @@
         "html": "Spanish <svg class='icons-color-1' role='img' aria-label='Native level' aria-hidden='false' width='124' height='18' preserveAspectRatio='xMinYMin meet'><use href='img/sprite.svg#native-lang'></use></svg>"
     },
     "english": {
-        "html": "English <svg class='icons-color-1' role='img' aria-label='Intermediate level' aria-hidden='false' width='124' height='18' preserveAspectRatio='xMinYMin meet'><use href='img/sprite.svg#native-lang'></use></svg>"
+        "html": "English <svg class='icons-color-1' role='img' aria-label='Intermediate level' aria-hidden='false' width='124' height='18' preserveAspectRatio='xMinYMin meet'><use href='img/sprite.svg#medium-lang'></use></svg>"
     },
     "contact": {
         "text": "Contact"
