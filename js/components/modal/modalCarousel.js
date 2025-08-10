@@ -46,7 +46,7 @@ export async function modalCarousel(link, imgWrapper) {
 		if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
 		imgsData = await response.json();
 	} catch (err) {
-		console.error('modalCarousel: failed to load carousel JSON', err);
+		logger.er('modalCarousel: failed to load carousel JSON', err);
 		return false;
 	}
 
@@ -60,7 +60,7 @@ export async function modalCarousel(link, imgWrapper) {
 		normalize(img.png.fallback) === normalize(clickedSrc)
 	);
 	if (clickedIndex === -1) {
-		console.warn('modalCarousel: image not found in JSON');
+		logger.wa('modalCarousel: image not found in JSON');
 		return false;
 	}
 

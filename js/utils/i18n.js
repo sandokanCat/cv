@@ -1,5 +1,5 @@
 // IMPORTS
-import { validateJSON } from "./index.js";
+import { logger, validateJSON } from "./index.js";
 import {
     updateCarouselAlts,
     reloadRandomMsg,
@@ -49,12 +49,12 @@ export const getI18nData = async (locale) => {
         cachedTranslations[locale] = data;
         return data || fallbackData;
     } catch (err) {
-        console.error(`LOCALE FALLBACK: ${locale} → ${fallbackLocale}`, err.name, err.message, err.stack);
+        logger.er(`LOCALE FALLBACK: ${locale} → ${fallbackLocale}`, err.name, err.message, err.stack);
 
         try {
             return await validateJSON(getJsonPath(fallbackLocale));
         } catch (fallbackErr) {
-            console.error(`FATAL: FALLBACK ${fallbackLocale} ALSO FAILED`, fallbackErr.name, fallbackErr.message, fallbackErr.stack);
+            logger.er(`FATAL: FALLBACK ${fallbackLocale} ALSO FAILED`, fallbackErr.name, fallbackErr.message, fallbackErr.stack);
             return {}; // PREVENT APP CRASH
         }
     }
@@ -69,7 +69,7 @@ export const initI18n = async ({
     locale
 } = {}) => {
     if (!locale || typeof locale !== 'string') {
-        console.error('LOCALE IS UNDEFINED OR INVALID');
+        logger.er('LOCALE IS UNDEFINED OR INVALID');
         return;
     }    
     if (document.documentElement.lang === locale) return; // AVOID REDUNDANT INIT
@@ -98,7 +98,7 @@ export const initI18n = async ({
         if (titleEl && titleValue) {
             titleEl.textContent = titleValue;
         } else {
-            console.error("ERROR TRANSLATING PAGE TITLE");
+            logger.er("ERROR TRANSLATING PAGE TITLE");
         }
 
         // TRANSLATE CONTENT
@@ -108,7 +108,7 @@ export const initI18n = async ({
             const value = getNestedValue(translations, key);
 
             if (!value) {
-                console.error(`TRANSLATION KEY "${key}" NOT FOUND`);
+                logger.er(`TRANSLATION KEY "${key}" NOT FOUND`);
                 return;
             }
 
@@ -118,12 +118,12 @@ export const initI18n = async ({
                 } else if ('text' in value) {
                     el.textContent = value.text;
                 } else {
-                    console.error(`NO html/text IN "${key}"`);
+                    logger.er(`NO html/text IN "${key}"`);
                 }
             } else if (typeof value === 'string') {
                 el.textContent = value;
             } else {
-                console.error(`UNSUPPORTED VALUE TYPE FOR KEY "${key}" →`, value);
+                logger.er(`UNSUPPORTED VALUE TYPE FOR KEY "${key}" →`, value);
             }
         });
 
@@ -142,15 +142,15 @@ export const initI18n = async ({
                 if (typeof value === "string") {
                     el.setAttribute(attr, value);
                 } else if (el.hasAttribute(attr)) {
-                    console.error(`MISSING TRANSLATION FOR REQUIRED ATTRIBUTE "${attr}" IN KEY "${key}"`);
+                    logger.er(`MISSING TRANSLATION FOR REQUIRED ATTRIBUTE "${attr}" IN KEY "${key}"`);
                 } else {
-                    console.error(`TRANSLATION KEY "${key}" NOT FOUND OR INVALID VALUE →`, value);
+                    logger.er(`TRANSLATION KEY "${key}" NOT FOUND OR INVALID VALUE →`, value);
                 }
             });
         });
 
         await reloadDynamicContent(locale);
     } catch (err) {
-        console.error(`i18n.js ERROR: ${getJsonPath(locale)} →`, err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
+        logger.er(`i18n.js ERROR: ${getJsonPath(locale)} →`, err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
     }
 };

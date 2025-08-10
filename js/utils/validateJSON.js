@@ -55,6 +55,9 @@
  * @todo Emit structured error objects with codes and hints
  */
 
+// IMPORT DEPENDENCIES
+import { default as logger } from './logger.js'
+
 // VALIDATE AND PARSE A JSON FILE FROM URL
 export async function validateJSON(url, options = {}) {
         const controller = new AbortController(); // CREATE ABORT CONTROLLER FOR TIMEOUT
@@ -118,7 +121,7 @@ export async function validateJSON(url, options = {}) {
         return data; // RETURN VALIDATED DATA
 
     } catch (err) {
-        console.error("validateJSON.js ERROR", url, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
+        logger.er("validateJSON.js ERROR", url, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
         
         throw err; // RE-THROW FOR EXTERNAL HANDLING
     } finally {

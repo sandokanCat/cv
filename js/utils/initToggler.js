@@ -1,5 +1,5 @@
 // IMPORTS
-import { reloadDynamicContent } from "./index.js";
+import { logger, reloadDynamicContent } from "./index.js";
 
 // COMMON TOOGLE MENU FUNCTION
 export async function initToggler({
@@ -16,7 +16,7 @@ export async function initToggler({
         : [document.querySelector(triggerSelector)];
 
     if (!triggers.length) {
-        console.error(`NO TRIGGER(S) FOUND FOR SELECTOR: "${triggerSelector}"`);
+        logger.er(`NO TRIGGER(S) FOUND FOR SELECTOR: "${triggerSelector}"`);
         return;
     }
 
@@ -46,7 +46,7 @@ export async function initToggler({
                 try {
                     await onClick(trigger, newState);
                 } catch (err) {
-                    console.error('ERROR IN TOGGLER onClick():', err.name, err.message, err.stack);
+                    logger.er('ERROR IN TOGGLER onClick():', err.name, err.message, err.stack);
                 }
             }
         });

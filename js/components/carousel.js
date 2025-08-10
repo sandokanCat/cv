@@ -1,5 +1,5 @@
 // IMPORTS
-import { getLocale, fallbackLocale, validateCarousel } from "../utils/index.js"; // USE GLOBAL i18n LOCALE DETECTION
+import { logger, getLocale, fallbackLocale, validateCarousel } from "../utils/index.js"; // USE GLOBAL i18n LOCALE DETECTION
 
 // JSON FILE PATH
 const json = "./js/data/carousel.json";
@@ -128,6 +128,6 @@ export async function initCarousel({
         await updateCarouselAlts(validImgs, locale, refs); // SET i18n ALT TEXTS
 
 	} catch (err) {
-		console.error("carousel.js ERROR", json, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
+		logger.er("carousel.js ERROR", json, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
 	}
 }

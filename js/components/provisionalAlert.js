@@ -1,5 +1,5 @@
 // IMPORTS
-import { getLocale, validateJSON } from "../utils/index.js"; // USE GLOBAL i18n LOCALE DETECTION
+import { logger, getLocale, validateJSON } from "../utils/index.js"; // USE GLOBAL i18n LOCALE DETECTION
 
 // GLOBAL VARIABLES
 const json = "./js/data/alerts.json"; // SOURCE JSON FILE
@@ -57,6 +57,6 @@ async function provisionalAlert(locale = getLocale()) {
         });
 
     } catch (err) {
-        console.error("provisionalAlert.js ERROR", json, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
+        logger.er("provisionalAlert.js ERROR", json, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
     }
 }

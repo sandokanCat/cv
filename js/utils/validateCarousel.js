@@ -82,6 +82,7 @@
 */
 
 // IMPORT DEPENDENCIES
+import { default as logger } from './logger.js'
 import { validateJSON } from './validateJSON.js';
 
 // FETCH + VALIDATE IMAGE ENTRIES STRICTLY
@@ -201,7 +202,7 @@ export async function validateCarousel(url, options = {}) {
 		return imgs; // RETURN ONLY IF FULLY VALID
 
 	} catch (err) {
-		console.error("validateCarousel.js ERROR", url, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
+		logger.er("validateCarousel.js ERROR", url, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
         
         throw err; // RE-THROW FOR EXTERNAL HANDLING
 	}

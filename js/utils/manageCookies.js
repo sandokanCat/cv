@@ -34,7 +34,7 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
             const daysRemaining = Math.floor((new Date(expires) - new Date()) / (1000 * 60 * 60 * 24));
             return { name: cookieName, value: value === 'true', daysRemaining };
         } catch (err) {
-            console.warn('Error al parsear la cookie:', err.name, err.message, err.stack);
+            logger.wa('Error al parsear la cookie:', err.name, err.message, err.stack);
             return null;
         }
     }
@@ -130,7 +130,7 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
             btn.addEventListener('click', acceptConsent);
             btn.dataset.listenerAdded = 'true';
         } else if (!btn) {
-            console.error(`BUTTON ${acceptBtnSelector} NOT FOUND`);
+            logger.er(`BUTTON ${acceptBtnSelector} NOT FOUND`);
         }
     }
 

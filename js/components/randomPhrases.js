@@ -1,5 +1,5 @@
 // IMPORTS
-import { getLocale, validateJSON } from "../utils/index.js"; // USE GLOBAL i18n LOCALE DETECTION
+import { logger, getLocale, validateJSON } from "../utils/index.js"; // USE GLOBAL i18n LOCALE DETECTION
 
 // GLOBAL VARIABLES
 const json = "./js/data/phrases.json"; // SOURCE JSON FILE
@@ -102,6 +102,6 @@ async function showRandomMsg(locale = getLocale()) {
 
         loop(); // START LOOP
     } catch (err) {
-        console.error("randomPhrases.js ERROR", json, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
+        logger.er("randomPhrases.js ERROR", json, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
     }
 }
