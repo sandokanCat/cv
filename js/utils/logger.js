@@ -64,7 +64,7 @@
  * @todo Allow custom icon override or log styling via config
  */
 
-// GLOBAL CONSTANTS
+/* GLOBAL CONSTANTS */
 const isDev = (
     typeof import.meta !== 'undefined' &&
     typeof import.meta.env !== 'undefined' &&
@@ -96,16 +96,17 @@ const icons = {
 
 const invalidLogsByLevel = new Map();
 
-// MAIN LOGGER FUNCTION
+/* MAIN LOGGER FUNCTION */
 const log = (level = 'log', ...args) => {
-    if ((!isDev && !forceLogs) || isSilent) return;
+    if ((!isDev && !forceLogs) || isSilent) return; // SKIP IF NOT ALLOWED
 
-    const timestamp = new Date().toLocaleString();
-    const icon = icons[level] ?? '📋';
+    const timestamp = new Date().toLocaleString(); // CREATE TIMESTAMP
+    const icon = icons[level] ?? '📋'; // PICK ICON
 
     const isCallback = typeof args[args.length - 1] === 'function';
-    const callback = isCallback ? args.pop() : undefined;
+    const callback = isCallback ? args.pop() : undefined; // EXTRACT CALLBACK
 
+    // PREFIX ICON+TIMESTAMP ON THE FIRST STRING ARGUMENT (KEEP %c ORDER)
     const firstStringIndex = args.findIndex(arg => typeof arg === 'string');
     if (firstStringIndex !== -1) {
         args[firstStringIndex] = `${icon} ${timestamp}\n${args[firstStringIndex]}`;
@@ -114,11 +115,13 @@ const log = (level = 'log', ...args) => {
     }
 
     switch (level) {
-        case 'assert':
-            const [condition, ...rest] = args;
+        case 'assert': {
+            const [condition, ...rest] = args; // ASSERTUSAGE: condition, then message(s)
             console.assert(condition, ...rest);
             break;
+        }
 
+        // GROUPED BEHAVIOUR FOR CERTAIN LEVELS
         case 'dir':
         case 'table':
         case 'count':
@@ -127,43 +130,42 @@ const log = (level = 'log', ...args) => {
         case 'timeEnd':
         case 'timeLog':
         case 'groupCollapse':
-            logGrouped(level, args, true, callback);
+            logGrouped(level, args, true, callback, timestamp); // PASS ARGS + TIMESTAMP
             break;
 
         case 'group':
-            logGrouped(level, args, false, callback);
-            break;           
+            logGrouped(level, args, false, callback, timestamp); // EXPANDED GROUP
+            break;
 
-        default:
+        default: {
             const method = typeof console[level] === 'function' ? console[level] : console.log;
-            method(`${icon} ${timestamp}\n`, ...args);
-            if (!console[level]) handleInvalidLevel(level, args);
+            method(...args); // PRINT USING ORIGINAL ARGS (PREFIX ALREADY ADDED)
+            if (!console[level]) handleInvalidLevel(level, timestamp, args); // HANDLE FALLBACK
+        }
     }
 };
 
-// GROUPS LOGS BY LEVEL
-function logGrouped(level, args = [], collapsed = true, callback) {
-    const groupFn = collapsed ? console.groupCollapsed : console.group;
-    groupFn(`${icons[level]} ${timestamp} — console.${level}`);
-    const method = typeof console[level] === 'function' ? console[level] : console.log;
-    if (typeof callback === 'function') callback();
-    else args.forEach(arg => method(arg));
-    console.groupEnd();
+/* GROUPS LOGS BY LEVEL */
+function logGrouped(level, args = [], collapsed = true, callback, timestamp = new Date().toLocaleString()) {
+    const groupFn = collapsed ? console.groupCollapsed : console.group; // CHOOSE GROUP FUNCTION
+    groupFn(`${icons[level] ?? icons.group} ${timestamp} — console.${level}`); // GROUP HEADER
+    const method = typeof console[level] === 'function' ? console[level] : console.log; // SELECT METHOD
+    if (typeof callback === 'function') callback(); // EXECUTE CALLBACK IF PROVIDED
+    else args.forEach(arg => method(arg)); // LOG EACH ARG INDIVIDUALLY
+    console.groupEnd(); // CLOSE GROUP
 }
 
-// HANDLES FALLBACK FOR UNKNOWN LOG LEVELS
+/* HANDLES FALLBACK FOR UNKNOWN LOG LEVELS */
 const handleInvalidLevel = (level, timestamp, args) => {
-    if (!invalidLogsByLevel.has(level)) {
-        invalidLogsByLevel.set(level, []);
-    }
-    invalidLogsByLevel.get(level).push({ timestamp, args });
+    if (!invalidLogsByLevel.has(level)) invalidLogsByLevel.set(level, []); // INIT BUCKET
+    invalidLogsByLevel.get(level).push({ timestamp, args }); // STORE LOG ENTRY
 
     if (invalidLogsByLevel.get(level).length === 1) {
         setTimeout(() => {
             const logs = invalidLogsByLevel.get(level);
             console.group(`${icons.group} Invalid log level: "${level}" — Fallback to console.log`);
             logs.forEach(({ timestamp, args }) => {
-                console.log(`${timestamp}`, ...args);
+                console.log(`${timestamp}`, ...args); // PRINT STORED ENTRIES
             });
             console.groupEnd();
             invalidLogsByLevel.delete(level);
