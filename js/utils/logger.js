@@ -108,22 +108,25 @@ const log = (level = 'log', ...args) => {
     const callback = isCallback ? args.pop() : undefined; // EXTRACT CALLBACK
 
     if (level === 'group') {
-        logGrouped(level, args, false, callback, timestamp, timestampStyle); // EXPANDED GROUP
+        logGrouped(level, args, false, callback, `%c${timestamp}`, timestampStyle); // EXPANDED GROUP
 
     } else if (['groupCollapse', 'dir', 'table', 'count', 'countReset', 'time', 'timeEnd', 'timeLog'].includes(level)) {
-        logGrouped(level, args, true, callback, timestamp, timestampStyle); // GROUPED BEHAVIOUR FOR CERTAIN LEVELS
+        logGrouped(level, args, true, callback, `%c${timestamp}`, timestampStyle); // GROUPED BEHAVIOUR FOR CERTAIN LEVELS
 
     } else {
         // PREFIX ICON + TIMESTAMP
         const firstStringIndex = args.findIndex(arg => typeof arg === 'string');
         if (firstStringIndex !== -1) {
-            args[firstStringIndex] = `${icon} %c${timestamp}\n\n%c${args[firstStringIndex]}`;
+            const originalStr = args[firstStringIndex];
+            const originalStyles = args.slice(firstStringIndex + 1);
+            const parts = originalStr.split('%c');
 
-            if (args.length <= firstStringIndex + 1 || typeof args[firstStringIndex + 1] !== 'string') {
-                args.splice(firstStringIndex + 1, 0, timestampStyle, '');
-            } else {
-                args.splice(firstStringIndex + 1, 0, timestampStyle);
-            }
+            let newStr = `${icon} %c${timestamp}%c`;
+            newStr += parts.map((part, idx) => (idx > 0 ? '%c' : '') + part).join('');
+
+            const newStyles = [timestampStyle, '', ...originalStyles.length ? originalStyles : []];
+
+            args.splice(firstStringIndex, args.length - firstStringIndex, newStr, ...newStyles);
         } else {
             args.unshift(`${icon} %c${timestamp}`, timestampStyle);
         }
@@ -135,7 +138,7 @@ const log = (level = 'log', ...args) => {
             // DEFAULT LOG LEVELS
             const method = typeof console[level] === 'function' ? console[level] : console.log;
             method(...args);
-            if (!console[level]) handleInvalidLevel(level, timestamp, args);
+            if (!console[level]) handleInvalidLevel(level, `%c${timestamp}`, args);
         }
     }
 };
