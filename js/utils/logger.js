@@ -121,8 +121,7 @@ const log = (level = 'log', ...args) => {
             const originalStyles = args.slice(firstStringIndex + 1);
             const parts = originalStr.split('%c');
 
-            let newStr = `${icon} %c${timestamp}%c`;
-            newStr += parts.map((part, idx) => (idx > 0 ? '%c' : '') + part).join('');
+            let newStr = `${icon} %c${timestamp}%c\n\n` + parts.map((part, idx) => (idx > 0 ? '%c' : '') + part).join('');
 
             const newStyles = [timestampStyle, '', ...originalStyles.length ? originalStyles : []];
 
