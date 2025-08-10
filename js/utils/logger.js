@@ -72,7 +72,8 @@ const isDev = (
 ) || ['localhost', '127.0.0.1', '0.0.0.0', 'sandokancat.github.io', 'sandokan.cat'].includes(location.hostname);
 
 const getCookie = name => document.cookie.split('; ').find(row => row.startsWith(`${name}=`))?.split('=')[1];
-const isSilent = getCookie('log:silent') === 'true';    
+const isSilent = getCookie('log:silent') === 'true';
+const forceLogs = getCookie('log:force') === 'true';
 
 const icons = {
     error: '❌',
@@ -97,7 +98,7 @@ const invalidLogsByLevel = new Map();
 
 // MAIN LOGGER FUNCTION
 const log = (level = 'log', ...args) => {
-    if (!isDev || isSilent) return;
+    if ((!isDev && !forceLogs) || isSilent) return;
 
     const timestamp = new Date().toLocaleString();
     const icon = icons[level] ?? '📋';
@@ -105,10 +106,17 @@ const log = (level = 'log', ...args) => {
     const isCallback = typeof args[args.length - 1] === 'function';
     const callback = isCallback ? args.pop() : undefined;
 
+    const firstStringIndex = args.findIndex(arg => typeof arg === 'string');
+    if (firstStringIndex !== -1) {
+        args[firstStringIndex] = `${icon} ${timestamp}\n${args[firstStringIndex]}`;
+    } else {
+        args.unshift(`${icon} ${timestamp}\n`);
+    }
+
     switch (level) {
         case 'assert':
             const [condition, ...rest] = args;
-            console.assert(condition, `${icon} ${timestamp} — `, ...rest);
+            console.assert(condition, ...rest);
             break;
 
         case 'dir':
@@ -119,17 +127,17 @@ const log = (level = 'log', ...args) => {
         case 'timeEnd':
         case 'timeLog':
         case 'groupCollapse':
-            logGrouped(level, timestamp, args, true, callback);
+            logGrouped(level, args, true, callback);
             break;
 
         case 'group':
-            logGrouped(level, timestamp, args, false, callback);
+            logGrouped(level, args, false, callback);
             break;           
 
         default:
             const method = typeof console[level] === 'function' ? console[level] : console.log;
             method(`${icon} ${timestamp}\n`, ...args);
-            if (!console[level]) handleInvalidLevel(level, timestamp, args);
+            if (!console[level]) handleInvalidLevel(level, args);
     }
 };
 
