@@ -114,16 +114,24 @@ const log = (level = 'log', ...args) => {
         logGrouped(level, args, true, callback, timestamp, timestampStyle); // GROUPED BEHAVIOUR FOR CERTAIN LEVELS
 
     } else {
-        console.log(`%c${icon} %c${timestamp}`, 'font-weight:bold', timestampStyle); // PREFIX ICON + TIMESTAMP
+        console.log(`%c${timestamp}`, timestampStyle); // PREFIX ICON + TIMESTAMP
 
         if (typeof callback === 'function') callback();
         else if (level ==='assert') {
             const [condition, ...rest] = args; // ASSERTUSAGE: CONDITION, THEN MESSAGE(S)
             console.assert(condition, ...rest);
         } else {
+            const firstStringIndex = args.findIndex(arg => typeof arg === 'string');
+            if (firstStringIndex !== -1) {
+                args[firstStringIndex] = `${icons[level] ?? '📋'} %c${args[firstStringIndex]}`;
+                args.splice(firstStringIndex + 1, 0, 'font-weight: bold; text-transform: uppercase;');
+            } else {
+                args.unshift(`${icons[level] ?? '📋'}`, '');
+            }
+
             const method = typeof console[level] === 'function' ? console[level] : console.log;
-            method(...args); // PRINT USING ORIGINAL ARGS
-            if (!console[level]) handleInvalidLevel(level, timestamp, args); // HANDLE FALLBACK
+            method(...args);
+            if (!console[level]) handleInvalidLevel(level, timestamp, args);
         }
     }
 };
