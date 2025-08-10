@@ -114,26 +114,15 @@ const log = (level = 'log', ...args) => {
         logGrouped(level, args, true, callback, timestamp, timestampStyle); // GROUPED BEHAVIOUR FOR CERTAIN LEVELS
 
     } else {
-        // PREFIX ICON+TIMESTAMP ON THE FIRST STRING ARGUMENT (KEEP %c ORDER)
-        const firstStringIndex = args.findIndex(arg => typeof arg === 'string');
-        if (firstStringIndex !== -1) {
-            const originalString = args[firstStringIndex];
-            const styles = args.slice(firstStringIndex + 1);
+        console.log(`%c${icon} %c${timestamp}`, 'font-weight:bold', timestampStyle); // PREFIX ICON + TIMESTAMP
 
-            args.splice(firstStringIndex);
-
-            args.unshift(originalString, ...styles);
-            args.unshift(timestamp, timestampStyle);
-            args.unshift(icon);
-
-        } else args.unshift(`${icon} %c${timestamp}\n\n`, timestampStyle);
-
-        if (level ==='assert') {
+        if (typeof callback === 'function') callback();
+        else if (level ==='assert') {
             const [condition, ...rest] = args; // ASSERTUSAGE: CONDITION, THEN MESSAGE(S)
             console.assert(condition, ...rest);
         } else {
             const method = typeof console[level] === 'function' ? console[level] : console.log;
-            method(...args); // PRINT USING ORIGINAL ARGS (PREFIX ALREADY ADDED)
+            method(...args); // PRINT USING ORIGINAL ARGS
             if (!console[level]) handleInvalidLevel(level, timestamp, args); // HANDLE FALLBACK
         }
     }
