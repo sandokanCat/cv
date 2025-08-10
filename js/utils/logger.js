@@ -117,7 +117,15 @@ const log = (level = 'log', ...args) => {
         // PREFIX ICON+TIMESTAMP ON THE FIRST STRING ARGUMENT (KEEP %c ORDER)
         const firstStringIndex = args.findIndex(arg => typeof arg === 'string');
         if (firstStringIndex !== -1) {
-            args.unshift(`${icon}`, timestamp, timestampStyle);
+            const originalString = args[firstStringIndex];
+            const styles = args.slice(firstStringIndex + 1);
+
+            args.splice(firstStringIndex);
+
+            args.unshift(originalString, ...styles);
+            args.unshift(timestamp, timestampStyle);
+            args.unshift(icon);
+
         } else args.unshift(`${icon} %c${timestamp}\n\n`, timestampStyle);
 
         if (level ==='assert') {
