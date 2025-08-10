@@ -72,41 +72,8 @@ logger.gp("easter egg", () => {
 
 // A LITTE JOKE MORE
 logger.as(
-    (document.title === "Gonzalo Cabeza | Web Frontend developer") || 
-    (document.title === "Gonzalo Cabeza | Desarrollador Frontend web") || 
-    (document.title === "Gonzalo Cabeza | Desenvolupador Frontend web"), 
+    (document.title === "Gonzalo Cabezas | Web Frontend developer") || 
+    (document.title === "Gonzalo Cabezas | Desarrollador Frontend web") || 
+    (document.title === "Gonzalo Cabezas | Desenvolupador Frontend web"), 
     `❌ ¡Meow alert! El título actual es '${document.title}'. ¡Git push urgente! 🐾`
 )
-
-// console.group('EASTER EGG');
-//     console.log( // BUSSINESS CARD
-//         "%c" +
-//         " /\\_/\\   Frontend Dev | Maquetación Creativa 🛠️\n" +
-//         "( o.o )        HTML5 • CSS3 • Vanilla JS\n" +
-//         " > ^ <     \"sandokan.cat loves code & purrs\" 🐱\n" +
-//         "  ╰─▶              dev@sandokan.cat",
-//         "color: #ff6d00; font-family: monospace; line-height: 1.3;"
-//     );
-//     console.log( // TECH GREETINGS
-//         "%c💻 ¡HOLA DEV! 👋\n" +
-//         "Este CV web es 100% Vanilla JS y custom CSS.\n" +
-//         "👉 ¿Quieres echar un vistazo al código? https://github.com/sandokanCat \n" +
-//         "🚀 ¿Buscas un maquetador frontend? ¡Hablemos! https://linkedin.com/in/sandokanCat",
-//         "color: #2196f3; font-family: monospace; line-height: 1.5;"
-//     );
-//     console.log( // THANKS
-//         "%cGracias por inspeccionar. ¡Prepara más café, elige tu música y sigamos picando código! ☕️🎧",
-//         "color: #9b59b6; font-family: monospace; font-weight: 700;"
-//     );
-//     console.info( // FOOTER
-//         `© ${new Date().getFullYear()} sandokan.cat. Todos los derechos reservados.`
-//     );
-// console.groupEnd('EASTER EGG');
-
-// // A LITTE JOKE MORE
-// console.assert(
-//     (document.title === "Gonzalo Cabezas | Web Frontend developer") || 
-//     (document.title === "Gonzalo Cabezas | Desarrollador Frontend web") || 
-//     (document.title === "Gonzalo Cabezas | Desenvolupador Frontend web") 
-//     `❌ ¡Meow alert! El título actual es '${document.title}'. ¡Git push urgente! 🐾`
-// );
