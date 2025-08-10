@@ -117,10 +117,15 @@ const log = (level = 'log', ...args) => {
         // PREFIX ICON + TIMESTAMP
         const firstStringIndex = args.findIndex(arg => typeof arg === 'string');
         if (firstStringIndex !== -1) {
-            args[firstStringIndex] = `${icon} %c${timestamp}\n %c${args[firstStringIndex]}`;
-            args.splice(firstStringIndex + 1, 0, timestampStyle, '');
+            args[firstStringIndex] = `${icon} %c${timestamp}\n\n%c${args[firstStringIndex]}`;
+
+            if (args.length <= firstStringIndex + 1 || typeof args[firstStringIndex + 1] !== 'string') {
+                args.splice(firstStringIndex + 1, 0, timestampStyle, '');
+            } else {
+                args.splice(firstStringIndex + 1, 0, timestampStyle);
+            }
         } else {
-            args.unshift(`${icon} %c${timestamp}\n`, timestampStyle);
+            args.unshift(`${icon} %c${timestamp}`, timestampStyle);
         }
 
         if (level ==='assert') {
