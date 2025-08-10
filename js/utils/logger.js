@@ -117,14 +117,14 @@ const log = (level = 'log', ...args) => {
         // PREFIX ICON + TIMESTAMP
         const firstStringIndex = args.findIndex(arg => typeof arg === 'string');
         if (firstStringIndex !== -1) {
-            args[firstStringIndex] = `${icon} %c${timestamp}  %c${args[firstStringIndex]}`;
+            args[firstStringIndex] = `${icon} %c${timestamp}\n\n %c${args[firstStringIndex]}`;
             args.splice(firstStringIndex + 1, 0, timestampStyle, '');
         } else {
-            args.unshift(`${icon} %c${timestamp}`, timestampStyle);
+            args.unshift(`${icon} %c${timestamp}\n\n`, timestampStyle);
         }
 
         if (level ==='assert') {
-            const [condition, ...rest] = args; // ASSERTUSAGE: CONDITION, THEN MESSAGE(S)
+            const [condition, ...rest] = args; // ASSERT USAGE: CONDITION, THEN MESSAGE(S)
             console.assert(condition, ...rest);
         } else {
             // DEFAULT LOG LEVELS
