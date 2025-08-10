@@ -69,7 +69,7 @@ const isDev = (
     typeof import.meta !== 'undefined' &&
     typeof import.meta.env !== 'undefined' &&
     import.meta.env.MODE === 'development'
-) || ['localhost', '127.0.0.1', '0.0.0.0'].includes(location.hostname);
+) || ['localhost', '127.0.0.1', '0.0.0.0', 'sandokancat.github.io', 'sandokan.cat'].includes(location.hostname);
 
 const getCookie = name => document.cookie.split('; ').find(row => row.startsWith(`${name}=`))?.split('=')[1];
 const isSilent = getCookie('log:silent') === 'true';    
