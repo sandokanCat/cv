@@ -122,6 +122,7 @@ RewriteRule ^csp-report$ csp-report.php [L]
 ############################################################
 
 FallbackResource /index.html
+ErrorDocument 400 /errors/error400.html
 ErrorDocument 403 /errors/error403.html
 ErrorDocument 404 /errors/error404.html
 ErrorDocument 500 /errors/error500.html
