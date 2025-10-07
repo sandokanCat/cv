@@ -1,6 +1,6 @@
 # © 2025 [sandokan.cat](https://sandokan.cat/)
 
-I’m currently working on version 2.0 of my web CV, which will serve as the homepage of my portfolio. My goal is to stand out from the typical plain PDF and showcase my skills to the IT world through my personal projects — where I put all my talent, knowledge, and effort to excel. I appreciate your feedback!
+I’m currently working on version 2.0 of my web CV, which will serve as the homepage of my portfolio. My goal is to stand out from the typical plain PDF and showcase my skills to the IT community through my personal projects — where I put all my talent, knowledge, and effort to excel. I appreciate your feedback!
 
 > Jul 2024 – present
 
