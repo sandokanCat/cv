@@ -1,9 +1,8 @@
 User-agent: *
-Disallow: /partials
-Disallow: /fallbacks/dark
+Disallow: /private
 
-Sitemap: https://sandokan.cat/sitemap.xml
-Sitemap: https://sandokan.cat/sitemaps.xml.gz
-Sitemap: https://sandokan.cat/sitemap.html
-Sitemap: https://sandokan.cat/ror.xml
-Sitemap: https://sandokan.cat/urllist.txt
+Sitemap: https://sandokan.cat/sitemaps/sitemap.xml
+Sitemap: https://sandokan.cat/sitemaps/sitemaps.xml.gz
+Sitemap: https://sandokan.cat/sitemaps/sitemap.html
+Sitemap: https://sandokan.cat/sitemaps/ror.xml
+Sitemap: https://sandokan.cat/sitemaps/urllist.txt

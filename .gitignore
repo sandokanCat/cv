@@ -1,4 +1,9 @@
-# Blocked:
-silicon_valley/
-meta_metrics/
-zuck_selfies/
+# BLOCKED
+_*
+.*
+public/
+
+# ALLOWED
+!.gitignore
+!.gitattributes
+!.gitmodules

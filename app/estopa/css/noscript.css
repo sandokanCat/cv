@@ -1,0 +1,22 @@
+.noscript-warning {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    width: 100%;
+    background-color: rgba(255, 0, 0, 0.6);
+    color: white;
+    font-size: large;
+    font-weight: bolder;
+    padding: 10px 10px;
+    text-align: center;
+    min-height: auto;
+    top: 73px;
+}
+noscript .noscript-warning {
+    display: block;
+}
+@media screen and (max-width: 759px) {
+    .noscript-warning {
+        text-align: justify;
+    }
+}

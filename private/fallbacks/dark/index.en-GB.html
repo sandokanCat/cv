@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-GB" dir="ltr" data-theme="light">
+<html lang="en-GB" dir="ltr" data-theme="dark">
 
 <head>
     <!-- CHARSET FOR UTF-8 ENCODING -->
@@ -54,12 +54,7 @@
     <meta property="og:profile:picture" content="https://sandokan.cat/img/photos/gonzalo@3x.png">
 
     <!-- FAVICON -->
-    <link rel="icon" href="img/favicon.svg" type="image/svg+xml"> <!-- MODERN BOM -->
-    <!---------------------------------------------- VOLVER AQUI --------------------------------------------------------------------->
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon" sizes="any"> <!-- FALLBACK, OLD BOM-->
-    <link rel="apple-touch-icon" href="img/favicon.png"> <!-- APPLE TOUCH -->
-    <meta name="msapplication-TileColor" content="#1d2a42"> <!-- WINDOWS 8+ THEME COLOR -->
-    <meta name="msapplication-TileImage" content="img/mstile-150x150.png"> <!-- WINDOWS 8+ IMG -->
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="css/styles.css">
@@ -87,8 +82,6 @@
 
     <!-- HUMANS TXT (CREDITS FILE) -->
     <link type="text/plain" rel="author" href="humans.txt">
-
-    <link rel="manifest" href="manifest.json"> <!----------------------------------- VOLVER AQUI ---------------------------------------------->
 
     <!-- GEOLOCATION FOR LOCAL SEO -->
     <meta name="distribution" content="national">
@@ -207,18 +200,18 @@
                 <noscript>
                     <ul>
                         <li> <!-- DARK MODE -->
-                            <a class="dark-mode-btn icons-scale" aria-label="Toggle dark mode" href="private/fallbacks/dark/index.en-GB.html">🌙</a>
+                            <a class="dark-mode-btn icons-scale" aria-label="Toggle dark mode" href="index.html">☀️</a>
                         </li>
                         <!-- LANG MENU -->
                         <li>
-                            <a aria-label="Spanish" href="private/fallbacks/light/index.es-ES.html">
+                            <a aria-label="Spanish" href="private/fallbacks/dark/index.es-ES.html">
                                 <svg class="icons-scale" role="img" aria-hidden="true" width="40" height="40" preserveAspectRatio="xMinYMin meet">
                                     <use href="img/sprite.svg#es-ES"></use>
                                 </svg>
                             </a>
                         </li>
                         <li>
-                            <a aria-label="Catalan" href="private/fallbacks/light/index.ca-ES.html">
+                            <a aria-label="Catalan" href="private/fallbacks/dark/index.ca-ES.html">
                                 <svg class="icons-scale" role="img" aria-hidden="true" width="40" height="40" preserveAspectRatio="xMinYMin meet">
                                     <use href="img/sprite.svg#ca-ES"></use>
                                 </svg>
@@ -234,7 +227,7 @@
                     </li>
                     <!-- LANG MENU -->
                     <li>
-                        <button data-i18n-attr="aria-label:langBtnCa" data-lang="ca-ES" class="icons-scale" aria-label="Catalan" type="button">
+                        <button data-i18n-attr="aria-label:langBtnCa" data-lang="ca-ES" class="icons-scale" id="lang-toggle" aria-label="Catalan" type="button">
                             <svg class="icons-scale" role="img" aria-hidden="true" width="40" height="40" preserveAspectRatio="xMinYMin meet">
                                 <use href="img/sprite.svg#ca-ES"></use>
                             </svg>
@@ -248,7 +241,7 @@
                         </button>
                     </li>
                     <li>
-                        <button data-i18n-attr="aria-label:langBtnEn" data-lang="en-GB" class="icons-scale" aria-label="English" type="button">
+                        <button data-i18n-attr="aria-label:langBtnEn" class="icons-scale" data-lang="en-GB" aria-label="English" type="button">
                             <svg class="icons-scale" role="img" aria-hidden="true" width="40" height="40" preserveAspectRatio="xMinYMin meet">
                                 <use href="img/sprite.svg#en-GB"></use>
                             </svg>
@@ -487,7 +480,7 @@
                         <aside class="other-links js-disabled" id="burger-nav"> <!-- JS ENABLED -->
                             <ul id="burger-links" data-i18n-attr="aria-label:burger" aria-label="Repository menu">
                                 <li id="burger-btn-wrapper">
-                                    <button id="burger-btn" aria-label="Open menu" aria-expanded="false" aria-pressed="false" type="button">
+                                    <button id="burger-btn" aria-label="Open menu" aria-expanded="false" type="button">
                                         <span id="burger-icon" class="icons-scale">
                                             <span id="burger-icon-top"></span>
                                             <span id="burger-icon-middle"></span>

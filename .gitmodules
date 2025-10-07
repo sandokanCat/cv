@@ -1,0 +1,13 @@
+# ADD OPEN-UTILS REPO AS SUBMODULE
+[submodule "open-utils"]
+    path = app/open-utils
+    url = https://github.com/sandokanCat/open-utils
+    branch = main
+    ignore = dirty
+
+# ADD ESTOPA REPO AS SUBMODULE
+[submodule "estopa"]
+    path = app/estopa
+    url = https://github.com/sandokanCat/estopa
+    branch = main
+    ignore = dirty
