@@ -1,0 +1,93 @@
+@import url(reset.css);
+@import url(noscript.css);
+@import url(modal.css);
+:root {
+    --negroBase: rgba(0, 0, 0, 0.9);
+    --LilaContraste: rgba(108, 8, 133);
+}
+body {
+    background-image: url("../img/bg_estopa.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.menu {
+    z-index: 1000;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: var(--LilaContraste);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.menu ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin: 5px auto;
+    width: 75%;
+}
+.menu li {
+    display: inline-flex;
+}
+.menu a {
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+.menu a:hover {
+    background-color: black;
+    transition: 1s;
+}
+.menu a:focus {
+    background-color: black;
+    box-shadow: none;
+    outline: none;
+}
+#burguer {
+    display: none;
+    margin-right: 20px;
+}
+h1 {
+    text-align: center;
+    margin-top: 100px;
+}
+.contenidor {
+    width: 90%;
+    margin: 0 auto;
+    background-color: var(--negroBase);
+    padding: 100px;
+    border-radius: 40px;
+}
+h2 {
+    text-align: center;
+    font-size: xx-large;
+    color: rgb(108, 8, 133);
+    margin-bottom: 50px;
+}
+h3 {
+    font-size: x-large;
+    margin-bottom: 40px;
+}
+@media screen and (max-width: 859px) {
+    h1 img {
+        width: 425px;
+    }
+    .menu {
+        justify-content: end;
+    }
+    .link-menu {
+        display: none;
+    }
+    #burguer {
+        display: flex;
+    }
+    .contenidor {
+        width: 95%;
+        padding: 100px 50px;
+    }
+}
