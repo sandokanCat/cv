@@ -10,5 +10,4 @@
     path = public/estopa
     url = https://github.com/sandokanCat/estopa
     branch = main
-
     ignore = dirty
