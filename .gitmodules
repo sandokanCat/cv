@@ -7,7 +7,8 @@
 
 # ADD ESTOPA REPO AS SUBMODULE
 [submodule "estopa"]
-    path = app/estopa
+    path = public/estopa
     url = https://github.com/sandokanCat/estopa
     branch = main
+
     ignore = dirty
