@@ -120,6 +120,9 @@
     "availability": {
         "html": "Disponibilidad total dentro de la provincia de <span lang='ca-ES'>Barcelona</span>"
     },
+    "portfolio": {
+        "text": "Portafolio"
+    },
     "burger": {
         "aria-label": "Menú de repositorios"
     },
