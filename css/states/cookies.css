@@ -24,9 +24,7 @@
     background: none;
     color: var(--accent-4);
     font-weight: 400;
-    border: 2px solid var(--accent-4);
-    border-radius: 7px;
-    padding: 2.5px 5px;
+    border: none;
 }
 
 /* RESPONSIVE LAYOUT */
