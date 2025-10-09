@@ -13,10 +13,18 @@
     margin: 0;
     text-align: center;
 }
-#cookies-bar button {
+#accept-cookies {
     background-color: var(--accent-1);
     color: var(--accent-2);
     font-weight: 700;
+    border-radius: 7px;
+    padding: 2.5px 5px;
+}
+#reject-cookies {
+    background: none;
+    color: var(--accent-4);
+    font-weight: 400;
+    border: 2px solid var(--accent-4);
     border-radius: 7px;
     padding: 2.5px 5px;
 }
