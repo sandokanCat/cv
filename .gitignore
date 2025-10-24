@@ -1,6 +1,7 @@
 # BLOCKED
 _*
 .*
+# app/
 # public/
 
 # ALLOWED
