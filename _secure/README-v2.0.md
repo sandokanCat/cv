@@ -19,7 +19,6 @@ We don't sell your data to:
 
 ## 📚 About
 
-<<<<<<< HEAD
 > DIRECTED BY: [sandokan.cat](https://sandokan.cat) \
 > SCRIPT CONSULTANTS: Gerard, JPedro \
 > ASSISTANT PRODUCER: ChatGPT \
