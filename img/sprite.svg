@@ -23,36 +23,36 @@
 
     <!-- SPAIN ROUND FLAG -->
     <symbol id="es-ES" aria-hidden="true" viewBox="0 0 40 40">
-    <defs>
-        <clipPath id="clip-spain">
-        <circle cx="20" cy="20" r="20" />
-        </clipPath>
-    </defs>
-    <g clip-path="url(#clip-spain)">
-        <rect width="40" height="40" fill="#ffda44"/>
-        <rect y="0" width="40" height="10" fill="#d80027"/>
-        <rect y="30" width="40" height="10" fill="#d80027"/>
-    </g>
+        <defs>
+            <clipPath id="clip-spain">
+            <circle cx="20" cy="20" r="20" />
+            </clipPath>
+        </defs>
+        <g clip-path="url(#clip-spain)">
+            <rect width="40" height="40" fill="#ffda44"/>
+            <rect y="0" width="40" height="10" fill="#d80027"/>
+            <rect y="30" width="40" height="10" fill="#d80027"/>
+        </g>
     </symbol>
 
     <!-- UNITED KINGDOM ROUND FLAG -->
     <symbol id="en-GB" aria-hidden="true" viewBox="0 0 40 40">
-    <defs>
-        <clipPath id="clip-uk">
-        <circle cx="20" cy="20" r="20"/>
-        </clipPath>
-    </defs>
-    <g clip-path="url(#clip-uk)">
-        <rect width="40" height="40" fill="#012169"/>
-        <polygon points="0,0 8,0 40,32 40,40 32,40 0,8" fill="#fff"/>
-        <polygon points="40,0 32,0 0,32 0,40 8,40 40,8" fill="#fff"/>
-        <polygon points="0,0 4,0 40,36 40,40 36,40 0,4" fill="#c8102e"/>
-        <polygon points="40,0 36,0 0,36 0,40 4,40 40,4" fill="#c8102e"/>
-        <rect x="16" width="8" height="40" fill="#fff"/>
-        <rect y="16" width="40" height="8" fill="#fff"/>
-        <rect x="18" width="4" height="40" fill="#c8102e"/>
-        <rect y="18" width="40" height="4" fill="#c8102e"/>
-    </g>
+        <defs>
+            <clipPath id="clip-uk">
+            <circle cx="20" cy="20" r="20"/>
+            </clipPath>
+        </defs>
+        <g clip-path="url(#clip-uk)">
+            <rect width="40" height="40" fill="#012169"/>
+            <polygon points="0,0 8,0 40,32 40,40 32,40 0,8" fill="#fff"/>
+            <polygon points="40,0 32,0 0,32 0,40 8,40 40,8" fill="#fff"/>
+            <polygon points="0,0 4,0 40,36 40,40 36,40 0,4" fill="#c8102e"/>
+            <polygon points="40,0 36,0 0,36 0,40 4,40 40,4" fill="#c8102e"/>
+            <rect x="16" width="8" height="40" fill="#fff"/>
+            <rect y="16" width="40" height="8" fill="#fff"/>
+            <rect x="18" width="4" height="40" fill="#c8102e"/>
+            <rect y="18" width="40" height="4" fill="#c8102e"/>
+        </g>
     </symbol>
 
     <!-- NATIVE LANGUAGE ICON -->
