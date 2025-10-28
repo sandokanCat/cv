@@ -1,0 +1,29 @@
+{"url": "contact.php", "method": "POST",
+    "fields":[
+        {
+            "name": "mail",
+            "type":"email",
+            "label":"Correo Electrónico"
+        },
+        {
+            "name":"subject",
+            "type":"text",
+            "label":"Asunto"
+        },
+        {
+            "name":"content",
+            "type":"text",
+            "label":"Mensaje"
+        },
+        {
+            "name":"consent",
+            "type":"checkbox",
+            "label":"Consentimiento",
+            "value":"false"
+        },
+        {
+            "name":"send",
+            "type":"submit"
+        }
+    ]
+}
