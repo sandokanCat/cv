@@ -19,8 +19,9 @@ import {
     updateCarouselAlts,
     reloadRandomMsg,
     getBurgerConfig,
-    updateProvisionalAlert/*,
-    openModal*/ } from './components/index.js';
+    updateProvisionalAlert,
+    /*openModal*/ 
+    sendMail } from './components/index.js';
 
 // 🧠 APP INITIALIZATION SEQUENCE: FROM GLOBALS TO INTERACTIVE UI
 document.addEventListener("DOMContentLoaded", async () => {
