@@ -3,6 +3,11 @@
 
 <form action="./_secure/mail.php" method="POST" enctype="text/plain">
     <field>
+        <name>name</name>
+        <type>text</type>
+        <label>Nombre:</label>
+    </field>
+    <field>
         <name>email</name>
         <type>email</type>
         <label>Correo Electrónico:</label>
@@ -17,11 +22,11 @@
         <type>textarea</type>
         <label>Mensaje:</label>
     </field>
-    <field>
+    <!-- <field>
         <name>consent</name>
         <type>checkbox</type>
         <label>Consentimiento</label>
-    </field>
+    </field> -->
     <field>
         <name>send</name>
         <type>submit</type>

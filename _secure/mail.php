@@ -1,96 +1,71 @@
 <?php
-$mensaje = [
-    "cuerpo" =>
-        '<html>
-            <head>
-                <meta charset="utf-8">
-                <title>Comunicado de inicio curso</title>
-            </head>
-            <body>
-                <p>HOLA</p>
-            </body>
-        </html>',
-    "asunto" => "ASUNTO DEL CORREO"
-];
+require_once './app/PHPdotenv/vendor/autoload.php';
 
-// Configuración de PHPMailer
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+require './app/PHPMailer/src/PHPMailer.php';
+require './app/PHPMailer/src/SMTP.php';
+require './app/PHPMailer/src/Exception.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-		
-require 'PHPMailer.php';
-require 'SMTP.php';
-require 'Exception.php';
-
-$mail = new PHPMailer(true);
-
-try {
-    // Configuración del servidor SMTP
-    $mail->isSMTP();
-    $mail->Host = 'smtp.tuservidor.com';
-    $mail->SMTPAuth = true;
-    $mail->Username = 'tucorreo@tuservidor.com';
-    $mail->Password = 'contraseña';
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port = 587; // Pon el que tengas
-	//Codificacion
-	$mail->CharSet = 'UTF-8';
-    // Encabezados
-    $mail->setFrom('tucorreo@tuservidor.com', 'El nombre que quieres que vean');
-    $mail->addAddress($correo);
-    $mail->addReplyTo('corresRespuesta@tuservidor.com');
-
-    // Contenido		
-    $mail->isHTML(true);
-    $mail->Subject = $mensaje["asunto"];   
-    $mail->Body = $mensaje["cuerpo"];
-    $mail->AltBody = strip_tags($mensaje["cuerpo"]);
-
-    if ($mail->send()) {
-        echo json_encode(['resultado' => 'OK']);
-    } else {
-        echo json_encode(['resultado' => 'Error', 'error' => 'Error al enviar el correo: ' . $mail->ErrorInfo]);
-    }
-} catch (Exception $e) {
-    echo json_encode(['resultado' => 'Error', 'error' => 'Excepción: ' . $e->getMessage()]);
-}
-?>
-
-
-<?php
-require '../vendor/autoload.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = htmlspecialchars($_POST['name']);
-    $email = htmlspecialchars($_POST['email']);
-    $message = htmlspecialchars($_POST['message']);
+    header('Content-Type: application/json; charset=utf-8');
+    
+    // SANITIZE INPUTS
+    $name = htmlspecialchars(trim($_POST['name'] ?? ''), ENT_QUOTES, 'UTF-8');
+    $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+    $subject = htmlspecialchars(trim($_POST['subject'] ?? ''), ENT_QUOTES, 'UTF-8');
+    $content = htmlspecialchars($_POST['content'] ?? '');
+    // $consent = !empty($_POST['consent']);
 
-    $mail = new PHPMailer\PHPMailer\PHPMailer();
-    $mail->isSMTP();
-    $mail->Host = 'smtp.sandokan.cat';
-    $mail->SMTPAuth = true;
-    $mail->Username = 'dev@sandokan.cat';
-    $mail->Password = '';
-    $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port = 578;
+    // BASIC VALIDATION
+    if (!$email) {
+        echo json_encode(['result' => 'Error', 'error' => 'Invalid email address']);
+        exit;
+    } elseif (empty($name) || empty($subject) || empty($content)) {
+        echo json_encode(['result' => 'Error', 'error' => 'Missing required fields']);
+        exit;
+    }
 
-    $mail->setFrom('dev@sandokan.cat', 'Gonzalo Cabezas Núñez');
-    $mail->addAddress('dev@sandokan.cat', 'Gonzalo Cabezas Núñez');
+    $mail = new PHPMailer(true);
 
-    $mail->Subject = 'Nuevo mensaje de ' . $name;
-    $mail->Body = "Has recibido un nuevo mensaje de contacto.\n\n".
-                  "Nombre: $name\n".
-                  "Correo: $email\n".
-                  "Mensaje: $message";
-    $mail->AltBody = "Has recibido un nuevo mensaje de contacto.\n\n".
-                     "Nombre: $name\n".
-                     "Correo: $email\n".
-                     "Mensaje: $message";
+    try {
+        // SMTP CONFIG
+        $mail->isSMTP();
+        $mail->Host = 'smtp.sandokan.cat';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'dev@sandokan.cat';
+        $mail->Password = getenv('MAIL_PASS');
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+        $mail->Port = 465;
+        $mail->CharSet = 'UTF-8';
 
-    if ($mail->send()) {
-        echo 'El correo ha sido enviado exitosamente.';
-    } else {
-        echo 'Error al enviar el correo: ' . $mail->ErrorInfo;
+        // HEADERS
+        $mail->setFrom('dev@sandokan.cat', 'Gonzalo Cabezas Núñez');
+        $mail->addAddress($email);
+        $mail->addReplyTo('dev@sandokan.cat');
+
+        // BODY
+        $mail->isHTML(true);
+        $mail->Subject = $subject;
+        $mail->Body = "
+            <p>Nombre: <strong>$name</strong></p>
+            <p>Email: <strong>$email</strong></p>
+            <p>Mensaje: <br/><strong>$content</strong></p>
+        ";
+        $mail->AltBody = strip_tags($mail->Body);
+
+        // SEND MAIL
+        if ($mail->send()) {
+            echo json_encode(['result' => 'OK']);
+        } else {
+            echo json_encode(['result' => 'Error', 'error' => 'Error sending E-mail: ' . $mail->ErrorInfo]);
+        }
+    } catch (Exception $err) {
+        echo json_encode(['result' => 'Error', 'error' => 'Exception: ' . $err->getMessage()]);
     }
 }
 ?>
-

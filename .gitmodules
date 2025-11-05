@@ -5,6 +5,13 @@
     branch = main
     ignore = dirty
 
+# ADD PHPDOTENV REPO AS SUBMODULE
+[submodule "PHPdotenv"]
+    path = app/PHPdotenv
+    url = https://github.com/vlucas/phpdotenv
+    branch = master
+    ignore = all
+
 # ADD PHPMAILER REPO AS SUBMODULE
 [submodule "PHPMailer"]
     path = app/PHPMailer

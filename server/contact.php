@@ -6,12 +6,12 @@ $enctype = $form['enctype'];
 
 echo "
     <!DOCTYPE html>
-        <html>
-            <head>
-                <title>Contacto</title>
-            </head>
-            <body>
-                <form action='$action' method='$method'>
+    <html>
+        <head>
+            <title>Contacto</title>
+        </head>
+        <body>
+            <form action='$action' method='$method'>
 ";
 
 foreach ($form->field as $field){
@@ -23,17 +23,17 @@ foreach ($form->field as $field){
         echo "
             <label for='$name'>$label</label>
             <br/>
-            <$type id='$name' name='$name'></$type>
+            <$type id='$name' name='$name' required></$type>
             <br/>
         ";
     }
-    else if ($name == 'consent') {
+    /* else if ($name == 'consent') {
         echo "
             <input id='$name' name='$name' type='$type' value='$label'>
             <label for='$name'>$label</label>
             <br/>
         ";
-    } else if ($name == 'send') {
+    } */ else if ($name == 'send') {
         echo "
             <input id='$name' name='$name' type='$type' value='$label'>
             <br/>
