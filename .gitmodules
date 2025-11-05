@@ -5,6 +5,13 @@
     branch = main
     ignore = dirty
 
+# ADD PHPMAILER REPO AS SUBMODULE
+[submodule "PHPMailer"]
+    path = app/PHPMailer
+    url = https://github.com/PHPMailer/PHPMailer
+    brach = master
+    ignore = all
+
 # ADD ESTOPA REPO AS SUBMODULE
 [submodule "estopa"]
     path = public/estopa

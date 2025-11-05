@@ -1,0 +1,8 @@
+<!ELEMENT form (field+)>
+<!ATTLIST form action ID #REQUIRED>
+<!ATTLIST form method ID #REQUIRED>
+<!ATTLIST form enctype ID #REQUIRED>
+<!ELEMENT field (name, type, label)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT type (#PCDATA)>
+<!ELEMENT label (#PCDATA)>

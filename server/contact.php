@@ -1,8 +1,8 @@
 <?php
-$json = file_get_contents("form.json");
-$form = json_decode($json, true);
-$url = $form['url'];
+$form = simplexml_load_file("form.xml");
+$action = $form['action'];
 $method = $form['method'];
+$enctype = $form['enctype'];
 
 echo "
     <!DOCTYPE html>
@@ -11,20 +11,40 @@ echo "
                 <title>Contacto</title>
             </head>
             <body>
-                <form action='$url' method='$method'>
+                <form action='$action' method='$method'>
 ";
 
-foreach ($form[fields] as $field){
-    $name = $form['name'];
-    $type = $form['type'];
-    $label = $form['label'];
+foreach ($form->field as $field){
+    $name = (string)$field->name;
+    $type = (string)$field->type;
+    $label = (string)$field->label;
 
-    if (isset($field['label'])) {
-        echo "<label for='$name'>{$field['label']}</label><br>";
+    if ($name == 'content') {
+        echo "
+            <label for='$name'>$label</label>
+            <br/>
+            <$type id='$name' name='$name'></$type>
+            <br/>
+        ";
     }
-    switch ($type) {
-        case 'email':
-        case 
+    else if ($name == 'consent') {
+        echo "
+            <input id='$name' name='$name' type='$type' value='$label'>
+            <label for='$name'>$label</label>
+            <br/>
+        ";
+    } else if ($name == 'send') {
+        echo "
+            <input id='$name' name='$name' type='$type' value='$label'>
+            <br/>
+        ";
+    } else {
+        echo "
+            <label for='$name'>$label</label>
+            <br/>
+            <input id='$name' name='$name' type='$type' required>
+            <br/>
+        ";
     }
 }
 
