@@ -1,7 +1,7 @@
 // IMPORTS
 // import { getLocale } from "../../utils/index.js";
 import { handlePdf } from "./pdfLogic.js"; // ADDING PDF LOGIC
-import { validateCarousel } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateCarousel.js.js" // FETCH + STRUCTURE + FORMAT VALIDATION
+import { validateCarousel } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateCarousel.js" // FETCH + STRUCTURE + FORMAT VALIDATION
 import { modalCarousel } from "./modalCarousel.js"; // ADDING CAROUSEL LOGIC CLONER
 
 // OPEN MODAL HANDLER
@@ -127,3 +127,4 @@ export function openModal(/*{
     });
 
 }
+
