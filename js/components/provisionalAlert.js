@@ -1,4 +1,5 @@
 // IMPORTS
+import { logger } from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
 import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js"
 import { logger, getLocale } from "../utils/index.js"; // USE GLOBAL i18n LOCALE DETECTION
 
@@ -61,4 +62,5 @@ async function provisionalAlert(locale = getLocale()) {
         logger.er("provisionalAlert.js ERROR", json, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
     }
 }
+
 
