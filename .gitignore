@@ -1,9 +1,8 @@
-# BLOCKED (temporarily disabled)
-# _*
-# .*
-# app/
-# public/
-.env
+# BLOCKED
+_*
+.*
+app/
+public/
 
 # ALLOWED
 !.gitignore
