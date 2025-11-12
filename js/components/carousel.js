@@ -1,6 +1,6 @@
 // IMPORTS
 import { logger } from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
-import { validateCarousel } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateCarousel.js
+import { validateCarousel } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateCarousel.js";
 import { getLocale, fallbackLocale } from "../utils/index.js"; // USE GLOBAL i18n LOCALE DETECTION
 
 // JSON FILE PATH
@@ -134,3 +134,4 @@ export async function initCarousel({
 	}
 
 }
+
