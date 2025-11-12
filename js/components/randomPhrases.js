@@ -1,6 +1,6 @@
 // IMPORTS
 import { logger } from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
-import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js"
+import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";
 import { getLocale } from "../utils/index.js"; // USE GLOBAL i18n LOCALE DETECTION
 
 // GLOBAL VARIABLES
@@ -108,4 +108,5 @@ async function showRandomMsg(locale = getLocale()) {
     }
 
 }
+
 
