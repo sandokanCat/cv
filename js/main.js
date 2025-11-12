@@ -1,10 +1,10 @@
 // 📥 IMPORTS ORDERED BY LAYER: CONFIG → UTILS → COMPONENTS
+import { logger } from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
 import {
     i18nConfig,
     carouselConfig,/*,
     getModalRefs*/ } from './config.js';
 import {
-    logger,
     replaceClass,
     getLocale,
     initI18n,
@@ -77,4 +77,5 @@ logger.as(
     (document.title === "Gonzalo Cabezas | Desarrollador Frontend web") || 
     (document.title === "Gonzalo Cabezas | Desenvolupador Frontend web"), 
     `❌ ¡Meow alert! El título actual es '${document.title}'. ¡Git push urgente! 🐾`
+
 )
