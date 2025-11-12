@@ -1,5 +1,6 @@
 // IMPORTS
-import { logger, getLocale, validateJSON } from "../utils/index.js"; // USE GLOBAL i18n LOCALE DETECTION
+import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js"
+import { logger, getLocale } from "../utils/index.js"; // USE GLOBAL i18n LOCALE DETECTION
 
 // GLOBAL VARIABLES
 const json = "./js/data/phrases.json"; // SOURCE JSON FILE
@@ -104,4 +105,5 @@ async function showRandomMsg(locale = getLocale()) {
     } catch (err) {
         logger.er("randomPhrases.js ERROR", json, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
     }
+
 }
