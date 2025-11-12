@@ -1,5 +1,6 @@
 // IMPORTS
-import { logger, reloadDynamicContent } from "./index.js";
+import { logger } from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
+import { reloadDynamicContent } from "./index.js";
 
 // COMMON TOOGLE MENU FUNCTION
 export async function initToggler({
@@ -51,4 +52,5 @@ export async function initToggler({
             }
         });
     });
+
 }
