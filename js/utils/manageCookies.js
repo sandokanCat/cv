@@ -1,5 +1,5 @@
 // IMPORTS
-import { logger } from './index.js';
+import { logger } from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
 
 // GET/SET COOKIE WITH EXPIRATION DAYS
 export function manageCookies(cookieBarSelector, acceptBtnSelector) {
@@ -141,4 +141,5 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
     }
 
     initCookieBar();
+
 }
