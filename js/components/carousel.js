@@ -1,5 +1,7 @@
 // IMPORTS
-import { logger, getLocale, fallbackLocale, validateCarousel } from "../utils/index.js"; // USE GLOBAL i18n LOCALE DETECTION
+import { logger } from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
+import { validateCarousel } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateCarousel.js
+import { getLocale, fallbackLocale } from "../utils/index.js"; // USE GLOBAL i18n LOCALE DETECTION
 
 // JSON FILE PATH
 const json = "./js/data/carousel.json";
@@ -130,4 +132,5 @@ export async function initCarousel({
 	} catch (err) {
 		logger.er("carousel.js ERROR", json, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
 	}
+
 }
