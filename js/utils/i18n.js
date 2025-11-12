@@ -1,5 +1,6 @@
 // IMPORTS
-import { logger, validateJSON } from "./index.js";
+import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";
+import { logger } from "./index.js";
 import {
     updateCarouselAlts,
     reloadRandomMsg,
@@ -153,4 +154,5 @@ export const initI18n = async ({
     } catch (err) {
         logger.er(`i18n.js ERROR: ${getJsonPath(locale)} →`, err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
     }
+
 };
