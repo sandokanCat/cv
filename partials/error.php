@@ -9,7 +9,7 @@ require_once __DIR__."/server/i18n.php";
 require_once __DIR__."/server/assets.php";
 
 // GET I18N ERROR MESSAGES
-$errorsFile = __DIR__ . '/../js/data/errors.json';
+$errorsFile = __DIR__ . '/js/data/errors.json';
 $i18nErrors = json_decode(file_get_contents($errorsFile), true);
 
 // GET MESSAGE OR FALLBACK TO 500
@@ -85,7 +85,7 @@ http_response_code($code);
             <p id="signature">
                 <strong> © 
                     <span id="signature-year">
-                        <noscript>2025</noscript>
+                        <noscript><?= gmdate('Y'); ?></noscript>
                     </span>
                     sandokan.cat
                 </strong>
