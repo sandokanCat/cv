@@ -183,7 +183,8 @@ FileETag None
 # 7. ERROR PAGES (FULL LIST)
 ############################################################
 
-# 7.0 Default fallback
+# 7.0 Defaults
+DirectoryIndex index.php
 FallbackResource /index.php
 
 # 7.1 Client errors (4xx)
@@ -226,3 +227,4 @@ ErrorDocument 506 /partials/error.php?code=506
 ErrorDocument 507 /partials/error.php?code=507
 ErrorDocument 508 /partials/error.php?code=508
 ErrorDocument 511 /partials/error.php?code=511
+
