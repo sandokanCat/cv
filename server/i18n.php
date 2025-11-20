@@ -1,18 +1,12 @@
 <?php
-// ===============================
-// ULTRA-FAST GLOBALS & TRANSLATIONS
-// ===============================
-
 // LOAD COMPILED GLOBALS
-$globalsFile = __DIR__.'/compiled_files/globals.php';
+$globalsFile = __DIR__.'private/globals.php';
 if (!file_exists($globalsFile)) {
     throw new RuntimeException("Globals file missing: $globalsFile");
 }
 $globals = include $globalsFile;
 
-// -------------------------------
 // GLOBALS ACCESS FUNCTION WITH CACHE
-// -------------------------------
 function G($globals, string $path, string $context='html') {
     static $cache = [];
     $cacheKey = "$path:$context";
@@ -42,9 +36,7 @@ function G($globals, string $path, string $context='html') {
     return $cache[$cacheKey] = $v;
 }
 
-// -------------------------------
 // USER LANGUAGE DETECTION
-// -------------------------------
 function detectUserLang($globals): string {
     static $cachedLang = null;
     if ($cachedLang !== null) return $cachedLang;
@@ -62,21 +54,17 @@ function detectUserLang($globals): string {
 }
 $currentLang = detectUserLang($globals);
 
-// -------------------------------
 // LOAD COMPILED TRANSLATIONS
-// -------------------------------
-$translationsFile = __DIR__."/compiled_files/{$currentLang}.php";
+$translationsFile = __DIR__."private/{$currentLang}.php";
 if (!file_exists($translationsFile)) {
-    $translationsFile = __DIR__."/compiled_files/en-GB.php";
+    $translationsFile = __DIR__."private/en-GB.php";
     if (!file_exists($translationsFile)) {
         throw new RuntimeException("Fallback translations missing: {$translationsFile}");
     }
 }
 $translations = include $translationsFile;
 
-// -------------------------------
-// ULTRA-FAST TRANSLATION FUNCTION WITH CACHE
-// -------------------------------
+// TRANSLATION FUNCTION WITH CACHE
 function t(array $translations, string $key, string $type='text', string $default='') {
     static $cache = [];
     $cacheKey = "$key:$type";
@@ -86,17 +74,17 @@ function t(array $translations, string $key, string $type='text', string $defaul
     return $cache[$cacheKey] = $value;
 }
 
-// -------------------------------
+// DETERMINE TEXT DIRECTION
+$rtlLangs = G($globals,'lang.rtlLangs', 'html') ?? [];
+$dir = in_array(substr($currentLang,0,2), $rtlLangs) ? 'rtl' : 'ltr';
+
 // TRANSLATION HELPERS
-// -------------------------------
 $T = fn($k,$t='text') => t($translations,$k,$t);
 $L = fn($k,$t='aria-label') => t($translations,$k,$t);
 $A = fn($k,$t='alt') => t($translations,$k,$t);
 $H = fn($k,$t='html') => t($translations,$k,$t);
 
-// -------------------------------
 // EXPLODES
-// -------------------------------
 [$firstName,$lastName] = array_pad(explode(' ', G($globals,'brand.name')), 2, '');
 $shortName = strtolower($firstName);
 [$country,$region] = array_pad(explode('-', G($globals,'brand.region')), 2, '');

@@ -63,58 +63,58 @@
     <!-- THEME COLOR -->
     <meta name="theme-color" content="#1d2a42">
 
-    <!-- COPYRIGHT -->
+    <!-- AUTHORSHIP -->
     <meta name="copyright" content="© <?= gmdate('Y'); ?> <?= G($globals,'brand.nick','html'); ?>">
     <link type="text/plain" rel="author" href="humans.txt">
 
     <!-- SEARCH ENGINE VERIFICATION -->
     <?php foreach ($metaKeys as $key => $metaName): ?>
-        <meta name="<?= $metaName; ?>" content="<?= G($globals,"verification.$key",'html'); ?>">
+        <meta name="<?= htmlspecialchars($metaName, ENT_QUOTES | ENT_HTML5); ?>" content="<?= G($globals,"verification.$key",'html'); ?>">
     <?php endforeach; ?>
 
     <!-- SCHEMA LD+JSON -->
     <script type="application/ld+json">
         <?= json_encode([
-            "@context"=>"https://schema.org",
-            "@type"=>"WebSite",
-            "url"=>$brandUrl,
-            "name"=>$T('ldJsonWebName'),
-            "description"=>$T('ldJsonWebDescription'),
-            "author"=>["@id"=>"#".$shortName],
-            "publisher"=>["@id"=>"#".$shortName],
-            "mainEntity"=>["@id"=>"#".$shortName]
+            "@context" => "https://schema.org",
+            "@type" => "WebSite",
+            "url" => $brandUrl,
+            "name" => $T('ldJsonWebName'),
+            "description" => $T('ldJsonWebDescription'),
+            "author" => ["@id" => "#".$shortName],
+            "publisher" => ["@id" => "#".$shortName],
+            "mainEntity" => ["@id" => "#".$shortName]
         ], JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT); ?>
     </script>
     <script type="application/ld+json">
         <?= json_encode([
-            "@context"=>"https://schema.org",
-            "@type"=>"Person",
-            "@id"=>"#".$shortName,
-            "name"=>G($globals,'brand.name','json'),
-            "jobTitle"=>$T('ldJsonJobTitle'),
-            "url"=>G($globals,'brand.url','json')."#".$shortName,
-            "contactPoint"=>[
-                "@type"=>"ContactPoint",
-                "contactType"=>$T('ldJsonContactType'),
-                "email"=>G($globals,'brand.email','json'),
-                "telephone"=>"+34 631306583",
-                "url"=>G($globals,'brand.url','json')."partials/contact/form.php"
+            "@context" => "https://schema.org",
+            "@type" => "Person",
+            "@id" => "#".$shortName,
+            "name" => G($globals,'brand.name','json'),
+            "jobTitle" => $T('ldJsonJobTitle'),
+            "url" => G($globals,'brand.url','json')."#".$shortName,
+            "contactPoint" => [
+                "@type" => "ContactPoint",
+                "contactType" => $T('ldJsonContactType'),
+                "email" => G($globals,'brand.email','json'),
+                "telephone" => "+34 631306583",
+                "url" => G($globals,'brand.url','json')."partials/contact/form.php"
             ],
-            "address"=>[
-                "@type"=>"PostalAddress",
-                "postalCode"=>G($globals,'brand.postalCode'),
-                "addressLocality"=>G($globals,'brand.placename','json'),
-                "addressRegion"=>$region,
-                "addressCountry"=>$country
+            "address" => [
+                "@type" => "PostalAddress",
+                "postalCode" => G($globals,'brand.postalCode'),
+                "addressLocality" => G($globals,'brand.placename','json'),
+                "addressRegion" => $region,
+                "addressCountry" => $country
             ],
-            "image"=>G($globals,'brand.url','json')."img/og-img.jpg",
-            "sameAs"=>array_values(array_map(fn($k)=>G($globals,"socials.$k",'json') ?? '', ['github','vercel','linkedin','infojobs'])),
-            "knowsAbout"=>array_map(fn($k)=>["@type"=>"Thing","name"=>$k], $knowledge),
-            "alumniOf"=>[
-                "@type"=>"EducationalOrganization",
-                "name"=>G($globals,'academy.name','json'),
-                "url"=>G($globals,'academy.url','json'),
-                "logo"=>G($globals,'academy.logo','json')
+            "image" => G($globals,'brand.url','json')."img/og-img.jpg",
+            "sameAs" => $sameAs,
+            "knowsAbout" => array_map(fn($k) => ["@type" => "Thing","name" => $k], $knowledge),
+            "alumniOf" => [
+                "@type" => "EducationalOrganization",
+                "name" => G($globals,'academy.name','json'),
+                "url" => G($globals,'academy.url','json'),
+                "logo" => G($globals,'academy.logo','json')
             ]
         ], JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT); ?>
     </script>

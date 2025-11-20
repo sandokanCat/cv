@@ -1,7 +1,6 @@
-# BLOCKED (Temporary disabled)
-# _*
-# .*
-private/
+# BLOCKED
+_*
+.*
 
 # ALLOWED
 !.gitignore

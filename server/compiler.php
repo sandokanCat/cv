@@ -1,25 +1,22 @@
 <?php
-// ===============================
-// LOAD GLOBALS JSON
-// ===============================
+// ENSURE COMPILATION DIRECTORY EXISTS
+$outputDir = __DIR__.'private/';
+if (!is_dir($outputDir)) mkdir($outputDir, 0755, true);
+
+// EXPORT GLOBALS AS CLEAN PHP
 $globals = json_decode(
-    file_get_contents(__DIR__.'/../js/globals.json'),
+    file_get_contents(__DIR__.'/js/globals.json'),
     true,
     512,
     JSON_THROW_ON_ERROR
 );
 
-// ===============================
-// DIRECTORIES FOR I18N
-// ===============================
-$translationsDir = __DIR__.'/../js/i18n/';
-$outputDir = __DIR__.'/compiled_files/';
+$exportGlobals = "<?php\nreturn ".var_export($globals, true).";\n";
+file_put_contents($outputDir.'globals.php', $exportGlobals);
 
-if (!is_dir($outputDir)) mkdir($outputDir, 0755, true);
-
-// ===============================
 // PROCESS ALL TRANSLATION FILES
-// ===============================
+$translationsDir = __DIR__.'/js/i18n/';
+
 foreach (glob($translationsDir.'*.json') as $file) {
 
     $lang = basename($file, '.json');
@@ -31,9 +28,7 @@ foreach (glob($translationsDir.'*.json') as $file) {
         JSON_THROW_ON_ERROR
     ) ?: [];
 
-    // ===============================
     // REPLACE PLACEHOLDERS IN TRANSLATIONS
-    // ===============================
     foreach ($translations as $key => &$entry) {
         foreach ($entry as $type => &$value) {
 
@@ -55,12 +50,10 @@ foreach (glob($translationsDir.'*.json') as $file) {
     }
     unset($entry);
 
-    // ===============================
     // EXPORT TRANSLATIONS AS CLEAN PHP
-    // ===============================
     $export = "<?php\nreturn ".var_export($translations, true).";\n";
     file_put_contents($outputDir.$lang.'.php', $export);
 }
 
-echo "✅ Compiled translations on $outputDir\n";
+echo "✅ Compiled files on $outputDir\n";
 ?>

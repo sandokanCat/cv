@@ -1,7 +1,5 @@
 User-agent: *
-Disallow: /server
 Disallow: /partials
-Disallow: /private
 
 Sitemap: https://sandokan.cat/sitemaps/sitemap.xml
 Sitemap: https://sandokan.cat/sitemaps/sitemaps.xml.gz

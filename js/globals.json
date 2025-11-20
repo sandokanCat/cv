@@ -59,5 +59,10 @@
         "url": "https://paucasals.com",
         "logo": "https://www.paucasals.com/imagen/logo_640.png"
     },
-    "cookies": "https://wikipedia.org/"
+    "cookies": "https://wikipedia.org/",
+    "verification": {
+        "google": "09e253fadebfd609",
+        "microsoft": "67F856661103182488C8ADE76EA02DF0",
+        "yandex": "41d8a99d172f9fff"
+    }
 }
