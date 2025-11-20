@@ -16,8 +16,9 @@
     <link rel="canonical" href="<?= htmlspecialchars($canonicalUrl, ENT_QUOTES | ENT_HTML5); ?>">
 
     <!-- LANGUAGE VERSIONS -->
-    <?php foreach ($supportedLangs as $lang => $locale): 
-        $url = $brandUrl . ($locale !== 'en-GB' ? "$locale/" : '');
+    <?php
+    foreach ($supportedLangs as $lang => $locale): 
+    $url = $brandUrl . ($locale !== 'en-GB' ? "$locale/" : '');
     ?>
         <link rel="alternate" hreflang="<?= htmlspecialchars($lang); ?>" href="<?= htmlspecialchars($url, ENT_QUOTES | ENT_HTML5); ?>">
     <?php endforeach; ?>
@@ -69,7 +70,7 @@
 
     <!-- SEARCH ENGINE VERIFICATION -->
     <?php foreach ($metaKeys as $key => $metaName): ?>
-        <meta name="<?= htmlspecialchars($metaName, ENT_QUOTES | ENT_HTML5); ?>" content="<?= G($globals,"verification.$key",'html'); ?>">
+        <meta name="<?= htmlspecialchars($metaName, ENT_QUOTES | ENT_HTML5); ?>" content="<?= G($globals, "verification.$key", 'html'); ?>">
     <?php endforeach; ?>
 
     <!-- SCHEMA LD+JSON -->

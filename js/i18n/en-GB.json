@@ -40,9 +40,6 @@
     "darkBtn": {
         "aria-label": "Toggle dark mode"
     },
-    "gonzalo": {
-        "alt": "Portrait of {brand.name}}"
-    },
     "profile": {
         "html": "<span lang='en-GB'>FullstacK</span> Web Developer"
     },
@@ -118,7 +115,7 @@
     "carouselAdvance": {
         "aria-label": "Advance"
     },
-    "UNEDacces": {
+    "UNEDaccess": {
         "aria-label": "See certificate",
         "text": "Access to university"
     },

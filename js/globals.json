@@ -11,11 +11,11 @@
     },
     "lang": {
         "supportedLangs": {
-            "en": "en-GB",
-            "es": "es-ES",
-            "ca": "ca-ES",
-            "ru": "ru-RU",
-            "ar": "ar-SA"
+            "ca": ["ca-ES", "Català"],
+            "es": ["es-ES", "Español"],
+            "en": ["en-GB", "English"],
+            "ru": ["ru-RU", "Русский"],
+            "ar": ["ar-SA", "العربية"]
         },
         "fallbackLang": {
             "en": "en-GB"

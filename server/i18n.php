@@ -19,7 +19,7 @@ function G($globals, string $path, string $context='html') {
         $v = $v[$k];
     }
 
-    if (is_array($v)) return $cache[$cacheKey] = null;
+    if (is_array($v)) return $cache[$cacheKey] = $v;
 
     switch ($context) {
         case 'html':
@@ -41,13 +41,13 @@ function detectUserLang($globals): string {
     static $cachedLang = null;
     if ($cachedLang !== null) return $cachedLang;
 
-    $supported = $globals['lang']['supportedLangs'] ?? ['en'=>'en-GB'];
+    $supported = $globals['lang']['supportedLangs'] ?? 'en-GB';
     $fallback  = $globals['lang']['fallbackLang']['en'] ?? 'en-GB';
     $browserLangs = explode(',', $_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? $fallback);
 
     foreach ($browserLangs as $b) {
         $code = substr(strtolower(trim(explode(';', $b)[0])), 0, 2);
-        if (isset($supported[$code])) return $cachedLang = $supported[$code];
+        if (isset($supported[$code])) return $cachedLang = $supported[$code][0];
     }
 
     return $cachedLang = $fallback;
