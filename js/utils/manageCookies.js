@@ -1,28 +1,61 @@
-// IMPORTS
-import { logger } from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
+// OWN EXTERNAL IMPORTS
+import { default as logger } from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
+
+// GLOBAL VARIABLES
+const cookieName = 'sandokan.cat_consent';
 
 // GET/SET COOKIE WITH EXPIRATION DAYS
-export function manageCookies(cookieBarSelector, acceptBtnSelector) {
-    const cookieName = 'sandokan.cat_consent'; // COOKIE NAME
+export function manageCookies({ barSelector, acceptBtnSelector, rejectBtnSelector }) {
+    const barEl = document.querySelector(barSelector);
+    const acceptBtnEl = document.querySelector(acceptBtnSelector);
+    const rejectBtnEl = document.querySelector(rejectBtnSelector);
+
+    // IGNORE COOKIES
+    function iStillDontCareAboutCookies() {
+        if (!rejectBtnEl) return;
+
+        rejectBtnEl.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            if (barEl) barEl.style.display = 'none';
+
+            document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; SameSite=Lax; Secure`;
+        })
+    }
 
     // SET COOKIE WITH EXPIRATION DAYS
     function setCookie(name, value, days) {
-        const date = new Date();
-        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-        const expires = `expires=${date.toUTCString()}`;
-        document.cookie = `${name}=${value}; ${expires}; path=/; SameSite=Lax; Secure`;
+        try {
+            if (!name) throw new Error('Cookie name is required');
+    
+            const encodedValue = encodeURIComponent(value); // ESCAPE VALUE
+            const expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
+            document.cookie = `${name.trim()}=${encodedValue}; expires=${expires}; path=/; SameSite=Lax; Secure`;
+        } catch (err) {
+            logger.er('FAILED TO SET COOKIE:', err.name, err.message, err.stack);
+        }
     }
-
+    
     // GET COOKIE BY NAME
     function getCookie(name) {
-        const nameEQ = name + "=";
+        if (!name) return null;
+    
+        const nameEQ = name.trim() + "=";
         const cookies = document.cookie.split(';');
+    
         for (let c of cookies) {
             c = c.trim();
-            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length);
+            if (c.startsWith(nameEQ)) {
+                try {
+                    return decodeURIComponent(c.substring(nameEQ.length));
+                } catch (err) {
+                    logger.wa('FAILED TO DECODE COOKIE:', name, err.name, err.message);
+                    return null;
+                }
+            }
         }
         return null;
-    }
+    }    
 
     // GET CONSENT INFO (WITH DAYS REMAINING)
     function getConsentInfo() {
@@ -30,26 +63,31 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
         if (!raw) return null;
 
         try {
-            const [value, expires] = raw.split('|');
-            const daysRemaining = Math.floor((new Date(expires) - new Date()) / (1000 * 60 * 60 * 24));
+            const parts = raw.split('|');
+            if (parts.length !== 2) return null;
+            const [value, expires] = parts;
+
+            const expireDate = new Date(expires);
+            if (isNaN(expireDate)) return null; // INVALID DATE GUARD
+
+            const daysRemaining = Math.max(0, Math.floor((expireDate - new Date()) / (1000 * 60 * 60 * 24)));
             return { name: cookieName, value: value === 'true', daysRemaining };
         } catch (err) {
-            logger.wa('Error al parsear la cookie:', err.name, err.message, err.stack);
+            logger.wa('ERROR PARSING COOKIE', err.name, err.message, err.stack);
             return null;
         }
     }
 
     // SHOW OR HIDE THE COOKIE BAR
     function checkAndShowCookieBar() {
-        const bar = document.querySelector(cookieBarSelector);
         const consent = getConsentInfo();
 
-        if (!bar) return;
+        if (!barEl) return;
 
         if (!consent || consent.value !== true || consent.daysRemaining <= 0) {
-            bar.style.display = 'block';
+            barEl.style.display = 'block';
         } else {
-            bar.style.display = 'none';
+            barEl.style.display = 'none';
             loadConsentScripts();
             logConsent(consent);
         }
@@ -59,11 +97,10 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
     function acceptConsent(event) {
         if (event) event.preventDefault();
 
-        const expiration = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString();
+        const expiration = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString();
         setCookie(cookieName, `true|${expiration}`, 365);
 
-        const bar = document.querySelector(cookieBarSelector);
-        if (bar) bar.style.display = 'none';
+        if (barEl) barEl.style.display = 'none';
 
         loadConsentScripts();
         
@@ -73,9 +110,23 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
 
     // LOAD EXTERNAL TRACKERS AFTER CONSENT
     function loadConsentScripts() {
-        loadGoogleAnalytics();
-        loadMicrosoftClarity();
-        loadYandexMetrika();
+        try {
+            loadGoogleAnalytics();
+        } catch (err) {
+            logger.wa('GA FAILED', err.name, err.message, err.stack);
+        }
+
+        try {
+            loadMicrosoftClarity();
+        } catch (err) {
+            logger.wa('CLARITY FAILED', err.name, err.message, err.stack);
+        }
+
+        try {
+            loadYandexMetrika();
+        } catch (err) {
+            logger.wa('YANDEX FAILED', err.name, err.message, err.stack);
+        }
     }
 
     // GOOGLE ANALYTICS SCRIPT
@@ -124,13 +175,17 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
     function initCookieBar() {
         checkAndShowCookieBar();
 
-        const btn = document.querySelector(acceptBtnSelector);
+        if (acceptBtnEl && !acceptBtnEl.dataset.listenerAdded) {
+            acceptBtnEl.addEventListener('click', acceptConsent);
+            acceptBtnEl.dataset.listenerAdded = 'true';
+        } else if (!acceptBtnEl) {
+            logger.er(`BUTTON ${acceptBtnEl} NOT FOUND`);
+        }
 
-        if (btn && !btn.dataset.listenerAdded) {
-            btn.addEventListener('click', acceptConsent);
-            btn.dataset.listenerAdded = 'true';
-        } else if (!btn) {
-            logger.er(`BUTTON ${acceptBtnSelector} NOT FOUND`);
+        if (rejectBtnEl && !rejectBtnEl.dataset.listenerAdded) {
+            iStillDontCareAboutCookies();
+        } else {
+            logger.er(`BUTTON ${rejectBtnEl} NOT FOUND`);
         }
     }
 
@@ -141,5 +196,4 @@ export function manageCookies(cookieBarSelector, acceptBtnSelector) {
     }
 
     initCookieBar();
-
 }

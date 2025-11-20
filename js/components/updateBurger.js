@@ -1,5 +1,7 @@
-// IMPORTS
-import { logger } from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
+// OWN EXTERNAL IMPORTS
+import { default as logger } from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
+
+// INTERNAL IMPORTS
 import { getLocale, getI18nData } from "../utils/index.js";
 
 // BURGER MENU CONFIG
@@ -34,5 +36,4 @@ export async function getBurgerConfig(locale = getLocale()) {
             );
         }
     };
-
 }

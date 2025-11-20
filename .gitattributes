@@ -29,5 +29,5 @@ LICENSE text eol=lf
 *.pdf binary
 
 # IGENERATED FILES - IGNORE MERGES
-# /dist/* merge=ours
-# /build/* merge=ours
+/dist/* merge=ours
+/build/* merge=ours

@@ -1,0 +1,137 @@
+/* SETTINGS */
+@import url("../base/variables.css");
+
+/* GENERIC */
+@import url("https://open-utils-dev-sandokan-cat.vercel.app/css/custom-reset.css");
+
+/* ELEMENTS */
+@import url("../base/base.css");
+@import url("../base/fonts.css");
+@import url("../base/typography.css");
+
+/* UTILITIES */
+@import url("../utils/icons.css");
+
+/* SPECIFIC STYLES */
+form[action="_secure/mail.php"] {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows:
+        fit-content(100%) /* Name */
+        fit-content(100%)
+        fit-content(100%) /* Email */
+        fit-content(100%)
+        fit-content(100%) /* Subject */
+        fit-content(100%)
+        fit-content(100%) /* Content */
+        1fr
+        fit-content(100%) /* Consent */
+        fit-content(100%); /* Send */
+    gap: 18px;
+    width: 90vw;
+    height: calc(100vh - 100px);
+    margin: 50px auto;
+    padding: 50px;
+    border: 1px solid var(--panel-bg);
+}
+label {
+    color: var(--accent-1);
+}
+input,
+select,
+textarea,
+progress,
+meter {
+    font-size: 18px;
+    font-size: 1.125rem;
+    font-size: clamp(1rem, 3vw, 1.125rem) !important;
+    font-weight: 700;
+    padding: 3px 8px;
+    background-color: var(--accent-4);
+    border: 2px solid var(--panel-bg);
+    color: var(--body-txt);
+}
+input:hover,
+select:hover,
+textarea:hover,
+progress:hover,
+meter:hover {
+    border: 2px solid var(--accent-1);
+}
+input:focus,
+select:focus,
+textarea:focus,
+progress:focus,
+meter:focus {
+    appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+    background-color: var(--panel-bg);
+    color: var(--accent-2);
+}
+input[type="checkbox"] {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    padding: 2px;
+    margin-right: 12px;
+    background-color: var(--panel-bg);
+}
+input[type="checkbox"]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 6px;
+    height: 10px;
+    border-right: 3px solid var(--accent-2);
+    border-bottom: 3px solid var(--accent-2);
+    transform: rotate(45deg) scale(0);
+    margin: auto;
+    transition: transform 0.2s ease;
+}
+input[type="checkbox"]:checked::after {
+    transform: rotate(45deg) scale(1);
+}
+#check-consent {
+    font-family: 'PT Sans', Tahoma, Geneva;
+    font-size: 14px;
+    font-size: 0.875rem;
+    font-size: clamp(0.75rem, 2.5vw, 0.875rem) !important;
+    color: var(--accent-3);
+}
+input[type="submit"] {
+    cursor: pointer;
+    background-color: var(--accent-1);
+    color: var(--accent-2);
+    font-weight: 700;
+    border: none;
+    border-radius: 7px;
+    padding: 2.5px 5px;
+    width: fit-content;
+    margin: 0 auto;
+    text-decoration: none;
+    font-size: 24px;
+    font-size: 1.5rem;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem) !important;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media screen and (max-width: 768px) { /* TABLET */
+    input,
+    select,
+    textarea,
+    progress,
+    meter {
+        font-size: 16px;
+        font-size: 1rem;
+    }
+    #check-consent {
+        font-size: 12px;
+        font-size: 0.75rem;
+    }
+    input[type="submit"] {
+        font-size: 17.6px;
+        font-size: 1.1rem;
+    }
+}

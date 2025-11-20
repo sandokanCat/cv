@@ -3,7 +3,8 @@ import {
     getLocale,
     setLocaleStorage,
     initI18n,
-    reloadDynamicContent } from '../utils/index.js';
+    reloadDynamicContent
+} from '../utils/index.js';
 
 // LANG MENU CONFIG
 export async function getLangMenuConfig() {

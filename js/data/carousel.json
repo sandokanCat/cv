@@ -1,86 +1,98 @@
 [
     {
         "webp": {
-            "srcSet": "img/carousel/FRONT-END_certificate@1x.webp 1x, img/carousel/FRONT-END_certificate@2x.webp 2x, img/carousel/FRONT-END_certificate@3x.webp 3x"
+            "srcSet": "img/carousel/FRONT-END_certificate@3x.webp 3x, img/carousel/FRONT-END_certificate@2x.webp 2x, img/carousel/FRONT-END_certificate@1x.webp 1x"
         },
         "png": {
-            "srcSet": "img/carousel/FRONT-END_certificate@1x.png 1x, img/carousel/FRONT-END_certificate@2x.png 2x, img/carousel/FRONT-END_certificate@3x.png 3x",
+            "srcSet": "img/carousel/FRONT-END_certificate@3x.png 3x, img/carousel/FRONT-END_certificate@2x.png 2x, img/carousel/FRONT-END_certificate@1x.png 1x",
             "fallback": "img/carousel/FRONT-END_certificate@3x.png"
         },
         "alt": {
             "en-GB": "Front-End certificate",
             "es-ES": "Certificado de Front-End",
-            "ca-ES": "Certificat de Front-End"
+            "ca-ES": "Certificat de Front-End",
+            "ru-RU": "Сертификат Front-End",
+            "ar-SA": "شهادة Front-End"
         }
     },
     {
         "webp": {
-            "srcSet": "img/carousel/WEB-DEV_certificate@1x.webp 1x, img/carousel/WEB-DEV_certificate@2x.webp 2x, img/carousel/WEB-DEV_certificate@3x.webp 3x"
+            "srcSet": "img/carousel/WEB-DEV_certificate@3x.webp 3x, img/carousel/WEB-DEV_certificate@2x.webp 2x, img/carousel/WEB-DEV_certificate@1x.webp 1x"
         },
         "png": {
-            "srcSet": "img/carousel/WEB-DEV_certificate@1x.png 1x, img/carousel/WEB-DEV_certificate@2x.png 2x, img/carousel/WEB-DEV_certificate@3x.png 3x",
+            "srcSet": "img/carousel/WEB-DEV_certificate@3x.png 3x, img/carousel/WEB-DEV_certificate@2x.png 2x, img/carousel/WEB-DEV_certificate@1x.png 1x",
             "fallback": "img/carousel/WEB-DEV_certificate@3x.png"
         },
         "alt": {
             "en-GB": "Web development certificate",
             "es-ES": "Certificado de Desarrollo Web",
-            "ca-ES": "Certificat de desenvolupament web"
+            "ca-ES": "Certificat de desenvolupament web",
+            "ru-RU": "Сертификат по веб-разработке",
+            "ar-SA": "شهادة تطوير الويب"
         }
     },
     {
         "webp": {
-            "srcSet": "img/carousel/HTML_certificate@1x.webp 1x, img/carousel/HTML_certificate@2x.webp 2x, img/carousel/HTML_certificate@3x.webp 3x"
+            "srcSet": "img/carousel/HTML_certificate@3x.webp 3x, img/carousel/HTML_certificate@2x.webp 2x, img/carousel/HTML_certificate@1x.webp 1x"
         },
         "png": {
-            "srcSet": "img/carousel/HTML_certificate@1x.png 1x, img/carousel/HTML_certificate@2x.png 2x, img/carousel/HTML_certificate@3x.png 3x",
+            "srcSet": "img/carousel/HTML_certificate@3x.png 3x, img/carousel/HTML_certificate@2x.png 2x, img/carousel/HTML_certificate@1x.png 1x",
             "fallback": "img/carousel/HTML_certificate@3x.png"
         },
         "alt": {
             "en-GB": "HTML certificate",
             "es-ES": "Certificado de HTML",
-            "ca-ES": "Certificat d'HTML"
+            "ca-ES": "Certificat d'HTML",
+            "ru-RU": "Сертификат HTML",
+            "ar-SA": "شهادة HTML"
         }
     },
     {
         "webp": {
-            "srcSet": "img/carousel/CSS_certificate@1x.webp 1x, img/carousel/CSS_certificate@2x.webp 2x, img/carousel/CSS_certificate@3x.webp 3x"
+            "srcSet": "img/carousel/CSS_certificate@3x.webp 3x, img/carousel/CSS_certificate@2x.webp 2x, img/carousel/CSS_certificate@1x.webp 1x"
         },
         "png": {
-            "srcSet": "img/carousel/CSS_certificate@1x.png 1x, img/carousel/CSS_certificate@2x.png 2x, img/carousel/CSS_certificate@3x.png 3x",
+            "srcSet": "img/carousel/CSS_certificate@3x.png 3x, img/carousel/CSS_certificate@2x.png 2x, img/carousel/CSS_certificate@1x.png 1x",
             "fallback": "img/carousel/CSS_certificate@3x.png"
         },
         "alt": {
             "en-GB": "CSS certificate",
             "es-ES": "Certificado de CSS",
-            "ca-ES": "Certificat de CSS"
+            "ca-ES": "Certificat de CSS",
+            "ru-RU": "Сертификат CSS",
+            "ar-SA": "شهادة CSS"
         }
     },
     {
         "webp": {
-            "srcSet": "img/carousel/JS_certificate@1x.webp 1x, img/carousel/JS_certificate@2x.webp 2x, img/carousel/JS_certificate@3x.webp 3x"
+            "srcSet": "img/carousel/JS_certificate@3x.webp 3x, img/carousel/JS_certificate@2x.webp 2x, img/carousel/JS_certificate@1x.webp 1x"
         },
         "png": {
-            "srcSet": "img/carousel/JS_certificate@1x.png 1x, img/carousel/JS_certificate@2x.png 2x, img/carousel/JS_certificate@3x.png 3x",
+            "srcSet": "img/carousel/JS_certificate@3x.png 3x, img/carousel/JS_certificate@2x.png 2x, img/carousel/JS_certificate@1x.png 1x",
             "fallback": "img/carousel/JS_certificate@3x.png"
         },
         "alt": {
             "en-GB": "JavaScript certificate",
             "es-ES": "Certificado de JavaScript",
-            "ca-ES": "Certificat de JavaScript"
+            "ca-ES": "Certificat de JavaScript",
+            "ru-RU": "Сертификат JavaScript",
+            "ar-SA": "شهادة JavaScript"
         }
     },
     {
         "webp": {
-            "srcSet": "img/carousel/JS-2_certificate@1x.webp 1x, img/carousel/JS-2_certificate@2x.webp 2x, img/carousel/JS-2_certificate@3x.webp 3x"
+            "srcSet": "img/carousel/JS-2_certificate@3x.webp 3x, img/carousel/JS-2_certificate@2x.webp 2x, img/carousel/JS-2_certificate@1x.webp 1x"
         },
         "png": {
-            "srcSet": "img/carousel/JS-2_certificate@1x.png 1x, img/carousel/JS-2_certificate@2x.png 2x, img/carousel/JS-2_certificate@3x.png 3x",
+            "srcSet": "img/carousel/JS-2_certificate@3x.png 3x, img/carousel/JS-2_certificate@2x.png 2x, img/carousel/JS-2_certificate@1x.png 1x",
             "fallback": "img/carousel/JS-2_certificate@3x.png"
         },
         "alt": {
             "en-GB": "JavaScript intermediate certificate",
             "es-ES": "Certificado de JavaScript intermedio",
-            "ca-ES": "Certificat de JavaScript intermedi"
+            "ca-ES": "Certificat de JavaScript intermedi",
+            "ru-RU": "Сертификат JavaScript среднего уровня",
+            "ar-SA": "شهادة JavaScript المتوسطة"
         }
     }
 ]

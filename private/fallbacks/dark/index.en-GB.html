@@ -6,14 +6,14 @@
     <meta charset="utf-8">
 
     <!-- BASE PATH FOR RELATIVE URL RESOLUTION -->
-    <base href="/cv/">
+    <base href="/">
 
     <!-- RESPONSIVE VIEWPORT SETTINGS -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
     <!-- TITLE & META DESCRIPTION FOR SEO -->
-    <title data-i18n="title">Gonzalo Cabezas | Web Frontend developer</title>
-    <meta name="description" content="Portfolio and resume of Gonzalo Cabezas, a Frontend developer specialized in modern web technologies">
+    <title data-i18n="title">sandokan.cat | Fullstack Web Developer</title>
+    <meta name="description" content="Portfolio and resume of Gonzalo Cabezas, a Fullstack developer specialized in modern web technologies">
 
     <!-- CANONICAL URL -->
     <link rel="canonical" href="https://sandokan.cat/">
@@ -25,26 +25,27 @@
     <link rel="alternate" hreflang="x-default" href="https://sandokan.cat/">
 
     <!-- KEYWORDS FOR SEARCH ENGINES -->
-    <meta name="keywords" content="Gonzalo Cabezas Núñez, sandokan.cat, Sandokan, Frontend dev, Web Front-End developer, Web Frontend developer, Barcelona web developer, Junior Frontend developer, Web portfolio, Curriculum Vitae">
+    <meta name="keywords" content="Gonzalo Cabezas Núñez, sandokan.cat, Sandokan, Fullstack Dev, Full Stack Web Developer, Barcelona Web Developer, Junior Fullstack Developer, Web Portfolio, Curriculum Vitae">
 
     <!-- ROBOTS & INDEXING -->
     <meta name="robots" content="index, follow">
     <meta name="revisit-after" content="30 days">
+    <meta http-equiv="Cache-Control" content="public, max-age=86400, must-revalidate">
 
     <!-- OPEN GRAPH FOR SOCIAL MEDIA -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="sandokan.cat">
-    <meta property="og:title" content="Gonzalo Cabezas | Web Frontend Developer">
-    <meta property="og:description" content="Looking for a creative and efficient Frontend developer? Discover my projects">
+    <meta property="og:title" content="Gonzalo Cabezas | Fullstack Web Developer">
+    <meta property="og:description" content="Looking for a creative and efficient Fullstack developer? Discover my projects">
     <meta property="og:url" content="https://sandokan.cat/?version=2.0">
     <meta property="og:image" content="https://sandokan.cat/img/og-img.jpg?version=2.0">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="200">
     <meta property="og:image:height" content="200">
-    <meta property="og:image:alt" content="Gonzalo Cabezas | Web Frontend developer, resume and portfolio">
+    <meta property="og:image:alt" content="Gonzalo Cabezas | Fullstack Web Developer, resume and portfolio">
     <meta property="og:locale" content="en_GB">
     <meta property="og:article:section" content="Technology, web development">
-    <meta property="og:article:tag" content="Frontend Developer">
+    <meta property="og:article:tag" content="Fullstack Developer">
 
     <!-- OPTIONAL OG PROFILE INFO -->
     <meta property="og:profile:first_name" content="Gonzalo">
@@ -73,7 +74,7 @@
     <meta name="reply-to" content="dev@sandokan.cat">
     <meta name="copyright" content="© 2025 sandokan.cat">
     <meta name="subject" content="Gonzalo Cabezas, Curriculum Vitae">
-    <meta name="abstract" content="Web Frontend developer open to opportunities in Barcelona">
+    <meta name="abstract" content="Fullstack Web Developer open to opportunities in Barcelona">
     <meta name="identifier-URL" content="https://sandokan.cat/">
 
     <!-- CONTENT CLASSIFICATION -->
@@ -102,8 +103,8 @@
             "@context": "https://schema.org",
             "@type": "WebSite",
             "url": "https://sandokan.cat/",
-            "name": "sandokan.cat | Web Front-End Developer",
-            "description": "Front-End Developer specialized in modern web technologies. Portfolio and resume"
+            "name": "sandokan.cat | Full Stack Web Developer",
+            "description": "Full Stack Developer specialized in modern web technologies. Portfolio and resume"
         }
     </script>
     <script type="application/ld+json"> // MARKUP FOR THE WEBPAGE CONTENT
@@ -111,7 +112,7 @@
             "@context": "https://schema.org",
             "@type": "WebPage",
             "url": "https://sandokan.cat/",
-            "name": "sandokan.cat | Web Front-End Developer",
+            "name": "sandokan.cat | Full Stack Web Developer",
             "author": { 
                 "@id": "#gonzalo"
             },
@@ -127,14 +128,14 @@
         {
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
-            "name": "sandokan.cat | Web Front-End Developer",
+            "name": "sandokan.cat | Full Stack Web Developer",
             "url": "https://sandokan.cat/",
             "contactPoint": {
                 "@type": "ContactPoint",
                 "contactType": "Web Development Services",
                 "email": "dev@sandokan.cat",
                 "telephone": "+34 631306583",
-                "url": "https://sandokan.cat/contact.html"
+                "url": "https://sandokan.cat/server/contact/contact.php"
             },
             "address": {
                 "@type": "PostalAddress",
@@ -161,7 +162,7 @@
             "@type": "Person",
             "@id": "#gonzalo",
             "name": "Gonzalo Cabezas Núñez",
-            "jobTitle": "Web Front-End Developer",
+            "jobTitle": "Full Stack Web Developer",
             "url": "https://sandokan.cat/#gonzalo",
             "image": "https://sandokan.cat/img/og-img.jpg?version=2.0",
             "sameAs": [
@@ -169,7 +170,7 @@
                 "https://www.infojobs.net/candidate/cv/view/index.xhtml?dgv=3099151168547844805"
             ],
             "knowsAbout": [
-                "HTML5", "CSS3", "JavaScript", "JSON", "AJAX", "JAVA", "PHP"
+                "XML", "HTML5", "CSS3", "Vanilla JavaScript", "JSON", "AJAX", "JAVA", "PHP"
             ],
             "alumniOf": {
                 "@type": "EducationalOrganization",
@@ -227,23 +228,37 @@
                     </li>
                     <!-- LANG MENU -->
                     <li>
-                        <button data-i18n-attr="aria-label:langBtnCa" data-lang="ca-ES" class="icons-scale" id="lang-toggle" aria-label="Catalan" type="button">
+                        <button data-lang="ca-ES" class="icons-scale" aria-label="Català" type="button">
                             <svg class="icons-scale" role="img" aria-hidden="true" width="40" height="40" preserveAspectRatio="xMinYMin meet">
                                 <use href="img/sprite.svg#ca-ES" xlink:href="img/sprite.svg#ca-ES"></use>
                             </svg>
                         </button>
                     </li>
                     <li>
-                        <button data-i18n-attr="aria-label:langBtnEs" data-lang="es-ES" class="icons-scale" aria-label="Spanish" type="button">
+                        <button data-lang="es-ES" class="icons-scale" aria-label="Español" type="button">
                             <svg class="icons-scale" role="img" aria-hidden="true" width="40" height="40" preserveAspectRatio="xMinYMin meet">
                                 <use href="img/sprite.svg#es-ES" xlink:href="img/sprite.svg#es-ES"></use>
                             </svg>
                         </button>
                     </li>
                     <li>
-                        <button data-i18n-attr="aria-label:langBtnEn" class="icons-scale" data-lang="en-GB" aria-label="English" type="button">
+                        <button data-lang="en-GB" class="icons-scale" aria-label="English" type="button">
                             <svg class="icons-scale" role="img" aria-hidden="true" width="40" height="40" preserveAspectRatio="xMinYMin meet">
                                 <use href="img/sprite.svg#en-GB" xlink:href="img/sprite.svg#en-GB"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    <li>
+                        <button data-lang="ru-RU" class="icons-scale" aria-label="Русский" type="button">
+                            <svg class="icons-scale" role="img" aria-hidden="true" width="40" height="40" preserveAspectRatio="xMinYMin meet">
+                                <use href="img/sprite.svg#ru-RU" xlink:href="img/sprite.svg#ru-RU"></use>
+                            </svg>
+                        </button>
+                    </li>
+                    <li>
+                        <button data-lang="ar-SA" class="icons-scale" aria-label="العربية" type="button">
+                            <svg class="icons-scale" role="img" aria-hidden="true" width="40" height="40" preserveAspectRatio="xMinYMin meet">
+                                <use href="img/sprite.svg#ar-SA" xlink:href="img/sprite.svg#ar-SA"></use>
                             </svg>
                         </button>
                     </li>
@@ -256,13 +271,13 @@
                 <section>
                     <figure id="gonzalo">
                         <picture>
-                            <source type="image/webp" srcset="img/photos/gonzalo@1x.webp 1x, img/photos/gonzalo@2x.webp 2x, img/photos/gonzalo@3x.webp 3x"> <!-- WEBP SOURCES -->
-                            <source type="image/png" srcset="img/photos/gonzalo@1x.png 1x, img/photos/gonzalo@2x.png 2x, img/photos/gonzalo@3x.png 3x"> <!-- PNG FALLBACK -->
+                            <source type="image/webp" srcset="img/photos/gonzalo@3x.webp 3x, img/photos/gonzalo@2x.webp 2x, img/photos/gonzalo@1x.webp 1x"> <!-- WEBP SOURCES -->
+                            <source type="image/png" srcset="img/photos/gonzalo@3x.png 3x, img/photos/gonzalo@2x.png 2x, img/photos/gonzalo@1x.png 1x"> <!-- PNG FALLBACK -->
                             <img data-i18n-attr="alt:gonzalo" src="img/photos/gonzalo@3x.png" fetchpriority="high" decoding="sync" loading="eager" alt="Portrait of Gonzalo Cabezas"> <!-- FALLBACK IMG (LAST RESORT) -->
                         </picture>
                         <figcaption>
                             <h1 lang="es-ES">Gonzalo Cabezas Núñez</h1>
-                            <h2 data-i18n="profile"><span lang="en-GB">Frontend</span> developer transitioning to <span lang="en-GB">Fullstack</span></h2>
+                            <h2 data-i18n="profile"><span lang="en-GB">FullstacK</span> Web Developer</h2>
                             <p data-i18n="biography">I’m passionate with clean, functional code. I train every day—both through formal courses and self-learning—because learning doesn’t stop when the bell rings. I like breaking things to understand (and fix) them better, which is why <span lang="en-GB">Red Teaming</span> strongly appeals to me. I don’t follow the standard path; I prefer carving my own with a keyboard and coffee. I look for projects where I can learn, contribute, and leave a mark—without pretension or empty promises. If I don’t know something, I dig into it. And if something motivates me, I won’t stop until I get it right.</p>
                         </figcaption>
                     </figure>
@@ -308,7 +323,7 @@
                         </li>
                         <li>
                             <address>
-                                <a data-i18n-attr="aria-label:linkedin" href="https://linkedin.com/in/sandokanCat" target="_blank" rel="noopener noreferrer" aria-label="Visit Linkedin profile">https://linkedin.com/in/sandokanCat</a>
+                                <a data-i18n-attr="aria-label:linkedin" href="https://linkedin.com/in/sandokanCat" target="_blank" rel="noopener noreferrer" aria-label="Visit Linkedin profile">in/sandokanCat</a>
                             </address>
                             <svg class="icons-color-1" aria-hidden="true" width="22" height="22" preserveAspectRatio="xMinYMin meet">
                                 <use href="img/sprite.svg#linkedin" xlink:href="img/sprite.svg#linkedin"></use>
@@ -327,17 +342,27 @@
                 <section>
                     <h4 data-i18n="studies">Studies</h4>
                     <article>
-                        <h5 data-i18n="appDev">
-                            <strong>Application development with web technologies</strong> <span>(studying)</span>
+                        <h5>
+                            <strong data-i18n="cybersec">Cybersecurity</strong>
                         </h5>
+                        <h6 lang="es-ES">Formación Tajamar</h6>
+                        <ol>
+                            <li>
+                                <a data-i18n-attr="aria-label:cyberIntro" data-i18n="cyberIntro" class="modal-link" href="doc/diplomaCIBERSEGURIDAD_gonzalo.pdf" target="_blank" data-modal="doc/diplomaCIBERSEGURIDAD_gonzalo.pdf" aria-label="See certificate">Introduction to cybersecurity</a>
+                            </li>
+                        </ol>
+                    </article>
+                    <article>
+                        <h5 data-i18n="appDev">Application development with web technologies</h5>
                         <h6 lang="ca-ES">Institució Pau Casals</h6>
                         <ol>
                             <li data-i18n="JSONandAJAX">
                                 <abbr lang="en-GB" title="JavaScript Object Notation">JSON</abbr> and <abbr lang="en-GB" title="Asynchronous JavaScript and XML">AJAX</abbr>
                             </li>
-                            <li data-i18n="JAVAandPHP">
-                                <span lang="en-GB">Java</span> and <abbr lang="en-GB" title="Hypertext Preprocessor">PHP</abbr> <span>(soon)</span>
+                            <li data-i18n="PHPandMySQL">
+                                <abbr lang="en-GB" title="Hypertext Preprocessor">PHP</abbr> and <abbr lang="en-GB" title="Structured Query Language">MySQL</abbr>
                             </li>
+                            <li lang="en-GB">Java</li>
                         </ol>
                     </article>
                     <article>
@@ -417,25 +442,27 @@
                         </ol>
                     </article>
                 </section>
-                <section>
-                    <h4 data-i18n="workExp">Work experience</h4>
-                    <article>
-                        <h5 data-i18n="RRPP">Public relations</h5>
-                        <h6 lang="en-GB">Sunlife</h6>
-                        <ol>
-                            <li data-i18n="teamCoord">Team Coordinator</li>
-                        </ol>
-                    </article>
-                    <article>
-                        <h5 data-i18n="volunteer">Volunteer</h5>
-                        <h6 lang="es-ES">Banco de Alimentos</h6>
-                        <ol>
-                            <li data-i18n="sorting">Sorting and packaging</li>
-                        </ol>
-                    </article>
-                </section>
             </div>
             <div id="bottom-container">
+                <section>
+                    <h4 data-i18n="workExp">Work experience</h4>
+                    <div id="workExp">
+                        <article>
+                            <h5 data-i18n="RRPP">Public relations</h5>
+                            <h6 lang="en-GB">Sunlife</h6>
+                            <ol>
+                                <li data-i18n="teamCoord">Team Coordinator</li>
+                            </ol>
+                        </article>
+                        <article>
+                            <h5 data-i18n="volunteer">Volunteer</h5>
+                            <h6 lang="es-ES">Banco de Alimentos</h6>
+                            <ol>
+                                <li data-i18n="sorting">Sorting and packaging</li>
+                            </ol>
+                        </article>
+                    </div>
+                </section>
                 <section>
                     <div class="others">
                         <h4 data-i18n="otherData">Other data</h4>
@@ -518,7 +545,7 @@
                         </p>
                         <!--//SIGNATURE END -->
                         <a href="https://sandokanCat.github.io/estopa/" target="_blank" data-status>
-                            <img data-i18n-attr="alt:estopa" src="https://sandokancat.github.io/estopa/img/logo_estopa.png" decoding="async" loading="lazy" alt="Estopa Fanpage, unfinished">
+                            <img data-i18n-attr="alt:estopa" src="img/portfolio/estopa.png" decoding="async" loading="lazy" alt="Estopa Fanpage, unfinished">
                         </a>
                     </div>
                 </section>
@@ -536,7 +563,7 @@
     <div id="modal-container" role="dialog" aria-hidden="true" tabindex="-1">
         <div id="modal-content">
             <div id="modal-iframe-wrapper">
-                <iframe data-i18n-attr="aria-label:modaliframe" id="modal-iframe" src="#" aria-label="Official certificate"></iframe>
+                <iframe data-i18n-attr="aria-label:modalIframe" id="modal-iframe" src="#" aria-label="Official certificate"></iframe>
             </div>
             <div id="modal-img-wrapper"></div>
             <button data-i18n-attr="aria-label:modalClose" id="modal-close" class="icons-color-1" aria-label="Close" type="button">
@@ -550,4 +577,3 @@
 </body>
 
 </html>
-

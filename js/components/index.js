@@ -1,8 +1,8 @@
 // COMPONENTS
-export { themeDark } from './themeDark.js';
+export { initTheme } from './themeDark.js';
 export { initCarousel } from "./carousel.js";
 // export { openModal } from './modal/modal.js';
-export { sendMail } from './contact.js';
+export { sendMail } from './form.js';
 
 // I18N HELPERS
 export { getLangMenuConfig } from './langBtns.js';

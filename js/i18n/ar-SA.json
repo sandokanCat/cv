@@ -1,0 +1,145 @@
+{
+    "title": {
+        "text": "sandokan.cat | Fullstack مطور ويب"
+    },
+    "darkBtn": {
+        "aria-label": "تبديل الوضع الداكن"
+    },
+    "gonzalo": {
+        "alt": "صورة Gonzalo Cabezas"
+    },
+    "profile": {
+        "html": "مطور ويب <span lang='en-GB'>Fullstack</span>"
+    },
+    "biography": {
+        "html": "أنا شغوف بالرمز النظيف والوظيفي. أتدرب يوميًا، سواء من خلال الدورات الرسمية أو التعلم الذاتي، لأن التعلم لا يتوقف عند رنين الجرس. أحب كسر الأشياء لفهمها (وإصلاحها بشكل أفضل)، لذلك <span lang='en-GB'>Red Team</span> يجذبني بشدة. لا أتبع الطريق القياسي؛ أفضل رسم طريقي الخاص باستخدام لوحة المفاتيح والقهوة. أبحث عن مشاريع يمكنني التعلم والمساهمة وترك أثر — بدون ادعاءات أو وعود فارغة. إذا لم أكن أعرف شيئًا، أبحث عنه. وإذا كان شيء ما يحفزني، لن أتوقف حتى أنجح فيه."
+    },
+    "languages": {
+        "text": "اللغات"
+    },
+    "catalan": {
+        "html": "الكاتالونية <svg class='icons-color-1' role='img' aria-label='المستوى الأصلي' aria-hidden='false' width='124' height='18' preserveAspectRatio='xMinYMin meet'><use href='img/sprite.svg#native-lang'></use></svg>"
+    },
+    "spanish": {
+        "html": "الإسبانية <svg class='icons-color-1' role='img' aria-label='المستوى الأصلي' aria-hidden='false' width='124' height='18' preserveAspectRatio='xMinYMin meet'><use href='img/sprite.svg#native-lang'></use></svg>"
+    },
+    "english": {
+        "html": "الإنجليزية <svg class='icons-color-1' role='img' aria-label='المستوى المتوسط' aria-hidden='false' width='124' height='18' preserveAspectRatio='xMinYMin meet'><use href='img/sprite.svg#medium-lang'></use></svg>"
+    },
+    "contact": {
+        "text": "تواصل"
+    },
+    "mail": {
+        "aria-label": "أرسل بريد إلكتروني"
+    },
+    "mobile": {
+        "aria-label": "أرسل واتساب أو اتصل"
+    },
+    "linkedin": {
+        "aria-label": "زيارة ملف Linkedin"
+    },
+    "studies": {
+        "text": "الدراسات"
+    },
+    "cybersec": {
+        "text": "الأمن السيبراني"
+    },
+    "cyberIntro": {
+        "aria-label": "عرض الشهادة",
+        "text": "مقدمة في الأمن السيبراني"
+    },
+    "appDev": {
+        "text": "تطوير التطبيقات باستخدام تقنيات الويب"
+    },
+    "JSONandAJAX": {
+        "html": "<abbr lang='en-GB' title='JavaScript Object Notation'>JSON</abbr> و <abbr lang='en-GB' title='Asynchronous JavaScript and XML'>AJAX</abbr>"
+    },
+    "PHPandMySQL": {
+        "html": "<abbr lang='en-GB' title='Hypertext Preprocessor'>PHP</abbr> و <abbr lang='en-GB' title='Structured Query Language'>MySQL</abbr>"
+    },
+    "webDev": {
+        "text": "إنشاء ونشر صفحات الويب"
+    },
+    "HTMLandCSS": {
+        "html": "<abbr lang='en-GB' title='Hypertext Markup Language'>HTML5</abbr> و <abbr lang='en-GB' title='Cascading Style Sheets'>CSS3</abbr>"
+    },
+    "JSandWP": {
+        "aria-label": "عرض الشهادة",
+        "html": "<span lang='en-GB'>Vanilla <abbr title='JavaScript'>JS</abbr></span> والنشر على الويب"
+    },
+    "AddTraining": {
+        "aria-label": "عرض الشهادة",
+        "text": "تدريب إضافي"
+    },
+    "otherCert": {
+        "text": "شهادات أخرى"
+    },
+    "carouselCtrl": {
+        "aria-label": "تحكم في المعرض"
+    },
+    "carouselBack": {
+        "aria-label": "رجوع"
+    },
+    "carouselAdvance": {
+        "aria-label": "تقدم"
+    },
+    "UNEDacces": {
+        "aria-label": "عرض الشهادة",
+        "text": "الوصول إلى الجامعة"
+    },
+    "ESO": {
+        "aria-label": "عرض الشهادة",
+        "html": "شهادة <abbr lang='es-ES' title='Educación Secundaria Obligatoria'>ESO</abbr>"
+    },
+    "workExp": {
+        "text": "الخبرة العملية"
+    },
+    "RRPP": {
+        "text": "العلاقات العامة"
+    },
+    "teamCoord": {
+        "text": "منسق فريق"
+    },
+    "volunteer": {
+        "text": "متطوع"
+    },
+    "sorting": {
+        "text": "الفرز والتعبئة"
+    },
+    "otherData": {
+        "text": "بيانات أخرى"
+    },
+    "downloadCV": {
+        "aria-label": "تحميل السيرة الذاتية PDF"
+    },
+    "drivingLic": {
+        "text": "رخصة قيادة B ومركبة خاصة"
+    },
+    "availability": {
+        "html": "التوافر الكامل داخل محافظة <span lang='ca-ES'>برشلونة</span>"
+    },
+    "portfolio": {
+        "text": "المعرض"
+    },
+    "burger": {
+        "aria-label": "قائمة المستودع"
+    },
+    "burgerBtn": {
+        "aria-label": {
+            "open": "فتح القائمة",
+            "close": "إغلاق القائمة"
+        }
+    },
+    "estopa": {
+        "alt": "صفحة معجبين Estopa. غير مكتملة"
+    },
+    "cookies": {
+        "html": "🍪🐱 <strong>sandokan.cat</strong> يحترم خصوصيتك. <em>نحن لا نتعقب</em>، فقط نقيس الزيارات المجهولة — (إذا وافقت). <button id='accept-cookies' class='icons-scale' aria-label='متابعة التصفح'>قبول</button> <button id='reject-cookies' aria-label='لا أهتم بالكوكيز' type='button'>رفض</button> | <a id='info-cookies' href='https://ar.wikipedia.org/wiki/%D9%85%D9%84%D9%81_%D8%AA%D8%B9%D8%B1%D9%8A%D9%81_%D8%A7%D8%B1%D8%AA%D8%A8%D8%A7%D8%B7' target='_blank' rel='noopener noreferrer' aria-label='مزيد من المعلومات'>ما هي <span lang='en-GB'>cookie</span>؟"
+    },
+    "modalIframe": {
+        "aria-label": "شهادة رسمية"
+    },
+    "modalClose": {
+        "aria-label": "إغلاق"
+    }
+}

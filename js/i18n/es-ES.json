@@ -1,24 +1,15 @@
 {
     "title": {
-        "text": "Gonzalo Cabezas | Desarrollador Frontend web"
+        "text": "sandokan.cat | Desarrollador Web Fullstack"
     },
     "darkBtn": {
         "aria-label": "Alternar modo oscuro"
-    },
-    "langBtnCa": {
-        "aria-label": "Catalán"
-    },
-    "langBtnEs": {
-        "aria-label": "Español"
-    },
-    "langBtnEn": {
-        "aria-label": "Inglés"
     },
     "gonzalo": {
         "alt": "Retrato de Gonzalo Cabezas"
     },
     "profile": {
-        "html": "Desarrollador <span lang='en-GB'>Frontend</span> en transición a <span lang='en-GB'>Fullstack</span>"
+        "html": "Desarrollador Web <span lang='en-GB'>Fullstack</span>"
     },
     "biography": {
         "html": "Me apasiona el código limpio y funcional. Me formo a diario, tanto en academias como por libre, porque el conocimiento no se acaba cuando suena el timbre. Me gusta romper cosas para entenderlas (y arreglarlas mejor), por eso el <span lang='en-GB'>Red Team</span> me llama fuerte. No sigo el camino estándar; prefiero trazar el mío con teclado y café. Busco proyectos donde pueda aprender, aportar y dejar huella, sin postureos ni promesas vacías. Si algo no lo sé, lo investigo. Y si algo me motiva, no paro hasta hacerlo bien."
@@ -50,14 +41,21 @@
     "studies": {
         "text": "Estudios"
     },
+    "cybersec": {
+        "text": "Ciberseguridad"
+    },
+    "cyberIntro": {
+        "aria-label": "Ver certificado",
+        "text": "Introducción a la ciberseguridad"
+    },
     "appDev": {
-        "html": "<strong>Desarrollo de aplicaciones con tecnologias web</strong> <span>(cursando)</span>"
+        "text": "Desarrollo de aplicaciones con tecnologias web"
     },
     "JSONandAJAX": {
         "html": "<abbr lang='en-GB' title='JavaScript Object Notation'>JSON</abbr> y <abbr lang='en-GB' title='Asynchronous JavaScript and XML'>AJAX</abbr>"
     },
-    "JAVAandPHP": {
-        "html": "<span lang='en-GB'>Java</span> y <abbr lang='en-GB' title='Hypertext Preprocessor'>PHP</abbr> <span>(próximamente)</span>"
+    "PHPandMySQL": {
+        "html": "<abbr lang='en-GB' title='Hypertext Preprocessor'>PHP</abbr> y <abbr lang='en-GB' title='Structured Query Language'>MySQL</abbr>"
     },
     "webDev": {
         "text": "Confección y publicación de páginas web"
@@ -138,7 +136,7 @@
     "cookies": {
         "html": "🍪🐱 <strong>sandokan.cat</strong> respeta tu privacidad. <em>No rastreamos</em>, solo medimos visitas anónimas — (si aceptas). <button id='accept-cookies' class='icons-scale' aria-label='Seguir navegando'>Aceptar</button> <button id='reject-cookies' aria-label='No me importan las cookies' type='button'>Rechazar</button> | <a id='info-cookies' href='https://es.wikipedia.org/wiki/Cookie_(inform%C3%A1tica)' target='_blank' rel='noopener noreferrer' aria-label='Más información'>¿Qué es una <span lang='en-GB'>cookie</span>?"
     },
-    "modaliframe": {
+    "modalIframe": {
         "aria-label": "Certificado oficial"
     },
     "modalClose": {

@@ -1,0 +1,145 @@
+{
+    "title": {
+        "text": "sandokan.cat | Fullstack веб-разработчик"
+    },
+    "darkBtn": {
+        "aria-label": "Переключить тёмный режим"
+    },
+    "gonzalo": {
+        "alt": "Портрет Gonzalo Cabezas"
+    },
+    "profile": {
+        "html": "Веб-разработчик <span lang='en-GB'>Fullstack</span>"
+    },
+    "biography": {
+        "html": "Я увлечён чистым и функциональным кодом. Я учусь каждый день, как на курсах, так и самостоятельно, потому что знания не заканчиваются со звонком. Мне нравится ломать вещи, чтобы понять их (и исправить лучше), поэтому <span lang='en-GB'>Red Team</span> привлекает меня. Я не следую стандартным путям; предпочитаю создавать свои собственные с клавиатурой и кофе. Ищу проекты, где могу учиться, вносить вклад и оставлять след — без претензий и пустых обещаний. Если я чего-то не знаю, я изучаю это. И если что-то меня мотивирует, я не остановлюсь, пока не сделаю это правильно."
+    },
+    "languages": {
+        "text": "Языки"
+    },
+    "catalan": {
+        "html": "Каталанский <svg class='icons-color-1' role='img' aria-label='Родной уровень' aria-hidden='false' width='124' height='18' preserveAspectRatio='xMinYMin meet'><use href='img/sprite.svg#native-lang'></use></svg>"
+    },
+    "spanish": {
+        "html": "Испанский <svg class='icons-color-1' role='img' aria-label='Родной уровень' aria-hidden='false' width='124' height='18' preserveAspectRatio='xMinYMin meet'><use href='img/sprite.svg#native-lang'></use></svg>"
+    },
+    "english": {
+        "html": "Английский <svg class='icons-color-1' role='img' aria-label='Средний уровень' aria-hidden='false' width='124' height='18' preserveAspectRatio='xMinYMin meet'><use href='img/sprite.svg#medium-lang'></use></svg>"
+    },
+    "contact": {
+        "text": "Контакт"
+    },
+    "mail": {
+        "aria-label": "Отправить E-mail"
+    },
+    "mobile": {
+        "aria-label": "Отправить WhatsApp или позвонить"
+    },
+    "linkedin": {
+        "aria-label": "Посетить профиль Linkedin"
+    },
+    "studies": {
+        "text": "Образование"
+    },
+    "cybersec": {
+        "text": "Кибербезопасность"
+    },
+    "cyberIntro": {
+        "aria-label": "Смотреть сертификат",
+        "text": "Введение в кибербезопасность"
+    },
+    "appDev": {
+        "text": "Разработка приложений с использованием веб-технологий"
+    },
+    "JSONandAJAX": {
+        "html": "<abbr lang='en-GB' title='JavaScript Object Notation'>JSON</abbr> и <abbr lang='en-GB' title='Asynchronous JavaScript and XML'>AJAX</abbr>"
+    },
+    "PHPandMySQL": {
+        "html": "<abbr lang='en-GB' title='Hypertext Preprocessor'>PHP</abbr> и <abbr lang='en-GB' title='Structured Query Language'>MySQL</abbr>"
+    },
+    "webDev": {
+        "text": "Создание и публикация веб-страниц"
+    },
+    "HTMLandCSS": {
+        "html": "<abbr lang='en-GB' title='Hypertext Markup Language'>HTML5</abbr> и <abbr lang='en-GB' title='Cascading Style Sheets'>CSS3</abbr>"
+    },
+    "JSandWP": {
+        "aria-label": "Смотреть сертификат",
+        "html": "<span lang='en-GB'>Vanilla <abbr title='JavaScript'>JS</abbr></span> и публикация веб"
+    },
+    "AddTraining": {
+        "aria-label": "Смотреть сертификат",
+        "text": "Дополнительное обучение"
+    },
+    "otherCert": {
+        "text": "Другие сертификаты"
+    },
+    "carouselCtrl": {
+        "aria-label": "Управление каруселью"
+    },
+    "carouselBack": {
+        "aria-label": "Назад"
+    },
+    "carouselAdvance": {
+        "aria-label": "Вперёд"
+    },
+    "UNEDacces": {
+        "aria-label": "Смотреть сертификат",
+        "text": "Доступ к университету"
+    },
+    "ESO": {
+        "aria-label": "Смотреть сертификат",
+        "html": "Сертификат <abbr lang='es-ES' title='Educación Secundaria Obligatoria'>ESO</abbr>"
+    },
+    "workExp": {
+        "text": "Опыт работы"
+    },
+    "RRPP": {
+        "text": "Связи с общественностью"
+    },
+    "teamCoord": {
+        "text": "Координатор команды"
+    },
+    "volunteer": {
+        "text": "Волонтёр"
+    },
+    "sorting": {
+        "text": "Сортировка и упаковка"
+    },
+    "otherData": {
+        "text": "Прочие данные"
+    },
+    "downloadCV": {
+        "aria-label": "Скачать CV pdf"
+    },
+    "drivingLic": {
+        "text": "Водительское удостоверение B и собственный автомобиль"
+    },
+    "availability": {
+        "html": "Полная доступность в пределах провинции <span lang='ca-ES'>Барселона</span>"
+    },
+    "portfolio": {
+        "text": "Портфолио"
+    },
+    "burger": {
+        "aria-label": "Меню репозитория"
+    },
+    "burgerBtn": {
+        "aria-label": {
+            "open": "Открыть меню",
+            "close": "Закрыть меню"
+        }
+    },
+    "estopa": {
+        "alt": "Фан-страница Estopa. Незавершено"
+    },
+    "cookies": {
+        "html": "🍪🐱 <strong>sandokan.cat</strong> уважает вашу приватность. <em>Мы не отслеживаем</em>, только измеряем анонимные посещения — (если согласны). <button id='accept-cookies' class='icons-scale' aria-label='Продолжить просмотр'>Принять</button> <button id='reject-cookies' aria-label='Мне всё равно на куки' type='button'>Отклонить</button> | <a id='info-cookies' href='https://ru.wikipedia.org/wiki/Cookie' target='_blank' rel='noopener noreferrer' aria-label='Подробнее'>Что такое <span lang='en-GB'>cookie</span>?"
+    },
+    "modalIframe": {
+        "aria-label": "Официальный сертификат"
+    },
+    "modalClose": {
+        "aria-label": "Закрыть"
+    }
+}

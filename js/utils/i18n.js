@@ -1,65 +1,119 @@
-// IMPORTS
-import { logger } from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
-import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";
+// OWN EXTERNAL IMPORTS
+import { default as logger } from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
+import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js"; // FETCH + VALIDATE JSON STRUCTURE
+
+// INTERNAL IMPORTS
 import {
     updateCarouselAlts,
     reloadRandomMsg,
     getBurgerConfig,
-    updateProvisionalAlert } from "../components/index.js";
-
-// SUPPORTED LOCALES
-const supportedLocales = ['en-GB', 'es-ES', 'ca-ES'];
-export const fallbackLocale = 'en-GB';
-const rtlLangs = ['ar', 'he'];
-
-// GET PATH TO JSON FILE BASED ON LOCALE
-const getJsonPath = locale => `js/i18n/${locale}.json`;
+    updateProvisionalAlert
+} from "../components/index.js";
 
 // TRANSLATION CACHE
+let langMapData = null;
+let cachedLocale = null;
 const cachedTranslations = {};
-
-// SET LOCALE IN LOCAL STORAGE
-export const setLocaleStorage = (locale) => localStorage.setItem('lang', locale);
+const reloadedLocales = new Set();
 
 // RELOAD DYNAMIC CONTENTS
 export async function reloadDynamicContent(locale) {
+    if (reloadedLocales.has(locale)) return;
+
     if (typeof updateCarouselAlts === 'function') await updateCarouselAlts(locale);
     if (typeof reloadRandomMsg === 'function') await reloadRandomMsg(locale);
     if (typeof getBurgerConfig === 'function') await getBurgerConfig(locale);
     if (typeof updateProvisionalAlert === 'function') await updateProvisionalAlert(locale);
+
+    reloadedLocales.add(locale);
 }
 
-// RESOLVE ACTUAL LOCALE
-export const getLocale = () => {
-    const locale = (localStorage.getItem('lang') || navigator.language || fallbackLocale).trim();
-    if (supportedLocales.includes(locale)) return locale;
+// LOAD LANGMAP
+async function loadLangMap() {
+    if (langMapData) return langMapData;
 
-    const base = locale.split('-')[0].toLowerCase();
-    return supportedLocales.find(l => l.toLowerCase().startsWith(base)) || fallbackLocale;
+    try {
+        const data = await validateJSON('js/i18n/langMap.json');
+        langMapData = {
+            supportedLangs: data.supportedLangs || { en: "en-GB" },
+            fallbackLang: data.fallbackLang?.en || "en-GB",
+            rtlLangs: data.rtlLangs || []
+        };
+    } catch (err) {
+        logger.er("FAILED TO LOAD LANGMAP", err.name, err.message, err.stack);
+        langMapData = {
+            supportedLangs: { en: "en-GB" },
+            fallbackLang: "en-GB",
+            rtlLangs: []
+        };
+    }
+
+    return langMapData;
+}
+
+// GET CURRENT LOCALE
+export const getLocale = async (inputLocale = null) => {
+    try {
+        if (!inputLocale && cachedLocale) return cachedLocale;
+
+        const { supportedLangs, fallbackLang } = await loadLangMap();
+        let raw = inputLocale;
+
+        if (!raw) {
+            try {
+                raw = localStorage.getItem("lang") || navigator.language || fallbackLang;
+            } catch (err) {
+                logger.wa("LOCALSTORAGE UNAVAILABLE, FALLBACK TO NAVIGATOR OR DEFAULT", err.name, err.message, err.stack);
+                raw = navigator.language || fallbackLang;
+            }
+        }
+
+        const base = raw.split("-")[0].toLowerCase();
+        const result = { locale: supportedLangs[base] || fallbackLang, base };
+
+        if (!inputLocale && !cachedLocale) cachedLocale = result;
+        else if (cachedLocale && cachedLocale.locale !== result.locale) reloadedLocales.clear();
+
+        return result;
+    } catch (err) {
+        logger.er("FAILED TO RESOLVE LOCALE, USING FALLBACK", err.name, err.message, err.stack);
+        return { locale: "en-GB", base: "en" };
+    }
+};
+
+// SET LOCALE IN LOCAL STORAGE
+export const setLocaleStorage = (locale) => {
+    try {
+        localStorage.setItem('lang', locale);
+    } catch (err) {
+        logger.wa("FAILED TO SET LOCALE IN LOCALSTORAGE", err.name, err.message, err.stack);
+    }
 }
 
 // GET TRANSLATION JSON BASED ON LOCALE
 export const getI18nData = async (locale) => {
-    const fallbackData = null;
-    
+    if (cachedTranslations[locale]) return cachedTranslations[locale];
+
+    const { supportedLangs, fallbackLang } = await loadLangMap();
+
+    if (!Object.values(supportedLangs).includes(locale)) {
+        logger.er(`UNEXPECTED LOCALE: ${locale}, FORCING FALLBACK ${fallbackLang}`);
+        locale = fallbackLang;
+    }
+
     try {
-        if (cachedTranslations[locale]) return cachedTranslations[locale];
-        else if (fallbackLocale !== locale) cachedTranslations[fallbackLocale] = fallbackData;
-
-        const data = await validateJSON(getJsonPath(locale));
-        cachedTranslations[locale] = data;
-        return data || fallbackData;
+        const data = await validateJSON(`js/i18n/${locale}.json`);
+        return cachedTranslations[locale] = data || {};
     } catch (err) {
-        logger.er(`LOCALE FALLBACK: ${locale} → ${fallbackLocale}`, err.name, err.message, err.stack);
-
-        try {
-            return await validateJSON(getJsonPath(fallbackLocale));
-        } catch (fallbackErr) {
-            logger.er(`FATAL: FALLBACK ${fallbackLocale} ALSO FAILED`, fallbackErr.name, fallbackErr.message, fallbackErr.stack);
-            return {}; // PREVENT APP CRASH
-        }
+        logger.er(`LOCALE FALLBACK: ${locale} → ${fallbackLang}`, err.name, err.message, err.stack);
+        if (locale !== fallbackLang) return getI18nData(fallbackLang);
+        return {};
     }
 };
+
+// NESTED VALUE UTIL
+const getNestedValue = (obj, key, fallback = "") =>
+    key.split(".").reduce((acc, part) => (acc && typeof acc === "object") ? acc[part] : undefined, obj) ?? fallback;
 
 // INIT i18n TO TRANSLATE PAGE
 export const initI18n = async ({
@@ -67,93 +121,58 @@ export const initI18n = async ({
     titleSelector = 'title',
     textSelector = '[data-i18n]',
     attrSelector = '[data-i18n-attr]',
-    locale
+    locale = null
 } = {}) => {
-    if (!locale || typeof locale !== 'string') {
-        logger.er('LOCALE IS UNDEFINED OR INVALID');
-        return;
-    }    
-    if (document.documentElement.lang === locale) return; // AVOID REDUNDANT INIT
+    const { rtlLangs } = await loadLangMap();
 
-    // NESTED PROPERTY ACCESSOR
-    function getNestedValue(obj, key) {
-        return key.split('.').reduce((acc, part) => (acc && typeof acc === 'object') ? acc[part] : undefined, obj);
-    }    
+    const { locale: resolvedLocale, base } = await getLocale(locale);
+
+    if (document.documentElement.lang === resolvedLocale) return;
+    else if (document.documentElement.lang !== resolvedLocale) reloadedLocales.clear();
 
     try {
-        const translations = await getI18nData(locale);
+        // GET TRANSLATIONS
+        const translations = await getI18nData(resolvedLocale);
 
         // SET HTML LANG & STORE IT
-        setLocaleStorage(locale);
-        if (root) {
-            root.setAttribute('lang', locale);
+        setLocaleStorage(resolvedLocale);
+        root.setAttribute("lang", resolvedLocale);
+        root.setAttribute("dir", rtlLangs.includes(base) ? "rtl" : "ltr");
 
-            const base = locale.split('-')[0].toLowerCase();
-            const direction = rtlLangs.includes(base) ? 'rtl' : 'ltr';
-            root.setAttribute('dir', direction);
-        }
-        
         // TRANSLATE PAGE TITLE
-        const titleValue = getNestedValue(translations, 'title');
+        const titleValue = getNestedValue(translations, "title");
         const titleEl = root.querySelector(titleSelector);
-        if (titleEl && titleValue) {
-            titleEl.textContent = titleValue;
-        } else {
-            logger.er("ERROR TRANSLATING PAGE TITLE");
-        }
+        if (!titleEl) logger.wa(`TRANSLATION ${titleSelector} NOT FOUND for locale ${resolvedLocale}`);
+        else if (titleEl && titleValue) titleEl.textContent = titleValue?.text ?? titleValue ?? "";
 
         // TRANSLATE CONTENT
-        const textElements = root.querySelectorAll(textSelector);
-        textElements.forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            const value = getNestedValue(translations, key);
+        root.querySelectorAll(textSelector).forEach(el => {
+            const key = el.getAttribute("data-i18n");
+            const value = getNestedValue(translations, key, "");
 
-            if (!value) {
-                logger.er(`TRANSLATION KEY "${key}" NOT FOUND`);
-                return;
-            }
-
-            if (typeof value === 'object') {
-                if ('html' in value) {
-                    el.innerHTML = value.html;
-                } else if ('text' in value) {
-                    el.textContent = value.text;
-                } else {
-                    logger.er(`NO html/text IN "${key}"`);
-                }
-            } else if (typeof value === 'string') {
-                el.textContent = value;
-            } else {
-                logger.er(`UNSUPPORTED VALUE TYPE FOR KEY "${key}" →`, value);
-            }
+            if (value === "") logger.wa(`TRANSLATION KEY NOT FOUND: ${key} for locale ${resolvedLocale}`);
+            
+            if (value && typeof value === "object") el.innerHTML = value.html ?? value.text ?? "";
+            else el.textContent = value;
         });
 
         // TRANSLATE ATTRIBUTES
-        const attrElements = root.querySelectorAll(attrSelector);
-        attrElements.forEach(el => {
-            const attrRaw = el.getAttribute('data-i18n-attr');
-            if (!attrRaw) return;
-            const pairs = attrRaw.split(',');
+        root.querySelectorAll(attrSelector).forEach(el => {
+            const attrRaw = el.getAttribute("data-i18n-attr");
 
-            pairs.forEach(pair => {
-                const [attr, key] = pair.split(':').map(s => s.trim());
-                const nested = getNestedValue(translations, key);
+            if (!attrRaw) logger.wa(`ELEMENT WITHOUT ${attrSelector} ATTRIBUTE`);
+            else attrRaw.split(",").forEach(pair => {
+                const [attr, key] = pair.split(":").map(s => s.trim());
+                const nested = getNestedValue(translations, key, {});
                 const value = (nested && typeof nested === "object") ? nested[attr] : nested;
 
-                if (typeof value === "string") {
-                    el.setAttribute(attr, value);
-                } else if (el.hasAttribute(attr)) {
-                    logger.er(`MISSING TRANSLATION FOR REQUIRED ATTRIBUTE "${attr}" IN KEY "${key}"`);
-                } else {
-                    logger.er(`TRANSLATION KEY "${key}" NOT FOUND OR INVALID VALUE →`, value);
-                }
+                if (value) el.setAttribute(attr, value);
+                else logger.wa(`ATTRIBUTE TRANSLATION MISSING: ${attr} for key ${key} in locale ${resolvedLocale}`);
             });
         });
 
-        await reloadDynamicContent(locale);
+        await reloadDynamicContent(resolvedLocale);
     } catch (err) {
-        logger.er(`i18n.js ERROR: ${getJsonPath(locale)} →`, err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
+        logger.er(`i18n.js ERROR: ${resolvedLocale}`, err.name, err.message, err.stack);
     }
-
 };
-

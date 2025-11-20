@@ -1,7 +1,9 @@
-// IMPORTS
-import { logger } from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
-import { validateCarousel } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateCarousel.js";
-import { getLocale, fallbackLocale } from "../utils/index.js"; // USE GLOBAL i18n LOCALE DETECTION
+// OWN EXTERNAL IMPORTS
+import { default as logger } from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
+import { validateCarousel } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateCarousel.js"; // FETCH + VALIDATE JSON STRUCTURE
+
+// INTERNAL IMPORTS
+import { getLocale } from "../utils/index.js"; // USE GLOBAL i18n LOCALE DETECTION
 
 // JSON FILE PATH
 const json = "./js/data/carousel.json";
@@ -33,7 +35,7 @@ export async function updateCarouselAlts(validImgs = null, locale = getLocale(),
     imgs.forEach((img, i) => {
         const altData = data[i]?.alt;
         if (altData) {
-            img.alt = altData[locale] || altData[fallbackLocale] || Object.values(altData)[0] || '';
+            img.alt = altData[locale] || Object.values(altData)[0] || '';
         }
     });
 }
@@ -132,6 +134,4 @@ export async function initCarousel({
 	} catch (err) {
 		logger.er("carousel.js ERROR", json, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
 	}
-
 }
-

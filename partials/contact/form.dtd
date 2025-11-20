@@ -1,0 +1,12 @@
+<!ELEMENT form (field+)>
+<!ATTLIST form
+    action CDATA #REQUIRED
+    method CDATA #REQUIRED
+    enctype CDATA #REQUIRED
+>
+<!ELEMENT field (name, type, label+)>
+<!ATTLIST field required (true|false) "true">
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT type (#PCDATA)>
+<!ELEMENT label (#PCDATA)>
+<!ATTLIST label lang CDATA #REQUIRED>

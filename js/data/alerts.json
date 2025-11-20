@@ -1,47 +1,57 @@
-[
-    {
-        "en-GB": "🚧 Project under construction: Thanks for your patience! (We’re still fine-tuning the last pixels)",
-        "es-ES": "🚧 Proyecto en construcción: ¡Gracias por tu paciencia! (Aún estamos afinando los últimos píxeles)",
-        "ca-ES": "🚧 Projecte en construcció: Gràcies per la teva paciència! (Encara estem ajustant els últims píxels)"
-    },
-    {
-        "en-GB": "⚠️ WIP Alert: This project is still under development. Your feedback is welcome!",
-        "es-ES": "⚠️ WIP Alert: Este proyecto sigue en fase de desarrollo. ¡Tu feedback es bienvenido!",
-        "ca-ES": "⚠️ Alerta de desenvolupament: Aquest projecte encara està en fase de desenvolupament. El teu feedback és benvingut!"
-    },
-    {
-        "en-GB": "🧬 Code in progress: Continue? (Thanks for your understanding)",
-        "es-ES": "🧬 Código en progreso: ¿Continuar? (Gracias por tu comprensión)",
-        "ca-ES": "🧬 Codi en progrés: Continuar? (Gràcies per la teva comprensió)"
-    },
-    {
-        "en-GB": "🚀 Partial launch: We’re orbiting toward the final version. Thanks for flying with us!",
-        "es-ES": "🚀 Lanzamiento parcial: Estamos orbitando hacia la versión definitiva. ¡Gracias por volar con nosotros!",
-        "ca-ES": "🚀 Llançament parcial: Estem orbitant cap a la versió definitiva. Gràcies per volar amb nosaltres!"
-    },
-    {
-        "en-GB": "🌐 NOTICE to all navigators: This project is in beta. Thanks for sailing with us while we polish the details!",
-        "es-ES": "🌐 AVISO para navegantes: Este proyecto está en fase beta. ¡Gracias por navegar con nosotros mientras pulimos los detalles!",
-        "ca-ES": "🌐 AVÍS per a navegants: Aquest projecte està en fase beta. Gràcies per navegar amb nosaltres mentre polim els detalls!"
-    },
-    {
-        "en-GB": "🛠️ Project in development: We’re working to give you the best experience. Do you wish to continue? (We appreciate your patience!)",
-        "es-ES": "🛠️ Proyecto en desarrollo: Estamos trabajando para ofrecerte la mejor experiencia. ¿Deseas continuar? (¡Agradecemos tu paciencia!)",
-        "ca-ES": "🛠️ Projecte en desenvolupament: Estem treballant per oferir-te la millor experiència. Vols continuar? (Agraïm la teva paciència!)"
-    },
-    {
-        "en-GB": "🚧 Work in progress! Excuse the digital scaffolding. We’ll be back soon with the final version!",
-        "es-ES": "🚧 ¡Obra en curso! Disculpa los andamios digitales. ¡Volvemos pronto con la versión final!",
-        "ca-ES": "🚧 Obra en curs! Disculpa les bastides digitals. Tornarem aviat amb la versió final!"
-    },
-    {
-        "en-GB": "🧪 Evolving code: Want to take a peek at the progress?",
-        "es-ES": "🧪 Código en evolución: ¿Quieres echar un vistazo al progreso?",
-        "ca-ES": "🧪 Codi en evolució: Vols fer una ullada al progrés?"
-    },
-    {
-        "en-GB": "🌱 Project in growth: Still want to venture in?",
-        "es-ES": "🌱 Proyecto en crecimiento: ¿Aventurarse igualmente?",
-        "ca-ES": "🌱 Projecte en creixement: T’hi vols aventurar igualment?"
-    }
-]  
+{
+    "en-GB": [
+        "🚧 Project under construction: Thanks for your patience! (We’re still fine-tuning the last pixels)",
+        "⚠️ WIP Alert: This project is still under development. Your feedback is welcome!",
+        "🧬 Code in progress: Continue? (Thanks for your understanding)",
+        "🚀 Partial launch: We’re orbiting toward the final version. Thanks for flying with us!",
+        "🌐 NOTICE to all navigators: This project is in beta. Thanks for sailing with us while we polish the details!",
+        "🛠️ Project in development: We’re working to give you the best experience. Do you wish to continue? (We appreciate your patience!)",
+        "🚧 Work in progress! Excuse the digital scaffolding. We’ll be back soon with the final version!",
+        "🧪 Evolving code: Want to take a peek at the progress?",
+        "🌱 Project in growth: Still want to venture in?"
+    ],
+    "es-ES": [
+        "🚧 Proyecto en construcción: ¡Gracias por tu paciencia! (Aún estamos afinando los últimos píxeles)",
+        "⚠️ WIP Alert: Este proyecto sigue en fase de desarrollo. ¡Tu feedback es bienvenido!",
+        "🧬 Código en progreso: ¿Continuar? (Gracias por tu comprensión)",
+        "🚀 Lanzamiento parcial: Estamos orbitando hacia la versión definitiva. ¡Gracias por volar con nosotros!",
+        "🌐 AVISO para navegantes: Este proyecto está en fase beta. ¡Gracias por navegar con nosotros mientras pulimos los detalles!",
+        "🛠️ Proyecto en desarrollo: Estamos trabajando para ofrecerte la mejor experiencia. ¿Deseas continuar? (¡Agradecemos tu paciencia!)",
+        "🚧 ¡Obra en curso! Disculpa los andamios digitales. ¡Volvemos pronto con la versión final!",
+        "🧪 Código en evolución: ¿Quieres echar un vistazo al progreso?",
+        "🌱 Proyecto en crecimiento: ¿Aventurarse igualmente?"
+    ],
+    "ca-ES": [
+        "🚧 Projecte en construcció: Gràcies per la teva paciència! (Encara estem ajustant els últims píxels)",
+        "⚠️ Alerta de desenvolupament: Aquest projecte encara està en fase de desenvolupament. El teu feedback és benvingut!",
+        "🧬 Codi en progrés: Continuar? (Gràcies per la teva comprensió)",
+        "🚀 Llançament parcial: Estem orbitant cap a la versió definitiva. Gràcies per volar amb nosaltres!",
+        "🌐 AVÍS per a navegants: Aquest projecte està en fase beta. Gràcies per navegar amb nosaltres mentre polim els detalls!",
+        "🛠️ Projecte en desenvolupament: Estem treballant per oferir-te la millor experiència. Vols continuar? (Agraïm la teva paciència!)",
+        "🚧 Obra en curs! Disculpa les bastides digitals. Tornarem aviat amb la versió final!",
+        "🧪 Codi en evolució: Vols fer una ullada al progrés?",
+        "🌱 Projecte en creixement: T’hi vols aventurar igualment?"
+    ],
+    "ru-RU": [
+        "🚧 Проект в разработке: Спасибо за терпение! (Мы ещё подгоняем последние пиксели)",
+        "⚠️ WIP Alert: Этот проект всё ещё в разработке. Ваши отзывы приветствуются!",
+        "🧬 Код в процессе: Продолжить? (Спасибо за понимание)",
+        "🚀 Частичный запуск: Мы на орбите к финальной версии. Спасибо, что летите с нами!",
+        "🌐 УВЕДОМЛЕНИЕ для всех навигаторов: Проект находится в бета-версии. Спасибо, что остаетесь с нами пока мы шлифуем детали!",
+        "🛠️ Проект в разработке: Мы работаем, чтобы дать вам лучший опыт. Продолжить? (Благодарим за терпение!)",
+        "🚧 Работа в процессе! Извините за цифровые леса. Скоро вернёмся с финальной версией!",
+        "🧪 Код эволюционирует: Хотите заглянуть на прогресс?",
+        "🌱 Проект растёт: Всё ещё хотите заглянуть?"
+    ],
+    "ar-SA": [
+        "🚧 المشروع تحت الإنشاء: شكراً لصبرك! (ما زلنا نضبط آخر البيكسلات)",
+        "⚠️ تنبيه WIP: هذا المشروع لا يزال قيد التطوير. ملاحظاتك مرحب بها!",
+        "🧬 الكود قيد التقدم: هل تريد المتابعة؟ (شكراً لتفهمك)",
+        "🚀 إطلاق جزئي: نحن في المدار نحو النسخة النهائية. شكراً لأنك معنا!",
+        "🌐 إشعار لجميع المتصفحين: هذا المشروع في النسخة التجريبية. شكراً لمرافقتنا أثناء صقل التفاصيل!",
+        "🛠️ المشروع قيد التطوير: نعمل لتقديم أفضل تجربة لك. هل ترغب في المتابعة؟ (نقدر صبرك!)",
+        "🚧 العمل جاري! نعتذر عن السقالات الرقمية. سنعود قريباً بالنسخة النهائية!",
+        "🧪 الكود يتطور: هل ترغب بإلقاء نظرة على التقدم؟",
+        "🌱 المشروع ينمو: هل ما زلت ترغب في المغامرة؟"
+    ]    
+}

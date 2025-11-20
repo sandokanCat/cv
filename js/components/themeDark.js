@@ -1,34 +1,47 @@
-export const themeDark = (buttonSelector, htmlSelector) => {
-    const themeDarkToggle = document.querySelector(buttonSelector); // TOGGLE BUTTON
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)'); // SYSTEM PREFERENCE
+// GET SYSTEM PREFERENCE
+export const getSystemTheme = () => window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 
-    function updateToggleIcon(isDark) {
-        themeDarkToggle.textContent = isDark ? '☀️' : '🌙'; // SUN: LIGHT, MOON: DARK
+// APPLY THEME TO HTML AND SAVE
+export const applyTheme = (htmlSelector, theme) => {
+    htmlSelector.setAttribute('data-theme', theme); // SET DATA-THEME
+    localStorage.setItem('theme', theme); // SAVE PREFERENCE
+
+    // FORCE SVG RELOAD
+    const svgContainer = document.getElementById('theme-dark-btn');
+    if (svgContainer) {
+        svgContainer.style.display = 'none';
+        svgContainer.offsetHeight; // TRIGGER REFLOW
+        svgContainer.style.display = '';
     }
+};
 
-    function setthemeDark(isDark) {
-        htmlSelector.setAttribute('data-theme', isDark ? 'dark' : 'light'); // SET DATA-THEME
-        localStorage.setItem('theme', isDark ? 'dark' : 'light'); // SAVE PREFERENCE
-        updateToggleIcon(isDark); // UPDATE ICON
+// UPDATE BUTTON ICON
+export const updateToggleIcon = (button, theme) => {
+    if (!button) return;
+    button.textContent = theme === 'dark' ? '☀️' : '🌙'; // SUN: LIGHT, MOON: DARK
+};
 
-        // FORCE SVG RELOAD
-        const svgContainer = document.getElementById('change-color');
-        if (svgContainer) {
-            svgContainer.style.display = 'none';
-            svgContainer.offsetHeight; // TRIGGER REFLOW
-            svgContainer.style.display = '';
-        }
-    }
+// INIT TOGGLE BUTTON
+export const initThemeToggle = (buttonSelector, htmlSelector) => {
+    const button = document.querySelector(buttonSelector);
+    if (!button) return; // EXIT IF BUTTON NOT FOUND
 
-    themeDarkToggle.addEventListener('click', () => {
+    button.addEventListener('click', () => {
         const currentTheme = htmlSelector.getAttribute('data-theme');
-        setthemeDark(currentTheme !== 'dark'); // TOGGLE THEME
+        const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        applyTheme(htmlSelector, nextTheme);
+        updateToggleIcon(button, nextTheme);
     });
+};
 
-    const savedTheme = localStorage.getItem('theme'); // GET SAVED THEME
-    const systemPrefersDark = prefersDarkScheme.matches; // SYSTEM THEME PREFERENCE
+// MAIN INITIALIZER
+export const initTheme = (buttonSelector, htmlSelector) => {
+    const html = htmlSelector;
+    const savedTheme = localStorage.getItem('theme');
+    const systemTheme = getSystemTheme();
+    const initialTheme = savedTheme || systemTheme;
 
-    const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light'); // SELECT THEME
-
-    setthemeDark(initialTheme === 'dark'); // APPLY INITIAL THEME
-}
+    applyTheme(html, initialTheme);
+    updateToggleIcon(document.querySelector(buttonSelector), initialTheme);
+    initThemeToggle(buttonSelector, html);
+};

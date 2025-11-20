@@ -24,6 +24,13 @@ export const carouselConfig = {
     }
 }
 
+// COOKIES CONFIG
+export const cookiesConfig = {
+    barSelector: '#cookies-bar',
+    acceptBtnSelector: '#accept-cookies',
+    rejectBtnSelector: '#reject-cookies'
+}
+
 // MODAL CONFIG
 // export function getModalRefs() {
 //     return {

@@ -1,68 +1,76 @@
-// IMPORTS
-import { logger } from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
-import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js";
-import { getLocale } from "../utils/index.js"; // USE GLOBAL i18n LOCALE DETECTION
+// OWN EXTERNAL IMPORTS
+import { default as logger } from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
+
+// INTERNAL IMPORTS
+import {
+    getLocale,
+    loadLocalizedArray, createRandomPool, resetRandomModule
+} from "../utils/index.js";
 
 // GLOBAL VARIABLES
 const json = "./js/data/alerts.json"; // SOURCE JSON FILE
+const alertLinks = document.querySelectorAll('a[data-status]'); // CACHED DOM ELEMENTS
 
-const alertLinks = document.querySelectorAll('a[data-status]'); // CACHED ALL ALERT LINKS
-let lastAlert = null; // LAST SHOWN ALERT
+let alertsCache = []; // CACHE ARRAY OF STRINGS
 
-// FETCHES AND VALIDATES REMOTE JSON VIA PUBLIC LIBRARY
-const loadAlertsData = async () => {
-    const alerts = await validateJSON(json);
-    return alerts;
+// CONTAINER REFERENCE FOR POOL
+export const alertsRandomPoolRef = { current: null };
+
+// FETCH AND VALIDATE JSON DATA FOR A GIVEN LOCALE
+const loadAlertsData = async (locale = getLocale()) => {
+    return loadLocalizedArray({
+        jsonPath: json,
+        locale,
+        cache: alertsCache,
+        setCache: (arr) => { alertsCache = arr; },
+        setPool: (pool) => { alertsRandomPoolRef.current = pool; },
+        createPoolFn: createRandomPool,
+        errorLabel: "ALERTS"
+    });
 };
 
-// RESET PROVISIONAL ALERT
-function resetProvisionalAlert() {
-    if (alertLinks) alertLinks.alt = ""; // RESET CONTENT
-}
-
-// RELOAD PROVISIONAL ALERT (EXPORTED)
+// PUBLIC FUNCTION: RELOAD ALERTS IN SPECIFIED LOCALE
 export async function updateProvisionalAlert(locale = getLocale()) {
     resetProvisionalAlert();
     await provisionalAlert(locale);
 }
 
-// INIT PROVISIONAL ALERTS
+// RESET ALL ALERT LINKS
+function resetProvisionalAlert() {
+    resetRandomModule({
+        cache: alertsCache,
+        poolRef: alertsRandomPoolRef
+    });
+
+    alertLinks.forEach(link => { link.dataset.alertBound = "false"; });
+}
+
+// ATTACH ALERT FUNCTIONALITY TO LINKS
 async function provisionalAlert(locale = getLocale()) {
     try {
-        const alerts = await loadAlertsData(); // ENSURE ALERTS ARE LOADED
+        await loadAlertsData(locale); // ENSURE JSON IS LOADED
 
-        // ATTACH CLICK EVENTS TO ALL MATCHING LINKS
         alertLinks.forEach(link => {
-            if (link.dataset.alertBound === "true") return;
-
-            link.addEventListener('click', (event) => {
-                event.preventDefault(); // PREVENT DEFAULT NAVIGATION
-
-                let alertText;
-                let randomItem;
-
-                // PICK RANDOM ITEM WITH A VALID ALERT FOR CURRENT LOCALE
-                do {
-                    randomItem = alerts[Math.floor(Math.random() * alerts.length)];
-                    alertText = randomItem?.[locale];
-                } while ((alertText === lastAlert || !alertText) && alerts.length > 1);
-
-                lastAlert = alertText; // UPDATE LAST SHOWN ALERT
-
-                // SHOW CONFIRM DIALOG → OPEN LINK IN NEW TAB IF ACCEPTED
-                if (confirm(alertText)) {
-                    window.open(link.href, '_blank');
-                }
-            });
-
-            link.dataset.alertBound = "true"; // PREVENT MULTIPLE BINDINGS
+            const oldHandler = link._alertHandler;
+            if (oldHandler) link.removeEventListener('click', oldHandler);
+        
+            const handler = (event) => {
+                event.preventDefault();
+                const pool = alertsRandomPoolRef.current;
+                if (!pool || !alertsCache.length) return;
+        
+                const selected = pool.getNext(); // GET NEXT RANDOM PHRASE
+                if (typeof selected !== "string") // ENSURE IT'S A STRING
+                    throw new Error("INVALID ALERT TYPE (EXPECTED STRING)");
+        
+                if (confirm(selected)) window.open(link.href, '_blank');
+            };
+        
+            link.addEventListener('click', handler);
+            link._alertHandler = handler;
         });
 
     } catch (err) {
-        logger.er("provisionalAlert.js ERROR", json, "→", err.name, err.message, err.stack); // LOG ERROR FOR DEBUGGING
+        logger.er("provisionalAlert.js ERROR", json, "→", err.name, err.message, err.stack);  // LOG ANY ERROR
     }
 }
-
-
-
-

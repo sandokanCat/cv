@@ -1,24 +1,50 @@
 {
+    "brandRole": {
+        "text": "Fullstack Web Developer"
+    },
+    "brandCV": {
+        "text": "Portfolio and resume"
+    },
+
     "title": {
-        "text": "Gonzalo Cabezas | Web Frontend developer"
+        "text": "{{brand.nick}} | {{brandRole}}"
+    },
+    "description": {
+        "text": "{{brandCV}} of {{brand.name}}, a {{brandRole}} focused on modern technologies"
+    },
+    "ogTitle": {
+        "text": "{{brand.nick}} | {{brandRole}}"
+    },
+    "ogDescription": {
+        "text": "Looking for a creative and efficient {{brandRole}}? Discover my projects"
+    },
+    "ogImageAlt": {
+        "text": "{{brand.nick}} | {{brandRole}}, {{brandCV}}"
+    },
+    "ldJsonWebName": {
+        "text": "{{brand.nick}} | {{brandRole}}"
+    },
+    "ldJsonWebDescription": {
+        "text": "{{brandRole}} focused on modern web technologies. {{brandCV}}"
+    },
+    "ldJsonContactType": {
+        "text": "Web Development Services"
+    },
+    "ldJsonJobTitle": {
+        "text": "{{brandRole}}"
+    },
+
+    "noscriptWarn": {
+        "html": "<h3>🚨 Oops! A cybersecurity enthusiast has arrived! <em lang='en-GB'>#NoJS = 😿</em></h3><p><strong>This website is 100% <span lang='en-GB'>Vanilla JavaScript</span></strong>, but I've adapted all the content so you can view it</p>"
     },
     "darkBtn": {
         "aria-label": "Toggle dark mode"
     },
-    "langBtnCa": {
-        "aria-label": "Catalan"
-    },
-    "langBtnEs": {
-        "aria-label": "Spanish"
-    },
-    "langBtnEn": {
-        "aria-label": "English"
-    },
     "gonzalo": {
-        "alt": "Portrait of Gonzalo Cabezas"
+        "alt": "Portrait of {brand.name}}"
     },
     "profile": {
-        "html": "<span lang='en-GB'>Frontend</span> developer transitioning to <span lang='en-GB'>Fullstack</span>"
+        "html": "<span lang='en-GB'>FullstacK</span> Web Developer"
     },
     "biography": {
         "html": "I’m passionate with clean, functional code. I train every day—both through formal courses and self-learning—because learning doesn’t stop when the bell rings. I like breaking things to understand (and fix) them better, which is why <span lang='en-GB'>Red Teaming</span> strongly appeals to me. I don’t follow the standard path; I prefer carving my own with a keyboard and coffee. I look for projects where I can learn, contribute, and leave a mark—without pretension or empty promises. If I don’t know something, I dig into it. And if something motivates me, I won’t stop until I get it right."
@@ -50,14 +76,21 @@
     "studies": {
         "text": "Studies"
     },
+    "cybersec": {
+        "text": "Cybersecurity"
+    },
+    "cyberIntro": {
+        "aria-label": "See certificate",
+        "text": "Introduction to cybersecurity"
+    },
     "appDev": {
-        "html": "<strong>Application development with web technologies</strong> <span>(studying)</span>"
+        "text": "Application development with web technologies"
     },
     "JSONandAJAX": {
         "html": "<abbr lang='en-GB' title='JavaScript Object Notation'>JSON</abbr> and <abbr lang='en-GB' title='Asynchronous JavaScript and XML'>AJAX</abbr>"
     },
-    "JAVAandPHP": {
-        "html": "<span lang='en-GB'>Java</span> and <abbr lang='en-GB' title='Hypertext Preprocessor'>PHP</abbr> <span>(soon)</span>"
+    "PHPandMySQL": {
+        "html": "<abbr lang='en-GB' title='Hypertext Preprocessor'>PHP</abbr> and <abbr lang='en-GB' title='Structured Query Language'>MySQL</abbr>"
     },
     "webDev": {
         "text": "Creation and publication of web pages"
@@ -138,7 +171,7 @@
     "cookies": {
         "html": "🍪🐱 <strong>sandokan.cat</strong> respect your privacy. <em>We do not track</em>, only measure anonymous visits — (if you agree). <button id='accept-cookies' class='icons-scale' aria-label='Continue browsing' type='button'>Accept</button> <button id='reject-cookies' aria-label='I don't care about cookies' type='button'>Reject</button> | <a id='info-cookies' href='https://en.wikipedia.org/wiki/HTTP_cookie' target='_blank' rel='noopener noreferrer' aria-label='More information'>What is a <span lang='en-GB'>cookie</span>?</a>"
     },
-    "modaliframe": {
+    "modalIframe": {
         "aria-label": "Official certificate"
     },
     "modalClose": {

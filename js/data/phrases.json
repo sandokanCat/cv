@@ -1,72 +1,82 @@
-[
-    {
-        "en-GB": "🦉 \"In frontend, 90% of bugs are CSS, 9% are dumb mistakes, and 1% are actual logic problems\"",
-        "es-ES": "🦉 \"En el frontend, el 90% de los bugs son CSS, el 9% son errores tontos, y el 1% son problemas reales de lógica\"",
-        "ca-ES": "🦉 \"Al frontend, el 90% dels bugs són CSS, el 9% són errors ximples i l'1% són problemes de lògica de veritat\""
-    },
-    {
-        "en-GB": "🚀 CSS? I aligned the <div>s with the sheer force... of will 💪",
-        "es-ES": "🚀 ¿CSS? Lo escribí con los <div> alineados a la fuerza... de voluntad 💪",
-        "ca-ES": "🚀 CSS? L’he escrit amb els <div> alineats a la força... de voluntat 💪"
-    },
-    {
-        "en-GB": "🧙‍♂️ Debugging CSS is like magic: it was always the z-index! ✨",
-        "es-ES": "🧙‍♂️ Debuggear CSS es como magia: ¡el problema siempre fue el z-index! ✨",
-        "ca-ES": "🧙‍♂️ Fer debug a CSS és com fer màgia: el problema sempre era el z-index! ✨"
-    },
-    {
-        "en-GB": "Social conventions? 🚫🐑 \"If it doesn't affect performance, not my problem\"",
-        "es-ES": "¿Los convencionalismos sociales? 🚫🐑 \"Si no afecta al rendimiento, no es mi problema\"",
-        "ca-ES": "Els convencionalismes socials? 🚫🐑 \"Si no afecta el rendiment, no és el meu problema\""
-    },
-    {
-        "en-GB": "🤯 Did you know 80% of my code is sarcastic comments? // Like this one",
-        "es-ES": "🤯 ¿Sabías que el 80% de mi código son comentarios sarcásticos? // Como este",
-        "ca-ES": "🤯 Sabies que el 80% del meu codi són comentaris sarcàstics? // Com aquest"
-    },
-    {
-        "en-GB": "⚠️ Did you know this CV doesn't use jQuery? Vanilla JS power!",
-        "es-ES": "⚠️ ¿Sabías que este CV no usa jQuery? ¡Vanilla JS power!",
-        "ca-ES": "⚠️ Sabies que aquest CV no fa servir jQuery? Vanilla JS power!"
-    },
-    {
-        "en-GB": "💡 Tip: hover over my projects to see some CSS effects",
-        "es-ES": "💡 Tip: pasa el mouse por mis proyectos para ver efectos CSS",
-        "ca-ES": "💡 Tip: passa el ratolí pels meus projectes per veure efectes CSS"
-    },
-    {
-        "en-GB": "🔍 Recruiter or dev? Check out my GitHub! ;)",
-        "es-ES": "🔍 ¿Eres reclutador o dev? ¡Mira mi GitHub! ;)",
-        "ca-ES": "🔍 Ets reclutador o dev? Dona un cop d’ull al meu GitHub! ;)"
-    },
-    {
-        "en-GB": "AI used: DeepSeek 🐉🔒 (because we don't sell data to Silicon Valley here)",
-        "es-ES": "IA usada: DeepSeek 🐉🔒 (porque aquí no vendemos datos a Silicon Valley)",
-        "ca-ES": "IA utilitzada: DeepSeek 🐉🔒 (aquí no venem dades a Silicon Valley)"
-    },
-    {
-        "en-GB": "🌐 The .cat domain was created in 2005 to promote Catalan language and culture online",
-        "es-ES": "🌐 El dominio .cat fue creado en 2005 para promocionar la lengua y cultura catalanas en Internet",
-        "ca-ES": "🌐 El domini .cat va ser creat el 2005 per promocionar la llengua i cultura catalanes a Internet"
-    },
-    {
-        "en-GB": "📱 Mobile First? Always. Unless I get distracted by a cat gif 🐈",
-        "es-ES": "📱 Mobile First? Siempre. A menos que me distraiga con un gif de gatos 🐈",
-        "ca-ES": "📱 Mobile First? Sempre. A no ser que em distregui amb un gif de gats 🐈"
-    },
-    {
-        "en-GB": "🐱 Cats have 7 lives... devs just need 1 good terminal 💻",
-        "es-ES": "🐱 Los gatos tienen 7 vidas... los devs solo necesitamos 1 buena terminal 💻",
-        "ca-ES": "🐱 Els gats tenen 7 vides... els devs només necessitem 1 bona terminal 💻"
-    },
-    {
-        "en-GB": "🐾 Psst... Did you know cats layout better than humans? Try it!",
-        "es-ES": "🐾 Psst... ¿Sabías que los gatos maquetan mejor que los humanos? ¡Pruébalo!",
-        "ca-ES": "🐾 Psst... Sabies que els gats maqueten millor que els humans? Prova-ho!"
-    },
-    {
-        "en-GB": "Bonus: Cats layout with 💜, but I use HTML",
-        "es-ES": "Bonus: Los gatos maquetan con 💜, pero yo uso HTML",
-        "ca-ES": "Bonus: Els gats maqueten amb 💜, però jo faig servir HTML"
-    }
-]
+{
+    "en-GB": [
+        "🦉 \"In frontend, 90% of bugs are CSS, 9% are dumb mistakes, and 1% are actual logic problems\"",
+        "🚀 CSS? I aligned the <div>s with the sheer force... of will 💪",
+        "🧙‍♂️ Debugging CSS is like magic: it was always the z-index! ✨",
+        "Social conventions? 🚫🐑 \"If it doesn't affect performance, not my problem\"",
+        "🤯 Did you know 80% of my code is sarcastic comments? // Like this one",
+        "⚠️ Did you know this CV doesn't use jQuery? Vanilla JS power!",
+        "💡 Tip: hover over my projects to see some CSS effects",
+        "🔍 Recruiter or dev? Check out my GitHub! ;)",
+        "AI used: DeepSeek 🐉🔒 (because we don't sell data to Silicon Valley here)",
+        "🌐 The .cat domain was created in 2005 to promote Catalan language and culture online",
+        "📱 Mobile First? Always. Unless I get distracted by a cat gif 🐈",
+        "🐱 Cats have 7 lives... devs just need 1 good terminal 💻",
+        "🐾 Psst... Did you know cats layout better than humans? Try it!",
+        "Bonus: Cats layout with 💜, but I use HTML"
+    ],
+    "es-ES": [
+        "🦉 \"En el frontend, el 90% de los bugs son CSS, el 9% son errores tontos, y el 1% son problemas reales de lógica\"",
+        "🚀 ¿CSS? Lo escribí con los <div> alineados a la fuerza... de voluntad 💪",
+        "🧙‍♂️ Debuggear CSS es como magia: ¡el problema siempre fue el z-index! ✨",
+        "¿Los convencionalismos sociales? 🚫🐑 \"Si no afecta al rendimiento, no es mi problema\"",
+        "🤯 ¿Sabías que el 80% de mi código son comentarios sarcásticos? // Como este",
+        "⚠️ ¿Sabías que este CV no usa jQuery? ¡Vanilla JS power!",
+        "💡 Tip: pasa el mouse por mis proyectos para ver efectos CSS",
+        "🔍 ¿Eres reclutador o dev? ¡Mira mi GitHub! ;)",
+        "IA usada: DeepSeek 🐉🔒 (porque aquí no vendemos datos a Silicon Valley)",
+        "🌐 El dominio .cat fue creado en 2005 para promocionar la lengua y cultura catalanas en Internet",
+        "📱 Mobile First? Siempre. A menos que me distraiga con un gif de gatos 🐈",
+        "🐱 Los gatos tienen 7 vidas... los devs solo necesitamos 1 buena terminal 💻",
+        "🐾 Psst... ¿Sabías que los gatos maquetan mejor que los humanos? ¡Pruébalo!",
+        "Bonus: Los gatos maquetan con 💜, pero yo uso HTML"
+    ],
+    "ca-ES": [
+        "🦉 \"Al frontend, el 90% dels bugs són CSS, el 9% són errors ximples i l'1% són problemes de lògica de veritat\"",
+        "🚀 CSS? L’he escrit amb els <div> alineats a la força... de voluntat 💪",
+        "🧙‍♂️ Fer debug a CSS és com fer màgia: el problema sempre era el z-index! ✨",
+        "Els convencionalismes socials? 🚫🐑 \"Si no afecta el rendiment, no és el meu problema\"",
+        "🤯 Sabies que el 80% del meu codi són comentaris sarcàstics? // Com aquest",
+        "⚠️ Sabies que aquest CV no fa servir jQuery? Vanilla JS power!",
+        "💡 Tip: passa el ratolí pels meus projectes per veure efectes CSS",
+        "🔍 Ets reclutador o dev? Dona un cop d’ull al meu GitHub! ;)",
+        "IA utilitzada: DeepSeek 🐉🔒 (aquí no venem dades a Silicon Valley)",
+        "🌐 El domini .cat va ser creat el 2005 per promocionar la llengua i cultura catalanes a Internet",
+        "📱 Mobile First? Sempre. A no ser que em distregui amb un gif de gats 🐈",
+        "🐱 Els gats tenen 7 vides... els devs només necessitem 1 bona terminal 💻",
+        "🐾 Psst... Sabies que els gats maqueten millor que els humans? Prova-ho!",
+        "Bonus: Els gats maqueten amb 💜, però jo faig servir HTML"
+    ],
+    "ru-RU": [
+        "🦉 \"Во фронтенде 90% багов — CSS, 9% — глупые ошибки, 1% — настоящие логические проблемы\"",
+        "🚀 CSS? Я выровнил <div> чистой силой воли 💪",
+        "🧙‍♂️ Дебаг CSS — это магия: виноват всегда z-index! ✨",
+        "Социальные условности? 🚫🐑 \"Если не влияет на производительность, мне не важно\"",
+        "🤯 Знаете ли вы, что 80% моего кода — саркастические комментарии? // Например этот",
+        "⚠️ Этот CV не использует jQuery! Сила чистого JS!",
+        "💡 Совет: наведите курсор на мои проекты, чтобы увидеть эффекты CSS",
+        "🔍 Рекрутер или дев? Смотрите мой GitHub! ;)",
+        "ИИ используется: DeepSeek 🐉🔒 (мы не продаем данные в Силиконовую долину)",
+        "🌐 Домен .cat создан в 2005 году для продвижения каталонского языка и культуры онлайн",
+        "📱 Mobile First? Всегда. Если только не отвлечёт котик 🐈",
+        "🐱 У кошек 7 жизней... у девов достаточно 1 хорошего терминала 💻",
+        "🐾 Psst... Знаете ли вы, что кошки верстают лучше людей? Попробуйте!",
+        "Бонус: Кошки верстают с 💜, но я использую HTML"
+    ],
+    "ar-SA": [
+        "🦉 \"في الواجهة الأمامية، 90٪ من الأخطاء هي CSS، 9٪ أخطاء بسيطة، و1٪ مشاكل منطقية حقيقية\"",
+        "🚀 CSS؟ رتبّت الـ <div> بالقوة... الإرادة 💪",
+        "🧙‍♂️ تصحيح CSS يشبه السحر: المشكلة دائماً كانت في z-index! ✨",
+        "الأعراف الاجتماعية؟ 🚫🐑 \"إذا لم تؤثر على الأداء، فليست مشكلتي\"",
+        "🤯 هل تعلم أن 80٪ من كودي هو تعليقات ساخرة؟ // مثل هذا",
+        "⚠️ هل تعلم أن هذا السيرة الذاتية لا تستخدم jQuery؟ قوة Vanilla JS!",
+        "💡 نصيحة: مرر الماوس فوق مشاريعي لرؤية تأثيرات CSS",
+        "🔍 هل أنت موظف توظيف أم مطور؟ تحقق من GitHub الخاص بي! ;)",
+        "AI مستخدم: DeepSeek 🐉🔒 (لأننا لا نبيع البيانات لوادي السيليكون هنا)",
+        "🌐 تم إنشاء النطاق .cat في 2005 لتعزيز اللغة والثقافة الكتالونية على الإنترنت",
+        "📱 Mobile First؟ دائماً. إلا إذا شتّت انتباهي GIF قط 🐈",
+        "🐱 للقطط 7 أرواح... للمطورين تحتاج فقط إلى محطة عمل جيدة 💻",
+        "🐾 Psst... هل تعلم أن القطط تصمم أفضل من البشر؟ جرب ذلك!",
+        "مكافأة: القطط تصمم بـ 💜، لكني أستخدم HTML"
+    ]    
+}

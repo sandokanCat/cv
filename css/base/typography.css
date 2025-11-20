@@ -5,7 +5,7 @@ body {
 h1, h3, h4 {
     font-family: 'League Spartan', Impact, Charcoal;
 }
-h2, h6 {
+h2, h6, label {
     font-family: Montserrat, 'Segoe UI', 'Lucida Grande';
 }
 h3:first-child + ul,
@@ -16,7 +16,7 @@ h5 {
 strong, b {
     font-weight: 700;
 }
-em, i{
+em, i {
     font-style: italic;
 }
 
@@ -24,17 +24,19 @@ em, i{
 h1 {
     max-width: 400px;
     font-weight: 700;
-    font-size: 76px;
-    font-size: 4.75rem;
     line-height: 0.85;
     text-align: center;
+    font-size: 76px;
+    font-size: 4.75rem;
+    font-size: clamp(3rem, 8vw, 4.75rem) !important;
 }
 h2 {
     font-weight: 200;
-    font-size: 20px;
-    font-size: 1.25rem;
     text-align: center;
     text-transform: uppercase;
+    font-size: 20px;
+    font-size: 1.25rem;
+    font-size: clamp(1.125rem, 3vw, 1.25rem) !important;
 }
 p {
     text-align: justify;
@@ -44,6 +46,7 @@ h3 {
     font-weight: 700;
     font-size: 32px;
     font-size: 2rem;
+    font-size: clamp(1.5rem, 5vw, 2rem) !important;
 }
 h4 {
     width: 100%;
@@ -51,6 +54,7 @@ h4 {
     font-weight: 700;
     font-size: 32px;
     font-size: 2rem;
+    font-size: clamp(1.5rem, 5vw, 2rem) !important;
 }
 #bottom-container h4 {
     text-align: center;
@@ -64,9 +68,10 @@ h5 span {
     text-transform: none;
     font-style: normal;
 }
-h6 {
+h6, label {
     font-size: 18px;
     font-size: 1.125rem;
+    font-size: clamp(1rem, 3vw, 1.125rem) !important;
 }
 li span {
     font-style: italic;
@@ -99,42 +104,15 @@ a {
         font-size: 24px;
         font-size: 1.5rem;
     }
+    h6, label {
+        font-size: 16px;
+        font-size: 1rem;
+    }
 }
 @media screen and (max-width: 480px) { /* MEDIUM PHONE */
     h1 {
+        max-width: 300px;
         font-size: 60px;
         font-size: 3.75rem;
-    }
-    h2 {
-        font-size: 18px;
-        font-size: 1.125rem;
-    }
-    h3 {
-        font-size: 24px;
-        font-size: 1.5rem;
-    }
-    h4 {
-        text-align: center;
-        font-size: 24px;
-        font-size: 1.5rem;
     }
 }
-/* @media screen and (max-width: 360px) { PHONE
-    h1 {
-        font-size: 60px;
-        font-size: 3.75rem;
-    }
-    h2 {
-        font-size: 18px;
-        font-size: 1.125rem;
-    }
-    h3 {
-        font-size: 24px;
-        font-size: 1.5rem;
-    }
-    h4 {
-        text-align: center;
-        font-size: 24px;
-        font-size: 1.5rem;
-    }
-} */
