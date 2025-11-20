@@ -184,45 +184,45 @@ FileETag None
 ############################################################
 
 # 7.0 Default fallback
-FallbackResource /index.html
+FallbackResource /index.php
 
 # 7.1 Client errors (4xx)
-ErrorDocument 400 /server/error.php?code=400
-ErrorDocument 401 /server/error.php?code=401
-ErrorDocument 402 /server/error.php?code=402
-ErrorDocument 403 /server/error.php?code=403
-ErrorDocument 404 /server/error.php?code=404
-ErrorDocument 405 /server/error.php?code=405
-ErrorDocument 406 /server/error.php?code=406
-ErrorDocument 407 /server/error.php?code=407
-ErrorDocument 408 /server/error.php?code=408
-ErrorDocument 409 /server/error.php?code=409
-ErrorDocument 410 /server/error.php?code=410
-ErrorDocument 411 /server/error.php?code=411
-ErrorDocument 412 /server/error.php?code=412
-ErrorDocument 413 /server/error.php?code=413
-ErrorDocument 414 /server/error.php?code=414
-ErrorDocument 415 /server/error.php?code=415
-ErrorDocument 416 /server/error.php?code=416
-ErrorDocument 417 /server/error.php?code=417
-ErrorDocument 421 /server/error.php?code=421
-ErrorDocument 422 /server/error.php?code=422
-ErrorDocument 423 /server/error.php?code=423
-ErrorDocument 424 /server/error.php?code=424
-ErrorDocument 426 /server/error.php?code=426
-ErrorDocument 428 /server/error.php?code=428
-ErrorDocument 429 /server/error.php?code=429
-ErrorDocument 431 /server/error.php?code=431
-ErrorDocument 451 /server/error.php?code=451
+ErrorDocument 400 /partials/error.php?code=400
+ErrorDocument 401 /partials/error.php?code=401
+ErrorDocument 402 /partials/error.php?code=402
+ErrorDocument 403 /partials/error.php?code=403
+ErrorDocument 404 /partials/error.php?code=404
+ErrorDocument 405 /partials/error.php?code=405
+ErrorDocument 406 /partials/error.php?code=406
+ErrorDocument 407 /partials/error.php?code=407
+ErrorDocument 408 /partials/error.php?code=408
+ErrorDocument 409 /partials/error.php?code=409
+ErrorDocument 410 /partials/error.php?code=410
+ErrorDocument 411 /partials/error.php?code=411
+ErrorDocument 412 /partials/error.php?code=412
+ErrorDocument 413 /partials/error.php?code=413
+ErrorDocument 414 /partials/error.php?code=414
+ErrorDocument 415 /partials/error.php?code=415
+ErrorDocument 416 /partials/error.php?code=416
+ErrorDocument 417 /partials/error.php?code=417
+ErrorDocument 421 /partials/error.php?code=421
+ErrorDocument 422 /partials/error.php?code=422
+ErrorDocument 423 /partials/error.php?code=423
+ErrorDocument 424 /partials/error.php?code=424
+ErrorDocument 426 /partials/error.php?code=426
+ErrorDocument 428 /partials/error.php?code=428
+ErrorDocument 429 /partials/error.php?code=429
+ErrorDocument 431 /partials/error.php?code=431
+ErrorDocument 451 /partials/error.php?code=451
 
 # 7.2 Server errors (5xx)
-ErrorDocument 500 /server/error.php?code=500
-ErrorDocument 501 /server/error.php?code=501
-ErrorDocument 502 /server/error.php?code=502
-ErrorDocument 503 /server/error.php?code=503
-ErrorDocument 504 /server/error.php?code=504
-ErrorDocument 505 /server/error.php?code=505
-ErrorDocument 506 /server/error.php?code=506
-ErrorDocument 507 /server/error.php?code=507
-ErrorDocument 508 /server/error.php?code=508
-ErrorDocument 511 /server/error.php?code=511
+ErrorDocument 500 /partials/error.php?code=500
+ErrorDocument 501 /partials/error.php?code=501
+ErrorDocument 502 /partials/error.php?code=502
+ErrorDocument 503 /partials/error.php?code=503
+ErrorDocument 504 /partials/error.php?code=504
+ErrorDocument 505 /partials/error.php?code=505
+ErrorDocument 506 /partials/error.php?code=506
+ErrorDocument 507 /partials/error.php?code=507
+ErrorDocument 508 /partials/error.php?code=508
+ErrorDocument 511 /partials/error.php?code=511
