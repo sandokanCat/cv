@@ -93,7 +93,7 @@
             <p id="signature">
                 <strong> © 
                     <span id="signature-year">
-                        <noscript><?= gmdate('Y'); ?></noscript>
+                        <noscript><?= htmlspecialchars(gmdate('Y'), ENT_QUOTES | ENT_HTML5); ?></noscript>
                     </span>
                     sandokan.cat
                 </strong>

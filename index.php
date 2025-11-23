@@ -1,9 +1,6 @@
 <?php
-// LOAD I18N & GLOBALS
-require_once __DIR__."/server/i18n.php";
-
-// LOAD ASSETS
-require_once __DIR__."/server/assets.php";
+// LOAD SERVER DIRECTORY
+require_once __DIR__ . '/autoload.php';
 
 // INIT HTML5
 ?>
