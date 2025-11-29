@@ -38,6 +38,12 @@
     "linkedin": {
         "aria-label": "Посетить профиль Linkedin"
     },
+    "discord": {
+        "aria-label": "Добавить в друзья"
+    },
+    "location": {
+        "aria-label": "Местоположение"
+    },
     "studies": {
         "text": "Образование"
     },

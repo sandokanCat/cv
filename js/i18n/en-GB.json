@@ -70,6 +70,12 @@
     "linkedin": {
         "aria-label": "Visit Linkedin profile"
     },
+    "discord": {
+        "aria-label": "Add to friends"
+    },
+    "location": {
+        "aria-label": "Location"
+    },
     "studies": {
         "text": "Studies"
     },

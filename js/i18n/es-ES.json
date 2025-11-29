@@ -38,6 +38,12 @@
     "linkedin": {
         "aria-label": "Visitar perfil de Linkedin"
     },
+    "discord": {
+        "aria-label": "Añadir a amigos"
+    },
+    "location": {
+        "aria-label": "Localización"
+    },
     "studies": {
         "text": "Estudios"
     },
