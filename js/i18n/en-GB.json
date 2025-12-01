@@ -1,4 +1,10 @@
 {
+    "brandNick": {
+        "text": "sandokan.cat"
+    },
+    "brandName": {
+        "text": "Gonzalo Cabezas Núñez"
+    },
     "brandRole": {
         "text": "Fullstack Web Developer"
     },
@@ -7,31 +13,31 @@
     },
 
     "title": {
-        "text": "{{brand.nick}} | {{brandRole}}"
+        "text": "{{brandNick}} | {{brandRole}}"
     },
     "description": {
-        "text": "{{brandCV}} of {{brand.name}}, a {{brandRole}} focused on modern technologies"
+        "text": "{{brandCV}} of {{brandName}}, a {{brandRole}} focused on modern technologies and passionate about cybersecurity"
     },
     "ogTitle": {
-        "text": "{{brand.nick}} | {{brandRole}}"
+        "text": "{{brandNick}} | {{brandRole}}"
     },
     "ogDescription": {
         "text": "Looking for a creative and efficient {{brandRole}}? Discover my projects"
     },
     "ogImageAlt": {
-        "text": "{{brand.nick}} | {{brandRole}}, {{brandCV}}"
+        "text": "{{brandNick}} | {{brandRole}}, {{brandCV}}"
     },
     "ldJsonWebName": {
-        "text": "{{brand.nick}} | {{brandRole}}"
+        "text": "{{brandNick}} | {{brandRole}}"
     },
     "ldJsonWebDescription": {
-        "text": "{{brandRole}} focused on modern web technologies. {{brandCV}}"
-    },
-    "ldJsonContactType": {
-        "text": "Web Development Services"
+        "text": "{{brandRole}} focused on modern technologies and passionate about cybersecurity. {{brandCV}}"
     },
     "ldJsonJobTitle": {
         "text": "{{brandRole}}"
+    },
+    "ldJsonContactType": {
+        "text": "Web Development Services"
     },
 
     "noscriptWarn": {
@@ -39,6 +45,9 @@
     },
     "darkBtn": {
         "aria-label": "Toggle dark mode"
+    },
+    "portrait": {
+        "alt": "Portrait"
     },
     "profile": {
         "html": "<span lang='en-GB'>FullstacK</span> Web Developer"
@@ -84,7 +93,11 @@
     },
     "cyberIntro": {
         "aria-label": "See certificate",
-        "text": "Introduction to cybersecurity"
+        "text": "Cybersecurity"
+    },
+    "cyberUsers": {
+        "aria-label": "See certificate",
+        "text": "Cybersecurity for users"
     },
     "appDev": {
         "text": "Application development with web technologies"
@@ -94,6 +107,9 @@
     },
     "PHPandMySQL": {
         "html": "<abbr lang='en-GB' title='Hypertext Preprocessor'>PHP</abbr> and <abbr lang='en-GB' title='Structured Query Language'>MySQL</abbr>"
+    },
+    "JavaAndJSP": {
+        "html": "<span lang='en-GB'>Java</span> and <abbr lang='en-GB' title='JavaServer Pages'>JSP</abbr>"
     },
     "webDev": {
         "text": "Creation and publication of web pages"
@@ -105,7 +121,7 @@
         "aria-label": "See certificate",
         "html": "<span lang='en-GB'>Vanilla <abbr title='JavaScript'>JS</abbr></span> and web publication"
     },
-    "AddTraining": {
+    "addTraining": {
         "aria-label": "See certificate",
         "text": "Additional training"
     },

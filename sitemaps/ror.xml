@@ -1,57 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:ror="http://rorweb.com/0.1/" >
-<channel>
-  <title>ROR Sitemap for https://sandokan.cat/</title>
-  <link>https://sandokan.cat/</link>
-
-<item>
-     <link>https://sandokan.cat/</link>
-     <title>Gonzalo Cabezas - CV</title>
-     <description>Looking for a Front-end? Need a website?</description>
-     <ror:updatePeriod></ror:updatePeriod>
-     <ror:sortOrder>0</ror:sortOrder>
-     <ror:resourceOf>sitemap</ror:resourceOf>
-</item>
-<item>
-     <link>https://sandokan.cat/doc/IFCD0110-JSiPW_gonzalo.pdf</link>
-     <title></title>
-     
-     <ror:updatePeriod></ror:updatePeriod>
-     <ror:sortOrder>1</ror:sortOrder>
-     <ror:resourceOf>sitemap</ror:resourceOf>
-</item>
-<item>
-     <link>https://sandokan.cat/doc/IFCD0110-FC_gonzalo.pdf</link>
-     <title></title>
-     
-     <ror:updatePeriod></ror:updatePeriod>
-     <ror:sortOrder>1</ror:sortOrder>
-     <ror:resourceOf>sitemap</ror:resourceOf>
-</item>
-<item>
-     <link>https://sandokan.cat/doc/accesUNED_gonzalo.pdf</link>
-     <title></title>
-     
-     <ror:updatePeriod></ror:updatePeriod>
-     <ror:sortOrder>1</ror:sortOrder>
-     <ror:resourceOf>sitemap</ror:resourceOf>
-</item>
-<item>
-     <link>https://sandokan.cat/doc/certificatESO_gonzalo.pdf</link>
-     <title></title>
-     
-     <ror:updatePeriod></ror:updatePeriod>
-     <ror:sortOrder>1</ror:sortOrder>
-     <ror:resourceOf>sitemap</ror:resourceOf>
-</item>
-<item>
-     <link>https://sandokan.cat/doc/CV_gonzalo.pdf</link>
-     <title></title>
-     
-     <ror:updatePeriod></ror:updatePeriod>
-     <ror:sortOrder>1</ror:sortOrder>
-     <ror:resourceOf>sitemap</ror:resourceOf>
-</item>
-</channel>
+<rss version="2.0" xmlns:ror="http://rorweb.com/0.1/">
+    <channel>
+        <title>ROR Sitemap for https://sandokan.cat/</title>
+        <link>https://sandokan.cat/</link>
+        <item>
+            <link>https://sandokan.cat/</link>
+            <title>sandokan.cat | Fullstack Web Developer</title>
+            <description>Portfolio and resume of Gonzalo Cabezas Núñez, a Fullstack Web Developer focused on modern technologies and passionate about cybersecurity</description>
+            <ror:updatePeriod>monthly</ror:updatePeriod>
+            <ror:sortOrder>0</ror:sortOrder>
+            <ror:resourceOf>sitemap</ror:resourceOf>
+        </item>
+        <item>
+            <link>https://sandokan.cat/doc/IFCT0023-CYBERSEC_gonzalo.pdf</link>
+            <title>IFCT0023 CYBERSEC course certificate</title>
+            <ror:updatePeriod>never</ror:updatePeriod>
+            <ror:sortOrder>1</ror:sortOrder>
+            <ror:resourceOf>sitemap</ror:resourceOf>
+        </item>
+        <item>
+            <link>https://sandokan.cat/doc/IFCT0024-CYBERSEC-USERS_gonzalo.pdf</link>
+            <title>IFCT0024 CYBERSEC FOR USERS course certificate</title>
+            <ror:updatePeriod>never</ror:updatePeriod>
+            <ror:sortOrder>2</ror:sortOrder>
+            <ror:resourceOf>sitemap</ror:resourceOf>
+        </item>
+        <item>
+            <link>https://sandokan.cat/doc/IFCD0110-JSiPW_gonzalo.pdf</link>
+            <title>IFCD0110 JAVASCRIPT AND WEB PUBLICATION course certificate</title>
+            <ror:updatePeriod>never</ror:updatePeriod>
+            <ror:sortOrder>4</ror:sortOrder>
+            <ror:resourceOf>sitemap</ror:resourceOf>
+        </item>
+        <item>
+            <link>https://sandokan.cat/doc/IFCD0110-FC_gonzalo.pdf</link>
+            <title>IFCD0110 ADDITIONAL TRAINING course certificate</title>
+            <ror:updatePeriod>never</ror:updatePeriod>
+            <ror:sortOrder>5</ror:sortOrder>
+            <ror:resourceOf>sitemap</ror:resourceOf>
+        </item>
+        <item>
+            <link>https://sandokan.cat/doc/accesoUNED_gonzalo.pdf</link>
+            <title>ACCESS TO UNIVERSITY (UNED) course certificate</title>
+            <ror:updatePeriod>never</ror:updatePeriod>
+            <ror:sortOrder>6</ror:sortOrder>
+            <ror:resourceOf>sitemap</ror:resourceOf>
+        </item>
+        <item>
+            <link>https://sandokan.cat/doc/certificatESO_gonzalo.pdf</link>
+            <title>COMPULSORY SECONDARY EDUCATION (ESO) course certificate</title>
+            <ror:updatePeriod>never</ror:updatePeriod>
+            <ror:sortOrder>7</ror:sortOrder>
+            <ror:resourceOf>sitemap</ror:resourceOf>
+        </item>
+        <item>
+            <link>https://sandokan.cat/doc/CV_gonzalo.pdf</link>
+            <title>RESUME PDF</title>
+            <ror:updatePeriod>monthly</ror:updatePeriod>
+            <ror:sortOrder>3</ror:sortOrder>
+            <ror:resourceOf>sitemap</ror:resourceOf>
+        </item>
+    </channel>
 </rss>
-  

@@ -1,26 +1,14 @@
 {
-    "brand": {
-        "url": "https://sandokan.cat/",
-        "email": "dev@sandokan.cat",
-        "nick": "sandokan.cat",
-        "user": "sandokanCat",
-        "name": "Gonzalo Cabezas Núñez",
-        "region": "ES-B",
-        "placename": "Barcelona",
-        "postalCode": "08014"
-    },
     "lang": {
-        "supportedLangs": {
+        "op": {
             "ca": ["ca-ES", "Català"],
             "es": ["es-ES", "Español"],
             "en": ["en-GB", "English"],
             "ru": ["ru-RU", "Русский"],
             "ar": ["ar-SA", "العربية"]
         },
-        "fallbackLang": {
-            "en": "en-GB"
-        },
-        "rtlLangs": [
+        "inCase": "en-GB",
+        "rtl": [
             "ar",
             "he",
             "fa",
@@ -35,34 +23,5 @@
             "bal",
             "nqo"
         ]
-    },
-    "sources": "https://open-utils-dev-sandokan-cat.vercel.app",
-    "socials": {
-        "github": "https://github.com/sandokanCat",
-        "vercel": "https://vercel.com/sandokancat",
-        "linkedin": "https://linkedin.com/in/sandokanCat",
-        "infojobs": "https://infojobs.net/candidate/cv/view/index.xhtml?dgv=3099151168547844805"
-    },
-    "knowledge": [
-        "XML",
-        "HTML5",
-        "CSS3",
-        "Vanilla JavaScript",
-        "JSON",
-        "AJAX",
-        "PHP",
-        "MySQL",
-        "Java"
-    ],
-    "academy": {
-        "name": "Institució Pau Casals",
-        "url": "https://paucasals.com",
-        "logo": "https://www.paucasals.com/imagen/logo_640.png"
-    },
-    "cookies": "https://wikipedia.org/",
-    "verification": {
-        "google": "09e253fadebfd609",
-        "microsoft": "67F856661103182488C8ADE76EA02DF0",
-        "yandex": "41d8a99d172f9fff"
     }
 }

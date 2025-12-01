@@ -1,12 +1,53 @@
 {
-    "title": {
-        "text": "sandokan.cat | Fullstack веб-разработчик"
+    "brandNick": {
+        "text": "sandokan.cat"
     },
+    "brandName": {
+        "text": "Gonzalo Cabezas Núñez"
+    },
+    "brandRole": {
+        "text": "Fullstack веб-разработчик"
+    },
+    "brandCV": {
+        "text": "Портфолио и резюме"
+    },
+
+    "title": {
+        "text": "{{brandNick}} | {{brandRole}}"
+    },
+    "description": {
+        "text": "{{brandCV}} {{brandName}}, {{brandRole}}, сосредоточенный на современных технологиях и увлечённый кибербезопасностью"
+    },
+    "ogTitle": {
+        "text": "{{brandNick}} | {{brandRole}}"
+    },
+    "ogDescription": {
+        "text": "Ищете креативного и эффективного {{brandRole}}? Ознакомьтесь с моими проектами"
+    },
+    "ogImageAlt": {
+        "text": "{{brandNick}} | {{brandRole}}, {{brandCV}}"
+    },
+    "ldJsonWebName": {
+        "text": "{{brandNick}} | {{brandRole}}"
+    },
+    "ldJsonWebDescription": {
+        "text": "{{brandRole}}, сосредоточенный на современных технологиях и увлечённый кибербезопасностью. {{brandCV}}"
+    },
+    "ldJsonJobTitle": {
+        "text": "{{brandRole}}"
+    },
+    "ldJsonContactType": {
+        "text": "Услуги веб-разработки"
+    },
+
+    "noscriptWarn": {
+        "html": "<h3>🚨 Упс! Появился любитель кибербезопасности! <em lang='en-GB'>#NoJS = 😿</em></h3><p><strong>Этот сайт на 100% <span lang='en-GB'>Vanilla JavaScript</span></strong>, но я адаптировал весь контент, чтобы вы могли его увидеть</p>"
+    },    
     "darkBtn": {
         "aria-label": "Переключить тёмный режим"
     },
-    "gonzalo": {
-        "alt": "Портрет Gonzalo Cabezas"
+    "portrait": {
+        "alt": "Портрет"
     },
     "profile": {
         "html": "Веб-разработчик <span lang='en-GB'>Fullstack</span>"
@@ -52,7 +93,11 @@
     },
     "cyberIntro": {
         "aria-label": "Смотреть сертификат",
-        "text": "Введение в кибербезопасность"
+        "text": "Кибербезопасность"
+    },
+    "cyberUsers": {
+        "aria-label": "Смотреть сертификат",
+        "text": "Кибербезопасность для пользователей"
     },
     "appDev": {
         "text": "Разработка приложений с использованием веб-технологий"
@@ -62,6 +107,9 @@
     },
     "PHPandMySQL": {
         "html": "<abbr lang='en-GB' title='Hypertext Preprocessor'>PHP</abbr> и <abbr lang='en-GB' title='Structured Query Language'>MySQL</abbr>"
+    },
+    "JavaAndJSP": {
+        "html": "<span lang='en-GB'>Java</span> и <abbr lang='en-GB' title='JavaServer Pages'>JSP</abbr>"
     },
     "webDev": {
         "text": "Создание и публикация веб-страниц"
@@ -73,7 +121,7 @@
         "aria-label": "Смотреть сертификат",
         "html": "<span lang='en-GB'>Vanilla <abbr title='JavaScript'>JS</abbr></span> и публикация веб"
     },
-    "AddTraining": {
+    "addTraining": {
         "aria-label": "Смотреть сертификат",
         "text": "Дополнительное обучение"
     },

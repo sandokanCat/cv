@@ -8,17 +8,17 @@ h3 {
 }
 
 /* PHOTO & PERSONAL INFO */
-#gonzalo {
+#me {
     display: grid;
     place-items: center;
     gap: 50px;
 }
-#gonzalo figcaption {
+#me figcaption {
     display: flex;
     flex-direction: column;
     gap: 50px;
 }
-#gonzalo img {
+#me img {
     border: 7px solid var(--accent-1);
     border-radius: 50%;
     width: auto;
@@ -57,7 +57,7 @@ h3 {
 
 /* RESPONSIVE BREAKPOINTS */
 @media screen and (max-width: 768px) { /* TABLET */
-    #gonzalo img {
+    #me img {
         width: 350px;
     }
     #languages svg { /* REDUCED TO PREVENT COLLAPSE IN ROW LAYOUT */
@@ -72,7 +72,7 @@ h3 {
     }
 }
 @media screen and (max-width: 360px) { /* PHONE */
-    #gonzalo img {
+    #me img {
         width: 260px;
     }
 }

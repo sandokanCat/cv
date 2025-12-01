@@ -8,7 +8,10 @@
             <h6 lang="es-ES">Formación Tajamar</h6>
             <ol>
                 <li>
-                    <a data-i18n-attr="aria-label:cyberIntro" data-i18n="cyberIntro" class="modal-link" href="doc/diplomaCIBERSEGURIDAD_<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>.pdf" target="_blank" data-modal="doc/diplomaCIBERSEGURIDAD_<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>.pdf" aria-label="<?= $L('cyberIntro'); ?>"><?= $T('cyberIntro'); ?></a>
+                    <a data-i18n-attr="aria-label:cyberIntro" data-i18n="cyberIntro" class="modal-link" href="doc/IFCT0023-CYBERSEC_<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>.pdf" target="_blank" data-modal="doc/IFCT0023-CYBERSEC_<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>.pdf" aria-label="<?= $L('cyberIntro'); ?>"><?= $T('cyberIntro'); ?></a>
+                </li>
+                <li>
+                    <a data-i18n-attr="aria-label:cyberUsers" data-i18n="cyberUsers" class="modal-link" href="doc/IFCT0024-CYBERSEC-USERS_<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>.pdf" target="_blank" data-modal="doc/IFCT0024-CYBERSEC-USERS_<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>.pdf" aria-label="<?= $L('cyberUsers'); ?>"><?= $T('cyberUsers'); ?></a>
                 </li>
             </ol>
         </article>
@@ -18,7 +21,7 @@
             <ol>
                 <li data-i18n="JSONandAJAX"><?= $H('JSONandAJAX'); ?></li>
                 <li data-i18n="PHPandMySQL"><?= $H('PHPandMySQL'); ?></li>
-                <li lang="en-GB">Java</li>
+                <li data-i18n="JavaAndJSP"><?= $H('JavaAndJSP') ;?></li>
             </ol>
         </article>
         <article>
@@ -30,7 +33,7 @@
                     <a data-i18n-attr="aria-label:JSandWP" data-i18n="JSandWP" class="modal-link" href="doc/IFCD0110-JSiPW_<?= htmlspecialchars($shortName); ?>.pdf" target="_blank" data-modal="doc/IFCD0110-JSiPW_<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>.pdf" aria-label="<?= $L('JSandWP'); ?>"><?= $H('JSandWP'); ?></a>
                 </li>
                 <li>
-                    <a data-i18n-attr="aria-label:AddTraining" data-i18n="AddTraining" class="modal-link" href="doc/IFCD0110-FC_<?= htmlspecialchars($shortName); ?>.pdf" target="_blank" data-modal="doc/IFCD0110-FC_<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>.pdf" aria-label="<?= $L('addTraining'); ?>"><?= $T('addTraining'); ?></a>
+                    <a data-i18n-attr="aria-label:addTraining" data-i18n="addTraining" class="modal-link" href="doc/IFCD0110-FC_<?= htmlspecialchars($shortName); ?>.pdf" target="_blank" data-modal="doc/IFCD0110-FC_<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>.pdf" aria-label="<?= $L('addTraining'); ?>"><?= $T('addTraining'); ?></a>
                 </li>
             </ol>
         </article>
@@ -39,24 +42,18 @@
             <!-- CAROUSEL -->
             <noscript> <!-- FALLBACK -->
                 <ol id="carousel-fallback" class="carousel-track">
-                    <li>
-                        <img src="img/carousel/FRONT-END_certificate@3x.png" fetchpriority="high" decoding="sync" loading="eager" alt="Front-End certificate">
-                    </li>
-                    <li>
-                        <img src="img/carousel/WEB-DEV_certificate@3x.png" decoding="async" loading="lazy" alt="Web development certificate">
-                    </li>
-                    <li>
-                        <img src="img/carousel/HTML_certificate@3x.png" decoding="async" loading="lazy" alt="HTML certificate">
-                    </li>
-                    <li>
-                        <img src="img/carousel/CSS_certificate@3x.png" decoding="async" loading="lazy" alt="CSS certificate">
-                    </li>
-                    <li>
-                        <img src="img/carousel/JS_certificate@3x.png" decoding="async" loading="lazy" alt="JavaScript certificate">
-                    </li>
-                    <li>
-                        <img src="img/carousel/JS-2_certificate@3x.png" decoding="async" loading="lazy" alt="JavaScript intermediate certificate">
-                    </li>
+                    <?php
+                    $carouselData = json_decode(file_get_contents('js/data/carousel.json'), true);
+
+                    foreach ($carouselData as $item):
+                        $imgSrc = $item['png']['fallback'] ?? '';
+                        $alt = $item['alt'][$currentLang] ?? '';?>
+                        <li>
+                            <img src="<?= htmlspecialchars($imgSrc, ENT_QUOTES | ENT_HTML5); ?>" 
+                                fetchpriority="high" decoding="sync" loading="eager" 
+                                alt="<?= htmlspecialchars($alt, ENT_QUOTES | ENT_HTML5); ?>">
+                        </li>
+                    <?php endforeach; ?>
                 </ol>
             </noscript>
             <figure class="carousel-container js-disabled"> <!-- JS ENABLED -->

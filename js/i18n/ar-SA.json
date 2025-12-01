@@ -1,12 +1,53 @@
 {
-    "title": {
-        "text": "sandokan.cat | Fullstack مطور ويب"
+    "brandNick": {
+        "text": "sandokan.cat"
     },
+    "brandName": {
+        "text": "Gonzalo Cabezas Núñez"
+    },
+    "brandRole": {
+        "text": "مطور ويب Fullstack"
+    },
+    "brandCV": {
+        "text": "المعرض والسيرة الذاتية"
+    },
+
+    "title": {
+        "text": "{{brandNick}} | {{brandRole}}"
+    },
+    "description": {
+        "text": "{{brandCV}} لـ {{brandName}}، {{brandRole}} يركز على التقنيات الحديثة وشغوف بالأمن السيبراني"
+    },
+    "ogTitle": {
+        "text": "{{brandNick}} | {{brandRole}}"
+    },
+    "ogDescription": {
+        "text": "هل تبحث عن {{brandRole}} مبدع وفعال؟ اكتشف مشاريعي"
+    },
+    "ogImageAlt": {
+        "text": "{{brandNick}} | {{brandRole}}, {{brandCV}}"
+    },
+    "ldJsonWebName": {
+        "text": "{{brandNick}} | {{brandRole}}"
+    },
+    "ldJsonWebDescription": {
+        "text": "{{brandRole}} يركز على التقنيات الحديثة وشغوف بالأمن السيبراني. {{brandCV}}"
+    },
+    "ldJsonJobTitle": {
+        "text": "{{brandRole}}"
+    },
+    "ldJsonContactType": {
+        "text": "خدمات تطوير الويب"
+    },
+
+    "noscriptWarn": {
+        "html": "<h3>🚨 عذرًا! لقد وصل عاشق الأمن السيبراني! <em lang='en-GB'>#NoJS = 😿</em></h3><p><strong>هذا الموقع 100% <span lang='en-GB'>Vanilla JavaScript</span></strong>، لكنني قمت بتكييف كل المحتوى لتتمكن من رؤيته</p>"
+    },    
     "darkBtn": {
         "aria-label": "تبديل الوضع الداكن"
     },
-    "gonzalo": {
-        "alt": "صورة Gonzalo Cabezas"
+    "portrait": {
+        "alt": "صورة شخصية"
     },
     "profile": {
         "html": "مطور ويب <span lang='en-GB'>Fullstack</span>"
@@ -52,7 +93,11 @@
     },
     "cyberIntro": {
         "aria-label": "عرض الشهادة",
-        "text": "مقدمة في الأمن السيبراني"
+        "text": "الأمن السيبراني"
+    },
+    "cyberUsers": {
+        "aria-label": "عرض الشهادة",
+        "text": "الأمن السيبراني للمستخدمين"
     },
     "appDev": {
         "text": "تطوير التطبيقات باستخدام تقنيات الويب"
@@ -62,6 +107,9 @@
     },
     "PHPandMySQL": {
         "html": "<abbr lang='en-GB' title='Hypertext Preprocessor'>PHP</abbr> و <abbr lang='en-GB' title='Structured Query Language'>MySQL</abbr>"
+    },
+    "JavaAndJSP": {
+        "html": "<span lang='en-GB'>Java</span> و <abbr lang='en-GB' title='JavaServer Pages'>JSP</abbr>"
     },
     "webDev": {
         "text": "إنشاء ونشر صفحات الويب"
@@ -73,7 +121,7 @@
         "aria-label": "عرض الشهادة",
         "html": "<span lang='en-GB'>Vanilla <abbr title='JavaScript'>JS</abbr></span> والنشر على الويب"
     },
-    "AddTraining": {
+    "addTraining": {
         "aria-label": "عرض الشهادة",
         "text": "تدريب إضافي"
     },

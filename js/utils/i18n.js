@@ -33,18 +33,21 @@ async function loadLangMap() {
     if (langMapData) return langMapData;
 
     try {
-        const data = await validateJSON('js/i18n/langMap.json');
+        const data = await validateJSON('js/globals.json');
         langMapData = {
-            supportedLangs: data.supportedLangs || { en: "en-GB" },
-            fallbackLang: data.fallbackLang?.en || "en-GB",
-            rtlLangs: data.rtlLangs || []
+            op: Object.fromEntries(
+                Object.entries(data.lang?.op || { en: ["en-GB", "English"] })
+                    .map(([key, value]) => [key, value[0]])
+            ),
+            inCase: data.lang?.inCase || "en-GB",
+            rtl: data.lang?.rtl || []
         };
     } catch (err) {
         logger.er("FAILED TO LOAD LANGMAP", err.name, err.message, err.stack);
         langMapData = {
-            supportedLangs: { en: "en-GB" },
-            fallbackLang: "en-GB",
-            rtlLangs: []
+            op: { en: "en-GB" },
+            inCase: "en-GB",
+            rtl: []
         };
     }
 
@@ -56,20 +59,20 @@ export const getLocale = async (inputLocale = null) => {
     try {
         if (!inputLocale && cachedLocale) return cachedLocale;
 
-        const { supportedLangs, fallbackLang } = await loadLangMap();
+        const { op, inCase } = await loadLangMap();
         let raw = inputLocale;
 
         if (!raw) {
             try {
-                raw = localStorage.getItem("lang") || navigator.language || fallbackLang;
+                raw = localStorage.getItem("lang") || navigator.language || inCase;
             } catch (err) {
                 logger.wa("LOCALSTORAGE UNAVAILABLE, FALLBACK TO NAVIGATOR OR DEFAULT", err.name, err.message, err.stack);
-                raw = navigator.language || fallbackLang;
+                raw = navigator.language || inCase;
             }
         }
 
         const base = raw.split("-")[0].toLowerCase();
-        const result = { locale: supportedLangs[base] || fallbackLang, base };
+        const result = { locale: op[base] || inCase, base };
 
         if (!inputLocale && !cachedLocale) cachedLocale = result;
         else if (cachedLocale && cachedLocale.locale !== result.locale) reloadedLocales.clear();
@@ -94,19 +97,19 @@ export const setLocaleStorage = (locale) => {
 export const getI18nData = async (locale) => {
     if (cachedTranslations[locale]) return cachedTranslations[locale];
 
-    const { supportedLangs, fallbackLang } = await loadLangMap();
+    const { op, inCase } = await loadLangMap();
 
-    if (!Object.values(supportedLangs).includes(locale)) {
-        logger.er(`UNEXPECTED LOCALE: ${locale}, FORCING FALLBACK ${fallbackLang}`);
-        locale = fallbackLang;
+    if (!Object.values(op).includes(locale)) {
+        logger.er(`UNEXPECTED LOCALE: ${locale}, FORCING FALLBACK ${inCase}`);
+        locale = inCase;
     }
 
     try {
         const data = await validateJSON(`js/i18n/${locale}.json`);
         return cachedTranslations[locale] = data || {};
     } catch (err) {
-        logger.er(`LOCALE FALLBACK: ${locale} → ${fallbackLang}`, err.name, err.message, err.stack);
-        if (locale !== fallbackLang) return getI18nData(fallbackLang);
+        logger.er(`LOCALE FALLBACK: ${locale} → ${inCase}`, err.name, err.message, err.stack);
+        if (locale !== inCase) return getI18nData(inCase);
         return {};
     }
 };
@@ -123,7 +126,7 @@ export const initI18n = async ({
     attrSelector = '[data-i18n-attr]',
     locale = null
 } = {}) => {
-    const { rtlLangs } = await loadLangMap();
+    const { rtl } = await loadLangMap();
 
     const { locale: resolvedLocale, base } = await getLocale(locale);
 
@@ -137,7 +140,7 @@ export const initI18n = async ({
         // SET HTML LANG & STORE IT
         setLocaleStorage(resolvedLocale);
         root.setAttribute("lang", resolvedLocale);
-        root.setAttribute("dir", rtlLangs.includes(base) ? "rtl" : "ltr");
+        root.setAttribute("dir", rtl.includes(base) ? "rtl" : "ltr");
 
         // TRANSLATE PAGE TITLE
         const titleValue = getNestedValue(translations, "title");

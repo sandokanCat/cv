@@ -51,14 +51,14 @@
                         </button>
                     </li>
                     <li id="github-icon">
-                        <a href="https://github.com/sandokanCat" target="_blank" rel="noopener noreferrer" aria-label="Github">
+                        <a href="<?= $path['social']['github']; ?>" target="_blank" rel="noopener noreferrer" aria-label="Github">
                             <svg class="icons-color-2 icons-scale" role="img" aria-hidden="true" width="30" height="30" preserveAspectRatio="xMinYMin meet">
                                 <use href="img/sprite.svg#github" xlink:href="img/sprite.svg#github"></use>
                             </svg>
                         </a>
                     </li>
                     <li id="vercel-icon">
-                        <a href="https://vercel.com/dev-sandokan-cat" target="_blank" rel="noopener noreferrer" aria-label="Vercel">
+                        <a href="<?= $path['social']['vercel']; ?>" target="_blank" rel="noopener noreferrer" aria-label="Vercel">
                             <svg class="icons-color-2 icons-scale" role="img" aria-hidden="true" width="30" height="30" preserveAspectRatio="xMinYMin meet">
                                 <use href="img/sprite.svg#vercel" xlink:href="img/sprite.svg#vercel"></use>
                             </svg>
@@ -70,14 +70,14 @@
                 <aside id="menu-fallback">
                     <ul aria-label="Repository menu">
                         <li>
-                            <a href="https://github.com/sandokanCat" target="_blank" rel="noopener noreferrer" aria-label="Github">
+                            <a href="<?= $path['social']['github']; ?>" target="_blank" rel="noopener noreferrer" aria-label="Github">
                                 <svg class="icons-color-2 icons-scale" role="img" aria-hidden="true" width="28" height="28" preserveAspectRatio="xMinYMin meet">
                                     <use href="img/sprite.svg#github" xlink:href="img/sprite.svg#github"></use>
                                 </svg>
                             </a>
                         </li>
                         <li>
-                            <a href="https://vercel.com/dev-sandokan-cat" target="_blank" rel="noopener noreferrer" aria-label="Vercel">
+                            <a href="<?= $path['social']['vercel']; ?>" target="_blank" rel="noopener noreferrer" aria-label="Vercel">
                                 <svg class="icons-color-2 icons-scale" role="img" aria-hidden="true" width="30" height="30" preserveAspectRatio="xMinYMin meet">
                                     <use href="img/sprite.svg#vercel" xlink:href="img/sprite.svg#vercel"></use>
                                 </svg>
@@ -89,16 +89,7 @@
             <!--//MENU END -->
         </div>
         <div id="portfolio">
-            <!-- SIGNATURE -->
-            <p id="signature">
-                <strong> © 
-                    <span id="signature-year">
-                        <noscript><?= htmlspecialchars(gmdate('Y'), ENT_QUOTES | ENT_HTML5); ?></noscript>
-                    </span>
-                    sandokan.cat
-                </strong>
-            </p>
-            <!--//SIGNATURE END -->
+            <?php require_once __DIR__."/../../assets/signature.php"; // LOAD SIGNATURE ?>
             <a href="https://sandokanCat.github.io/estopa/" target="_blank" data-status>
                 <img data-i18n-attr="alt:estopa" src="img/portfolio/estopa.png" decoding="async" loading="lazy" alt="<?= $A('estopa'); ?>">
             </a>

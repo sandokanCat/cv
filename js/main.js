@@ -25,8 +25,8 @@ import {
     reloadRandomMsg,
     getBurgerConfig,
     updateProvisionalAlert,
-    /*openModal*/ 
-    sendMail
+    /* openModal,
+    sendMail */
 } from './components/index.js';
 
 // 🧠 APP INITIALIZATION SEQUENCE: FROM GLOBALS TO INTERACTIVE UI

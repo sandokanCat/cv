@@ -4,17 +4,25 @@
             <?= $H('noscriptWarn'); ?>
         </section>
     </noscript>
+
     <nav>
         <ul class="js-disabled">
             <li> <!-- DARK THEME -->
                 <button data-i18n-attr="aria-label:darkBtn" id="theme-dark-btn" class="dark-mode-btn icons-scale" aria-label="<?= $L('darkBtn', 'aria-label'); ?>" type="button">🌓</button>
             </li>
+
             <!-- LANG MENU -->
-            <?php foreach ($supportedLangs as $lang): ?>
+            <?php foreach ($opLang as $langCode => $langData): 
+                $localeCode = htmlspecialchars($langData[0] ?? '', ENT_QUOTES | ENT_HTML5);
+                $label = htmlspecialchars($langData[1] ?? '', ENT_QUOTES | ENT_HTML5); ?>
                 <li>
-                    <button data-lang="<?= htmlspecialchars($lang[0], ENT_QUOTES | ENT_HTML5); ?>" class="icons-scale" aria-label="<?= htmlspecialchars($lang[1], ENT_QUOTES | ENT_HTML5); ?>" type="button">
+                    <button 
+                        data-lang="<?= $localeCode ?>" 
+                        class="icons-scale" 
+                        aria-label="<?= $label; ?>" 
+                        type="button">
                         <svg class="icons-scale" role="img" aria-hidden="true" width="40" height="40" preserveAspectRatio="xMinYMin meet">
-                            <use href="img/sprite.svg#<?= htmlspecialchars($lang[0], ENT_QUOTES | ENT_HTML5); ?>" xlink:href="img/sprite.svg#<?= htmlspecialchars($lang[0], ENT_QUOTES | ENT_HTML5); ?>"></use>
+                            <use href="img/sprite.svg#<?= $localeCode; ?>" xlink:href="img/sprite.svg#<?= $localeCode; ?>"></use>
                         </svg>
                     </button>
                 </li>

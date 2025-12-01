@@ -1,12 +1,53 @@
 {
+    "brandNick": {
+        "text": "sandokan.cat"
+    },
+    "brandName": {
+        "text": "Gonzalo Cabezas Núñez"
+    },
+    "brandRole": {
+        "text": "Desarrollador Web Fullstack"
+    },
+    "brandCV": {
+        "text": "Portafolio y currículum"
+    },
+
     "title": {
-        "text": "sandokan.cat | Desarrollador Web Fullstack"
+        "text": "{{brandNick}} | {{brandRole}}"
+    },
+    "description": {
+        "text": "{{brandCV}} de {{brandName}}, un {{brandRole}} centrado en tecnologías modernas y apasionado por la ciberseguridad"
+    },
+    "ogTitle": {
+        "text": "{{brandNick}} | {{brandRole}}"
+    },
+    "ogDescription": {
+        "text": "¿Buscas un {{brandRole}} creativo y eficiente? Descubre mis proyectos"
+    },
+    "ogImageAlt": {
+        "text": "{{brandNick}} | {{brandRole}}, {{brandCV}}"
+    },
+    "ldJsonWebName": {
+        "text": "{{brandNick}} | {{brandRole}}"
+    },
+    "ldJsonWebDescription": {
+        "text": "{{brandRole}} centrado en tecnologías modernas y apasionado por la ciberseguridad. {{brandCV}}"
+    },
+    "ldJsonJobTitle": {
+        "text": "{{brandRole}}"
+    },
+    "ldJsonContactType": {
+        "text": "Servicios de desarrollo web"
+    },
+
+    "noscriptWarn": {
+        "html": "<h3>🚨 ¡Ups! ¡Ha llegado un enamorado de la ciberseguridad! <em lang='en-GB'>#NoJS = 😿</em></h3><p><strong>Esta web es 100% <span lang='en-GB'>Vanilla JavaScript</span></strong>, pero he adaptado todo el contenido para que puedas verlo</p>"
     },
     "darkBtn": {
         "aria-label": "Alternar modo oscuro"
     },
-    "gonzalo": {
-        "alt": "Retrato de Gonzalo Cabezas"
+    "portrait": {
+        "alt": "Retrato"
     },
     "profile": {
         "html": "Desarrollador Web <span lang='en-GB'>Fullstack</span>"
@@ -52,7 +93,11 @@
     },
     "cyberIntro": {
         "aria-label": "Ver certificado",
-        "text": "Introducción a la ciberseguridad"
+        "text": "Ciberseguridad"
+    },
+    "cyberUsers": {
+        "aria-label": "Ver certificado",
+        "text": "Ciberseguridad para usuarios"
     },
     "appDev": {
         "text": "Desarrollo de aplicaciones con tecnologias web"
@@ -62,6 +107,9 @@
     },
     "PHPandMySQL": {
         "html": "<abbr lang='en-GB' title='Hypertext Preprocessor'>PHP</abbr> y <abbr lang='en-GB' title='Structured Query Language'>MySQL</abbr>"
+    },
+    "JavaAndJSP": {
+        "html": "<span lang='en-GB'>Java</span> y <abbr lang='en-GB' title='JavaServer Pages'>JSP</abbr>"
     },
     "webDev": {
         "text": "Confección y publicación de páginas web"
@@ -73,7 +121,7 @@
         "aria-label": "Ver certificado",
         "html": "<span lang='en-GB'>Vanilla <abbr title='JavaScript'>JS</abbr></span> y publicación web"
     },
-    "AddTraining": {
+    "addTraining": {
         "aria-label": "Ver certificado",
         "text": "Formación complementaria"
     },
