@@ -42,7 +42,7 @@
             <aside class="other-links js-disabled" id="burger-nav"> <!-- JS ENABLED -->
                 <ul id="burger-links" data-i18n-attr="aria-label:burger" aria-label="<?= $L('burger'); ?>">
                     <li id="burger-btn-wrapper">
-                        <button id="burger-btn" aria-label="<?= $L('burgerBtn.aria-label.open'); ?>" aria-expanded="false" aria-pressed="false" type="button">
+                        <button id="burger-btn" aria-label="<?= $L('burgerBtn.aria-label.open'); ?>" aria-expanded="false" aria-pressed="false" type="button" aria-controls="burger-links">
                             <span id="burger-icon" class="icons-scale">
                                 <span id="burger-icon-top"></span>
                                 <span id="burger-icon-middle"></span>
@@ -52,14 +52,14 @@
                     </li>
                     <li id="github-icon">
                         <a href="<?= $path['social']['github']; ?>" target="_blank" rel="noopener noreferrer" aria-label="Github">
-                            <svg class="icons-color-2 icons-scale" role="img" aria-hidden="true" width="30" height="30" preserveAspectRatio="xMinYMin meet">
+                            <svg class="icons-color-2 icons-scale" aria-hidden="true" width="30" height="30" preserveAspectRatio="xMinYMin meet">
                                 <use href="img/sprite.svg#github" xlink:href="img/sprite.svg#github"></use>
                             </svg>
                         </a>
                     </li>
                     <li id="vercel-icon">
                         <a href="<?= $path['social']['vercel']; ?>" target="_blank" rel="noopener noreferrer" aria-label="Vercel">
-                            <svg class="icons-color-2 icons-scale" role="img" aria-hidden="true" width="30" height="30" preserveAspectRatio="xMinYMin meet">
+                            <svg class="icons-color-2 icons-scale" aria-hidden="true" width="30" height="30" preserveAspectRatio="xMinYMin meet">
                                 <use href="img/sprite.svg#vercel" xlink:href="img/sprite.svg#vercel"></use>
                             </svg>
                         </a>
@@ -71,14 +71,14 @@
                     <ul aria-label="Repository menu">
                         <li>
                             <a href="<?= $path['social']['github']; ?>" target="_blank" rel="noopener noreferrer" aria-label="Github">
-                                <svg class="icons-color-2 icons-scale" role="img" aria-hidden="true" width="28" height="28" preserveAspectRatio="xMinYMin meet">
+                                <svg class="icons-color-2 icons-scale" aria-hidden="true" width="28" height="28" preserveAspectRatio="xMinYMin meet">
                                     <use href="img/sprite.svg#github" xlink:href="img/sprite.svg#github"></use>
                                 </svg>
                             </a>
                         </li>
                         <li>
                             <a href="<?= $path['social']['vercel']; ?>" target="_blank" rel="noopener noreferrer" aria-label="Vercel">
-                                <svg class="icons-color-2 icons-scale" role="img" aria-hidden="true" width="30" height="30" preserveAspectRatio="xMinYMin meet">
+                                <svg class="icons-color-2 icons-scale" aria-hidden="true" width="30" height="30" preserveAspectRatio="xMinYMin meet">
                                     <use href="img/sprite.svg#vercel" xlink:href="img/sprite.svg#vercel"></use>
                                 </svg>
                             </a>

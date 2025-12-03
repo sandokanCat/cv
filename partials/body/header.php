@@ -1,6 +1,6 @@
 <header>
     <noscript> <!-- NOSCRIPT WARNING -->
-        <section id="noscript-warning" data-i18n="noscriptWarn">
+        <section id="noscript-warning" data-i18n="noscriptWarn" role="alert">
             <?= $H('noscriptWarn'); ?>
         </section>
     </noscript>
@@ -21,7 +21,7 @@
                         class="icons-scale" 
                         aria-label="<?= $label; ?>" 
                         type="button">
-                        <svg class="icons-scale" role="img" aria-hidden="true" width="40" height="40" preserveAspectRatio="xMinYMin meet">
+                        <svg class="icons-scale" aria-hidden="true" width="40" height="40" preserveAspectRatio="xMinYMin meet">
                             <use href="img/sprite.svg#<?= $localeCode; ?>" xlink:href="img/sprite.svg#<?= $localeCode; ?>"></use>
                         </svg>
                     </button>

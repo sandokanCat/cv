@@ -186,7 +186,7 @@
     </symbol>
 
     <!-- GITHUB ICON -->
-    <symbol id="github" role="img" aria-hidden="true" viewBox="0 0 20 20">
+    <symbol id="github" aria-hidden="true" viewBox="0 0 20 20">
         <g stroke="none" stroke-width="1">
             <g transform="translate(-140.000000, -7559.000000)">
                 <g transform="translate(56.000000, 160.000000)">
@@ -197,7 +197,7 @@
     </symbol>
 
     <!-- VERCEL ICON -->
-    <symbol id="vercel" role="img" aria-hidden="true" viewBox="0 0 74 64">
+    <symbol id="vercel" aria-hidden="true" viewBox="0 0 74 64">
         <path d="M37.5896 0.25L74.5396 64.25H0.639648L37.5896 0.25Z" fill="currentColor" />
     </symbol>
 
