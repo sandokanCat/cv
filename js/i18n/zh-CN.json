@@ -1,0 +1,199 @@
+{
+    "brandNick": {
+        "text": "sandokan.cat"
+    },
+    "brandName": {
+        "text": "Gonzalo Cabezas Núñez"
+    },
+    "brandRole": {
+        "text": "全栈网页开发者"
+    },
+    "brandCV": {
+        "text": "作品集与简历"
+    },
+
+    "title": {
+        "text": "{{brandNick}} | {{brandRole}}"
+    },
+    "description": {
+        "text": "{{brandName}} 的 {{brandCV}}，一名专注于现代技术并热爱网络安全的 {{brandRole}}"
+    },
+    "ogTitle": {
+        "text": "{{brandNick}} | {{brandRole}}"
+    },
+    "ogDescription": {
+        "text": "在寻找富有创意且高效的 {{brandRole}} 吗？来看看我的项目吧"
+    },
+    "ogImageAlt": {
+        "text": "{{brandNick}} | {{brandRole}}，{{brandCV}}"
+    },
+    "ldJsonWebName": {
+        "text": "{{brandNick}} | {{brandRole}}"
+    },
+    "ldJsonWebDescription": {
+        "text": "专注于现代技术并热爱网络安全的 {{brandRole}}。{{brandCV}}"
+    },
+    "ldJsonJobTitle": {
+        "text": "{{brandRole}}"
+    },
+    "ldJsonContactType": {
+        "text": "网页开发服务"
+    },
+
+    "noscriptWarn": {
+        "html": "<h3>🚨 哎呀！来了一位网络安全爱好者！<em lang='en-GB'>#NoJS = 😿</em></h3><p><strong>本网站完全基于 <span lang='en-GB'>Vanilla JavaScript</span></strong>，但我已为你适配了所有内容以便正常浏览</p>"
+    },
+    "darkBtn": {
+        "aria-label": "切换深色模式"
+    },
+    "portrait": {
+        "alt": "肖像"
+    },
+    "profile": {
+        "html": "网页开发者 <span lang='en-GB'>Fullstack</span>"
+    },
+    "biography": {
+        "html": "我热衷于编写简洁且功能完善的代码。我每天都在学习，无论是在学院还是自学，因为知识不会在下课铃响时结束。我喜欢通过“拆解”来理解事物（并让它们变得更好），因此 <span lang='en-GB'>Red Team</span> 深深吸引着我。我不走常规路线；我更喜欢用键盘与咖啡开辟自己的道路。我寻找能让我学习、贡献并留下印记的项目，不要浮夸，也不要空洞承诺。如果我不会，我就去研究；如果某件事激励我，我会做到最好。"
+    },
+    "languages": {
+        "text": "语言"
+    },
+    "catalan": {
+        "html": "加泰罗尼亚语 <svg class='icons-color-1' role='img' aria-label='母语水平' aria-hidden='false' width='124' height='18' preserveAspectRatio='xMinYMin meet'><use href='img/sprite.svg#native-lang'></use></svg>"
+    },
+    "spanish": {
+        "html": "西班牙语 <svg class='icons-color-1' role='img' aria-label='母语水平' aria-hidden='false' width='124' height='18' preserveAspectRatio='xMinYMin meet'><use href='img/sprite.svg#native-lang'></use></svg>"
+    },
+    "english": {
+        "html": "英语 <svg class='icons-color-1' role='img' aria-label='中级水平' aria-hidden='false' width='124' height='18' preserveAspectRatio='xMinYMin meet'><use href='img/sprite.svg#medium-lang'></use></svg>"
+    },
+    "contact": {
+        "text": "联系方式"
+    },
+    "mail": {
+        "aria-label": "发送电子邮件"
+    },
+    "mobile": {
+        "aria-label": "发送 WhatsApp 或拨打电话"
+    },
+    "linkedin": {
+        "aria-label": "访问 Linkedin 个人资料"
+    },
+    "discord": {
+        "aria-label": "添加好友"
+    },
+    "location": {
+        "aria-label": "位置"
+    },
+    "studies": {
+        "text": "学习经历"
+    },
+    "cybersec": {
+        "text": "网络安全"
+    },
+    "cyberIntro": {
+        "aria-label": "查看证书",
+        "text": "网络安全"
+    },
+    "cyberUsers": {
+        "aria-label": "查看证书",
+        "text": "用户网络安全"
+    },
+    "appDev": {
+        "text": "使用网页技术开发应用"
+    },
+    "JSONandAJAX": {
+        "html": "<abbr lang='en-GB' title='JavaScript Object Notation'>JSON</abbr> 与 <abbr lang='en-GB' title='Asynchronous JavaScript and XML'>AJAX</abbr>"
+    },
+    "PHPandMySQL": {
+        "html": "<abbr lang='en-GB' title='Hypertext Preprocessor'>PHP</abbr> 与 <abbr lang='en-GB' title='Structured Query Language'>MySQL</abbr>"
+    },
+    "JavaAndJSP": {
+        "html": "<span lang='en-GB'>Java</span> 与 <abbr lang='en-GB' title='JavaServer Pages'>JSP</abbr>"
+    },
+    "webDev": {
+        "text": "网页制作与发布"
+    },
+    "HTMLandCSS": {
+        "html": "<abbr lang='en-GB' title='Hypertext Markup Language'>HTML5</abbr> 与 <abbr lang='en-GB' title='Cascading Style Sheets'>CSS3</abbr>"
+    },
+    "JSandWP": {
+        "aria-label": "查看证书",
+        "html": "<span lang='en-GB'>Vanilla <abbr title='JavaScript'>JS</abbr></span> 与网页发布"
+    },
+    "addTraining": {
+        "aria-label": "查看证书",
+        "text": "补充培训"
+    },
+    "otherCert": {
+        "text": "其他证书"
+    },
+    "carouselCtrl": {
+        "aria-label": "轮播控件"
+    },
+    "carouselBack": {
+        "aria-label": "后退"
+    },
+    "carouselAdvance": {
+        "aria-label": "前进"
+    },
+    "UNEDaccess": {
+        "aria-label": "查看证书",
+        "text": "大学入学资格"
+    },
+    "ESO": {
+        "aria-label": "查看证书",
+        "html": "获得 <abbr lang='es-ES' title='Educación Secundaria Obligatoria'>ESO</abbr> 证书"
+    },
+    "workExp": {
+        "text": "工作经验"
+    },
+    "RRPP": {
+        "text": "公共关系"
+    },
+    "teamCoord": {
+        "text": "团队协调员"
+    },
+    "volunteer": {
+        "text": "志愿者"
+    },
+    "sorting": {
+        "text": "分类与包装"
+    },
+    "otherData": {
+        "text": "其他信息"
+    },
+    "downloadCV": {
+        "aria-label": "下载 PDF 简历"
+    },
+    "drivingLic": {
+        "text": "持有 B 类驾照与自备车辆"
+    },
+    "availability": {
+        "html": "在 <span lang='ca-ES'>巴塞罗那</span> 省内可完全出勤"
+    },
+    "portfolio": {
+        "text": "作品集"
+    },
+    "burger": {
+        "aria-label": "仓库菜单"
+    },
+    "burgerBtn": {
+        "aria-label": {
+            "open": "打开菜单",
+            "close": "关闭菜单"
+        }
+    },
+    "estopa": {
+        "alt": "Estopa 粉丝页面。未完成"
+    },
+    "cookies": {
+        "html": "🍪🐱 <strong>sandokan.cat</strong> 尊重你的隐私。<em>我们不跟踪</em>，仅统计匿名访问 —（如果你接受）。<button id='accept-cookies' class='icons-scale' aria-label='继续浏览'>接受</button> <button id='reject-cookies' aria-label='我不在乎 cookies' type='button'>拒绝</button> | <a id='info-cookies' href='https://zh.wikipedia.org/wiki/Cookie' target='_blank' rel='noopener noreferrer' aria-label='更多信息'>什么是 <span lang='en-GB'>cookie</span>？</a>"
+    },
+    "modalIframe": {
+        "aria-label": "官方证书"
+    },
+    "modalClose": {
+        "aria-label": "关闭"
+    }
+}

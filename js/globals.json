@@ -5,7 +5,8 @@
             "es": ["es-ES", "Español"],
             "en": ["en-GB", "English"],
             "ru": ["ru-RU", "Русский"],
-            "ar": ["ar-SA", "العربية"]
+            "ar": ["ar-SA", "العربية"],
+            "zh": ["zh-CN", "中文（简体）"]
         },
         "inCase": "en-GB",
         "rtl": [
