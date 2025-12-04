@@ -29,17 +29,6 @@ $dnsPrefetch = array_map(
     fn($url) => preg_replace('#^https?://#','',$url), $path['social'] ?: []
 );
 
-// SEARCH ENGINE VERIFICATION META TAGS
-$metaKeys    = [
-    // INTERNATIONAL
-    "google" => "google-site-verification",
-    "bing"   => "msvalidate.01",
-
-    // RUSSIA
-    "yandex" => "yandex-verification",
-    // "mailru" => "mailru-domain",
-];
-
 // EXPLODE NAMES
 [$firstName, $lastName] = array_pad(explode(' ', ($brand['name'] ?? ''), 2), 2, '');
 $shortName = strtolower($firstName);
@@ -50,12 +39,14 @@ if (!is_array($pathSocial)) $pathSocial = [];
 $sameAs = array_values(array_map(fn($k) => $pathSocial[$k] ?? '', ['github', 'vercel', 'linkedin', 'discord', 'infojobs']));
 
 // TECHNICAL SKILLS
-$knowsAbout  = array_merge(
-    is_array($tech['languages'] ?? null) ? $tech['languages'] : [],
-    is_array($tech['tools'] ?? null)     ? $tech['tools']     : [],
-    is_array($tech['systems'] ?? null)   ? $tech['systems']   : [],
-);
-if (!is_array($knowsAbout)) $knowsAbout = [];
+$languages = is_array($tech['languages'] ?? null) ? $tech['languages'] : [];
+$tools     = is_array($tech['tools']     ?? null) ? $tech['tools']     : [];
+$systems   = is_array($tech['systems']   ?? null) ? $tech['systems']   : [];
+$knowsAbout = [
+    "languages" => $languages,
+    "tools"     => $tools,
+    "systems"   => $systems
+];
 
 // ACADEMIES
 $academies = $academy;
