@@ -1,7 +1,11 @@
 <head>
     <!-- ENCODING, BASE & VIEWPORT -->
     <meta charset="utf-8">
-    <base href="/">
+    <?php if ($isDev): ?>
+        <base href="/00_CV/">
+    <?php else: ?>
+        <base href="/">
+    <?php endif; ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
     <!-- TITLE & DESCRIPTION -->

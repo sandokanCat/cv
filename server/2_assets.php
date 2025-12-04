@@ -5,6 +5,21 @@ declare(strict_types=1);
 // NECESSARY VARIABLES
 // ----------------------------
 
+// FOR DEVELOPMENT
+$isDev = !empty($_SERVER['HTTP_HOST']) && (
+    str_starts_with($_SERVER['HTTP_HOST'], 'localhost') ||
+    str_starts_with($_SERVER['HTTP_HOST'], '127.0.0.1')
+);
+if ($isDev) {
+    ini_set('display_errors', '1');
+    ini_set('display_startup_errors', '1');
+    error_reporting(E_ALL);
+} else {
+    ini_set('display_errors', '0');
+    ini_set('display_startup_errors', '0');
+    error_reporting(E_ALL);
+}
+
 // BRAND AND CANONICAL URLs
 $brandUrl = $brand['url'];
 $canonicalUrl = $brandUrl . ($currentLang !== 'en-GB' ? "$currentLang/" : '');
