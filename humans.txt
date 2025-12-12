@@ -8,14 +8,17 @@ Contact: +34 631306583
 
 /* TECH */
 
-XML
-XHTML
 HTML5
 CSS3
 Vanilla JS
 JSON
 AJAX
 PHP
+MySQL
+MariaDB
+XML
+XHTML
+Apache
 
 
 /* SEE */

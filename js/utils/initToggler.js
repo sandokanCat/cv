@@ -1,8 +1,8 @@
-// OWN EXTERNAL IMPORTS
-import { default as logger } from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
-
-// INTERNAL IMPORTS
-import { reloadDynamicContent } from "./index.js";
+// IMPORTS
+import {
+    logger,
+    reloadDynamicContent
+} from "./index.js";
 
 // COMMON TOOGLE MENU FUNCTION
 export async function initToggler({

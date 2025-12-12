@@ -3,6 +3,13 @@
         <h4 data-i18n="workExp"><?= $T('workExp'); ?></h4>
         <div id="workExp">
             <article>
+                <h5 data-i18n="backDev"><?= $H('backDev'); ?></h5>
+                <h6 lang="es-ES">Escuela de Negocios y Administración de Empresas</h6>
+                <ol>
+                    <li data-i18n="appDev"><?= $T('appDev'); ?></li>
+                </ol>
+            </article>
+            <article>
                 <h5 data-i18n="RRPP"><?= $T('RRPP'); ?></h5>
                 <h6 lang="en-GB">Sunlife</h6>
                 <ol>
@@ -51,14 +58,14 @@
                         </button>
                     </li>
                     <li id="github-icon">
-                        <a href="<?= $path['social']['github']; ?>" target="_blank" rel="noopener noreferrer" aria-label="Github">
+                        <a href="<?= htmlspecialchars($path['social']['github'], ENT_QUOTES | ENT_HTML5); ?>" target="_blank" rel="noopener noreferrer" aria-label="Github">
                             <svg class="icons-color-2 icons-scale" aria-hidden="true" width="30" height="30" preserveAspectRatio="xMinYMin meet">
                                 <use href="img/sprite.svg#github" xlink:href="img/sprite.svg#github"></use>
                             </svg>
                         </a>
                     </li>
                     <li id="vercel-icon">
-                        <a href="<?= $path['social']['vercel']; ?>" target="_blank" rel="noopener noreferrer" aria-label="Vercel">
+                        <a href="<?= htmlspecialchars($path['social']['vercel'], ENT_QUOTES | ENT_HTML5); ?>" target="_blank" rel="noopener noreferrer" aria-label="Vercel">
                             <svg class="icons-color-2 icons-scale" aria-hidden="true" width="30" height="30" preserveAspectRatio="xMinYMin meet">
                                 <use href="img/sprite.svg#vercel" xlink:href="img/sprite.svg#vercel"></use>
                             </svg>
@@ -70,14 +77,14 @@
                 <aside id="menu-fallback">
                     <ul aria-label="Repository menu">
                         <li>
-                            <a href="<?= $path['social']['github']; ?>" target="_blank" rel="noopener noreferrer" aria-label="Github">
+                            <a href="<?= htmlspecialchars($path['social']['github'], ENT_QUOTES | ENT_HTML5); ?>" target="_blank" rel="noopener noreferrer" aria-label="Github">
                                 <svg class="icons-color-2 icons-scale" aria-hidden="true" width="28" height="28" preserveAspectRatio="xMinYMin meet">
                                     <use href="img/sprite.svg#github" xlink:href="img/sprite.svg#github"></use>
                                 </svg>
                             </a>
                         </li>
                         <li>
-                            <a href="<?= $path['social']['vercel']; ?>" target="_blank" rel="noopener noreferrer" aria-label="Vercel">
+                            <a href="<?= htmlspecialchars($path['social']['vercel'], ENT_QUOTES | ENT_HTML5); ?>" target="_blank" rel="noopener noreferrer" aria-label="Vercel">
                                 <svg class="icons-color-2 icons-scale" aria-hidden="true" width="30" height="30" preserveAspectRatio="xMinYMin meet">
                                     <use href="img/sprite.svg#vercel" xlink:href="img/sprite.svg#vercel"></use>
                                 </svg>
@@ -90,7 +97,7 @@
         </div>
         <div id="portfolio">
             <?php require_once __DIR__."/../../assets/signature.php"; // LOAD SIGNATURE ?>
-            <a href="https://sandokanCat.github.io/estopa/" target="_blank" data-status>
+            <a href="https://<?= htmlspecialchars($brand['user'], ENT_QUOTES | ENT_HTML5); ?>.github.io/estopa/" target="_blank" data-status>
                 <img data-i18n-attr="alt:estopa" src="img/portfolio/estopa.png" decoding="async" loading="lazy" alt="<?= $A('estopa'); ?>">
             </a>
         </div>

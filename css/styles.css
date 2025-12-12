@@ -2,7 +2,7 @@
 @import url("base/variables.css");
 
 /* GENERIC */
-@import url("https://open-utils-dev-sandokan-cat.vercel.app/css/custom-reset.css");
+@import url("base/custom-reset.css");
 
 /* ELEMENTS */
 @import url("base/base.css");
@@ -30,3 +30,4 @@
 @import url("states/cookies.css");
 @import url("states/noscript.css");
 @import url("states/signature.css");
+@import url("states/rtl.css");

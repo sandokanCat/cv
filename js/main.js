@@ -1,6 +1,3 @@
-// 🐱 OWN EXTERNAL IMPORTS
-import { default as logger } from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
-
 // 📥 INTERNAL IMPORTS ORDERED BY LAYER: CONFIG → UTILS → COMPONENTS
 import {
     i18nConfig,
@@ -9,6 +6,7 @@ import {
     getModalRefs*/
 } from './config.js';
 import {
+    logger,
     replaceClass,
     getLocale,
     initI18n,
@@ -51,7 +49,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     manageCookies({ ...cookiesConfig });
 
     // openModal({getModalRefs(), locale});
-    sendMail();
+    // sendMail();
 });
 
 logger.gp("easter egg", () => {
@@ -79,11 +77,15 @@ logger.gp("easter egg", () => {
 });
 
 // A LITTE JOKE MORE
+const validTitles = [
+    "sandokan.cat | Fullstack Web Developer",
+    "sandokan.cat | Desarrollador Web Fullstack",
+    "sandokan.cat | Desenvolupador Web Fullstack",
+    "sandokan.cat | Веб-разработчик полного стека",
+    "sandokan.cat | مطور ويب متكامل",
+    "sandokan.cat | 全栈网页开发者"
+];
 logger.as(
-    (document.title === "sandokan.cat | Fullstack Web Developer") || 
-    (document.title === "sandokan.cat | Desarrollador Web Fullstack") || 
-    (document.title === "sandokan.cat | Desenvolupador Web Fullstack") ||
-    (document.title === "sandokan.cat | Fullstack веб-разработчик") ||
-    (document.title === "sandokan.cat | Fullstack مطور ويب"),
+    validTitles.includes(document.title),
     `❌ ¡Meow alert! El título actual es '${document.title}'. ¡Git push urgente! 🐾`
-)
+);

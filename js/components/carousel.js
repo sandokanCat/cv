@@ -1,9 +1,9 @@
-// OWN EXTERNAL IMPORTS
-import { default as logger } from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
-import { validateCarousel } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateCarousel.js"; // FETCH + VALIDATE JSON STRUCTURE
-
-// INTERNAL IMPORTS
-import { getLocale } from "../utils/index.js"; // USE GLOBAL i18n LOCALE DETECTION
+// IMPORTS
+import {
+    logger,
+    validateCarousel,
+    getLocale
+} from "../utils/index.js";
 
 // JSON FILE PATH
 const json = "./js/data/carousel.json";
@@ -48,6 +48,8 @@ export async function initCarousel({
     locale = getLocale(),
     refs = {}
 }) {
+    const isRTL = document.documentElement.dir === "rtl";
+
 	try {
 		// FETCH + VALIDATE IMAGES (IF NOT PASSED MANUALLY)
 		const validImgs = imgs || await loadCarouselData();
@@ -101,27 +103,42 @@ export async function initCarousel({
 		});
 
 		// MOVE TRACK + UPDATE SCROLLBAR
-		const update = () => {
-			trackSelector.style.transform = `translateX(${-index * 100}%)`;
-			const width = 100 / validImgs.length;
-			scrollbarSelector.style.setProperty('--scrollbar-offset', `${index * width}%`);
-			scrollbarSelector.style.setProperty('--scrollbar-width', `${width}%`);
-			clearTimeout(timer);
-			timer = setTimeout(() => {
-				index = (index + 1) % validImgs.length;
-				update();
-			}, interval);
-		};
+        const update = () => {
+            // RTL SUPPORT: REVERSE TRANSLATION AND SCROLLBAR
+            const dirMultiplier = isRTL ? 1 : -1;
+            trackSelector.style.transform = `translateX(${dirMultiplier * index * 100}%)`;
+
+            const width = 100 / validImgs.length;
+            const offset = index * width;
+
+            if (isRTL) scrollbarSelector.style.setProperty('--scrollbar-offset', `calc(100% - ${offset}% - ${width}%)`);
+            else scrollbarSelector.style.setProperty('--scrollbar-offset', `${offset}%`);
+
+            scrollbarSelector.style.setProperty('--scrollbar-width', `${width}%`);
+
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                index = isRTL
+                    ? (index - 1 + validImgs.length) % validImgs.length
+                    : (index + 1) % validImgs.length;
+
+                update();
+            }, interval);
+        };
 
 		// MANUAL BUTTON CONTROLS
 		advanceBtnSelector?.addEventListener("click", () => {
-			index = (index + 1) % validImgs.length;
-			update();
-		});
-		backBtnSelector?.addEventListener("click", () => {
-			index = (index - 1 + validImgs.length) % validImgs.length;
-			update();
-		});
+            index = isRTL
+                ? (index - 1 + validImgs.length) % validImgs.length
+                : (index + 1) % validImgs.length;
+            update();
+        });
+        backBtnSelector?.addEventListener("click", () => {
+            index = isRTL
+                ? (index + 1) % validImgs.length
+                : (index - 1 + validImgs.length) % validImgs.length; 
+            update();
+        });
 
 		// AUTOSCROLL PAUSE ON HOVER
 		imgWrapperSelector.addEventListener("mouseenter", () => clearTimeout(timer));

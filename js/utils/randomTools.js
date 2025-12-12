@@ -1,5 +1,5 @@
-// OWN EXTERNAL IMPORTS
-import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js"; // FETCH + VALIDATE JSON STRUCTURE
+// IMPORTS
+import { validateJSON } from "./index.js";
 
 // LOAD + VALIDATE LOCALIZED ARRAY FROM JSON
 export async function loadLocalizedArray({

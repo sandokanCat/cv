@@ -8,7 +8,7 @@
     <nav>
         <ul class="js-disabled">
             <li> <!-- DARK THEME -->
-                <button data-i18n-attr="aria-label:darkBtn" id="theme-dark-btn" class="dark-mode-btn icons-scale" aria-label="<?= $L('darkBtn', 'aria-label'); ?>" type="button">🌓</button>
+                <button data-i18n-attr="aria-label:darkBtn" id="theme-dark-btn" class="icons-scale" aria-label="<?= $L('darkBtn', 'aria-label'); ?>" type="button">🌓</button>
             </li>
 
             <!-- LANG MENU -->
@@ -21,7 +21,7 @@
                         class="icons-scale" 
                         aria-label="<?= $label; ?>" 
                         type="button">
-                        <svg class="icons-scale" aria-hidden="true" width="40" height="40" preserveAspectRatio="xMinYMin meet">
+                        <svg aria-hidden="true" width="40" height="40" preserveAspectRatio="xMinYMin meet">
                             <use href="img/sprite.svg#<?= $localeCode; ?>" xlink:href="img/sprite.svg#<?= $localeCode; ?>"></use>
                         </svg>
                     </button>

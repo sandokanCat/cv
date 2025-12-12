@@ -4,6 +4,6 @@
         <span id="signature-year">
             <noscript><?= htmlspecialchars(gmdate('Y'), ENT_QUOTES | ENT_HTML5); ?></noscript>
         </span>
-        <?= $brand['nick']; ?>
+        <?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?>
     </strong>
 </p>

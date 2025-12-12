@@ -1,9 +1,11 @@
-// OWN EXTERNAL IMPORTS
-import { default as logger } from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
-import { validateJSON } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateJSON.js"; // FETCH + VALIDATE JSON STRUCTURE
-
-// INTERNAL IMPORTS
+// IMPORTS
 import {
+    logger,
+    validateJSON
+} from "./index.js";
+
+import {
+    initCarousel,
     updateCarouselAlts,
     reloadRandomMsg,
     getBurgerConfig,
@@ -20,6 +22,7 @@ const reloadedLocales = new Set();
 export async function reloadDynamicContent(locale) {
     if (reloadedLocales.has(locale)) return;
 
+    // if (typeof initCarousel === 'function') await initCarousel({ locale });
     if (typeof updateCarouselAlts === 'function') await updateCarouselAlts(locale);
     if (typeof reloadRandomMsg === 'function') await reloadRandomMsg(locale);
     if (typeof getBurgerConfig === 'function') await getBurgerConfig(locale);
@@ -118,6 +121,18 @@ export const getI18nData = async (locale) => {
 const getNestedValue = (obj, key, fallback = "") =>
     key.split(".").reduce((acc, part) => (acc && typeof acc === "object") ? acc[part] : undefined, obj) ?? fallback;
 
+// INTERPOLATE BRAND PLACEHOLDERS
+const interpolateBrand = (str, brand = {}, locale = 'en-GB') => {
+    if (typeof str !== 'string') return str;
+
+    return str.replace(/\{\{brand\.([a-zA-Z0-9_]+)\}\}/g, (_, key) => {
+        if (!(key in brand)) return `{{brand.${key}}}`;
+        const val = brand[key];
+        if (typeof val === 'object') return val[locale] ?? Object.values(val)[0] ?? '';
+        return val;
+    });
+};
+
 // INIT i18n TO TRANSLATE PAGE
 export const initI18n = async ({
     root = document.documentElement,
@@ -143,10 +158,14 @@ export const initI18n = async ({
         root.setAttribute("dir", rtl.includes(base) ? "rtl" : "ltr");
 
         // TRANSLATE PAGE TITLE
-        const titleValue = getNestedValue(translations, "title");
         const titleEl = root.querySelector(titleSelector);
-        if (!titleEl) logger.wa(`TRANSLATION ${titleSelector} NOT FOUND for locale ${resolvedLocale}`);
-        else if (titleEl && titleValue) titleEl.textContent = titleValue?.text ?? titleValue ?? "";
+        if (!titleEl) {
+            logger.wa(`TRANSLATION ${titleSelector} NOT FOUND for locale ${resolvedLocale}`);
+        } else {
+            const roleObj = window.GLOBALS?.brand?.role ?? '';
+            const role = typeof roleObj === 'object' ? roleObj[resolvedLocale] ?? Object.values(roleObj)[0] : roleObj;
+            if (role) document.title = `${BRAND_NICK} | ${role}`;
+        }
 
         // TRANSLATE CONTENT
         root.querySelectorAll(textSelector).forEach(el => {
@@ -154,9 +173,12 @@ export const initI18n = async ({
             const value = getNestedValue(translations, key, "");
 
             if (value === "") logger.wa(`TRANSLATION KEY NOT FOUND: ${key} for locale ${resolvedLocale}`);
-            
-            if (value && typeof value === "object") el.innerHTML = value.html ?? value.text ?? "";
-            else el.textContent = value;
+            else if (value && typeof value === "object") {
+                const content = value.html ?? value.text ?? "";
+                el.innerHTML = interpolateBrand(content, window.GLOBALS?.brand, resolvedLocale);
+            } else {
+                el.textContent = interpolateBrand(value, window.GLOBALS?.brand, resolvedLocale);
+            }
         });
 
         // TRANSLATE ATTRIBUTES
@@ -167,9 +189,9 @@ export const initI18n = async ({
             else attrRaw.split(",").forEach(pair => {
                 const [attr, key] = pair.split(":").map(s => s.trim());
                 const nested = getNestedValue(translations, key, {});
-                const value = (nested && typeof nested === "object") ? nested[attr] : nested;
+                let value = (nested && typeof nested === "object") ? nested[attr] : nested;
 
-                if (value) el.setAttribute(attr, value);
+                if (value) el.setAttribute(attr, interpolateBrand(value, window.GLOBALS?.brand, resolvedLocale));
                 else logger.wa(`ATTRIBUTE TRANSLATION MISSING: ${attr} for key ${key} in locale ${resolvedLocale}`);
             });
         });

@@ -1,6 +1,6 @@
 # ADD OPEN-UTILS REPO AS SUBMODULE
 [submodule "open-utils"]
-    path = app/open-utils
+    path = public/open-utils
     url = https://github.com/sandokanCat/open-utils
     branch = main
     ignore = dirty

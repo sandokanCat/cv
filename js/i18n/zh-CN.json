@@ -1,45 +1,4 @@
 {
-    "brandNick": {
-        "text": "sandokan.cat"
-    },
-    "brandName": {
-        "text": "Gonzalo Cabezas Núñez"
-    },
-    "brandRole": {
-        "text": "全栈网页开发者"
-    },
-    "brandCV": {
-        "text": "作品集与简历"
-    },
-
-    "title": {
-        "text": "{{brandNick}} | {{brandRole}}"
-    },
-    "description": {
-        "text": "{{brandName}} 的 {{brandCV}}，一名专注于现代技术并热爱网络安全的 {{brandRole}}"
-    },
-    "ogTitle": {
-        "text": "{{brandNick}} | {{brandRole}}"
-    },
-    "ogDescription": {
-        "text": "在寻找富有创意且高效的 {{brandRole}} 吗？来看看我的项目吧"
-    },
-    "ogImageAlt": {
-        "text": "{{brandNick}} | {{brandRole}}，{{brandCV}}"
-    },
-    "ldJsonWebName": {
-        "text": "{{brandNick}} | {{brandRole}}"
-    },
-    "ldJsonWebDescription": {
-        "text": "专注于现代技术并热爱网络安全的 {{brandRole}}。{{brandCV}}"
-    },
-    "ldJsonJobTitle": {
-        "text": "{{brandRole}}"
-    },
-    "ldJsonContactType": {
-        "text": "网页开发服务"
-    },
-
     "noscriptWarn": {
         "html": "<h3>🚨 哎呀！来了一位网络安全爱好者！<em lang='en-GB'>#NoJS = 😿</em></h3><p><strong>本网站完全基于 <span lang='en-GB'>Vanilla JavaScript</span></strong>，但我已为你适配了所有内容以便正常浏览</p>"
     },
@@ -50,7 +9,7 @@
         "alt": "肖像"
     },
     "profile": {
-        "html": "网页开发者 <span lang='en-GB'>Fullstack</span>"
+        "text": "{{brand.role}}"
     },
     "biography": {
         "html": "我热衷于编写简洁且功能完善的代码。我每天都在学习，无论是在学院还是自学，因为知识不会在下课铃响时结束。我喜欢通过“拆解”来理解事物（并让它们变得更好），因此 <span lang='en-GB'>Red Team</span> 深深吸引着我。我不走常规路线；我更喜欢用键盘与咖啡开辟自己的道路。我寻找能让我学习、贡献并留下印记的项目，不要浮夸，也不要空洞承诺。如果我不会，我就去研究；如果某件事激励我，我会做到最好。"
@@ -92,37 +51,33 @@
         "text": "网络安全"
     },
     "cyberIntro": {
-        "aria-label": "查看证书",
         "text": "网络安全"
     },
     "cyberUsers": {
-        "aria-label": "查看证书",
         "text": "用户网络安全"
     },
     "appDev": {
-        "text": "使用网页技术开发应用"
+        "text": "使用网络技术进行应用开发"
     },
-    "JSONandAJAX": {
-        "html": "<abbr lang='en-GB' title='JavaScript Object Notation'>JSON</abbr> 与 <abbr lang='en-GB' title='Asynchronous JavaScript and XML'>AJAX</abbr>"
-    },
-    "PHPandMySQL": {
-        "html": "<abbr lang='en-GB' title='Hypertext Preprocessor'>PHP</abbr> 与 <abbr lang='en-GB' title='Structured Query Language'>MySQL</abbr>"
-    },
-    "JavaAndJSP": {
-        "html": "<span lang='en-GB'>Java</span> 与 <abbr lang='en-GB' title='JavaServer Pages'>JSP</abbr>"
+    "network": {
+        "text": "网络架构"
     },
     "webDev": {
-        "text": "网页制作与发布"
+        "text": "网页的创建与发布"
     },
-    "HTMLandCSS": {
-        "html": "<abbr lang='en-GB' title='Hypertext Markup Language'>HTML5</abbr> 与 <abbr lang='en-GB' title='Cascading Style Sheets'>CSS3</abbr>"
+    "responsive": {
+        "text": "响应式网页设计"
     },
-    "JSandWP": {
-        "aria-label": "查看证书",
-        "html": "<span lang='en-GB'>Vanilla <abbr title='JavaScript'>JS</abbr></span> 与网页发布"
+    "a11y": {
+        "text": "网页无障碍"
+    },
+    "seo": {
+        "text": "搜索引擎优化（SEO）"
+    },
+    "publi": {
+        "text": "网页发布"
     },
     "addTraining": {
-        "aria-label": "查看证书",
         "text": "补充培训"
     },
     "otherCert": {
@@ -138,16 +93,20 @@
         "aria-label": "前进"
     },
     "UNEDaccess": {
-        "aria-label": "查看证书",
         "text": "大学入学资格"
     },
     "ESO": {
-        "aria-label": "查看证书",
         "html": "获得 <abbr lang='es-ES' title='Educación Secundaria Obligatoria'>ESO</abbr> 证书"
+    },
+    "seeCertificate": {
+        "aria-label": "查看证书"
     },
     "workExp": {
         "text": "工作经验"
     },
+    "backDev": {
+        "html": "后端网络开发者 <span lang='en-GB'>Backend</span>"
+    },    
     "RRPP": {
         "text": "公共关系"
     },
@@ -188,7 +147,7 @@
         "alt": "Estopa 粉丝页面。未完成"
     },
     "cookies": {
-        "html": "🍪🐱 <strong>sandokan.cat</strong> 尊重你的隐私。<em>我们不跟踪</em>，仅统计匿名访问 —（如果你接受）。<button id='accept-cookies' class='icons-scale' aria-label='继续浏览'>接受</button> <button id='reject-cookies' aria-label='我不在乎 cookies' type='button'>拒绝</button> | <a id='info-cookies' href='https://zh.wikipedia.org/wiki/Cookie' target='_blank' rel='noopener noreferrer' aria-label='更多信息'>什么是 <span lang='en-GB'>cookie</span>？</a>"
+        "html": "尊重你的隐私。<em>我们不跟踪</em>，仅统计匿名访问 —（如果你接受）。<button id='accept-cookies' class='icons-scale' aria-label='继续浏览'>接受</button> <button id='reject-cookies' aria-label='我不在乎 cookies' type='button'>拒绝</button> | <a id='info-cookies' href='https://zh.wikipedia.org/wiki/Cookie' target='_blank' rel='noopener noreferrer' aria-label='更多信息'>什么是 <span lang='en-GB'>cookie</span>？</a>"
     },
     "modalIframe": {
         "aria-label": "官方证书"

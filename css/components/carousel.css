@@ -9,14 +9,14 @@
     list-style: none;
 }
 .carousel-track li {
-    flex: 0 0 100%;
+    flex: 0 0 100%
 }
 .carousel-track img {
     display: block;
     width: 100%;
     aspect-ratio: 877 / 619;
     object-fit: contain;
-    cursor: pointer;
+    /* cursor: pointer; */
     filter: var(--imgs-filter);
 }
 
@@ -28,7 +28,7 @@
 .carousel-track {
     display: flex;
     flex-direction: row;
-    margin: 0;
+    margin: 0 !important;
     gap: 0;
 }
 .carousel-imgs {

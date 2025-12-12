@@ -80,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="<?= htmlspecialchars($currentLang, ENT_QUOTES | ENT_HTML5); ?>" dir="<?= htmlspecialchars($dir, ENT_QUOTES | ENT_HTML5); ?>" data-theme="light">
     
 <head>
-    <title><?= $brand['nick'] ;?> | Contact</title>
+    <title><?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?> | Contact</title>
 
     <?php require_once __DIR__."/../noindex.php"; // LOAD NOINDEX/NOFOLLOW HEAD ?>
 

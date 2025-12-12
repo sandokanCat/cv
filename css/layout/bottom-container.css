@@ -13,6 +13,9 @@
 #workExp li {
     color: var(--body-txt);
 }
+#workExp h5 span {
+    text-transform: uppercase;
+}
 .others {
     display: flex;
     justify-content: center;

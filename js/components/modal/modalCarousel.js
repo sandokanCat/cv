@@ -1,7 +1,5 @@
-// OWN EXTERNAL IMPORTS
-import { default as logger } from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
-
-// INTERNAL IMPORTS
+// IMPORTS
+import { logger } from "../../utils/index.js";
 import { reloadCarousel } from "../carousel.js";
 
 // BUILD & INIT NEW CAROUSEL IN MODAL

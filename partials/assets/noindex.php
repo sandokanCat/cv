@@ -24,7 +24,7 @@
 <meta name="theme-color" content="#1d2a42">
 
 <!-- AUTHORSHIP -->
-<meta name="copyright" content="© <?= htmlspecialchars(gmdate('Y'), ENT_QUOTES | ENT_HTML5); ?>  <?= $brand['nick']; ?>">
+<meta name="copyright" content="© <?= htmlspecialchars(gmdate('Y'), ENT_QUOTES | ENT_HTML5); ?>  <?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?>">
 <link type="text/plain" rel="author" href="humans.txt">
 
 <!-- SEARCH ENGINE VERIFICATION -->

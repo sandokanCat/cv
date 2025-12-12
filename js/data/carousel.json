@@ -11,8 +11,9 @@
             "en-GB": "Front-End certificate",
             "es-ES": "Certificado de Front-End",
             "ca-ES": "Certificat de Front-End",
-            "ru-RU": "Сертификат Front-End",
-            "ar-SA": "شهادة Front-End"
+            "ru-RU": "Сертификат по фронтенд-разработке",
+            "ar-SA": "شهادة الواجهة الأمامية",
+            "zh-CN": "前端证书"
         }
     },
     {
@@ -28,7 +29,8 @@
             "es-ES": "Certificado de Desarrollo Web",
             "ca-ES": "Certificat de desenvolupament web",
             "ru-RU": "Сертификат по веб-разработке",
-            "ar-SA": "شهادة تطوير الويب"
+            "ar-SA": "شهادة تطوير الويب",
+            "zh-CN": "Web 开发证书"
         }
     },
     {
@@ -42,9 +44,9 @@
         "alt": {
             "en-GB": "HTML certificate",
             "es-ES": "Certificado de HTML",
-            "ca-ES": "Certificat d'HTML",
             "ru-RU": "Сертификат HTML",
-            "ar-SA": "شهادة HTML"
+            "ar-SA": "شهادة HTML",
+            "zh-CN": "HTML 证书"
         }
     },
     {
@@ -60,7 +62,8 @@
             "es-ES": "Certificado de CSS",
             "ca-ES": "Certificat de CSS",
             "ru-RU": "Сертификат CSS",
-            "ar-SA": "شهادة CSS"
+            "ar-SA": "شهادة CSS",
+            "zh-CN": "CSS 证书"
         }
     },
     {
@@ -76,7 +79,8 @@
             "es-ES": "Certificado de JavaScript",
             "ca-ES": "Certificat de JavaScript",
             "ru-RU": "Сертификат JavaScript",
-            "ar-SA": "شهادة JavaScript"
+            "ar-SA": "شهادة جافاسكريبت",
+            "zh-CN": "JavaScript 证书"
         }
     },
     {
@@ -92,7 +96,8 @@
             "es-ES": "Certificado de JavaScript intermedio",
             "ca-ES": "Certificat de JavaScript intermedi",
             "ru-RU": "Сертификат JavaScript среднего уровня",
-            "ar-SA": "شهادة JavaScript المتوسطة"
+            "ar-SA": "شهادة جافاسكريبت المتوسطة",
+            "zh-CN": "JavaScript 中级证书"
         }
     }
 ]

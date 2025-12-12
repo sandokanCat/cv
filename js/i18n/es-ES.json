@@ -1,45 +1,4 @@
 {
-    "brandNick": {
-        "text": "sandokan.cat"
-    },
-    "brandName": {
-        "text": "Gonzalo Cabezas Núñez"
-    },
-    "brandRole": {
-        "text": "Desarrollador Web Fullstack"
-    },
-    "brandCV": {
-        "text": "Portafolio y currículum"
-    },
-
-    "title": {
-        "text": "{{brandNick}} | {{brandRole}}"
-    },
-    "description": {
-        "text": "{{brandCV}} de {{brandName}}, un {{brandRole}} centrado en tecnologías modernas y apasionado por la ciberseguridad"
-    },
-    "ogTitle": {
-        "text": "{{brandNick}} | {{brandRole}}"
-    },
-    "ogDescription": {
-        "text": "¿Buscas un {{brandRole}} creativo y eficiente? Descubre mis proyectos"
-    },
-    "ogImageAlt": {
-        "text": "{{brandNick}} | {{brandRole}}, {{brandCV}}"
-    },
-    "ldJsonWebName": {
-        "text": "{{brandNick}} | {{brandRole}}"
-    },
-    "ldJsonWebDescription": {
-        "text": "{{brandRole}} centrado en tecnologías modernas y apasionado por la ciberseguridad. {{brandCV}}"
-    },
-    "ldJsonJobTitle": {
-        "text": "{{brandRole}}"
-    },
-    "ldJsonContactType": {
-        "text": "Servicios de desarrollo web"
-    },
-
     "noscriptWarn": {
         "html": "<h3>🚨 ¡Ups! ¡Ha llegado un enamorado de la ciberseguridad! <em lang='en-GB'>#NoJS = 😿</em></h3><p><strong>Esta web es 100% <span lang='en-GB'>Vanilla JavaScript</span></strong>, pero he adaptado todo el contenido para que puedas verlo</p>"
     },
@@ -50,7 +9,7 @@
         "alt": "Retrato"
     },
     "profile": {
-        "html": "Desarrollador Web <span lang='en-GB'>Fullstack</span>"
+        "text": "{{brand.role}}"
     },
     "biography": {
         "html": "Me apasiona el código limpio y funcional. Me formo a diario, tanto en academias como por libre, porque el conocimiento no se acaba cuando suena el timbre. Me gusta romper cosas para entenderlas (y arreglarlas mejor), por eso el <span lang='en-GB'>Red Team</span> me llama fuerte. No sigo el camino estándar; prefiero trazar el mío con teclado y café. Busco proyectos donde pueda aprender, aportar y dejar huella, sin postureos ni promesas vacías. Si algo no lo sé, lo investigo. Y si algo me motiva, no paro hasta hacerlo bien."
@@ -92,37 +51,33 @@
         "text": "Ciberseguridad"
     },
     "cyberIntro": {
-        "aria-label": "Ver certificado",
         "text": "Ciberseguridad"
     },
     "cyberUsers": {
-        "aria-label": "Ver certificado",
         "text": "Ciberseguridad para usuarios"
     },
     "appDev": {
-        "text": "Desarrollo de aplicaciones con tecnologias web"
+        "text": "Desarrollo de aplicaciones con tecnologías web"
     },
-    "JSONandAJAX": {
-        "html": "<abbr lang='en-GB' title='JavaScript Object Notation'>JSON</abbr> y <abbr lang='en-GB' title='Asynchronous JavaScript and XML'>AJAX</abbr>"
-    },
-    "PHPandMySQL": {
-        "html": "<abbr lang='en-GB' title='Hypertext Preprocessor'>PHP</abbr> y <abbr lang='en-GB' title='Structured Query Language'>MySQL</abbr>"
-    },
-    "JavaAndJSP": {
-        "html": "<span lang='en-GB'>Java</span> y <abbr lang='en-GB' title='JavaServer Pages'>JSP</abbr>"
+    "network": {
+        "text": "Arquitectura de redes"
     },
     "webDev": {
         "text": "Confección y publicación de páginas web"
     },
-    "HTMLandCSS": {
-        "html": "<abbr lang='en-GB' title='Hypertext Markup Language'>HTML5</abbr> y <abbr lang='en-GB' title='Cascading Style Sheets'>CSS3</abbr>"
+    "responsive": {
+        "text": "Diseño web adaptable"
     },
-    "JSandWP": {
-        "aria-label": "Ver certificado",
-        "html": "<span lang='en-GB'>Vanilla <abbr title='JavaScript'>JS</abbr></span> y publicación web"
+    "a11y": {
+        "text": "Accesibilidad web"
+    },
+    "seo": {
+        "text": "Optimización para motores de búsqueda (SEO)"
+    },
+    "publi": {
+        "text": "Publicación web"
     },
     "addTraining": {
-        "aria-label": "Ver certificado",
         "text": "Formación complementaria"
     },
     "otherCert": {
@@ -138,15 +93,19 @@
         "aria-label": "Avanzar"
     },
     "UNEDaccess": {
-        "aria-label": "Ver certificado",
         "text": "Acceso a la universidad"
     },
     "ESO": {
-        "aria-label": "Ver certificado",
         "html": "Certificado en <abbr lang='es-ES' title='Educación Secundaria Obligatoria'>ESO</abbr>"
+    },
+    "seeCertificate": {
+        "aria-label": "Ver certificado"
     },
     "workExp": {
         "text": "Experiencia laboral"
+    },
+    "backDev": {
+        "html": "Desarrollador web <span lang='en-GB'>Backend</span>"
     },
     "RRPP": {
         "text": "Relaciones públicas"
@@ -188,7 +147,7 @@
         "alt": "Página de fans de Estopa. Inacabado"
     },
     "cookies": {
-        "html": "🍪🐱 <strong>sandokan.cat</strong> respeta tu privacidad. <em>No rastreamos</em>, solo medimos visitas anónimas — (si aceptas). <button id='accept-cookies' class='icons-scale' aria-label='Seguir navegando'>Aceptar</button> <button id='reject-cookies' aria-label='No me importan las cookies' type='button'>Rechazar</button> | <a id='info-cookies' href='https://es.wikipedia.org/wiki/Cookie_(inform%C3%A1tica)' target='_blank' rel='noopener noreferrer' aria-label='Más información'>¿Qué es una <span lang='en-GB'>cookie</span>?"
+        "html": "respeta tu privacidad. <em>No rastreamos</em>, solo medimos visitas anónimas — (si aceptas). <button id='accept-cookies' class='icons-scale' aria-label='Seguir navegando'>Aceptar</button> <button id='reject-cookies' aria-label='No me importan las cookies' type='button'>Rechazar</button> | <a id='info-cookies' href='https://es.wikipedia.org/wiki/Cookie_(inform%C3%A1tica)' target='_blank' rel='noopener noreferrer' aria-label='Más información'>¿Qué es una <span lang='en-GB'>cookie</span>?"
     },
     "modalIframe": {
         "aria-label": "Certificado oficial"

@@ -1,4 +1,10 @@
 // EXPORTS
+export { default as logger } from './logger.js';
+
+export { validateJSON } from './validateJSON.js';
+
+export { validateCarousel } from './validateCarousel.js';
+
 export { replaceClass } from './replaceClass.js';
 
 export {

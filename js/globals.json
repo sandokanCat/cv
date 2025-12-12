@@ -9,20 +9,72 @@
             "zh": ["zh-CN", "中文（简体）"]
         },
         "inCase": "en-GB",
-        "rtl": [
-            "ar",
-            "he",
-            "fa",
-            "ur",
-            "ps",
-            "sd",
-            "ug",
-            "yi",
-            "dv",
-            "ku",
-            "syr",
-            "bal",
-            "nqo"
-        ]
+        "rtl": ["ar", "he", "fa", "ur", "ps", "sd", "ug", "yi", "dv", "ku", "syr", "bal", "nqo"]
+    },
+
+    "brand": {
+        "templates": {
+            "description": "{{info}} {{brand.name}}, {{role}} {{role_extra}}",
+            "ogDescription": "{{finder}} {{role}}? {{discover}}",
+            "ldJsonWebDescription": "{{role_extra}}. {{info}}"
+        },
+        "en-GB": {
+            "role": "Fullstack Web Developer",
+            "info": "Portfolio and Resume.",
+            "ldJsonContactType": "Web Development Services"
+        },
+        "es-ES": {
+            "role": "Desarrollador Web Fullstack",
+            "info": "Portafolio y Currículum.",
+            "ldJsonContactType": "Servicios de desarrollo web",
+            
+            "finder": "¿Buscas un",
+            "role_extra": "centrado en tecnologías modernas y apasionado por la ciberseguridad?",
+            "discover": "Descubre mis proyectos"
+        },
+        "ca-ES": {
+            "role": "Desenvolupador Web Fullstack",
+            "info": "Portafoli i Currículum.",
+            "ldJsonContactType": "Serveis de desenvolupament web"
+        },
+        "ru-RU": {
+            "role": "Фуллстек веб-разработчик",
+            "info": "Портфолио и резюме",
+            "ldJsonContactType": "Услуги веб-разработки"
+        },
+        "ar-SA": {
+            "role": "مطور ويب متكامل",
+            "info": ".السيرة الذاتية والمحفظة",
+            "ldJsonContactType": "خدمات تطوير الويب"
+        },
+        "zh-CN": {
+            "role": "全栈 Web 开发工程师",
+            "info": "作品集与简历.",
+            "ldJsonContactType": "网页开发服务"
+        },
+        "ogTitle": "{{brand.nick}} | {{role}}",
+        "ogImageAlt": "{{brand.nick}} | {{role}}, {{info}}",
+        "ldJsonJobTitle": "{{role}}",
+        "ldJsonWebName": "{{brand.nick}} | {{role}}"
+    },
+
+    "tech": {
+        "backEnd": {
+            "php": "<abbr lang='en-GB' title='Hypertext Preprocessor'>PHP</abbr>",
+            "mysql": "<abbr lang='en-GB' title='Structured Query Language'>MySQL</abbr>",
+            "mariadb": "<abbr lang='en-GB' title='Relational Database'>MariaDB</abbr>",
+            "xml": "<abbr lang='en-GB' title='Extensible Markup Language'>XML</abbr>",
+            "java": "<span lang='en-GB'>Java</span>",
+            "jsp": "<abbr lang='en-GB' title='JavaServer Pages'>JSP</abbr>"
+        },
+        "frontEnd": {
+            "html": "<abbr lang='en-GB' title='Hypertext Markup Language'>HTML5</abbr>",
+            "css": "<abbr lang='en-GB' title='Cascading Style Sheets'>CSS3</abbr>",
+            "js": "<span lang='en-GB'>Vanilla</span> <abbr title='JavaScript'>JS</abbr>",
+            "json": "<abbr lang='en-GB' title='JavaScript Object Notation'>JSON</abbr>",
+            "ajax": "<abbr lang='en-GB' title='Asynchronous JavaScript and XML'>AJAX</abbr>",
+            "xhtml": "<abbr lang='en-GB' title='Extensible HyperText Markup Language'>XHTML</abbr>",
+            "cms": "<span lang='en-GB' title='Content Management System'>WordPress</span>"
+        }
     }
 }

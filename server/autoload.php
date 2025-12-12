@@ -70,7 +70,7 @@ spl_autoload_register(function(string $class) use ($serverDir) {
 // ----------------------------
 // CHECK REQUIRED CORES
 // ----------------------------
-$requiredCores = ['0_config.php','1_i18n.php','2_assets.php'];
+$requiredCores = ['0_csp.php', '1_config.php', '2_i18n.php', '3_assets.php'];
 $missing = array_diff($requiredCores, $loadedCores);
 if (!empty($missing)) {
     throw new RuntimeException("MISSING ESSENTIAL CORE FILES: " . implode(', ', $missing));

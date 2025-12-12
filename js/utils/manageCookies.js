@@ -1,5 +1,5 @@
-// OWN EXTERNAL IMPORTS
-import { default as logger } from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
+// IMPORTS
+import { logger } from "./index.js";
 
 // GLOBAL VARIABLES
 const cookieName = 'sandokan.cat_consent';

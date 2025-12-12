@@ -36,8 +36,8 @@ main {
         grid-template-columns: repeat(1, 1fr);
     }
     #left-panel{
-        margin-left: 10vw;
-        margin-right: 10vw;
+        margin-left: 10vw !important;
+        margin-right: 10vw !important;
     }
     #bottom-container {
         grid-column: 1;

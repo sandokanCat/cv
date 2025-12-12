@@ -1,10 +1,6 @@
 <?php
 declare(strict_types=1);
 
-// ----------------------------
-// NECESSARY VARIABLES
-// ----------------------------
-
 // FOR DEVELOPMENT
 $isDev = !empty($_SERVER['HTTP_HOST']) && (
     str_starts_with($_SERVER['HTTP_HOST'], 'localhost') ||
@@ -20,12 +16,15 @@ if ($isDev) {
     error_reporting(E_ALL);
 }
 
-// BRAND AND CANONICAL URLs
-$brandUrl = $brand['url'];
-$canonicalUrl = $brandUrl . ($currentLang !== 'en-GB' ? "$currentLang/" : '');
+// ----------------------------
+// NECESSARY VARIABLES
+// ----------------------------
+
+// CANONICAL URLs
+$canonicalUrl = $brand['url'] . ($currentLang !== 'en-GB' ? "$currentLang/" : '');
 
 // CURRENT LANGUAGE
-$opLang      = G($globals,'lang.op','json') ?: [];
+$opLang = G($globals,'lang.op','json') ?: [];
 
 // COUNTRY AND REGION
 [$country, $region] = array_pad(explode('-', ($brand['region'] ?? ''), 2), 2, '');
@@ -41,7 +40,7 @@ if(is_array($opLang)) {
 
 // DNS-PREFETCH URLS
 $dnsPrefetch = array_map(
-    fn($url) => preg_replace('#^https?://#','',$url), $path['social'] ?: []
+    fn($url) => $url, $path['social'] ?: []
 );
 
 // EXPLODE NAMES
@@ -54,9 +53,15 @@ if (!is_array($pathSocial)) $pathSocial = [];
 $sameAs = array_values(array_map(fn($k) => $pathSocial[$k] ?? '', ['github', 'vercel', 'linkedin', 'discord', 'infojobs']));
 
 // TECHNICAL SKILLS
-$languages = is_array($tech['languages'] ?? null) ? $tech['languages'] : [];
-$tools     = is_array($tech['tools']     ?? null) ? $tech['tools']     : [];
-$systems   = is_array($tech['systems']   ?? null) ? $tech['systems']   : [];
+$languages = is_array($tech['languages'] ?? null)
+    ? ["@type" => "Thing", "name" => $tech['languages']]
+    : ["@type" => "Thing", "name" => []];
+$tools = is_array($tech['tools'] ?? null)
+    ? ["@type" => "Thing", "name" => $tech['tools']]
+    : ["@type" => "Thing", "name" => []];
+$systems = is_array($tech['systems'] ?? null)
+    ? ["@type" => "Thing", "name" => $tech['systems']]
+    : ["@type" => "Thing", "name" => []];
 $knowsAbout = [
     "languages" => $languages,
     "tools"     => $tools,
@@ -76,4 +81,18 @@ foreach ($academies as $aca) {
         "logo" => $aca['logo'] ?? ''
     ];
 }
+
+// VERIFICATION META KEYS
+$metaKeys = [];
+foreach ($verification as $agent => $keys) {
+    if (is_array($keys)) {
+        foreach ($keys as $metaName => $value) {
+            $metaKeys[$metaName] = $value;
+        }
+    }
+}
+
+// BACK & FRONT TECH
+$backTech = G($globals,'tech.backEnd','json') ?: [];
+$frontTech = G($globals,'tech.frontEnd','json') ?: [];
 ?>

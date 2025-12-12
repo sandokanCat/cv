@@ -7,8 +7,8 @@
                 <img data-i18n-attr="alt:portrait" src="img/photos/<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>@3x.png" fetchpriority="high" decoding="sync" loading="eager" alt="<?= $A('portrait') ?>"> <!-- FALLBACK IMG (LAST RESORT) -->
             </picture>
             <figcaption>
-                <h1 lang="es-ES"><?= $brand['name']; ?></h1>
-                <h2 data-i18n="profile"><?= $H('profile'); ?></h2>
+                <h1 lang="es-ES"><?= htmlspecialchars($brand['name'], ENT_QUOTES | ENT_HTML5); ?></h1>
+                <h2 data-i18n="profile"><?= $T('profile'); ?></h2>
                 <p data-i18n="biography"><?= $H('biography'); ?></p>
             </figcaption>
         </figure>
@@ -26,7 +26,7 @@
         <ol id="contact">
             <li>
                 <address>
-                    <a id="mail" data-i18n-attr="aria-label:mail" href="mailto:<?= $brand['email']; ?>" aria-label="<?= $L('mail'); ?>"><strong><?= $brand['email']; ?></strong></a>
+                    <a id="mail" data-i18n-attr="aria-label:mail" href="mailto:<?= htmlspecialchars($brand['email'], ENT_QUOTES | ENT_HTML5); ?>" aria-label="<?= $L('mail'); ?>"><strong><?= htmlspecialchars($brand['email'], ENT_QUOTES | ENT_HTML5); ?></strong></a>
                 </address>
                 <svg class="icons-color-1" aria-hidden="true" width="25" height="25" preserveAspectRatio="xMinYMin meet">
                     <use href="img/sprite.svg#email" xlink:href="img/sprite.svg#email"></use>
@@ -34,7 +34,7 @@
             </li>
             <li>
                 <address>
-                    <a data-i18n-attr="aria-label:mobile" href="tel:<?= $brand['tel']; ?>" aria-label="<?= $L('mobile'); ?>"><?= $brand['tel']; ?></a>
+                    <a data-i18n-attr="aria-label:mobile" href="tel:<?= htmlspecialchars($brand['tel'], ENT_QUOTES | ENT_HTML5); ?>" aria-label="<?= $L('mobile'); ?>"><?= htmlspecialchars($brand['tel'], ENT_QUOTES | ENT_HTML5); ?></a>
                 </address>
                 <svg class="icons-color-1" aria-hidden="true" width="22" height="22" preserveAspectRatio="xMinYMin meet">
                     <use href="img/sprite.svg#whatsapp" xlink:href="img/sprite.svg#whatsapp"></use>
@@ -42,7 +42,7 @@
             </li>
             <li>
                 <address>
-                    <a data-i18n-attr="aria-label:linkedin" href="<?= $path['social']['linkedin']; ?>" target="_blank" rel="noopener noreferrer" aria-label="<?= $L('linkedin'); ?>">in/<?= $brand['user']; ?></a>
+                    <a data-i18n-attr="aria-label:linkedin" href="<?= $path['social']['linkedin']; ?>" target="_blank" rel="noopener noreferrer" aria-label="<?= $L('linkedin'); ?>">in/<?= htmlspecialchars($brand['user'], ENT_QUOTES | ENT_HTML5); ?></a>
                 </address>
                 <svg class="icons-color-1" aria-hidden="true" width="22" height="22" preserveAspectRatio="xMinYMin meet">
                     <use href="img/sprite.svg#linkedin" xlink:href="img/sprite.svg#linkedin"></use>
@@ -50,14 +50,14 @@
             </li>
             <li>
                 <address>
-                    <a data-i18n-attr="aria-label:discord" href="<?= $path['social']['discord']; ?>" target="_blank" rel="noopener noreferrer" aria-label="<?= $L('discord'); ?>"><?= $brand['nick']; ?></a>
+                    <a data-i18n-attr="aria-label:discord" href="<?= $path['social']['discord']; ?>" target="_blank" rel="noopener noreferrer" aria-label="<?= $L('discord'); ?>"><?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?></a>
                 </address>
                 <svg class="icons-color-1" aria-hidden="true" width="24" height="24" preserveAspectRatio="xMinYMin meet">
                     <use href="img/sprite.svg#discord" xlink:href="img/sprite.svg#discord"></use>
                 </svg>
             </li>
             <li>
-                <address data-i18n-attr="aria-label:location"><?= $brand['postal']; ?> <span lang="ca-ES"><?= $brand['city']; ?></span></address>
+                <address data-i18n-attr="aria-label:location"><?= htmlspecialchars($brand['postal'], ENT_QUOTES | ENT_HTML5); ?> <span lang="ca-ES"><?= htmlspecialchars($brand['city'], ENT_QUOTES | ENT_HTML5); ?></span></address>
                 <svg class="icons-color-1" aria-hidden="true" width="22" height="22" preserveAspectRatio="xMinYMin meet">
                     <use href="img/sprite.svg#address" xlink:href="img/sprite.svg#address"></use>
                 </svg>

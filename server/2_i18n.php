@@ -41,12 +41,30 @@ if(!file_exists($translationsFile)) $translationsFile = __DIR__."/../js/i18n/en-
 $translations = json_decode(file_get_contents($translationsFile), true);
 
 // ----------------------------
-// TRANSLATION FUNCTION WITH ESCAPING
+// TRANSLATION FUNCTION WITH BRAND INTERPOLATION + ESCAPING
 // ----------------------------
-function t(array $translations, string $key, string $type='text', string $default=''){
+$brandData = $globals['brand'] ?? [];
+$brandIni  = $brand ?? [];
+$brandData = array_merge($brandIni, $brandData);
+function t(array $translations, string $key, string $type='text', string $default='', array $brand = [], string $lang = 'en-GB') {
     $value = $translations[$key][$type] ?? $translations[$key] ?? $default;
     if (is_array($value)) $value = $default;
+
+    // ----------------------------
+    // INTERPOLATE {{brand.xxx}}
+    $value = preg_replace_callback('/\{\{brand\.([a-zA-Z0-9_]+)\}\}/', function($m) use($brand, $lang) {
+        $k = $m[1];
+        if(isset($brand[$k])) {
+            if(is_array($brand[$k])) return $brand[$k][$lang] ?? reset($brand[$k]);
+            return $brand[$k];
+        }
+        return $m[0];
+    }, $value);
+
+    // ----------------------------
+    // ESCAPE (only if is not HTML)
     if($type !== 'html') $value = htmlspecialchars((string)$value, ENT_QUOTES|ENT_HTML5);
+
     return $value;
 }
 
@@ -59,8 +77,19 @@ $dir = in_array(strtolower(substr($currentLang,0,2)), $rtl) ? 'rtl' : 'ltr';
 
 // ----------------------------
 // SHORTCUTS
-$T = fn($k,$t='text') => t($translations,$k,$t);
-$L = fn($k,$t='aria-label') => t($translations,$k,$t);
-$A = fn($k,$t='alt') => t($translations,$k,$t);
-$H = fn($k,$t='html') => t($translations,$k,'html');
+// ----------------------------
+$make = fn(string $defaultType)
+    => fn(string $k, ?string $t = null)
+        => t(
+            $translations,
+            $k,
+            $t ?? $defaultType,
+            '',
+            $brandData,
+            $currentLang
+        );
+$T = $make('text');
+$H = $make('html');
+$A = $make('alt');
+$L = $make('aria-label');
 ?>

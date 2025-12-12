@@ -1,8 +1,6 @@
-// OWN EXTERNAL IMPORTS
-import { default as logger } from "https://open-utils-dev-sandokan-cat.vercel.app/js/logger.js";
-
-// INTERNAL IMPORTS
+// IMPORTS
 import {
+    logger,
     getLocale,
     loadLocalizedArray, createRandomPool, resetRandomModule
 } from "../utils/index.js";

@@ -1,0 +1,135 @@
+/* STYLES FOR RTL LANGUAGES */
+
+/* GRID.CSS */
+@media screen and (max-width: 768px) { /* TABLET */
+    html[dir="rtl"] #left-panel {
+        margin-left: auto;
+        margin-right: 5vw;
+    }
+}
+
+/* NAV.CSS */
+html[dir="rtl"] nav {
+    left: auto;
+    right: 20px;
+}
+
+/* ICONS.CSS */
+html[dir="rtl"] .icons-color-1 {
+    transform: scaleX(-1);
+}
+
+/* LEFT-PANEL.CSS */
+html[dir="rtl"] h3 {
+    padding-left: auto;
+    padding-right: 12px;
+    border-left: none;
+    border-right: 7px solid var(--accent-1);
+}
+html[dir="rtl"] #left-panel li {
+    padding-left: auto;
+    padding-right: 19px;
+}
+html[dir="rtl"] #contact address {
+    margin-left: auto;
+    margin-right: 40px;
+}
+
+/* RIGHT-PANEL.CSS */
+html[dir="rtl"] article {
+    margin: 0 10% 0 5%;
+}
+html[dir="rtl"] h5 {
+    margin: 0 10% 15px 5%;
+}
+html[dir="rtl"] #carousel h6 {
+    margin-left: auto;
+    margin-right: 10%;
+}
+html[dir="rtl"] article ol {
+    margin: 0 20% 0 5%;
+}
+
+/* CAROUSEL.CSS */
+html[dir="rtl"] .carousel-control {
+    flex-direction: row-reverse;
+}
+html[dir="rtl"] .carousel-scrollbar::after {
+    left: auto;
+    right: var(--scrollbar-offset, 0%);
+    transition:
+        right 0.6s ease-in-out,
+        width 0.6s ease-in-out;
+}
+html[dir="rtl"] #carousel-fallback {
+    direction: rtl;
+    flex-direction: row-reverse;
+}
+
+/* BOTTOM-CONTAINER.CSS */
+html[dir="rtl"] .other-links {
+    right: auto;
+    left: 2.5%;
+}
+html[dir="rtl"] #other-data ol {
+    margin-left: auto;
+    margin-right: 1vw;
+}
+@media screen and (max-width: 768px) { /* TABLET */
+    html[dir="rtl"] #workExp,
+    html[dir="rtl"] #other-data ul {
+        margin-left: auto;
+        margin-right: 6vw;
+    }
+    html[dir="rtl"] .other-links {
+        right: auto;
+        left: 5%;
+    }
+}
+
+/* BURGUER.CSS */
+html[dir="rtl"] #burger-nav {
+    right: auto;
+    left: 2.5%;
+}
+html[dir="rtl"] #burger-links {
+    right: auto;
+    left: 0;
+}
+html[dir="rtl"] #burger-btn-wrapper,
+html[dir="rtl"] #github-icon,
+html[dir="rtl"] #vercel-icon {
+    right: auto;
+    left: 0;
+}
+html[dir="rtl"] #burger-btn[aria-expanded="true"] #burger-icon-top {
+    transform: rotate(45deg) translate(9px, 9px);
+}
+html[dir="rtl"] #burger-btn[aria-expanded="true"] #burger-icon-bottom {
+    transform: rotate(-45deg) translate(9px, -9px);
+}
+html[dir="rtl"] #github-icon.active {
+    transform: translateX(100px);
+}
+html[dir="rtl"] #vercel-icon.active {
+    transform: translateX(50px);
+}
+html[dir="rtl"] #menu-fallback {
+    right: auto;
+    left: 2.5%;
+}
+html[dir="rtl"] #menu-fallback ul {
+    flex-direction: row-reverse;
+}
+
+/* SIGNATURE.CSS */
+html[dir="rtl"] #signature {
+    right: auto;
+    left: 2.5%;
+}
+@media screen and (max-width: 768px) { /* TABLET */
+    html[dir="rtl"] #signature {
+        right: auto;
+        left: 5%;
+    }
+}

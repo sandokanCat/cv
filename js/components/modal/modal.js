@@ -1,7 +1,5 @@
-// OWN EXTERNAL IMPORTS
-import { validateCarousel } from "https://open-utils-dev-sandokan-cat.vercel.app/js/validateCarousel.js"; // FETCH + STRUCTURE + FORMAT VALIDATION
-
-// INTERNAL IMPORTS
+// IMPORTS
+import { validateCarousel } from "../../utils/index.js"; // FETCH + STRUCTURE + FORMAT VALIDATION
 // import { getLocale } from "../../utils/index.js";
 import { handlePdf } from "./pdfLogic.js"; // ADDING PDF LOGIC
 import { modalCarousel } from "./modalCarousel.js"; // ADDING CAROUSEL LOGIC CLONER

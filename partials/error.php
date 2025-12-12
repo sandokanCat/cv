@@ -21,7 +21,7 @@ http_response_code($code);
 <html lang="<?= htmlspecialchars($currentLang, ENT_QUOTES | ENT_HTML5); ?>" dir="<?= htmlspecialchars($dir, ENT_QUOTES | ENT_HTML5); ?>" data-theme="light">
 
 <head>
-    <title><?= $brand['nick'] ;?> | Error <?= htmlspecialchars($code, ENT_QUOTES | ENT_HTML5); ?></title>
+    <title><?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?> | Error <?= htmlspecialchars($code, ENT_QUOTES | ENT_HTML5); ?></title>
 
     <?php require_once __DIR__."/assets/noindex.php"; // LOAD NOINDEX/NOFOLLOW HEAD ?>
 

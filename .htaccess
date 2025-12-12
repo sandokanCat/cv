@@ -174,8 +174,7 @@ FileETag None
     Header always set Cross-Origin-Embedder-Policy "require-corp"
     Header always set Cross-Origin-Opener-Policy "same-origin"
 
-    # CSP
-    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://open-utils-dev-sandokan-cat.vercel.app https://www.googletagmanager.com https://www.clarity.ms https://mc.yandex.ru; style-src 'self' https://open-utils-dev-sandokan-cat.vercel.app; style-src-elem 'self' https://open-utils-dev-sandokan-cat.vercel.app; connect-src 'self' https://www.googletagmanager.com https://www.clarity.ms https://mc.yandex.ru; img-src 'self' https://sandokanCat.github.io data:; font-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; report-to csp-endpoint"
+    # CSP REPORTING
     Header always set Report-To '{"group":"csp-endpoint","max_age":10886400,"endpoints":[{"url":"https://sandokan.cat/_secure/csp-report"}],"include_subdomains":true}'
 </IfModule>
 
@@ -227,4 +226,3 @@ ErrorDocument 506 /partials/error.php?code=506
 ErrorDocument 507 /partials/error.php?code=507
 ErrorDocument 508 /partials/error.php?code=508
 ErrorDocument 511 /partials/error.php?code=511
-

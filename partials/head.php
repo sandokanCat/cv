@@ -9,7 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
     <!-- TITLE & DESCRIPTION -->
-    <title data-i18n="title"><?= $T('title'); ?></title>
+    <script nonce="<?= htmlspecialchars($GLOBALS['nonce'], ENT_QUOTES, ENT_HTML5) ?>">
+        const BRAND_NICK = "<?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?>"
+    </script>
+    <title data-i18n="title"><?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?> | <?= $T('brand.role') ?></title>
     <meta name="description" content="<?= $T('description'); ?>">
 
     <!-- CANONICAL -->
@@ -18,7 +21,7 @@
     <!-- LANGUAGE VERSIONS -->
     <?php foreach ($opLang as $langCode => $locale): 
         $code = is_array($locale) ? ($locale[0] ?? 'en-GB') : $locale;
-        $url = $brandUrl . ($code !== 'en-GB' ? "{$code}/" : '');?>
+        $url = $brand['url'] . ($code !== 'en-GB' ? "{$code}/" : '');?>
         <link rel="alternate" hreflang="<?= htmlspecialchars($langCode); ?>" href="<?= htmlspecialchars($url, ENT_QUOTES | ENT_HTML5); ?>">
     <?php endforeach; ?>
     <link rel="alternate" hreflang="x-default" href="<?= htmlspecialchars($canonicalUrl, ENT_QUOTES | ENT_HTML5); ?>">
@@ -28,11 +31,11 @@
 
     <!-- OPEN GRAPH -->
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="<?= $brand['nick'] ?>">
+    <meta property="og:site_name" content="<?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?>">
     <meta property="og:title" content="<?= $T('ogTitle'); ?>">
     <meta property="og:description" content="<?= $T('ogDescription'); ?>">
-    <meta property="og:url" content="<?= $brand['url']; ?>">
-    <meta property="og:image" content="<?= $brand['url']; ?>img/og-img.jpg?version=2.0">
+    <meta property="og:url" content="<?= htmlspecialchars($brand['url'], ENT_QUOTES | ENT_HTML5); ?>">
+    <meta property="og:image" content="<?= htmlspecialchars($brand['url'], ENT_QUOTES | ENT_HTML5); ?>img/og-img.jpg?version=2.0">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="200">
     <meta property="og:image:height" content="200">
@@ -51,10 +54,9 @@
     <!-- PRECONNECT & DNS-PREFETCH -->
     <link rel="preconnect" href="<?= $path['open-utils']; ?>" crossorigin>
     <?php foreach ($dnsPrefetch as $url): ?>
-        <link rel="dns-prefetch" href="//<?= $url; ?>">
+        <link rel="dns-prefetch" href="<?= htmlspecialchars($url, ENT_QUOTES | ENT_HTML5); ?>">
     <?php endforeach; ?>
-    <link rel="dns-prefetch" href="//<?= $brand['user']; ?>.github.io">
-    <link rel="dns-prefetch" href="<?= $path['cookies']; ?>">
+    <link rel="dns-prefetch" href="https://<?= htmlspecialchars($brand['user'], ENT_QUOTES | ENT_HTML5); ?>.github.io">
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="css/styles.css">
@@ -63,12 +65,12 @@
     <meta name="theme-color" content="#1d2a42">
 
     <!-- AUTHORSHIP -->
-    <meta name="copyright" content="© <?= htmlspecialchars(gmdate('Y'), ENT_QUOTES | ENT_HTML5); ?> <?= $brand['nick']; ?>">
+    <meta name="copyright" content="© <?= htmlspecialchars(gmdate('Y'), ENT_QUOTES | ENT_HTML5); ?> <?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?>">
     <link type="text/plain" rel="author" href="humans.txt">
 
     <!-- SEARCH ENGINE VERIFICATION -->
-    <?php foreach ($metaKeys as $key => $metaName): ?>
-        <meta name="<?= htmlspecialchars($metaName, ENT_QUOTES | ENT_HTML5); ?>" content="<?= $verification['key']; ?>">
+    <?php foreach ($metaKeys as $metaName => $metaContent): ?>
+        <meta name="<?= htmlspecialchars($metaName, ENT_QUOTES | ENT_HTML5); ?>" content="<?= htmlspecialchars($metaContent, ENT_QUOTES | ENT_HTML5); ?>">
     <?php endforeach; ?>
 
     <!-- SCHEMA LD+JSON -->
@@ -76,7 +78,7 @@
         <?= json_encode([
             "@context" => "https://schema.org",
             "@type" => "WebSite",
-            "url" => $brandUrl,
+            "url" => $brand['url'],
             "name" => $T('ldJsonWebName'),
             "description" => $T('ldJsonWebDescription'),
             "author" => ["@id" => "#".$shortName],
@@ -91,7 +93,7 @@
             "@id" => "#".$shortName,
             "name" => $brand['name'],
             "jobTitle" => $T('ldJsonJobTitle'),
-            "url" => $brandUrl."#".$shortName,
+            "url" => $brand['url']."#".$shortName,
             "contactPoint" => [
                 "@type" => "ContactPoint",
                 "contactType" => $T('ldJsonContactType'),
@@ -106,9 +108,9 @@
                 "addressRegion" => $region,
                 "addressCountry" => $country
             ],
-            "image" => $brandUrl."img/og-img.jpg",
+            "image" => $brand['url']."img/photos/".$shortName."@3x.png",
             "sameAs" => $sameAs,
-            "knowsAbout" => array_map(fn($k) => ["@type" => "Thing","name" => $k], $knowsAbout),
+            "knowsAbout" => $knowsAbout,
             "alumniOf" => $alumniOf
         ], JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT); ?>
     </script>

@@ -1,45 +1,4 @@
 {
-    "brandNick": {
-        "text": "sandokan.cat"
-    },
-    "brandName": {
-        "text": "Gonzalo Cabezas Núñez"
-    },
-    "brandRole": {
-        "text": "مطور ويب Fullstack"
-    },
-    "brandCV": {
-        "text": "المعرض والسيرة الذاتية"
-    },
-
-    "title": {
-        "text": "{{brandNick}} | {{brandRole}}"
-    },
-    "description": {
-        "text": "{{brandCV}} لـ {{brandName}}، {{brandRole}} يركز على التقنيات الحديثة وشغوف بالأمن السيبراني"
-    },
-    "ogTitle": {
-        "text": "{{brandNick}} | {{brandRole}}"
-    },
-    "ogDescription": {
-        "text": "هل تبحث عن {{brandRole}} مبدع وفعال؟ اكتشف مشاريعي"
-    },
-    "ogImageAlt": {
-        "text": "{{brandNick}} | {{brandRole}}, {{brandCV}}"
-    },
-    "ldJsonWebName": {
-        "text": "{{brandNick}} | {{brandRole}}"
-    },
-    "ldJsonWebDescription": {
-        "text": "{{brandRole}} يركز على التقنيات الحديثة وشغوف بالأمن السيبراني. {{brandCV}}"
-    },
-    "ldJsonJobTitle": {
-        "text": "{{brandRole}}"
-    },
-    "ldJsonContactType": {
-        "text": "خدمات تطوير الويب"
-    },
-
     "noscriptWarn": {
         "html": "<h3>🚨 عذرًا! لقد وصل عاشق الأمن السيبراني! <em lang='en-GB'>#NoJS = 😿</em></h3><p><strong>هذا الموقع 100% <span lang='en-GB'>Vanilla JavaScript</span></strong>، لكنني قمت بتكييف كل المحتوى لتتمكن من رؤيته</p>"
     },    
@@ -50,7 +9,7 @@
         "alt": "صورة شخصية"
     },
     "profile": {
-        "html": "مطور ويب <span lang='en-GB'>Fullstack</span>"
+        "text": "{{brand.role}}"
     },
     "biography": {
         "html": "أنا شغوف بالرمز النظيف والوظيفي. أتدرب يوميًا، سواء من خلال الدورات الرسمية أو التعلم الذاتي، لأن التعلم لا يتوقف عند رنين الجرس. أحب كسر الأشياء لفهمها (وإصلاحها بشكل أفضل)، لذلك <span lang='en-GB'>Red Team</span> يجذبني بشدة. لا أتبع الطريق القياسي؛ أفضل رسم طريقي الخاص باستخدام لوحة المفاتيح والقهوة. أبحث عن مشاريع يمكنني التعلم والمساهمة وترك أثر — بدون ادعاءات أو وعود فارغة. إذا لم أكن أعرف شيئًا، أبحث عنه. وإذا كان شيء ما يحفزني، لن أتوقف حتى أنجح فيه."
@@ -92,37 +51,33 @@
         "text": "الأمن السيبراني"
     },
     "cyberIntro": {
-        "aria-label": "عرض الشهادة",
         "text": "الأمن السيبراني"
     },
     "cyberUsers": {
-        "aria-label": "عرض الشهادة",
         "text": "الأمن السيبراني للمستخدمين"
     },
     "appDev": {
         "text": "تطوير التطبيقات باستخدام تقنيات الويب"
     },
-    "JSONandAJAX": {
-        "html": "<abbr lang='en-GB' title='JavaScript Object Notation'>JSON</abbr> و <abbr lang='en-GB' title='Asynchronous JavaScript and XML'>AJAX</abbr>"
-    },
-    "PHPandMySQL": {
-        "html": "<abbr lang='en-GB' title='Hypertext Preprocessor'>PHP</abbr> و <abbr lang='en-GB' title='Structured Query Language'>MySQL</abbr>"
-    },
-    "JavaAndJSP": {
-        "html": "<span lang='en-GB'>Java</span> و <abbr lang='en-GB' title='JavaServer Pages'>JSP</abbr>"
+    "network": {
+        "text": "هندسة الشبكات"
     },
     "webDev": {
         "text": "إنشاء ونشر صفحات الويب"
     },
-    "HTMLandCSS": {
-        "html": "<abbr lang='en-GB' title='Hypertext Markup Language'>HTML5</abbr> و <abbr lang='en-GB' title='Cascading Style Sheets'>CSS3</abbr>"
+    "responsive": {
+        "text": "تصميم ويب متجاوب"
     },
-    "JSandWP": {
-        "aria-label": "عرض الشهادة",
-        "html": "<span lang='en-GB'>Vanilla <abbr title='JavaScript'>JS</abbr></span> والنشر على الويب"
+    "a11y": {
+        "text": "إتاحة الويب"
+    },
+    "seo": {
+        "text": "تحسين محركات البحث (SEO)"
+    },
+    "publi": {
+        "text": "نشر الويب"
     },
     "addTraining": {
-        "aria-label": "عرض الشهادة",
         "text": "تدريب إضافي"
     },
     "otherCert": {
@@ -138,15 +93,19 @@
         "aria-label": "تقدم"
     },
     "UNEDaccess": {
-        "aria-label": "عرض الشهادة",
         "text": "الوصول إلى الجامعة"
     },
     "ESO": {
-        "aria-label": "عرض الشهادة",
         "html": "شهادة <abbr lang='es-ES' title='Educación Secundaria Obligatoria'>ESO</abbr>"
+    },
+    "seeCertificate": {
+        "aria-label": "عرض الشهادة"
     },
     "workExp": {
         "text": "الخبرة العملية"
+    },
+    "backDev": {
+        "html": "مطور ويب <span lang='en-GB'>Backend</span>"
     },
     "RRPP": {
         "text": "العلاقات العامة"
@@ -188,7 +147,7 @@
         "alt": "صفحة معجبين Estopa. غير مكتملة"
     },
     "cookies": {
-        "html": "🍪🐱 <strong>sandokan.cat</strong> يحترم خصوصيتك. <em>نحن لا نتعقب</em>، فقط نقيس الزيارات المجهولة — (إذا وافقت). <button id='accept-cookies' class='icons-scale' aria-label='متابعة التصفح'>قبول</button> <button id='reject-cookies' aria-label='لا أهتم بالكوكيز' type='button'>رفض</button> | <a id='info-cookies' href='https://ar.wikipedia.org/wiki/%D9%85%D9%84%D9%81_%D8%AA%D8%B9%D8%B1%D9%8A%D9%81_%D8%A7%D8%B1%D8%AA%D8%A8%D8%A7%D8%B7' target='_blank' rel='noopener noreferrer' aria-label='مزيد من المعلومات'>ما هي <span lang='en-GB'>cookie</span>؟"
+        "html": "يحترم خصوصيتك. <em>نحن لا نتعقب</em>، فقط نقيس الزيارات المجهولة — (إذا وافقت). <button id='accept-cookies' class='icons-scale' aria-label='متابعة التصفح'>قبول</button> <button id='reject-cookies' aria-label='لا أهتم بالكوكيز' type='button'>رفض</button> | <a id='info-cookies' href='https://ar.wikipedia.org/wiki/%D9%85%D9%84%D9%81_%D8%AA%D8%B9%D8%B1%D9%8A%D9%81_%D8%A7%D8%B1%D8%AA%D8%A8%D8%A7%D8%B7' target='_blank' rel='noopener noreferrer' aria-label='مزيد من المعلومات'>ما هي <span lang='en-GB'>cookie</span>؟"
     },
     "modalIframe": {
         "aria-label": "شهادة رسمية"
