@@ -1,4 +1,5 @@
 <?php
+define('ALLOW_CSPHEADER', true);
 require_once __DIR__ . '/_secure/CSPheader.php';
 
 declare(strict_types=1);

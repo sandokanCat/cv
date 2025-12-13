@@ -22,9 +22,6 @@ RewriteRule (^|/)[._] - [F,L]
     Require all denied
 </FilesMatch>
 
-# 2.4 BLOCK VCS FOLDERS
-RedirectMatch 404 ^/(?:\.git|\.svn|\.hg|\.bzr)(?:/|$)
-
 # 2.4 ALLOW ACCESS TO STATIC FILES
 <FilesMatch "\.(html?|xhtml|php|cgi|pl|py|asp|aspx|jsp|xml|json|txt|md|csv|yml|yaml|ini|conf|css|js|mjs|jsx|ts|tsx|map|java|class|jar|wasm|otf|ttf|tiff|eot|woff2?|svg|ico|jpg|jpeg|png|gif|webp|avif|bmp|heic|heif|mp3|ogg|wav|flac|aac|mp4|webm|ogv|mov|avi|mkv|m4v|3gp|pdf|odt|ods|odp|doc|docx|xls|xlsx|ppt|pptx|rtf|epub|zip|7z|rar|tar|gz|gzip|bz2|xz|zst|dmg|iso|apk|exe|msi)$">
     Require all granted

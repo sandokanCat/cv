@@ -1,7 +1,7 @@
 # 💻 Stack
 
 - 🐱 sandokan.cat (CEO)
-- 👨‍🏫 GerardGPT (Code)
+- 🐈 sandokan.cat (Code)
 - 🤖 DeepSeek (Debugging)
 - 🕵️‍♂️ NSA (Reading this and crying)
 
@@ -20,7 +20,7 @@ We don't sell your data to:
 ## 📚 About
 
 > DIRECTED BY: **[sandokan.cat](https://sandokan.cat)** \
-> SCRIPT CONSULTANTS: **Gerard**, **JPedro** \
-> ASSISTANT PRODUCER: **ChatGPT** \
+> SCRIPT CONSULTANTS: **GerardGPT**, **JPedro** \
+> ASSISTANT PRODUCER: **Intravenous caffeine in industrial quantities** \
 > POST-PRODUCTION: **DeepSeek** \
 > SPONSORED BY: **No government, thank you.**
