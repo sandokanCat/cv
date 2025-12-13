@@ -1,5 +1,5 @@
 # NORMALIZE LINE BREAKS FOR ALL TEXT FILES
-* text=auto
+* text=auto eol=lf
 
 # FORCE LF FOR COMMON TEXT FILES
 *.html text eol=lf
