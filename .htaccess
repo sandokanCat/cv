@@ -175,7 +175,7 @@ FileETag None
     Header always set Cross-Origin-Opener-Policy "same-origin"
 
     # CSP REPORTING
-    Header always set Report-To '{"group":"csp-endpoint","max_age":10886400,"endpoints":[{"url":"https://sandokan.cat/_secure/csp-report"}],"include_subdomains":true}'
+    Header always set Report-To '{"group":"csp-endpoint","max_age":10886400,"endpoints":[{"url":"https://sandokan.cat/_secure/CSPreport"}],"include_subdomains":true}'
 </IfModule>
 
 ############################################################
