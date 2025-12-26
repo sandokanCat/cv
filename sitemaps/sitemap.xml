@@ -4,12 +4,15 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <!-- MAIN -->
     <url>
         <loc>https://sandokan.cat/</loc>
         <lastmod>2025-11-30T12:39:09+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.00</priority>
     </url>
+
+    <!-- CYBERSEC -->
     <url>
         <loc>https://sandokan.cat/doc/IFCT0023-CYBERSEC_gonzalo.pdf</loc>
         <lastmod>2025-11-30T12:39:09+00:00</lastmod>
@@ -22,18 +25,36 @@
         <changefreq>never</changefreq>
         <priority>0.90</priority>
     </url>
+
+    <!-- BACKEND -->
+    <url>
+        <loc>https://sandokan.cat/doc/IFCD0210-BACKEND_gonzalo.pdf</loc>
+        <lastmod>2025-12-26T12:39:09+00:00</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.70</priority>
+    </url>
+    <url>
+        <loc>https://sandokan.cat/doc/IFCD0210-FC_gonzalo.pdf</loc>
+        <lastmod>2025-12-26T12:39:09+00:00</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.50</priority>
+    </url>
+
+    <!-- FRONTEND -->
     <url>
         <loc>https://sandokan.cat/doc/IFCD0110-JSiPW_gonzalo.pdf</loc>
         <lastmod>2025-11-30T12:39:09+00:00</lastmod>
         <changefreq>never</changefreq>
-        <priority>0.70</priority>
+        <priority>0.60</priority>
     </url>
     <url>
         <loc>https://sandokan.cat/doc/IFCD0110-FC_gonzalo.pdf</loc>
         <lastmod>2025-11-30T12:39:09+00:00</lastmod>
         <changefreq>never</changefreq>
-        <priority>0.60</priority>
+        <priority>0.50</priority>
     </url>
+
+    <!-- OTHERS -->
     <url>
         <loc>https://sandokan.cat/doc/accesoUNED_gonzalo.pdf</loc>
         <lastmod>2025-11-30T12:39:09+00:00</lastmod>

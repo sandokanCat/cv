@@ -2,6 +2,8 @@
 <rss version="2.0" xmlns:ror="http://rorweb.com/0.1/">
     <channel>
         <title>ROR Sitemap for https://sandokan.cat/</title>
+
+        <!-- MAIN -->
         <link>https://sandokan.cat/</link>
         <item>
             <link>https://sandokan.cat/</link>
@@ -11,6 +13,8 @@
             <ror:sortOrder>0</ror:sortOrder>
             <ror:resourceOf>sitemap</ror:resourceOf>
         </item>
+
+        <!-- CYBERSEC -->
         <item>
             <link>https://sandokan.cat/doc/IFCT0023-CYBERSEC_gonzalo.pdf</link>
             <title>IFCT0023 CYBERSEC course certificate</title>
@@ -25,32 +29,52 @@
             <ror:sortOrder>2</ror:sortOrder>
             <ror:resourceOf>sitemap</ror:resourceOf>
         </item>
+
+        <!-- BACKEND -->
+        <item>
+            <link>https://sandokan.cat/doc/IFCD0210-BACKEND_gonzalo.pdf</link>
+            <title>IFCD0210 BACKEND course certificate</title>
+            <ror:updatePeriod>never</ror:updatePeriod>
+            <ror:sortOrder>4</ror:sortOrder>
+            <ror:resourceOf>sitemap</ror:resourceOf>
+        </item>
+        <item>
+            <link>https://sandokan.cat/doc/IFCD0210-FC_gonzalo.pdf</link>
+            <title>IFCD0210 ADDITIONAL TRAINING course certificate</title>
+            <ror:updatePeriod>never</ror:updatePeriod>
+            <ror:sortOrder>6</ror:sortOrder>
+            <ror:resourceOf>sitemap</ror:resourceOf>
+        </item>
+
+        <!-- FRONTEND -->
         <item>
             <link>https://sandokan.cat/doc/IFCD0110-JSiPW_gonzalo.pdf</link>
             <title>IFCD0110 JAVASCRIPT AND WEB PUBLICATION course certificate</title>
             <ror:updatePeriod>never</ror:updatePeriod>
-            <ror:sortOrder>4</ror:sortOrder>
+            <ror:sortOrder>5</ror:sortOrder>
             <ror:resourceOf>sitemap</ror:resourceOf>
         </item>
         <item>
             <link>https://sandokan.cat/doc/IFCD0110-FC_gonzalo.pdf</link>
             <title>IFCD0110 ADDITIONAL TRAINING course certificate</title>
             <ror:updatePeriod>never</ror:updatePeriod>
-            <ror:sortOrder>5</ror:sortOrder>
+            <ror:sortOrder>7</ror:sortOrder>
             <ror:resourceOf>sitemap</ror:resourceOf>
         </item>
+
+        <!-- OTHERS -->
         <item>
             <link>https://sandokan.cat/doc/accesoUNED_gonzalo.pdf</link>
             <title>ACCESS TO UNIVERSITY (UNED) course certificate</title>
             <ror:updatePeriod>never</ror:updatePeriod>
-            <ror:sortOrder>6</ror:sortOrder>
+            <ror:sortOrder>8</ror:sortOrder>
             <ror:resourceOf>sitemap</ror:resourceOf>
         </item>
         <item>
             <link>https://sandokan.cat/doc/certificatESO_gonzalo.pdf</link>
             <title>COMPULSORY SECONDARY EDUCATION (ESO) course certificate</title>
             <ror:updatePeriod>never</ror:updatePeriod>
-            <ror:sortOrder>7</ror:sortOrder>
+            <ror:sortOrder>9</ror:sortOrder>
             <ror:resourceOf>sitemap</ror:resourceOf>
         </item>
         <item>
