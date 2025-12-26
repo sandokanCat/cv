@@ -1,8 +1,14 @@
 <?php
+declare(strict_types=1);
+
+// LOAD CSP HEADERS
 define('ALLOW_CSPHEADER', true);
 require_once __DIR__ . '/../_secure/CSPheader.php';
 
-declare(strict_types=1);
+// REPORT ERRORS
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 // ----------------------------
 // AUTOLOAD v4.0 (NO CACHE)

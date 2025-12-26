@@ -17,7 +17,7 @@
         </article>
         <article>
             <h5>
-                <a data-i18n="appDev" data-i18n-attr="aria-label:seeCertificate" class="modal-link" href="doc/IFCD0210_<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>.pdf" target="_blank" data-modal="doc/IFCD0210_<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>.pdf" aria-label="<?= $L('seeCertificate'); ?>"><?= $T('appDev'); ?></a>
+                <a data-i18n="appDev" data-i18n-attr="aria-label:seeCertificate" class="modal-link" href="doc/IFCD0210-BACKEND_<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>.pdf" target="_blank" data-modal="doc/IFCD0210_<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>.pdf" aria-label="<?= $L('seeCertificate'); ?>"><?= $T('appDev'); ?></a>
             </h5>
             <h6 lang="ca-ES"><?= htmlspecialchars($academy['backend']['name'], ENT_QUOTES | ENT_HTML5); ?></h6>
             <ol>
