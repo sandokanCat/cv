@@ -32,7 +32,7 @@
     <!-- OPEN GRAPH -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="<?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?>">
-    <meta property="og:title" content="<?= $T('ogTitle'); ?>">
+    <meta property="og:title" content="<?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?> | <?= $T('role') ?>">
     <meta property="og:description" content="<?= $T('ogDescription'); ?>">
     <meta property="og:url" content="<?= htmlspecialchars($brand['url'], ENT_QUOTES | ENT_HTML5); ?>">
     <meta property="og:image" content="<?= htmlspecialchars($brand['url'], ENT_QUOTES | ENT_HTML5); ?>img/og-img.jpg?version=2.0">
@@ -79,8 +79,8 @@
             "@context" => "https://schema.org",
             "@type" => "WebSite",
             "url" => $brand['url'],
-            "name" => $T('ldJsonWebName'),
-            "description" => $T('ldJsonWebDescription'),
+            "name" => $brand['nick'].' | '.$T('role'),
+            "description" => $T('description'),
             "author" => ["@id" => "#".$shortName],
             "publisher" => ["@id" => "#".$shortName],
             "mainEntity" => ["@id" => "#".$shortName]
@@ -92,11 +92,11 @@
             "@type" => "Person",
             "@id" => "#".$shortName,
             "name" => $brand['name'],
-            "jobTitle" => $T('ldJsonJobTitle'),
+            "jobTitle" => $T('role'),
             "url" => $brand['url']."#".$shortName,
             "contactPoint" => [
                 "@type" => "ContactPoint",
-                "contactType" => $T('ldJsonContactType'),
+                "contactType" => $T('contactType'),
                 "email" => $brand['email'],
                 "telephone" => $brand['tel'],
                 "url" => $brand['url']."partials/contact/form.php"

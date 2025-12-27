@@ -1,12 +1,13 @@
-<!ELEMENT form (field+)>
+<!ELEMENT form (lang+)>
 <!ATTLIST form
     action CDATA #REQUIRED
     method CDATA #REQUIRED
     enctype CDATA #REQUIRED
 >
-<!ELEMENT field (name, type, label+)>
-<!ATTLIST field required (true|false) "true">
+<!ELEMENT lang (field+)>
+<!ATTLIST lang locale CDATA #REQUIRED>
+<!ELEMENT field (name, type, label)>
+<!ATTLIST field required (true|false) "false">
 <!ELEMENT name (#PCDATA)>
 <!ELEMENT type (#PCDATA)>
 <!ELEMENT label (#PCDATA)>
-<!ATTLIST label lang CDATA #REQUIRED>

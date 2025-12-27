@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 // LOAD CSP HEADERS
 define('ALLOW_CSPHEADER', true);
-require_once __DIR__ . '/../_secure/CSPheader.php';
+require_once __DIR__.'/../_secure/CSPheader.php';
 
 // REPORT ERRORS
 ini_set('display_errors', 1);

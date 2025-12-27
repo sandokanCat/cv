@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 // LOAD SERVER DIRECTORY
-require_once __DIR__ . '/server/autoload.php';
+require_once __DIR__.'/server/autoload.php';
 
 // INIT HTML5
 ?>

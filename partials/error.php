@@ -1,12 +1,12 @@
 <?php
+// LOAD I18N & GLOBALS
+require_once __DIR__.'/../server/autoload.php';
+
 // ERROR CODE HANDLING
 $code = (int)($_GET['code'] ?? 500);
 
-// LOAD I18N & GLOBALS
-require_once __DIR__."/../server/autoload.php";
-
 // GET I18N ERROR MESSAGES
-$errorsFile = __DIR__ . '/js/data/errors.json';
+$errorsFile = __DIR__.'/../js/data/errors.json';
 $i18nErrors = json_decode(file_get_contents($errorsFile), true);
 
 // GET MESSAGE OR FALLBACK TO 500

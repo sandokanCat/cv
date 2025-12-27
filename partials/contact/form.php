@@ -1,18 +1,18 @@
 <?php
 // LOAD I18N & GLOBALS
-require_once __DIR__."/../../server/autoload.php";
+require_once __DIR__.'/../../server/autoload.php';
 
 // LOAD DEPENDENCIES
-require_once '/app/PHPdotenv/vendor/autoload.php';
-require_once '/app/PHPMailer/src/PHPMailer.php';
-require_once '/app/PHPMailer/src/SMTP.php';
-require_once '/app/PHPMailer/src/Exception.php';
+require_once __DIR__.'/../../app/PHPdotenv/vendor/autoload.php';
+require_once __DIR__.'/../../app/PHPMailer/src/PHPMailer.php';
+require_once __DIR__.'/../../app/PHPMailer/src/SMTP.php';
+require_once __DIR__.'/../../app/PHPMailer/src/Exception.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // LOAD .ENV
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__.'/../');
 $dotenv->load();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <title><?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?> | Contact</title>
 
-    <?php require_once __DIR__."/../noindex.php"; // LOAD NOINDEX/NOFOLLOW HEAD ?>
+    <?php require_once __DIR__."/../assets/noindex.php"; // LOAD NOINDEX/NOFOLLOW HEAD ?>
 
     <!-- SPECIFIC CSS -->
     <link rel="stylesheet" href="css/components/form.css">
@@ -127,7 +127,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $enctype = htmlspecialchars($enctype, ENT_QUOTES | ENT_HTML5, 'UTF-8');
 
     // LOAD I18N HELPER AND SANITIZE LANG
-    require_once __DIR__ . '/../../server/autoload.php';
     $lang = htmlspecialchars($currentLang, ENT_QUOTES | ENT_HTML5, 'UTF-8');
     
     // START FORM
