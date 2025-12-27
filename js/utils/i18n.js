@@ -13,6 +13,7 @@ import {
 } from "../components/index.js";
 
 // TRANSLATION CACHE
+let globalsData = null;
 let langMapData = null;
 let cachedLocale = null;
 const cachedTranslations = {};
@@ -31,12 +32,26 @@ export async function reloadDynamicContent(locale) {
     reloadedLocales.add(locale);
 }
 
+// LOAD GLOBALS JSON
+async function loadGlobals() {
+    if (globalsData) return globalsData;
+
+    try {
+        globalsData = await validateJSON('js/globals.json');
+    } catch (err) {
+        logger.er("FAILED TO LOAD GLOBALS.JSON", err.name, err.message, err.stack);
+        globalsData = {};
+    }
+
+    return globalsData;
+}
+
 // LOAD LANGMAP
 async function loadLangMap() {
     if (langMapData) return langMapData;
 
     try {
-        const data = await validateJSON('js/globals.json');
+        const data = await loadGlobals();
         langMapData = {
             op: Object.fromEntries(
                 Object.entries(data.lang?.op || { en: ["en-GB", "English"] })
@@ -121,6 +136,20 @@ export const getI18nData = async (locale) => {
 const getNestedValue = (obj, key, fallback = "") =>
     key.split(".").reduce((acc, part) => (acc && typeof acc === "object") ? acc[part] : undefined, obj) ?? fallback;
 
+// RESOLVE TRANSLATION WITH BRAND FALLBACK
+const resolveValue = (translations, key, brand = {}, locale, fallback = "") => {
+    const fromBrandLocale = brand?.[locale]?.[key];
+    if (fromBrandLocale !== undefined) return fromBrandLocale;
+
+    const fromI18n = getNestedValue(translations, key);
+    if (fromI18n !== undefined && fromI18n !== "") return fromI18n;
+
+    const fromBrandRoot = brand?.[key];
+    if (fromBrandRoot !== undefined) return fromBrandRoot;
+
+    return fallback;
+};
+
 // INTERPOLATE BRAND PLACEHOLDERS
 const interpolateBrand = (str, brand = {}, locale = 'en-GB') => {
     if (typeof str !== 'string') return str;
@@ -135,8 +164,6 @@ const interpolateBrand = (str, brand = {}, locale = 'en-GB') => {
 
 // INIT i18n TO TRANSLATE PAGE
 export const initI18n = async ({
-    root = document.documentElement,
-    titleSelector = 'title',
     textSelector = '[data-i18n]',
     attrSelector = '[data-i18n-attr]',
     locale = null
@@ -149,49 +176,45 @@ export const initI18n = async ({
     else if (document.documentElement.lang !== resolvedLocale) reloadedLocales.clear();
 
     try {
-        // GET TRANSLATIONS
+        // GET DATA
+        const brand = await loadGlobals().brand || {};
         const translations = await getI18nData(resolvedLocale);
 
-        // SET HTML LANG & STORE IT
+        // SET HTML LANG & DIR
         setLocaleStorage(resolvedLocale);
-        root.setAttribute("lang", resolvedLocale);
-        root.setAttribute("dir", rtl.includes(base) ? "rtl" : "ltr");
+        document.documentElement.setAttribute("lang", resolvedLocale);
+        document.documentElement.setAttribute("dir", rtl.includes(base) ? "rtl" : "ltr");
 
-        // TRANSLATE PAGE TITLE
-        const titleEl = root.querySelector(titleSelector);
-        if (!titleEl) {
-            logger.wa(`TRANSLATION ${titleSelector} NOT FOUND for locale ${resolvedLocale}`);
-        } else {
-            const roleObj = window.GLOBALS?.brand?.role ?? '';
-            const role = typeof roleObj === 'object' ? roleObj[resolvedLocale] ?? Object.values(roleObj)[0] : roleObj;
-            if (role) document.title = `${BRAND_NICK} | ${role}`;
-        }
+        // UPDATE TITLE
+        const brandNick = BRAND_NICK?.trim() || 'sandokan.cat';
+        const role = brand[resolvedLocale]?.role?.trim() || '';
+        document.title = role ? `${brandNick} | ${role}` : brandNick;
 
-        // TRANSLATE CONTENT
-        root.querySelectorAll(textSelector).forEach(el => {
+        // TRANSLATE VISIBLE CONTENT
+        document.querySelectorAll(textSelector).forEach(el => {
             const key = el.getAttribute("data-i18n");
-            const value = getNestedValue(translations, key, "");
-
-            if (value === "") logger.wa(`TRANSLATION KEY NOT FOUND: ${key} for locale ${resolvedLocale}`);
-            else if (value && typeof value === "object") {
-                const content = value.html ?? value.text ?? "";
-                el.innerHTML = interpolateBrand(content, window.GLOBALS?.brand, resolvedLocale);
+            const raw = resolveValue(translations, key, brand, resolvedLocale);
+        
+            const content = (raw === undefined || raw === "") ? brand[resolvedLocale]?.[key] ?? "" : raw;
+        
+            if (typeof content === "object") {
+                el.innerHTML = interpolateBrand(content.html ?? content.text ?? "", brand, resolvedLocale);
             } else {
-                el.textContent = interpolateBrand(value, window.GLOBALS?.brand, resolvedLocale);
+                el.textContent = interpolateBrand(content, brand, resolvedLocale);
             }
-        });
+        });        
 
         // TRANSLATE ATTRIBUTES
-        root.querySelectorAll(attrSelector).forEach(el => {
+        document.querySelectorAll(attrSelector).forEach(el => {
             const attrRaw = el.getAttribute("data-i18n-attr");
 
             if (!attrRaw) logger.wa(`ELEMENT WITHOUT ${attrSelector} ATTRIBUTE`);
             else attrRaw.split(",").forEach(pair => {
                 const [attr, key] = pair.split(":").map(s => s.trim());
-                const nested = getNestedValue(translations, key, {});
-                let value = (nested && typeof nested === "object") ? nested[attr] : nested;
+                const raw = resolveValue(translations, key, brand, resolvedLocale);
+                let value = (raw && typeof raw === "object") ? raw[attr] : raw;
 
-                if (value) el.setAttribute(attr, interpolateBrand(value, window.GLOBALS?.brand, resolvedLocale));
+                if (value) el.setAttribute(attr, interpolateBrand(value, brand, resolvedLocale));
                 else logger.wa(`ATTRIBUTE TRANSLATION MISSING: ${attr} for key ${key} in locale ${resolvedLocale}`);
             });
         });

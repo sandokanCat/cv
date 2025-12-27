@@ -47,7 +47,15 @@ $brandData = $globals['brand'] ?? [];
 $brandIni  = $brand ?? [];
 $brandData = array_merge($brandIni, $brandData);
 function t(array $translations, string $key, string $type='text', string $default='', array $brand = [], string $lang = 'en-GB') {
-    $value = $translations[$key][$type] ?? $translations[$key] ?? $default;
+    
+    // ----------------------------
+    // VALUE RESOLUTION PRIORITY
+    $value =
+        $translations[$key][$type] ??
+        $translations[$key]        ??
+        ($brand[$lang][$key]       ?? null) ??
+        ($brand[$key]              ?? null) ??
+        $default;
     if (is_array($value)) $value = $default;
 
     // ----------------------------

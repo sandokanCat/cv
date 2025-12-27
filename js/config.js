@@ -1,7 +1,5 @@
 // I18N CONFIG
 export const i18nConfig = {
-    root: document.documentElement,
-    titleSelector: 'title',
     textSelector: '[data-i18n]',
     attrSelector: '[data-i18n-attr]',
 };

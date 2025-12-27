@@ -8,9 +8,6 @@
     "portrait": {
         "alt": "Retrat"
     },
-    "profile": {
-        "text": "{{brand.role}}"
-    },
     "biography": {
         "html": "M'apassiona el codi net i funcional. Em formo a diari, tant en academies com per lliure, perquè el coneixement no s'acaba quan sona el timbre. M'agrada trencar coses per entendre-les (i arreglar-les millor), per això el <span lang='en-GB'>Red Team</span> em crida fort. No segueixo el camí estàndard; prefereixo traçar el meu amb teclat i cafè. Busco projectes on pugui aprendre, aportar i deixar empremta, sense postureigs ni promeses buides. Si no sé alguna cosa, la investigo. I si alguna cosa em motiva, no paro fins a fer-ho bé."
     },

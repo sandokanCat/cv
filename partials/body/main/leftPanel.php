@@ -8,7 +8,7 @@
             </picture>
             <figcaption>
                 <h1 lang="es-ES"><?= htmlspecialchars($brand['name'], ENT_QUOTES | ENT_HTML5); ?></h1>
-                <h2 data-i18n="profile"><?= $T('profile'); ?></h2>
+                <h2 data-i18n="role"><?= $T('role'); ?></h2>
                 <p data-i18n="biography"><?= $H('biography'); ?></p>
             </figcaption>
         </figure>

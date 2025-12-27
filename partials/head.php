@@ -12,7 +12,7 @@
     <script nonce="<?= htmlspecialchars($GLOBALS['nonce'], ENT_QUOTES, ENT_HTML5) ?>">
         const BRAND_NICK = "<?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?>"
     </script>
-    <title data-i18n="title"><?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?> | <?= $T('brand.role') ?></title>
+    <title><?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?> | <?= $T('role') ?></title>
     <meta name="description" content="<?= $T('description'); ?>">
 
     <!-- CANONICAL -->
