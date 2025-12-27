@@ -7,7 +7,7 @@
 <meta name="description" content="<?= $T('description'); ?>">
 
 <!-- CANONICAL -->
-<link rel="canonical" href="<?= htmlspecialchars($canonicalUrl, ENT_QUOTES | ENT_HTML5); ?>">
+<link rel="canonical" href="<?= htmlspecialchars($brand['url'] . ($currentLang !== 'en-GB' ? "$currentLang/" : ''), ENT_QUOTES | ENT_HTML5); ?>">
 
 <!-- ROBOTS -->
 <meta name="robots" content="noindex, nofollow">

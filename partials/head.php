@@ -16,15 +16,15 @@
     <meta name="description" content="<?= $T('description'); ?>">
 
     <!-- CANONICAL -->
-    <link rel="canonical" href="<?= htmlspecialchars($canonicalUrl, ENT_QUOTES | ENT_HTML5); ?>">
+    <link rel="canonical" href="<?= htmlspecialchars($brand['url'], ENT_QUOTES | ENT_HTML5); ?>">
 
     <!-- LANGUAGE VERSIONS -->
     <?php foreach ($opLang as $langCode => $locale): 
         $code = is_array($locale) ? ($locale[0] ?? 'en-GB') : $locale;
-        $url = $brand['url'] . ($code !== 'en-GB' ? "{$code}/" : '');?>
+        $url = $brand['url'].$code."/";?>
         <link rel="alternate" hreflang="<?= htmlspecialchars($langCode); ?>" href="<?= htmlspecialchars($url, ENT_QUOTES | ENT_HTML5); ?>">
     <?php endforeach; ?>
-    <link rel="alternate" hreflang="x-default" href="<?= htmlspecialchars($canonicalUrl, ENT_QUOTES | ENT_HTML5); ?>">
+    <link rel="alternate" hreflang="x-default" href="<?= htmlspecialchars($brand['url'], ENT_QUOTES | ENT_HTML5); ?>">
 
     <!-- ROBOTS -->
     <meta name="robots" content="index, follow">
@@ -40,9 +40,10 @@
     <meta property="og:image:width" content="200">
     <meta property="og:image:height" content="200">
     <meta property="og:image:alt" content="<?= $T('ogImageAlt'); ?>">
-    <meta property="og:locale" content="<?= htmlspecialchars($ogLocales[$currentLang] ?? 'en_GB', ENT_QUOTES | ENT_HTML5); ?>">
-    <?php foreach ($ogLocales as $lang => $ogLocale):
-        if ($lang !== $currentLang): ?>
+    <?php foreach ($ogLocales as $ogLocale):
+        if ($ogLocale == str_replace('-', '_', $currentLang)): ?>
+            <meta property="og:locale" content="<?= htmlspecialchars($ogLocale, ENT_QUOTES | ENT_HTML5); ?>">
+        <?php else: ?>
             <meta property="og:locale:alternate" content="<?= htmlspecialchars($ogLocale, ENT_QUOTES | ENT_HTML5); ?>">
     <?php endif; endforeach; ?>
 

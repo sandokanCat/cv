@@ -20,9 +20,6 @@ if ($isDev) {
 // NECESSARY VARIABLES
 // ----------------------------
 
-// CANONICAL URLs
-$canonicalUrl = $brand['url'] . ($currentLang !== 'en-GB' ? "$currentLang/" : '');
-
 // CURRENT LANGUAGE
 $opLang = G($globals,'lang.op','json') ?: [];
 
