@@ -76,7 +76,7 @@ logger.gp("easter egg", () => {
     )
 });
 
-// A LITTE JOKE MORE
+// A LITTLE JOKE MORE
 const validTitles = [
     "sandokan.cat | Fullstack Web Developer",
     "sandokan.cat | Desarrollador Web Fullstack",
