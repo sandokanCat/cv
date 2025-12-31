@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <title><?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?> | Contact</title>
 
-    <?php require_once __DIR__."/../assets/noindex.php"; // LOAD NOINDEX/NOFOLLOW HEAD ?>
+    <?php require_once __DIR__."/../includes/noindex.php"; // LOAD NOINDEX/NOFOLLOW HEAD ?>
 
     <!-- SPECIFIC CSS -->
     <link rel="stylesheet" href="css/components/form.css">
@@ -205,7 +205,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     </form>
     <footer>
-        <?php require_once __DIR__."/../assets/signature.php"; // LOAD SIGNATURE ?>
+        <?php require_once __DIR__."/../includes/signature.php"; // LOAD SIGNATURE ?>
     </footer>
 </body>
 

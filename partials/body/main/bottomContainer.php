@@ -96,7 +96,7 @@
             <!--//MENU END -->
         </div>
         <div id="portfolio">
-            <?php require_once __DIR__."/../../assets/signature.php"; // LOAD SIGNATURE ?>
+            <?php require_once __DIR__."/../../includes/signature.php"; // LOAD SIGNATURE ?>
             <a href="https://<?= htmlspecialchars($brand['user'], ENT_QUOTES | ENT_HTML5); ?>.github.io/estopa/" target="_blank" data-status>
                 <img data-i18n-attr="alt:estopa" src="img/portfolio/estopa.png" decoding="async" loading="lazy" alt="<?= $A('estopa'); ?>">
             </a>

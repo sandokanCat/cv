@@ -23,7 +23,7 @@ http_response_code($code);
 <head>
     <title><?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?> | Error <?= htmlspecialchars($code, ENT_QUOTES | ENT_HTML5); ?></title>
 
-    <?php require_once __DIR__."/assets/noindex.php"; // LOAD NOINDEX/NOFOLLOW HEAD ?>
+    <?php require_once __DIR__."/includes/noindex.php"; // LOAD NOINDEX/NOFOLLOW HEAD ?>
 
     <!-- SPECIFIC CSS -->
     <link rel="stylesheet" href="css/components/error.css">
@@ -42,7 +42,7 @@ http_response_code($code);
             <p><a class="icons-scale" href="/"><?= htmlspecialchars($btnTxt, ENT_QUOTES | ENT_HTML5); ?></a></p>
         </main>
         <footer>
-            <?php require_once __DIR__."/assets/signature.php"; // LOAD SIGNATURE ?>
+            <?php require_once __DIR__."/includes/signature.php"; // LOAD SIGNATURE ?>
         </footer>
     </div>
 </body>
