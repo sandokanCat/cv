@@ -12,7 +12,8 @@ export {
     getI18nData,
     initI18n,
     setLocaleStorage,
-    reloadDynamicContent
+    reloadDynamicContent,
+    updateUrlLocale
 } from './i18n.js';
 
 export {

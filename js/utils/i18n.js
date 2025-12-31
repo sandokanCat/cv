@@ -225,3 +225,25 @@ export const initI18n = async ({
         logger.er(`i18n.js ERROR: ${resolvedLocale}`, err.name, err.message, err.stack);
     }
 };
+
+// UPDATE URL WITH LOCALE (NO RELOAD, NO DUPLICATES)
+export const updateUrlLocale = async (locale) => {
+    const { op, inCase } = await loadLangMap();
+    const validLocales = Object.values(op);
+    if (!validLocales.includes(locale)) {
+        logger.wa(`INVALID LOCALE FOR URL: ${locale}, USING FALLBACK ${inCase}`);
+        locale = inCase;
+    }
+
+    const pathSegments = window.location.pathname
+        .replace(/^\/|\/$/g, '')
+        .split('/')
+        .filter(Boolean);
+
+    if (validLocales.includes(pathSegments[0])) pathSegments.shift();
+    pathSegments.unshift(locale);
+
+    const newPath = `/${pathSegments.join('/')}/`;
+
+    window.history.pushState({}, '', newPath);
+};

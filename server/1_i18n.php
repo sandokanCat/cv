@@ -2,9 +2,21 @@
 declare(strict_types=1);
 
 // ----------------------------
-// USER LANGUAGE DETECTION
+// USER LANGUAGE OPTIONS
 // ----------------------------
 $langOpts = G($globals,'lang','json') ?: [];
+
+// ----------------------------
+// URL LANGUAGE PARSING
+// ----------------------------
+$uriPath = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+$uriSegments = explode('/', $uriPath);
+$urlLang = $uriSegments[0] ?? null;
+$validLangs = array_column($langOpts['op'] ?? [], 0);
+
+// ----------------------------
+// USER LANGUAGE DETECTION
+// ----------------------------
 function detectUserLang(array $langOpts = []): string {
     static $cachedLang = null;
     if ($cachedLang !== null) return $cachedLang;
@@ -31,13 +43,32 @@ function detectUserLang(array $langOpts = []): string {
 // ----------------------------
 // CURRENT LANGUAGE
 // ----------------------------
-$currentLang = detectUserLang($langOpts);
+$currentLang = in_array($urlLang, $validLangs) ? $urlLang : detectUserLang($langOpts);
+
+// ----------------------------
+// NORMALIZE URI FOR REDIRECTION
+// ----------------------------
+$normalizedUri = rtrim($uriPath, '/').'/';
+$rootPaths = [''];
+
+// ----------------------------
+// REDIRECT ROOT OR INVALID LANG TO DETECTED LANGUAGE
+// ----------------------------
+if (in_array('/'.$uriPath, $rootPaths, true) || !in_array($urlLang, $validLangs)) {
+    $redirectUrl = $brand['url'].$currentLang.'/';
+
+    if ($normalizedUri !== $currentLang.'/') {
+        header("Location: {$redirectUrl}", true, 302);
+        exit;
+    }
+}
 
 // ----------------------------
 // LOAD TRANSLATIONS JSON
 // ----------------------------
 $translationsFile = __DIR__."/../js/i18n/{$currentLang}.json";
 if(!file_exists($translationsFile)) $translationsFile = __DIR__."/../js/i18n/en-GB.json";
+
 $translations = json_decode(file_get_contents($translationsFile), true);
 
 // ----------------------------
@@ -92,7 +123,7 @@ function t(array $translations, string $key, string $type='text', string $defaul
         if (isset($brand[$k])) return is_array($brand[$k]) ? reset($brand[$k]) : $brand[$k];
     
         return $m[0];
-    }, $value);    
+    }, $value);
 
     // ESCAPE IF NEEDED
     if ($type !== 'html') $value = htmlspecialchars((string)$value, ENT_QUOTES|ENT_HTML5);

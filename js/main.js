@@ -12,20 +12,24 @@ import {
     initI18n,
     initToggler,
     reloadDynamicContent,
+    updateUrlLocale,
     signature,
     manageCookies
 } from './utils/index.js';
 import {
     initTheme,
     getLangMenuConfig,
-    initCarousel,
-    updateCarouselAlts,
-    reloadRandomMsg,
-    getBurgerConfig,
-    updateProvisionalAlert,
-    /* openModal,
+    initCarousel/*,
+    openModal,
     sendMail */
 } from './components/index.js';
+
+// 🔄 CHANGE LOCALE FUNCTION
+const changeLocale = async (newLang) => {
+    await initI18n({ ...i18nConfig, locale: newLang });
+    await reloadDynamicContent(newLang);
+    await updateUrlLocale(newLang);
+};
 
 // 🧠 APP INITIALIZATION SEQUENCE: FROM GLOBALS TO INTERACTIVE UI
 document.addEventListener("DOMContentLoaded", async () => {
@@ -33,17 +37,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     replaceClass('js-disabled', 'js-enabled');
     initTheme('#theme-dark-btn', document.documentElement);
-    await initI18n({ ...i18nConfig, locale });
 
-    await initToggler(await getLangMenuConfig(async (newLang) => {
-        await initI18n({ ...i18nConfig, locale: newLang });
-        await reloadDynamicContent(newLang);
-    }));
-    
+    await changeLocale(locale);
+
+    await initToggler(await getLangMenuConfig(changeLocale));
+
     await initCarousel({ ...carouselConfig, locale, refs: carouselConfig.refs() });
-    await reloadRandomMsg(locale);
-    await initToggler(await getBurgerConfig(locale));
-    await updateProvisionalAlert(locale);
 
     signature('#signature-year');
     manageCookies({ ...cookiesConfig });
@@ -83,7 +82,7 @@ const validTitles = [
     "sandokan.cat | Desenvolupador Web Fullstack",
     "sandokan.cat | Веб-разработчик полного стека",
     "sandokan.cat | مطور ويب متكامل",
-    "sandokan.cat | 全栈网页开发者"
+    "sandokan.cat | 全栈 Web 开发工程师"
 ];
 logger.as(
     validTitles.includes(document.title),
