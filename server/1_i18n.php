@@ -41,45 +41,68 @@ if(!file_exists($translationsFile)) $translationsFile = __DIR__."/../js/i18n/en-
 $translations = json_decode(file_get_contents($translationsFile), true);
 
 // ----------------------------
-// TRANSLATION FUNCTION WITH BRAND INTERPOLATION + ESCAPING
+// DEEP MERGE FUNCTION
 // ----------------------------
-$brandData = $globals['brand'] ?? [];
-$brandIni  = $brand ?? [];
-$brandData = array_merge($brandIni, $brandData);
+function array_merge_recursive_distinct(array $array1, array $array2): array {
+    $merged = $array1;
+    foreach ($array2 as $key => $value) {
+        if (is_array($value) && isset($merged[$key]) && is_array($merged[$key])) {
+            $merged[$key] = array_merge_recursive_distinct($merged[$key], $value);
+        } else {
+            $merged[$key] = $value;
+        }
+    }
+    return $merged;
+}
+
+// ----------------------------
+// MERGE BRAND DATA (INI + JSON)
+// ----------------------------
+$brandData = array_merge_recursive_distinct($brand ?? [], $globals['brand'] ?? []);
+
+// ----------------------------
+// TRANSLATION FUNCTION
+// ----------------------------
 function t(array $translations, string $key, string $type='text', string $default='', array $brand = [], string $lang = 'en-GB') {
-    
-    // ----------------------------
-    // VALUE RESOLUTION PRIORITY
     $value =
         $translations[$key][$type] ??
-        $translations[$key]        ??
-        ($brand[$lang][$key]       ?? null) ??
-        ($brand[$key]              ?? null) ??
+        $translations[$key] ??
+        ($brand['templates'][$key] ?? null) ??
+        ($brand[$lang][$key] ?? null) ??
+        ($brand[$key] ?? null) ??
         $default;
+
     if (is_array($value)) $value = $default;
 
-    // ----------------------------
-    // INTERPOLATE {{brand.xxx}}
-    $value = preg_replace_callback('/\{\{brand\.([a-zA-Z0-9_]+)\}\}/', function($m) use($brand, $lang) {
-        $k = $m[1];
-        if(isset($brand[$k])) {
-            if(is_array($brand[$k])) return $brand[$k][$lang] ?? reset($brand[$k]);
-            return $brand[$k];
+    // INTERPOLATE BRAND
+    $value = preg_replace_callback('/\{\{(brand\.)?([a-zA-Z0-9_]+)\}\}/', function($m) use($brand, $lang) {
+        $isBrand = $m[1] ?? '';
+        $k = $m[2];
+    
+        if ($isBrand) {
+            if (isset($brand[$k])) {
+                if (is_array($brand[$k])) return reset($brand[$k]);
+                return $brand[$k];
+            }
+            return $m[0];
         }
+    
+        if (isset($brand[$lang][$k])) return $brand[$lang][$k];
+    
+        if (isset($brand[$k])) return is_array($brand[$k]) ? reset($brand[$k]) : $brand[$k];
+    
         return $m[0];
-    }, $value);
+    }, $value);    
 
-    // ----------------------------
-    // ESCAPE (only if is not HTML)
-    if($type !== 'html') $value = htmlspecialchars((string)$value, ENT_QUOTES|ENT_HTML5);
+    // ESCAPE IF NEEDED
+    if ($type !== 'html') $value = htmlspecialchars((string)$value, ENT_QUOTES|ENT_HTML5);
 
     return $value;
 }
 
 // ----------------------------
 // RTL / LTR
-$rtlRaw = G($globals,'lang.rtl','json');
-if (!is_array($rtlRaw)) $rtlRaw = [];
+$rtlRaw = G($globals,'lang.rtl','json') ?: [];
 $rtl = array_map('strtolower', $rtlRaw);
 $dir = in_array(strtolower(substr($currentLang,0,2)), $rtl) ? 'rtl' : 'ltr';
 
@@ -88,14 +111,8 @@ $dir = in_array(strtolower(substr($currentLang,0,2)), $rtl) ? 'rtl' : 'ltr';
 // ----------------------------
 $make = fn(string $defaultType)
     => fn(string $k, ?string $t = null)
-        => t(
-            $translations,
-            $k,
-            $t ?? $defaultType,
-            '',
-            $brandData,
-            $currentLang
-        );
+        => t($translations, $k, $t ?? $defaultType, '', $brandData, $currentLang);
+
 $T = $make('text');
 $H = $make('html');
 $A = $make('alt');

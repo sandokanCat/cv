@@ -14,7 +14,7 @@
 
     "brand": {
         "templates": {
-            "description": "{{brand.name}} {{info}}, {{role}} {{role_extra}}",
+            "description": "{{brand.name}}, {{info}} {{role}} {{role_extra}}",
             "ogDescription": "{{brand.nick}} | {{finder}} {{role}} {{role_extra}}? {{discover}}",
             "ogImageAlt": "{{brand.name}}, {{role}}. {{info}}"
         },
@@ -23,7 +23,7 @@
             "info": "Portfolio and Resume.",
             "contactType": "Web Development Services",
             "finder": "Looking for a",
-            "role_extra": "focused on modern technologies and passionate about cybersecurity.",
+            "role_extra": "focused on modern technologies and passionate about cybersecurity",
             "discover": "Discover my projects."
         },
         "es-ES": {
@@ -31,7 +31,7 @@
             "info": "Portafolio y Currículum.",
             "contactType": "Servicios de desarrollo web",
             "finder": "¿Buscas un",
-            "role_extra": "centrado en tecnologías modernas y apasionado por la ciberseguridad.",
+            "role_extra": "centrado en tecnologías modernas y apasionado por la ciberseguridad",
             "discover": "Descubre mis proyectos."
         },
         "ca-ES": {
@@ -39,15 +39,15 @@
             "info": "Portafoli i Currículum.",
             "contactType": "Serveis de desenvolupament web",
             "finder": "Busques un",
-            "role_extra": "centrat en tecnologies modernes i apassionat per la ciberseguretat.",
+            "role_extra": "centrat en tecnologies modernes i apassionat per la ciberseguretat",
             "discover": "Descobreix els meus projectes."
         },
         "ru-RU": {
             "role": "Фуллстек веб-разработчик",
-            "info": "Портфолио и резюме",
+            "info": "Портфолио и резюме.",
             "contactType": "Услуги веб-разработки",
             "finder": "Ищете",
-            "role_extra": "специалиста, ориентированного на современные технологии и увлечённого кибербезопасностью.",
+            "role_extra": "специалиста, ориентированного на современные технологии и увлечённого кибербезопасностью",
             "discover": "Ознакомьтесь с моими проектами."
         },
         "ar-SA": {
@@ -55,7 +55,7 @@
             "info": "السيرة الذاتية والمعرض الشخصي.",
             "contactType": "خدمات تطوير الويب",
             "finder": "هل تبحث عن",
-            "role_extra": "محترف يركز على التقنيات الحديثة وشغوف بالأمن السيبراني.",
+            "role_extra": "محترف يركز على التقنيات الحديثة وشغوف بالأمن السيبراني",
             "discover": "اكتشف مشاريعي."
         },
         "zh-CN": {
@@ -63,7 +63,7 @@
             "info": "作品集与简历。",
             "contactType": "网页开发服务",
             "finder": "正在寻找一位",
-            "role_extra": "专注于现代技术，并热衷于网络安全的专业人士。",
+            "role_extra": "专注于现代技术，并热衷于网络安全的专业人士",
             "discover": "探索我的项目。"
         }
     },
