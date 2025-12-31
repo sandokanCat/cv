@@ -14,9 +14,9 @@
 
     "brand": {
         "templates": {
-            "description": "{{{brand.name}} {info}}, {{role}} {{role_extra}}",
-            "ogDescription": "{{brand.nick}} | {{finder}} {{role}}? {{discover}}",
-            "ogImageAlt": "{{brand.nick}}, {{role}}. {{info}}"
+            "description": "{{brand.name}} {{info}}, {{role}} {{role_extra}}",
+            "ogDescription": "{{brand.nick}} | {{finder}} {{role}} {{role_extra}}? {{discover}}",
+            "ogImageAlt": "{{brand.name}}, {{role}}. {{info}}"
         },
         "en-GB": {
             "role": "Fullstack Web Developer",
