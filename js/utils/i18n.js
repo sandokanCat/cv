@@ -177,7 +177,8 @@ export const initI18n = async ({
 
     try {
         // GET DATA
-        const brand = await loadGlobals().brand || {};
+        const globals = await loadGlobals();
+        const brand = globals.brand || {};
         const translations = await getI18nData(resolvedLocale);
 
         // SET HTML LANG & DIR
