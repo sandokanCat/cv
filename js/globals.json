@@ -21,36 +21,50 @@
         "en-GB": {
             "role": "Fullstack Web Developer",
             "info": "Portfolio and Resume.",
-            "contactType": "Web Development Services"
+            "contactType": "Web Development Services",
+            "finder": "Looking for a",
+            "role_extra": "focused on modern technologies and passionate about cybersecurity.",
+            "discover": "Discover my projects."
         },
         "es-ES": {
             "role": "Desarrollador Web Fullstack",
             "info": "Portafolio y Currículum.",
             "contactType": "Servicios de desarrollo web",
-            
             "finder": "¿Buscas un",
-            "role_extra": "centrado en tecnologías modernas y apasionado por la ciberseguridad?",
-            "discover": "Descúbre mis proyectos."
+            "role_extra": "centrado en tecnologías modernas y apasionado por la ciberseguridad.",
+            "discover": "Descubre mis proyectos."
         },
         "ca-ES": {
             "role": "Desenvolupador Web Fullstack",
             "info": "Portafoli i Currículum.",
-            "contactType": "Serveis de desenvolupament web"
+            "contactType": "Serveis de desenvolupament web",
+            "finder": "Busques un",
+            "role_extra": "centrat en tecnologies modernes i apassionat per la ciberseguretat.",
+            "discover": "Descobreix els meus projectes."
         },
         "ru-RU": {
             "role": "Фуллстек веб-разработчик",
             "info": "Портфолио и резюме",
-            "contactType": "Услуги веб-разработки"
+            "contactType": "Услуги веб-разработки",
+            "finder": "Ищете",
+            "role_extra": "специалиста, ориентированного на современные технологии и увлечённого кибербезопасностью.",
+            "discover": "Ознакомьтесь с моими проектами."
         },
         "ar-SA": {
             "role": "مطور ويب متكامل",
-            "info": ".السيرة الذاتية والمحفظة",
-            "contactType": "خدمات تطوير الويب"
+            "info": "السيرة الذاتية والمعرض الشخصي.",
+            "contactType": "خدمات تطوير الويب",
+            "finder": "هل تبحث عن",
+            "role_extra": "محترف يركز على التقنيات الحديثة وشغوف بالأمن السيبراني.",
+            "discover": "اكتشف مشاريعي."
         },
         "zh-CN": {
             "role": "全栈 Web 开发工程师",
-            "info": "作品集与简历.",
-            "contactType": "网页开发服务"
+            "info": "作品集与简历。",
+            "contactType": "网页开发服务",
+            "finder": "正在寻找一位",
+            "role_extra": "专注于现代技术，并热衷于网络安全的专业人士。",
+            "discover": "探索我的项目。"
         }
     },
 
