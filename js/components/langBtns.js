@@ -3,7 +3,8 @@ import {
     getLocale,
     setLocaleStorage,
     initI18n,
-    reloadDynamicContent
+    reloadDynamicContent,
+    updateUrlLocale
 } from '../utils/index.js';
 
 // LANG MENU CONFIG
@@ -12,21 +13,23 @@ export async function getLangMenuConfig() {
         triggerSelector: '[data-lang]',
         multiple: true,
         aria: true,
-        onClick: async (btn, newState) => {
+        onClick: async (btn) => {
             const lang = btn.getAttribute('data-lang')?.trim();
             if (!lang) return;
-
-            const current = getLocale();
+        
+            const { locale: current } = await getLocale();
             if (lang === current) return;
-
+        
             setLocaleStorage(lang);
             await initI18n({ locale: lang });
             await reloadDynamicContent(lang);
-
+            await updateUrlLocale(lang);
+        
             document.querySelectorAll('[data-lang]').forEach(el =>
                 el.setAttribute('aria-pressed', el === btn ? 'true' : 'false')
             );
-        }//,
+        },
+
         // customToggleFn: (btn) => {
         //     const use = btn.querySelector('use');
         //     const lang = btn.getAttribute('data-lang');

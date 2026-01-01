@@ -71,7 +71,7 @@
     "tech": {
         "backEnd": {
             "php": "<abbr lang='en-GB' title='Hypertext Preprocessor'>PHP</abbr>",
-            "mysql": "<abbr lang='en-GB' title='Structured Query Language'>MySQL</abbr>",
+            "mysql": "<abbr lang='en-GB' title='Structured Query Language'>SQL</abbr>",
             "mariadb": "<abbr lang='en-GB' title='Relational Database'>MariaDB</abbr>",
             "xml": "<abbr lang='en-GB' title='Extensible Markup Language'>XML</abbr>",
             "java": "<span lang='en-GB'>Java</span>",

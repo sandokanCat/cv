@@ -75,7 +75,17 @@ async function loadLangMap() {
 // GET CURRENT LOCALE
 export const getLocale = async (inputLocale = null) => {
     try {
-        if (!inputLocale && cachedLocale) return cachedLocale;
+        if (inputLocale) {
+            const { op, inCase } = await loadLangMap();
+            const base = inputLocale.split("-")[0].toLowerCase();
+            const resolved = { locale: op[base] || inCase, base };
+        
+            cachedLocale = resolved;
+            reloadedLocales.clear();
+            return resolved;
+        }
+        
+        if (cachedLocale) return cachedLocale;
 
         const { op, inCase } = await loadLangMap();
         let raw = inputLocale;
@@ -226,10 +236,11 @@ export const initI18n = async ({
     }
 };
 
-// UPDATE URL WITH LOCALE (NO RELOAD, NO DUPLICATES)
+// UPDATE URL WITH LOCALE
 export const updateUrlLocale = async (locale) => {
     const { op, inCase } = await loadLangMap();
     const validLocales = Object.values(op);
+
     if (!validLocales.includes(locale)) {
         logger.wa(`INVALID LOCALE FOR URL: ${locale}, USING FALLBACK ${inCase}`);
         locale = inCase;
@@ -240,10 +251,37 @@ export const updateUrlLocale = async (locale) => {
         .split('/')
         .filter(Boolean);
 
+    // REMOVE OLD LOCALE
     if (validLocales.includes(pathSegments[0])) pathSegments.shift();
+
+    // PREPEND NEW LOCALE
     pathSegments.unshift(locale);
 
     const newPath = `/${pathSegments.join('/')}/`;
 
-    window.history.pushState({}, '', newPath);
+    // ONLY PUSH STATE IF PATH CHANGED
+    if (newPath !== window.location.pathname) {
+        history.pushState({ locale }, '', newPath);
+    }
+};
+
+// HANDLE BACK / FORWARD NAVIGATION
+export const initPopStateListener = async (changeLocaleFn) => {
+    const { op, inCase } = await loadLangMap();
+    const validLocales = new Set(Object.values(op));
+
+    window.addEventListener('popstate', (event) => {
+        let localeToUse = event.state?.locale;
+
+        // If no state, fallback to first path segment
+        if (!localeToUse) {
+            const pathLocale = window.location.pathname.split('/').filter(Boolean)[0];
+            localeToUse = validLocales.has(pathLocale) ? pathLocale : inCase;
+        }
+
+        // Final check: always force fallback if invalid
+        if (!validLocales.has(localeToUse)) localeToUse = inCase;
+
+        changeLocaleFn(localeToUse);
+    });
 };

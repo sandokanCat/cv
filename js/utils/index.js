@@ -13,7 +13,8 @@ export {
     initI18n,
     setLocaleStorage,
     reloadDynamicContent,
-    updateUrlLocale
+    updateUrlLocale,
+    initPopStateListener
 } from './i18n.js';
 
 export {
@@ -27,3 +28,5 @@ export { initToggler } from './initToggler.js';
 export { signature } from './signature.js';
 
 export { manageCookies } from './manageCookies.js';
+
+export { easterEgg } from './easterEgg.js';
