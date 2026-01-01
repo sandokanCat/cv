@@ -1,8 +1,5 @@
 // IMPORTS
-import {
-    logger,
-    reloadDynamicContent
-} from "./index.js";
+import { logger } from "./index.js";
 
 // COMMON TOOGLE MENU FUNCTION
 export async function initToggler({

@@ -1,46 +1,27 @@
 // 📥 INTERNAL IMPORTS ORDERED BY LAYER: CONFIG → UTILS → COMPONENTS
 import {
-    i18nConfig,
     carouselConfig,
     cookiesConfig/*,
     getModalRefs*/
 } from './config.js';
 import {
-    logger,
     replaceClass,
     getLocale,
-    initI18n,
-    initToggler,
-    reloadDynamicContent,
-    updateUrlLocale,
     initPopStateListener,
+    changeLocale,
+    initToggler,
     signature,
     manageCookies,
     easterEgg
 } from './utils/index.js';
 import {
     initTheme,
-    getLangMenuConfig,
+    initLangMenu,
     initCarousel,
     getBurgerConfig/*,
     openModal,
     sendMail */
 } from './components/index.js';
-
-// 🔄 CHANGE LOCALE FUNCTION
-const changeLocale = async (newLang) => {
-    try {
-        const { locale: currentLocale } = await getLocale();
-
-        if (newLang === currentLocale) return;
-
-        await initI18n({ ...i18nConfig, locale: newLang });
-        await reloadDynamicContent(newLang);
-        await updateUrlLocale(newLang);
-    } catch (err) {
-        logger.er("CHANGE LOCALE FAILED", err.name, err.message, err.stack);
-    }
-};
 
 // 🧠 APP INITIALIZATION SEQUENCE: FROM GLOBALS TO INTERACTIVE UI
 document.addEventListener("DOMContentLoaded", async () => {
@@ -51,7 +32,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     initPopStateListener(changeLocale);
 
-    await initToggler(await getLangMenuConfig(changeLocale));
+    initLangMenu(locale, changeLocale);
 
     await initCarousel({ ...carouselConfig, locale, refs: carouselConfig.refs() });
 

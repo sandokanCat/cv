@@ -1,4 +1,6 @@
 // IMPORTS
+import { i18nConfig } from "../config.js";
+
 import {
     logger,
     validateJSON
@@ -20,7 +22,7 @@ const cachedTranslations = {};
 const reloadedLocales = new Set();
 
 // RELOAD DYNAMIC CONTENTS
-export async function reloadDynamicContent(locale) {
+async function reloadDynamicContent(locale) {
     if (reloadedLocales.has(locale)) return;
 
     // if (typeof initCarousel === 'function') await initCarousel({ locale });
@@ -113,7 +115,7 @@ export const getLocale = async (inputLocale = null) => {
 };
 
 // SET LOCALE IN LOCAL STORAGE
-export const setLocaleStorage = (locale) => {
+const setLocaleStorage = (locale) => {
     try {
         localStorage.setItem('lang', locale);
     } catch (err) {
@@ -173,7 +175,7 @@ const interpolateBrand = (str, brand = {}, locale = 'en-GB') => {
 };
 
 // INIT i18n TO TRANSLATE PAGE
-export const initI18n = async ({
+const initI18n = async ({
     textSelector = '[data-i18n]',
     attrSelector = '[data-i18n-attr]',
     locale = null
@@ -237,7 +239,7 @@ export const initI18n = async ({
 };
 
 // UPDATE URL WITH LOCALE
-export const updateUrlLocale = async (locale) => {
+const updateUrlLocale = async (locale) => {
     const { op, inCase } = await loadLangMap();
     const validLocales = Object.values(op);
 
@@ -273,15 +275,28 @@ export const initPopStateListener = async (changeLocaleFn) => {
     window.addEventListener('popstate', (event) => {
         let localeToUse = event.state?.locale;
 
-        // If no state, fallback to first path segment
         if (!localeToUse) {
             const pathLocale = window.location.pathname.split('/').filter(Boolean)[0];
             localeToUse = validLocales.has(pathLocale) ? pathLocale : inCase;
         }
 
-        // Final check: always force fallback if invalid
         if (!validLocales.has(localeToUse)) localeToUse = inCase;
 
         changeLocaleFn(localeToUse);
     });
+};
+
+// CHANGE LOCALE FUNCTION
+export const changeLocale = async (newLang) => {
+    try {
+        const { locale: currentLocale } = await getLocale();
+        if (newLang === currentLocale) return;
+
+        setLocaleStorage(newLang);
+        await initI18n({ ...i18nConfig, locale: newLang });
+        await reloadDynamicContent(newLang);
+        await updateUrlLocale(newLang);
+    } catch (err) {
+        logger.er("CHANGE LOCALE FAILED", err.name, err.message, err.stack);
+    }
 };

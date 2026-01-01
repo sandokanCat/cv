@@ -9,12 +9,9 @@ export { replaceClass } from './replaceClass.js';
 
 export {
     getLocale,
-    getI18nData,
-    initI18n,
-    setLocaleStorage,
-    reloadDynamicContent,
-    updateUrlLocale,
-    initPopStateListener
+    initPopStateListener,
+    changeLocale,
+    getI18nData
 } from './i18n.js';
 
 export {
