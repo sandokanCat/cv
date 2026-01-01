@@ -21,7 +21,8 @@ import {
 import {
     initTheme,
     getLangMenuConfig,
-    initCarousel/*,
+    initCarousel,
+    getBurgerConfig/*,
     openModal,
     sendMail */
 } from './components/index.js';
@@ -53,6 +54,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     await initToggler(await getLangMenuConfig(changeLocale));
 
     await initCarousel({ ...carouselConfig, locale, refs: carouselConfig.refs() });
+
+    await initToggler(await getBurgerConfig(locale));
 
     signature('#signature-year');
     manageCookies({ ...cookiesConfig });
