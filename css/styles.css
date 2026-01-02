@@ -9,6 +9,9 @@
 @import url("base/fonts.css");
 @import url("base/typography.css");
 
+/* UTILITIES */
+@import url("utils/icons.css");
+
 /* OBJECTS */
 @import url("layout/grid.css");
 @import url("layout/nav.css");
@@ -19,11 +22,8 @@
 /* COMPONENTS */
 @import url("components/carousel.css");
 @import url("components/phrases.css");
-@import url("components/burguer.css");
+@import url("components/burger.css");
 @import url("components/modal.css");
-
-/* UTILITIES */
-@import url("utils/icons.css");
 
 /* STATES */
 @import url("states/active-js.css");

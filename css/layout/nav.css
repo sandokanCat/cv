@@ -29,13 +29,5 @@ nav button[data-lang] {
     position: absolute;
     top: 60px;
     left: 0;
-    opacity: 0;
     pointer-events: none;
-    transition: transform 0.6s ease, opacity 0.6s ease;
-}
-nav button[data-lang].active,
-nav button[data-lang].expanded,
-nav button[data-lang]:first-child {
-    opacity: 1;
-    pointer-events: auto;
 }

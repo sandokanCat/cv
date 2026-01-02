@@ -57,12 +57,12 @@
                 </div>
                 <aside data-i18n-attr="aria-label:carouselCtrl" class="carousel-control" aria-label="<?= $L('carouselCtrl'); ?>">
                     <button data-i18n-attr="aria-label:carouselBack" class="carousel-back" aria-label="<?= $L('carouselBack'); ?>" type="button" aria-controls="carousel-track">
-                        <svg class="icons-scale" aria-hidden="true" width="30" height="30" preserveAspectRatio="xMinYMin meet">
+                        <svg class="icons-snippet active" aria-hidden="true" width="30" height="30" preserveAspectRatio="xMinYMin meet">
                             <use href="img/sprite.svg#arrow-left" xlink:href="img/sprite.svg#arrow-left"></use>
                         </svg>
                     </button>
                     <button data-i18n-attr="aria-label:carouselAdvance" class="carousel-advance" aria-label="<?= $L('carouselAdvance'); ?>" type="button" aria-controls="carousel-track">
-                        <svg class="icons-scale" aria-hidden="true" width="30" height="30" preserveAspectRatio="xMinYMin meet">
+                        <svg class="icons-snippet active" aria-hidden="true" width="30" height="30" preserveAspectRatio="xMinYMin meet">
                             <use href="img/sprite.svg#arrow-right" xlink:href="img/sprite.svg#arrow-right"></use>
                         </svg>
                     </button>

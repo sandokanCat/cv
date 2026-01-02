@@ -190,7 +190,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             case 'send':
                 echo "
-                    <input id='$name' class='icons-scale' name='$name' type='$type' value='$label'>
+                    <input id='$name' class='icons-snippet' name='$name' type='$type' value='$label'>
                 ";
                 break;
 

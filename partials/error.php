@@ -39,7 +39,7 @@ http_response_code($code);
             <h2><?= htmlspecialchars($errMsg, ENT_QUOTES | ENT_HTML5); ?></h2>
         </header>
         <main>
-            <p><a class="icons-scale" href="/"><?= htmlspecialchars($btnTxt, ENT_QUOTES | ENT_HTML5); ?></a></p>
+            <p><a class="icons-snippet active" href="/"><?= htmlspecialchars($btnTxt, ENT_QUOTES | ENT_HTML5); ?></a></p>
         </main>
         <footer>
             <?php require_once __DIR__."/includes/signature.php"; // LOAD SIGNATURE ?>

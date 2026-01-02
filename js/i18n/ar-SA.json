@@ -144,7 +144,7 @@
         "alt": "صفحة معجبين Estopa. غير مكتملة"
     },
     "cookies": {
-        "html": "يحترم خصوصيتك. <em>نحن لا نتعقب</em>، فقط نقيس الزيارات المجهولة — (إذا وافقت). <button id='accept-cookies' class='icons-scale' aria-label='متابعة التصفح'>قبول</button> <button id='reject-cookies' aria-label='لا أهتم بالكوكيز' type='button'>رفض</button> | <a id='info-cookies' href='https://ar.wikipedia.org/wiki/%D9%85%D9%84%D9%81_%D8%AA%D8%B9%D8%B1%D9%8A%D9%81_%D8%A7%D8%B1%D8%AA%D8%A8%D8%A7%D8%B7' target='_blank' rel='noopener noreferrer' aria-label='مزيد من المعلومات'>ما هي <span lang='en-GB'>cookie</span>؟"
+        "html": "يحترم خصوصيتك. <em>نحن لا نتعقب</em>، فقط نقيس الزيارات المجهولة — (إذا وافقت). <button id='accept-cookies' class='icons-snippet active' aria-label='متابعة التصفح'>قبول</button> <button id='reject-cookies' aria-label='لا أهتم بالكوكيز' type='button'>رفض</button> | <a id='info-cookies' href='https://ar.wikipedia.org/wiki/%D9%85%D9%84%D9%81_%D8%AA%D8%B9%D8%B1%D9%8A%D9%81_%D8%A7%D8%B1%D8%AA%D8%A8%D8%A7%D8%B7' target='_blank' rel='noopener noreferrer' aria-label='مزيد من المعلومات'>ما هي <span lang='en-GB'>cookie</span>؟"
     },
     "modalIframe": {
         "aria-label": "شهادة رسمية"
