@@ -4,18 +4,23 @@
     --translate-x: 0px;
     --translate-y: 0px;
     --rotate: 0deg;
+    --transition: 0.5s;
+    --cubic-bezier: cubic-bezier(0.68, -0.6, 0.32, 1.6);
 
-    will-change: opacity, transform;
+    will-change:
+        opacity,
+        transform;
     opacity: 0;
     transform:
         scale(var(--scale))
         translate(
             var(--translate-x),
-            var(--translate-y))
+            var(--translate-y)
+        )
         rotate(var(--rotate));
     transition:
-        opacity 0.5s ease,
-        transform 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+        opacity var(--transition) ease,
+        transform var(--transition) var(--cubic-bezier);
     pointer-events: none;
 }
 .icons-snippet:hover { /* HOVER STATE */

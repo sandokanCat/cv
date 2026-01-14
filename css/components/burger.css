@@ -1,28 +1,7 @@
 /* JS HAMBURGER MENU */
-#burger-nav {
-    top: 13%;
-    right: 2.5%;
-}
-#burger-links {
-    display: flex;
-    align-items: center;
-    position: relative;
-    top: 0;
-    right: 0;
-    width: 0;
-    height: 30px;
-}
-#burger-btn-wrapper {
-    display: flex;
-    align-items: center;
-    z-index: 2;
-}
-#burger-btn-wrapper,
+#burger-icon,
 #github-icon,
 #vercel-icon {
-    position: absolute;
-    top: 0;
-    right: 0;
     width: 30px;
     height: 30px;
 }
@@ -30,46 +9,49 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 30px;
+    align-items: center;
 }
 #burger-icon-top,
 #burger-icon-middle,
 #burger-icon-bottom {
     display: block;
-    width: 30px;
+    width: 100%;
     height: 5px;
     background: var(--accent-2);
 }
-#burger-icon-middle {
-    transition: width 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+.icons-snippet #burger-icon-top,
+.icons-snippet #burger-icon-bottom {
+    transform:
+        translate(
+            var(--translate-x),
+            var(--translate-y)
+        )
+        rotate(var(--rotate));
+    transition:
+        transform var(--transition) var(--cubic-bezier);
 }
-#burger-btn[aria-expanded="true"] #burger-icon-middle {
-    width: 0;
-}
-#burger-btn[aria-expanded="true"] #burger-icon-top {
-    --translate-x: -9px;
-    --translate-y: 9px;
+.icons-snippet#burger-btn[aria-expanded="true"] #burger-icon-top {
+    --translate-y: 12px;
     --rotate: -45deg;
 }
-#burger-btn[aria-expanded="true"] #burger-icon-bottom {
-    --translate-x: -9px;
-    --translate-y: -9px;
+.icons-snippet#burger-btn[aria-expanded="true"] #burger-icon-bottom {
+    --translate-y: -12px;
     --rotate: 45deg;
 }
-#github-icon.active {
-    --translate-x: -100px;
+.icons-snippet #burger-icon-middle {
+    will-change: width;
+    transition: width var(--transition) var(--cubic-bezier);
 }
-#vercel-icon.active {
-    --translate-x: -50px;
+.icons-snippet#burger-btn[aria-expanded="true"] #burger-icon-middle {
+    width: 0;
 }
-
-/* FALLBACK MENU */
-#menu-fallback {
+#github-icon,
+#vercel-icon {
     position: absolute;
-    top: 13%;
-    right: 2.5%;
 }
-#menu-fallback ul {
-    display: flex;
-    gap: 20px;
+#github-icon.icons-snippet.active {
+    --translate-x: -110px;
+}
+#vercel-icon.icons-snippet.active  {
+    --translate-x: -80px;
 }

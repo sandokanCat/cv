@@ -23,11 +23,22 @@
     position: relative;
 }
 .other-links {
-    display: inline-flex;
     position: absolute;
     top: 13%;
     right: 2.5%;
     height: 30px;
+}
+.other-links ul {
+    display: flex;
+    gap: 20px;
+}
+.other-links button {
+    z-index: 2;
+    position: absolute;
+    right: 0;
+}
+.other-links ul a {
+    z-index: 1;
 }
 #other-data {
     display: grid;

@@ -2,18 +2,6 @@
     --big-brother: "🇨🇳 > 🇺🇸"; /* CONTROVERSY! */
 }
 
-/* LIGHT MODE COLORS */
-[data-theme="light"] {
-    --accent-1: #ffcc00;
-    --accent-2: #000000;
-    --accent-3: #9f8415;
-    --accent-4: #545454;
-    --body-bg: #1d2a42;
-    --body-txt: #ffffff;
-    --panel-bg: rgba(255, 255, 255, 0.90);
-    --imgs-filter: brightness(1);
-}
-
 /* DARK MODE COLORS */
 [data-theme="dark"] {
     --accent-1: #9f8415;
@@ -24,4 +12,16 @@
     --body-txt: #f0f0f0;
     --panel-bg: rgba(78, 87, 107, 0.95);
     --imgs-filter: brightness(0.6);
+}
+
+/* LIGHT MODE COLORS */
+[data-theme="light"] {
+    --accent-1: #ffcc00;
+    --accent-2: #000000;
+    --accent-3: #9f8415;
+    --accent-4: #545454;
+    --body-bg: #1d2a42;
+    --body-txt: #ffffff;
+    --panel-bg: rgba(255, 255, 255, 0.90);
+    --imgs-filter: brightness(1);
 }
