@@ -1,6 +1,7 @@
 # © 2026 [sandokan.cat](https://sandokan.cat)
 
-🇬🇧
+🇬🇧 **English**
+
 I’m currently working on version 2.0 of my web CV, which will serve as the homepage of my portfolio. My goal is to stand out from the typical plain PDF and showcase my skills to the IT community through my personal projects — where I put all my talent, knowledge, and effort to excel. I appreciate your feedback!
 
 > Jul 2024 – present
@@ -23,11 +24,11 @@ For agents, IDEs, or technical reviewers:
 
 **Repository Files:**
 
-- [README.md](README.md) — project presentation, multilingual overview
-- [AGENTS.md](AGENTS.md) — automation, AI, and tooling rules
-- [CONTRIBUTING.md](CONTRIBUTING.md) — guidelines for understanding, reviewing, and learning code
-- [SECURITY.md](SECURITY.md) — security practices and reporting
-- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) — expected behavior and reporting inappropriate conduct
+- [README.md](./README.md) — project presentation, multilingual overview
+- [AGENTS.md](./AGENTS.md) — automation, AI, and tooling rules
+- [CONTRIBUTING.md](./CONTRIBUTING.md) — guidelines for understanding, reviewing, and learning code
+- [SECURITY.md](./SECURITY.md) — security practices and reporting
+- [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) — expected behavior and reporting inappropriate conduct
 
 > *This project is personal and primarily for learning and portfolio presentation.* However, it is structured and documented with professional standards in mind.
 
@@ -45,11 +46,11 @@ Actualmente trabajo en la versión 2.0 de mi CV web, que será la página princi
 - **Resumen técnico:**
   - `HTML5`, `CSS3` modular, `Vanilla JS`, `PHP` seguro y mantenible, `i18n` con `JSON`, accesibilidad, y `SVG` escalable.
 - **Documentación y guías**:
-  - [README.md](README.md) — presentación del proyecto, visión multilingüe
-  - [AGENTS.md](AGENTS.md) — reglas de automatización, IA y herramientas
-  - [CONTRIBUTING.md](CONTRIBUTING.md) — pautas para entender, revisar y aprender del código
-  - [SECURITY.md](SECURITY.md) — prácticas de seguridad y reporte de vulnerabilidades
-  - [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) — comportamiento esperado y reporte de conductas inapropiadas
+  - [README.md](./README.md) — presentación del proyecto, visión multilingüe
+  - [AGENTS.md](./AGENTS.md) — reglas de automatización, IA y herramientas
+  - [CONTRIBUTING.md](./CONTRIBUTING.md) — pautas para entender, revisar y aprender del código
+  - [SECURITY.md](./SECURITY.md) — prácticas de seguridad y reporte de vulnerabilidades
+  - [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) — comportamiento esperado y reporte de conductas inapropiadas
 
 © 2026 [sandokan.cat](https://sandokan.cat)
 
@@ -67,11 +68,11 @@ Actualment treballo en la versió 2.0 del meu CV web, que serà la pàgina princ
 - **Resum tècnic:**
   - `HTML5`, `CSS3` modular, `Vanilla JS`, `PHP` segur i mantenible, `i18n` amb `JSON`, accessibilitat, i `SVG` escalable.
 - **Documentació i guies**:
-  - [README.md](README.md) — resentació del projecte, visió multilingüe
-  - [AGENTS.md](AGENTS.md) — regles d’automatització, IA i eines
-  - [CONTRIBUTING.md](CONTRIBUTING.md) — pautes per entendre, revisar i aprendre del codi
-  - [SECURITY.md](SECURITY.md) — pràctiques de seguretat i notificació de vulnerabilitats
-  - [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) — comportament esperat i notificació de conductes inapropiades
+  - [README.md](./README.md) — resentació del projecte, visió multilingüe
+  - [AGENTS.md](./AGENTS.md) — regles d’automatització, IA i eines
+  - [CONTRIBUTING.md](./CONTRIBUTING.md) — pautes per entendre, revisar i aprendre del codi
+  - [SECURITY.md](./SECURITY.md) — pràctiques de seguretat i notificació de vulnerabilitats
+  - [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) — comportament esperat i notificació de conductes inapropiades
 
 © 2026 [sandokan.cat](https://sandokan.cat)
 
@@ -89,11 +90,11 @@ Actualment treballo en la versió 2.0 del meu CV web, que serà la pàgina princ
 - **Техническое резюме:**
   - `HTML5`, модульный `CSS3`, `Vanilla JS`, безопасный и поддерживаемый `PHP`, `i18n` с `JSON`, доступность и масштабируемые `SVG`.
 - **Документация и руководство**:
-  - [README.md](README.md) — презентация проекта, многоязычный обзор
-  - [AGENTS.md](AGENTS.md) — правила автоматизации, ИИ и инструментов
-  - [CONTRIBUTING.md](CONTRIBUTING.md) — рекомендации по пониманию, обзору и изучению кода
-  - [SECURITY.md](SECURITY.md) — практики безопасности и отчётность
-  - [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) — ожидаемое поведение и сообщение о ненадлежащем поведении
+  - [README.md](./README.md) — презентация проекта, многоязычный обзор
+  - [AGENTS.md](./AGENTS.md) — правила автоматизации, ИИ и инструментов
+  - [CONTRIBUTING.md](./CONTRIBUTING.md) — рекомендации по пониманию, обзору и изучению кода
+  - [SECURITY.md](./SECURITY.md) — практики безопасности и отчётность
+  - [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) — ожидаемое поведение и сообщение о ненадлежащем поведении
 
 © 2026 [sandokan.cat](https://sandokan.cat)
 
@@ -111,11 +112,11 @@ Actualment treballo en la versió 2.0 del meu CV web, que serà la pàgina princ
 - **ملخص تقني:**
   - `HTML5`، `CSS3` مُجزأ، `Vanilla JS`، `PHP` آمن وقابل للصيانة، `i18n` مع `JSON`، إمكانية الوصول، و`SVG` قابل للتوسع.
 - **التوثيق والإرشادات**:
-  - [README.md](README.md) — عرض المشروع، نظرة متعددة اللغات
-  - [AGENTS.md](AGENTS.md) — قواعد الأتمتة، الذكاء الاصطناعي والأدوات
-  - [CONTRIBUTING.md](CONTRIBUTING.md) — إرشادات لفهم، مراجعة وتعلم الكود
-  - [SECURITY.md](SECURITY.md) — ممارسات الأمان والإبلاغ عن الثغرات
-  - [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) — السلوك المتوقع والإبلاغ عن السلوكيات غير الملائمة
+  - [README.md](./README.md) — عرض المشروع، نظرة متعددة اللغات
+  - [AGENTS.md](./AGENTS.md) — قواعد الأتمتة، الذكاء الاصطناعي والأدوات
+  - [CONTRIBUTING.md](./CONTRIBUTING.md) — إرشادات لفهم، مراجعة وتعلم الكود
+  - [SECURITY.md](./SECURITY.md) — ممارسات الأمان والإبلاغ عن الثغرات
+  - [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) — السلوك المتوقع والإبلاغ عن السلوكيات غير الملائمة
 
 © 2026 [sandokan.cat](https://sandokan.cat)
 
@@ -133,11 +134,11 @@ Actualment treballo en la versió 2.0 del meu CV web, que serà la pàgina princ
 - **技术摘要:**
   - `HTML5`，模块化 `CSS3`，`Vanilla JS`，安全可维护 `PHP`，`JSON` 国际化，辅助功能，可扩展 `SVG`。
 - **文档与指南**：
-  - [README.md](README.md) — 项目介绍，多语言概览
-  - [AGENTS.md](AGENTS.md) — 自动化、AI 与工具规则
-  - [CONTRIBUTING.md](CONTRIBUTING.md) — 理解、审查和学习代码的指南
-  - [SECURITY.md](SECURITY.md) — 安全实践与漏洞报告
-  - [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) — 期望行为及不当行为报告
+  - [README.md](./README.md) — 项目介绍，多语言概览
+  - [AGENTS.md](./AGENTS.md) — 自动化、AI 与工具规则
+  - [CONTRIBUTING.md](./CONTRIBUTING.md) — 理解、审查和学习代码的指南
+  - [SECURITY.md](./SECURITY.md) — 安全实践与漏洞报告
+  - [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) — 期望行为及不当行为报告
 
 © 2026 [sandokan.cat](https://sandokan.cat)
 

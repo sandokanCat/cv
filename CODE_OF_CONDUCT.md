@@ -26,7 +26,7 @@ This is a **personal portfolio project**. While contributions are not expected, 
 
 If you notice inappropriate behavior or a security-related concern, please contact the maintainer **privately** at:
 
-- Email: `dev@sandokan.cat`  
+- Email: [dev@sandokan.cat](mailto:dev@sandokan.cat)  
 
 Do **not** post sensitive issues publicly.
 

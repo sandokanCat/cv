@@ -6,7 +6,7 @@ This document explains the security practices for this repository and how potent
 
 Although this is a **personal portfolio project**, security best practices are applied throughout **frontend and backend code**.
 
-> **Note:** Security measures cover HTML, CSS, JS, and PHP to demonstrate fullstack awareness.
+> **Note:** Security measures cover `HTML`, `CSS`, `JS`, and `PHP` to demonstrate `fullstack`se pueden usar enlaces tipo mailto awareness.
 
 ---
 
@@ -14,7 +14,7 @@ Although this is a **personal portfolio project**, security best practices are a
 
 If you discover a vulnerability or potential security issue, please contact me **privately**:  
 
-- Email: `dev@sandokan.cat` (personal, monitored)  
+- Email: [dev@sandokan.cat](mailto:dev@sandokan.cat) (personal, monitored)  
 - Alternatively, GitHub [issues](https://github.com/sandokanCat/cv/issues) **can be used only for non-sensitive questions**.
 
 > Do not create public issues containing sensitive security details.
