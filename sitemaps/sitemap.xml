@@ -14,13 +14,13 @@
 
     <!-- CYBERSEC -->
     <url>
-        <loc>https://sandokan.cat/doc/IFCT0023-CYBERSEC_gonzalo.pdf</loc>
+        <loc>https://sandokan.cat/doc/pdf_signed/IFCT0023-CYBERSEC_gonzalo.pdf</loc>
         <lastmod>2025-11-30T12:39:09+00:00</lastmod>
         <changefreq>never</changefreq>
         <priority>0.90</priority>
     </url>
     <url>
-        <loc>https://sandokan.cat/doc/IFCT0024-CYBERSEC-USERS_gonzalo.pdf</loc>
+        <loc>https://sandokan.cat/doc/pdf_signed/IFCT0024-CYBERSEC-USERS_gonzalo.pdf</loc>
         <lastmod>2025-11-30T12:39:09+00:00</lastmod>
         <changefreq>never</changefreq>
         <priority>0.90</priority>
@@ -28,13 +28,13 @@
 
     <!-- BACKEND -->
     <url>
-        <loc>https://sandokan.cat/doc/IFCD0210-BACKEND_gonzalo.pdf</loc>
+        <loc>https://sandokan.cat/doc/pdf_signed/IFCD0210-BACKEND_gonzalo.pdf</loc>
         <lastmod>2025-12-26T12:39:09+00:00</lastmod>
         <changefreq>never</changefreq>
         <priority>0.70</priority>
     </url>
     <url>
-        <loc>https://sandokan.cat/doc/IFCD0210-FC_gonzalo.pdf</loc>
+        <loc>https://sandokan.cat/doc/pdf_signed/IFCD0210-FC_gonzalo.pdf</loc>
         <lastmod>2025-12-26T12:39:09+00:00</lastmod>
         <changefreq>never</changefreq>
         <priority>0.50</priority>
@@ -42,13 +42,13 @@
 
     <!-- FRONTEND -->
     <url>
-        <loc>https://sandokan.cat/doc/IFCD0110-JSiPW_gonzalo.pdf</loc>
+        <loc>https://sandokan.cat/doc/pdf_signed/IFCD0110-JSiPW_gonzalo.pdf</loc>
         <lastmod>2025-11-30T12:39:09+00:00</lastmod>
         <changefreq>never</changefreq>
         <priority>0.60</priority>
     </url>
     <url>
-        <loc>https://sandokan.cat/doc/IFCD0110-FC_gonzalo.pdf</loc>
+        <loc>https://sandokan.cat/doc/pdf_signed/IFCD0110-FC_gonzalo.pdf</loc>
         <lastmod>2025-11-30T12:39:09+00:00</lastmod>
         <changefreq>never</changefreq>
         <priority>0.50</priority>
@@ -56,19 +56,19 @@
 
     <!-- OTHERS -->
     <url>
-        <loc>https://sandokan.cat/doc/accesoUNED_gonzalo.pdf</loc>
+        <loc>https://sandokan.cat/doc/pdf_signed/accesoUNED_gonzalo.pdf</loc>
         <lastmod>2025-11-30T12:39:09+00:00</lastmod>
         <changefreq>never</changefreq>
         <priority>0.40</priority>
     </url>
     <url>
-        <loc>https://sandokan.cat/doc/certificatESO_gonzalo.pdf</loc>
+        <loc>https://sandokan.cat/doc/pdf_signed/certificatESO_gonzalo.pdf</loc>
         <lastmod>2025-11-30T12:39:09+00:00</lastmod>
         <changefreq>never</changefreq>
         <priority>0.20</priority>
     </url>
     <url>
-        <loc>https://sandokan.cat/doc/CV_gonzalo.pdf</loc>
+        <loc>https://sandokan.cat/doc/pdf_signed/CV_gonzalo.pdf</loc>
         <lastmod>2025-11-30T12:39:09+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.80</priority>

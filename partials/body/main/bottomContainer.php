@@ -28,7 +28,7 @@
     <section>
         <div class="others">
             <h4 data-i18n="otherData"><?= $T('otherData'); ?></h4>
-            <a class="other-links icons-snippet active" data-i18n-attr="aria-label:downloadCV" href="doc/CV_<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>.pdf" download="CV_<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>.pdf" aria-label="Download CV pdf">
+            <a class="other-links icons-snippet active" data-i18n-attr="aria-label:downloadCV" href="doc/pdf_signed/CV_<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>.pdf" download="CV_<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>.pdf" aria-label="Download CV pdf">
                 <svg class="icons-color-2" aria-hidden="true" width="30" height="30" preserveAspectRatio="xMinYMin meet">
                     <use href="img/sprite.svg#pdf" xlink:href="img/sprite.svg#pdf"></use>
                 </svg>

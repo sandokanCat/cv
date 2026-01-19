@@ -2,18 +2,18 @@
 https://sandokan.cat/
 
 # CYBERSEC
-https://sandokan.cat/doc/IFCT0023-CYBERSEC_gonzalo.pdf
-https://sandokan.cat/doc/IFCT0024-CYBERSEC-USERS_gonzalo.pdf
+https://sandokan.cat/doc/pdf_signed/IFCT0023-CYBERSEC_gonzalo.pdf
+https://sandokan.cat/doc/pdf_signed/IFCT0024-CYBERSEC-USERS_gonzalo.pdf
 
 # BACKEND
-https://sandokan.cat/doc/IFCD0210-BACKEND_gonzalo.pdf
-https://sandokan.cat/doc/IFCD0210-FC_gonzalo.pdf
+https://sandokan.cat/doc/pdf_signed/IFCD0210-BACKEND_gonzalo.pdf
+https://sandokan.cat/doc/pdf_signed/IFCD0210-FC_gonzalo.pdf
 
 # FRONTEND
-https://sandokan.cat/doc/IFCD0110-JSiPW_gonzalo.pdf
-https://sandokan.cat/doc/IFCD0110-FC_gonzalo.pdf
+https://sandokan.cat/doc/pdf_signed/IFCD0110-JSiPW_gonzalo.pdf
+https://sandokan.cat/doc/pdf_signed/IFCD0110-FC_gonzalo.pdf
 
 # OTHERS
-https://sandokan.cat/doc/accesoUNED_gonzalo.pdf
-https://sandokan.cat/doc/certificatESO_gonzalo.pdf
-https://sandokan.cat/doc/CV_gonzalo.pdf
+https://sandokan.cat/doc/pdf_signed/accesoUNED_gonzalo.pdf
+https://sandokan.cat/doc/pdf_signed/certificatESO_gonzalo.pdf
+https://sandokan.cat/doc/pdf_signed/CV_gonzalo.pdf
