@@ -21,7 +21,6 @@ Verification layers:
 - `SHA512SUMS.tsr` — TSA timestamp token for the hash manifest
 - `pdf_signed/` — PDFs with visible FNMT digital signatures and timestamps
 - `pgp_asc/` — PGP signatures (`.asc`) for each document
-- `check_docs.sh` — automatic verifier
 - `README.md` — This file
 
 ---
@@ -121,7 +120,7 @@ This verification alone already provides legal validity under **EU eIDAS**.
 
 ## 5. Automated Verification Script
 
-You can use the provided script `check-docs.sh` to perform all verification steps automatically:
+You can use the provided script [`check-docs.sh`](https://github.com/sandokanCat/document-integrity-tools) to perform all verification steps automatically:
 
 ```bash
 ./check-docs.sh
