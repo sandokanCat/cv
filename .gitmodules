@@ -20,7 +20,7 @@
 
 [submodule "document-integrity-tools"]
     path = public/document-integrity-tools
-    url = https://github.com/sandokanCat/document-integrity-tools.git
+    url = https://github.com/sandokanCat/document-integrity-tools
     branch = main
     ignore = none
 
