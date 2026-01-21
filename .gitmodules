@@ -8,7 +8,7 @@
 [submodule "PHPMailer"]
     path = app/PHPMailer
     url = https://github.com/PHPMailer/PHPMailer
-    brach = master
+    branch = master
     ignore = all
 
 # ADD OWN REPOS AS SUBMODULES
