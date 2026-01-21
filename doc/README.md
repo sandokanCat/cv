@@ -148,7 +148,7 @@ For full technical and legal coverage:
 4. **Verify PGP signature** of the documents
 5. **Verify FNMT PAdES signature** in the PDF
 
-> Using `check-docs.sh` automates this exact sequence (except 5th step).
+> Using [`check-docs.sh`](https://github.com/sandokanCat/document-integrity-tools) automates this exact sequence (except 5th step).
 
 Only documents that pass all applicable checks should be considered authentic.
 
