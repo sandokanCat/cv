@@ -12,14 +12,26 @@
     ignore = all
 
 # ADD OWN REPOS AS SUBMODULES
+[submodule "git-submodule-sync"]
+    path = public/git-submodule-sync
+    url = https://github.com/sandokanCat/git-submodule-sync
+    branch = main
+    ignore = none
+
+[submodule "document-integrity-tools"]
+    path = public/document-integrity-tools
+    url = https://github.com/sandokanCat/document-integrity-tools.git
+    branch = main
+    ignore = none
+
 [submodule "open-utils"]
     path = public/open-utils
     url = https://github.com/sandokanCat/open-utils
     branch = main
-    ignore = dirty
+    ignore = none
 
 [submodule "estopa"]
     path = public/estopa
     url = https://github.com/sandokanCat/estopa
     branch = main
-    ignore = dirty
+    ignore = none
