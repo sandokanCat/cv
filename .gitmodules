@@ -29,9 +29,3 @@
     url = https://github.com/sandokanCat/open-utils
     branch = main
     ignore = none
-
-[submodule "estopa"]
-    path = public/estopa
-    url = https://github.com/sandokanCat/estopa
-    branch = main
-    ignore = none
