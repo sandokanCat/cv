@@ -23,6 +23,3 @@
     url = https://github.com/sandokanCat/open-utils
     branch = main
     ignore = none
-[submodule "app/PHPMailer"]
-	path = app/PHPMailer
-	url = https://github.com/PHPMailer/PHPMailer
