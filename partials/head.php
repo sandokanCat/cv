@@ -123,12 +123,12 @@
 
     <!-- IMPORT MAP -->
     <script type="importmap" nonce="<?= htmlspecialchars($GLOBALS['nonce'], ENT_QUOTES, ENT_HTML5) ?>">
-        <?= json_encode(['imports' => $globals['imports'] ?? []], JSON_UNESCAPED_SLASHES); ?>
+        <?= json_encode(['imports' => $globals['imports'] ?? []], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT); ?>
     </script>
 
     <!-- DATA HYDRATION -->
     <script id="globals-data" type="application/json" nonce="<?= htmlspecialchars($GLOBALS['nonce'], ENT_QUOTES, ENT_HTML5) ?>">
-        <?= json_encode($globals, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
+        <?= json_encode($globals, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT); ?>
     </script>
 
     <!-- MAIN JS -->

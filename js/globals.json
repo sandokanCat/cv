@@ -1,6 +1,6 @@
 {
     "imports": {
-        "open-utils": "../public/open-utils/public/js/index.js"
+        "open-utils": "/public/open-utils/public/js/index.js"
     },
 
     "lang": {
