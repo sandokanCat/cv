@@ -21,8 +21,9 @@
     <!-- LANGUAGE VERSIONS -->
     <?php foreach ($opLang as $langCode => $locale):
         $code = is_array($locale) ? ($locale[0] ?? 'en-GB') : $locale;
-        $url = $brand['url'].$code."/"; ?>
-        <link rel="alternate" hreflang="<?= htmlspecialchars($langCode); ?>" href="<?= htmlspecialchars($url, ENT_QUOTES | ENT_HTML5); ?>">
+        $url = $brand['url'] . $code . "/"; ?>
+        <link rel="alternate" hreflang="<?= htmlspecialchars($langCode); ?>"
+            href="<?= htmlspecialchars($url, ENT_QUOTES | ENT_HTML5); ?>">
     <?php endforeach; ?>
     <link rel="alternate" hreflang="x-default" href="<?= htmlspecialchars($brand['url'], ENT_QUOTES | ENT_HTML5); ?>">
 
@@ -32,10 +33,12 @@
     <!-- OPEN GRAPH -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="<?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?>">
-    <meta property="og:title" content="<?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?> | <?= $T('role') ?>">
+    <meta property="og:title"
+        content="<?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?> | <?= $T('role') ?>">
     <meta property="og:description" content="<?= $T('ogDescription'); ?>">
     <meta property="og:url" content="<?= htmlspecialchars($brand['url'], ENT_QUOTES | ENT_HTML5); ?>">
-    <meta property="og:image" content="<?= htmlspecialchars($brand['url'], ENT_QUOTES | ENT_HTML5); ?>img/og-img.jpg?version=2.0">
+    <meta property="og:image"
+        content="<?= htmlspecialchars($brand['url'], ENT_QUOTES | ENT_HTML5); ?>img/og-img.jpg?version=2.0">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="200">
     <meta property="og:image:height" content="200">
@@ -45,7 +48,7 @@
             <meta property="og:locale" content="<?= htmlspecialchars($ogLocale, ENT_QUOTES | ENT_HTML5); ?>">
         <?php else: ?>
             <meta property="og:locale:alternate" content="<?= htmlspecialchars($ogLocale, ENT_QUOTES | ENT_HTML5); ?>">
-    <?php endif; endforeach; ?>
+        <?php endif; endforeach; ?>
 
     <!-- FAVICONS -->
     <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
@@ -66,41 +69,43 @@
     <meta name="theme-color" content="#1d2a42">
 
     <!-- AUTHORSHIP -->
-    <meta name="copyright" content="© <?= htmlspecialchars(gmdate('Y'), ENT_QUOTES | ENT_HTML5); ?> <?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?>">
+    <meta name="copyright"
+        content="© <?= htmlspecialchars(gmdate('Y'), ENT_QUOTES | ENT_HTML5); ?> <?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?>">
     <link type="text/plain" rel="author" href="humans.txt">
 
     <!-- SEARCH ENGINE VERIFICATION -->
     <?php foreach ($metaKeys as $metaName => $metaContent): ?>
-        <meta name="<?= htmlspecialchars($metaName, ENT_QUOTES | ENT_HTML5); ?>" content="<?= htmlspecialchars($metaContent, ENT_QUOTES | ENT_HTML5); ?>">
+        <meta name="<?= htmlspecialchars($metaName, ENT_QUOTES | ENT_HTML5); ?>"
+            content="<?= htmlspecialchars($metaContent, ENT_QUOTES | ENT_HTML5); ?>">
     <?php endforeach; ?>
 
     <!-- SCHEMA LD+JSON -->
-    <script type="application/ld+json">
+    <script type="application/ld+json" nonce="<?= htmlspecialchars($GLOBALS['nonce'], ENT_QUOTES, ENT_HTML5) ?>">
         <?= json_encode([
             "@context" => "https://schema.org",
             "@type" => "WebSite",
             "url" => $brand['url'],
-            "name" => $brand['nick'].' | '.$T('role'),
+            "name" => $brand['nick'] . ' | ' . $T('role'),
             "description" => $T('description'),
-            "author" => ["@id" => "#".$shortName],
-            "publisher" => ["@id" => "#".$shortName],
-            "mainEntity" => ["@id" => "#".$shortName]
+            "author" => ["@id" => "#" . $shortName],
+            "publisher" => ["@id" => "#" . $shortName],
+            "mainEntity" => ["@id" => "#" . $shortName]
         ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT); ?>
     </script>
-    <script type="application/ld+json">
+    <script type="application/ld+json" nonce="<?= htmlspecialchars($GLOBALS['nonce'], ENT_QUOTES, ENT_HTML5) ?>">
         <?= json_encode([
             "@context" => "https://schema.org",
             "@type" => "Person",
-            "@id" => "#".$shortName,
+            "@id" => "#" . $shortName,
             "name" => $brand['name'],
             "jobTitle" => $T('role'),
-            "url" => $brand['url']."#".$shortName,
+            "url" => $brand['url'] . "#" . $shortName,
             "contactPoint" => [
                 "@type" => "ContactPoint",
                 "contactType" => $T('contactType'),
                 "email" => $brand['email'],
                 "telephone" => $brand['tel'],
-                "url" => $brand['url']."partials/contact/form.php"
+                "url" => $brand['url'] . "partials/contact/form.php"
             ],
             "address" => [
                 "@type" => "PostalAddress",
@@ -109,7 +114,7 @@
                 "addressRegion" => $region,
                 "addressCountry" => $country
             ],
-            "image" => $brand['url']."img/photos/".$shortName."@3x.png",
+            "image" => $brand['url'] . "img/photos/" . $shortName . "@3x.png",
             "sameAs" => $sameAs,
             "knowsAbout" => $knowsAbout,
             "alumniOf" => $alumniOf
@@ -117,12 +122,12 @@
     </script>
 
     <!-- IMPORT MAP -->
-    <script type="importmap">
+    <script type="importmap" nonce="<?= htmlspecialchars($GLOBALS['nonce'], ENT_QUOTES, ENT_HTML5) ?>">
         <?= json_encode(['imports' => $globals['imports'] ?? []], JSON_UNESCAPED_SLASHES); ?>
     </script>
 
     <!-- DATA HYDRATION -->
-    <script id="globals-data" type="application/json">
+    <script id="globals-data" type="application/json" nonce="<?= htmlspecialchars($GLOBALS['nonce'], ENT_QUOTES, ENT_HTML5) ?>">
         <?= json_encode($globals, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
     </script>
 
