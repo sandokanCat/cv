@@ -2,7 +2,7 @@
     --big-brother: "🇨🇳 > 🇺🇸"; /* CONTROVERSY! */
 }
 
-/* DARK MODE COLORS */
+/* DARK THEME FOR HACKER LOVERS! */
 [data-theme="dark"] {
     --accent-1: #9f8415;
     --accent-2: #e0e0e0;
@@ -14,7 +14,7 @@
     --imgs-filter: brightness(0.6);
 }
 
-/* LIGHT MODE COLORS */
+/* LIGHT THEME COLORS */
 [data-theme="light"] {
     --accent-1: #ffcc00;
     --accent-2: #000000;

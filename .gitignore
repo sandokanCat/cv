@@ -1,7 +1,6 @@
 # BLOCKED
 _*
 .*
-app/
 
 # ALLOWED
 !.gitignore

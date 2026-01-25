@@ -2,9 +2,46 @@
 declare(strict_types=1);
 
 // ----------------------------
+// ENVIRONMENT LOADER (.env)
+// ----------------------------
+function loadEnv(string $path): void
+{
+    if (!file_exists($path))
+        return;
+
+    $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        $line = trim($line);
+        if (empty($line) || str_starts_with($line, '#'))
+            continue;
+
+        // SPLIT BY FIRST "="
+        if (!str_contains($line, '='))
+            continue;
+        list($name, $value) = explode('=', $line, 2);
+
+        $name = trim($name);
+        $value = trim($value);
+
+        // REMOVE QUOTES IF PRESENT
+        $value = trim($value, '"\'');
+
+        if (!array_key_exists($name, $_SERVER) && !array_key_exists($name, $_ENV)) {
+            putenv(sprintf('%s=%s', $name, $value));
+            $_ENV[$name] = $value;
+            $_SERVER[$name] = $value;
+        }
+    }
+}
+
+// INITIATE SECURE ENVIRONMENT
+loadEnv(__DIR__ . '/../_secure/.env');
+
+// ----------------------------
 // CORE CONFIGURATION LOADER
 // ----------------------------
-function config(string $path, $default = null) {
+function config(string $path, $default = null)
+{
     static $config = null;
 
     if ($config === null) {
@@ -32,7 +69,8 @@ function config(string $path, $default = null) {
 // ----------------------------
 // LOAD GLOBALS.JSON
 // ----------------------------
-function loadGlobals(): array {
+function loadGlobals(): array
+{
     static $globals = null;
 
     if ($globals === null) {
@@ -52,7 +90,8 @@ function loadGlobals(): array {
 // ----------------------------
 // HELPER FUNCTION TO GET PATHS WITH CACHE
 // ----------------------------
-function G(array $array, string $path, string $context = 'text') {
+function G(array $array, string $path, string $context = 'text')
+{
     $keys = explode('.', $path);
     $v = $array;
 
@@ -64,26 +103,28 @@ function G(array $array, string $path, string $context = 'text') {
         }
     }
 
-    if ($context === 'json') return $v;
+    if ($context === 'json')
+        return $v;
 
     if (is_array($v)) {
         foreach ($v as $item) {
-            if (is_array($item)) return $v;
+            if (is_array($item))
+                return $v;
         }
         $v = implode(', ', $v);
     }
 
-    return htmlspecialchars((string)$v, ENT_QUOTES | ENT_HTML5);
+    return htmlspecialchars((string) $v, ENT_QUOTES | ENT_HTML5);
 }
 
 
 // ----------------------------
 // GLOBAL VARIABLES
 // ----------------------------
-$brand        = config('brand', []);
-$path         = config('path', []);
-$tech         = config('tech', []);
-$academy      = config('academy', []);
+$brand = config('brand', []);
+$path = config('path', []);
+$tech = config('tech', []);
+$academy = config('academy', []);
 $verification = config('verification', []);
-$globals      = loadGlobals();
+$globals = loadGlobals();
 ?>
