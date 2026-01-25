@@ -1,4 +1,8 @@
 {
+    "imports": {
+        "open-utils": "../public/open-utils/public/js/index.js"
+    },
+
     "lang": {
         "op": {
             "ca": ["ca-ES", "Català"],

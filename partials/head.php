@@ -19,9 +19,9 @@
     <link rel="canonical" href="<?= htmlspecialchars($brand['url'], ENT_QUOTES | ENT_HTML5); ?>">
 
     <!-- LANGUAGE VERSIONS -->
-    <?php foreach ($opLang as $langCode => $locale): 
+    <?php foreach ($opLang as $langCode => $locale):
         $code = is_array($locale) ? ($locale[0] ?? 'en-GB') : $locale;
-        $url = $brand['url'].$code."/";?>
+        $url = $brand['url'].$code."/"; ?>
         <link rel="alternate" hreflang="<?= htmlspecialchars($langCode); ?>" href="<?= htmlspecialchars($url, ENT_QUOTES | ENT_HTML5); ?>">
     <?php endforeach; ?>
     <link rel="alternate" hreflang="x-default" href="<?= htmlspecialchars($brand['url'], ENT_QUOTES | ENT_HTML5); ?>">
@@ -85,7 +85,7 @@
             "author" => ["@id" => "#".$shortName],
             "publisher" => ["@id" => "#".$shortName],
             "mainEntity" => ["@id" => "#".$shortName]
-        ], JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT); ?>
+        ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT); ?>
     </script>
     <script type="application/ld+json">
         <?= json_encode([
@@ -113,7 +113,17 @@
             "sameAs" => $sameAs,
             "knowsAbout" => $knowsAbout,
             "alumniOf" => $alumniOf
-        ], JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT); ?>
+        ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT); ?>
+    </script>
+
+    <!-- IMPORT MAP -->
+    <script type="importmap">
+        <?= json_encode(['imports' => $globals['imports'] ?? []], JSON_UNESCAPED_SLASHES); ?>
+    </script>
+
+    <!-- DATA HYDRATION -->
+    <script id="globals-data" type="application/json">
+        <?= json_encode($globals, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
     </script>
 
     <!-- MAIN JS -->

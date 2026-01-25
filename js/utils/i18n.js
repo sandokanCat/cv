@@ -39,10 +39,25 @@ async function loadGlobals() {
     if (globalsData) return globalsData;
 
     try {
-        globalsData = await validateJSON('js/globals.json');
+        const scriptEl = document.getElementById('globals-data');
+        if (!scriptEl) throw new Error("DOM_ELEMENT_MISSING");
+
+        globalsData = JSON.parse(scriptEl.textContent || '{}');
+        if (Object.keys(globalsData).length === 0) throw new Error("DOM_DATA_EMPTY");
     } catch (err) {
-        logger.er("FAILED TO LOAD GLOBALS.JSON", err.name, err.message, err.stack);
-        globalsData = {};
+        // FAILOVER
+        const isParseError = (err instanceof SyntaxError);
+        const msg = isParseError ? "CORRUPT DOM DATA" : "GLOBALS DATA NOT IN DOM";
+
+        logger.wa(`${msg}, FALLING BACK TO FETCH...`, err.name, err.message, err.stack);
+
+        try {
+            globalsData = await validateJSON('js/globals.json');
+        } catch (fetchErr) {
+            globalsData = {};
+
+            logger.er("ALL GLOBAL DATA SOURCES FAILED", fetchErr.name, fetchErr.message, fetchErr.stack);
+        }
     }
 
     return globalsData;
@@ -81,12 +96,12 @@ export const getLocale = async (inputLocale = null) => {
             const { op, inCase } = await loadLangMap();
             const base = inputLocale.split("-")[0].toLowerCase();
             const resolved = { locale: op[base] || inCase, base };
-        
+
             cachedLocale = resolved;
             reloadedLocales.clear();
             return resolved;
         }
-        
+
         if (cachedLocale) return cachedLocale;
 
         const { op, inCase } = await loadLangMap();
@@ -125,6 +140,7 @@ const setLocaleStorage = (locale) => {
 
 // GET TRANSLATION JSON BASED ON LOCALE
 export const getI18nData = async (locale) => {
+    // CHECK CACHE
     if (cachedTranslations[locale]) return cachedTranslations[locale];
 
     const { op, inCase } = await loadLangMap();
@@ -134,6 +150,7 @@ export const getI18nData = async (locale) => {
         locale = inCase;
     }
 
+    // FALLBACK TO NETWORK
     try {
         const data = await validateJSON(`js/i18n/${locale}.json`);
         return cachedTranslations[locale] = data || {};
@@ -207,15 +224,15 @@ const initI18n = async ({
         document.querySelectorAll(textSelector).forEach(el => {
             const key = el.getAttribute("data-i18n");
             const raw = resolveValue(translations, key, brand, resolvedLocale);
-        
+
             const content = (raw === undefined || raw === "") ? brand[resolvedLocale]?.[key] ?? "" : raw;
-        
+
             if (typeof content === "object") {
                 el.innerHTML = interpolateBrand(content.html ?? content.text ?? "", brand, resolvedLocale);
             } else {
                 el.textContent = interpolateBrand(content, brand, resolvedLocale);
             }
-        });        
+        });
 
         // TRANSLATE ATTRIBUTES
         document.querySelectorAll(attrSelector).forEach(el => {
