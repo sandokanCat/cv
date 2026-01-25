@@ -2,7 +2,7 @@
 import { logger } from 'open-utils';
 import { getI18nData, getLocale } from './i18n.js';
 
-// PROTECT EXECUTION
+// PROTECT EXECUTION (DEFENSIVE CODING)
 let isEasterEggLoaded = false;
 
 // EASTER EGG LOGGING
@@ -24,9 +24,9 @@ export async function easterEgg() {
             logger.lg( // BUSSINESS CARD
                 "%c" +
                 ` /\\_/\\   ${role} | Desarrollo Creativo 🛠️\n` +
-                "( o.o )        HTML5 • CSS3 • Vanilla JS\n" +
-                ` > ^ <     "${nick} loves code & purrs" 🐱\n` +
-                `  ╰─▶              ${email}`,
+                "( o.o )             PHP • CSS3 • Vanilla JS\n" +
+                ` > ^ <         "${nick} loves code & purrs" 🐱\n` +
+                `  ╰─▶                  ${email}`,
                 "color: #ff6d00; font-family: monospace; line-height: 1.3;"
             );
             logger.lg( // TECH GREETINGS
