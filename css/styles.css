@@ -2,7 +2,7 @@
 @import url("base/variables.css");
 
 /* GENERIC */
-@import url("base/custom-reset.css");
+@import url("../public/open-utils/public/css/custom-reset.css");
 
 /* ELEMENTS */
 @import url("base/base.css");

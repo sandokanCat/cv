@@ -1,9 +1,9 @@
 // EXPORTS
-export { default as logger } from './logger.js';
+export { default as logger } from '../../public/open-utils/public/js/logger.js';
 
-export { validateJSON } from './validateJSON.js';
+export { validateJSON } from '../../public/open-utils/public/js/validateJSON.js';
 
-export { validateCarousel } from './validateCarousel.js';
+export { validateCarousel } from '../../public/open-utils/public/js/validateCarousel.js';
 
 export { replaceClass } from './replaceClass.js';
 
