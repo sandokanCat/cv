@@ -23,8 +23,7 @@
     <?php foreach ($opLang as $langCode => $locale):
         $code = is_array($locale) ? ($locale[0] ?? 'en-GB') : $locale;
         $url = $brand['url'] . $code . "/"; ?>
-        <link rel="alternate" hreflang="<?= htmlspecialchars($langCode); ?>"
-            href="<?= htmlspecialchars($url, ENT_QUOTES | ENT_HTML5); ?>">
+        <link rel="alternate" hreflang="<?= htmlspecialchars($langCode); ?>" href="<?= htmlspecialchars($url, ENT_QUOTES | ENT_HTML5); ?>">
     <?php endforeach; ?>
     <link rel="alternate" hreflang="x-default" href="<?= htmlspecialchars($brand['url'], ENT_QUOTES | ENT_HTML5); ?>">
 
@@ -34,12 +33,10 @@
     <!-- OPEN GRAPH -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="<?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?>">
-    <meta property="og:title"
-        content="<?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?> | <?= $T('role') ?>">
+    <meta property="og:title" content="<?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?> | <?= $T('role') ?>">
     <meta property="og:description" content="<?= $T('ogDescription'); ?>">
     <meta property="og:url" content="<?= htmlspecialchars($brand['url'], ENT_QUOTES | ENT_HTML5); ?>">
-    <meta property="og:image"
-        content="<?= htmlspecialchars($brand['url'], ENT_QUOTES | ENT_HTML5); ?>img/og-img.jpg?version=2.0">
+    <meta property="og:image" content="<?= htmlspecialchars($brand['url'], ENT_QUOTES | ENT_HTML5); ?>img/og-img.jpg?version=2.0">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="200">
     <meta property="og:image:height" content="200">
@@ -49,7 +46,7 @@
             <meta property="og:locale" content="<?= htmlspecialchars($ogLocale, ENT_QUOTES | ENT_HTML5); ?>">
         <?php else: ?>
             <meta property="og:locale:alternate" content="<?= htmlspecialchars($ogLocale, ENT_QUOTES | ENT_HTML5); ?>">
-        <?php endif; endforeach; ?>
+    <?php endif; endforeach; ?>
 
     <!-- FAVICONS -->
     <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
@@ -70,14 +67,12 @@
     <meta name="theme-color" content="#1d2a42">
 
     <!-- AUTHORSHIP -->
-    <meta name="copyright"
-        content="© <?= htmlspecialchars(gmdate('Y'), ENT_QUOTES | ENT_HTML5); ?> <?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?>">
+    <meta name="copyright" content="© <?= htmlspecialchars(gmdate('Y'), ENT_QUOTES | ENT_HTML5); ?> <?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?>">
     <link type="text/plain" rel="author" href="humans.txt">
 
     <!-- SEARCH ENGINE VERIFICATION -->
     <?php foreach ($metaKeys as $metaName => $metaContent): ?>
-        <meta name="<?= htmlspecialchars($metaName, ENT_QUOTES | ENT_HTML5); ?>"
-            content="<?= htmlspecialchars($metaContent, ENT_QUOTES | ENT_HTML5); ?>">
+        <meta name="<?= htmlspecialchars($metaName, ENT_QUOTES | ENT_HTML5); ?>" content="<?= htmlspecialchars($metaContent, ENT_QUOTES | ENT_HTML5); ?>">
     <?php endforeach; ?>
 
     <!-- SCHEMA LD+JSON -->
