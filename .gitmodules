@@ -1,15 +1,9 @@
-# ADD EXTERNAL REPOS AS SUBMODULES
-[submodule "PHPdotenv"]
-    path = app/PHPdotenv
-    url = https://github.com/vlucas/phpdotenv
-    branch = master
-    ignore = all
-
+# ADD EXTERNAL REPO AS SUBMODULE
 [submodule "PHPMailer"]
     path = app/PHPMailer
     url = https://github.com/PHPMailer/PHPMailer
     branch = master
-    ignore = all
+    ignore = dirty
 
 # ADD OWN REPOS AS SUBMODULES
 [submodule "git-submodule-sync"]
@@ -29,3 +23,6 @@
     url = https://github.com/sandokanCat/open-utils
     branch = main
     ignore = none
+[submodule "app/PHPMailer"]
+	path = app/PHPMailer
+	url = https://github.com/PHPMailer/PHPMailer
