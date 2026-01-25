@@ -1,5 +1,5 @@
 // IMPORTS
-import { validateJSON } from "./index.js";
+import { validateJSON } from 'open-utils';
 
 // LOAD + VALIDATE LOCALIZED ARRAY FROM JSON
 export async function loadLocalizedArray({

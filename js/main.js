@@ -44,5 +44,5 @@ document.addEventListener("DOMContentLoaded", async () => {
     // openModal({getModalRefs(), locale});
     // sendMail();
 
-    easterEgg();
+    await easterEgg();
 });

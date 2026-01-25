@@ -1,5 +1,5 @@
 // IMPORTS
-import { logger } from "./index.js";
+import { logger } from 'open-utils';
 
 // GLOBAL VARIABLES
 const cookieName = 'sandokan.cat_consent';
@@ -27,7 +27,7 @@ export function manageCookies({ barSelector, acceptBtnSelector, rejectBtnSelecto
     function setCookie(name, value, days) {
         try {
             if (!name) throw new Error('Cookie name is required');
-    
+
             const encodedValue = encodeURIComponent(value); // ESCAPE VALUE
             const expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
             document.cookie = `${name.trim()}=${encodedValue}; expires=${expires}; path=/; SameSite=Lax; Secure`;
@@ -35,14 +35,14 @@ export function manageCookies({ barSelector, acceptBtnSelector, rejectBtnSelecto
             logger.er('FAILED TO SET COOKIE:', err.name, err.message, err.stack);
         }
     }
-    
+
     // GET COOKIE BY NAME
     function getCookie(name) {
         if (!name) return null;
-    
+
         const nameEQ = name.trim() + "=";
         const cookies = document.cookie.split(';');
-    
+
         for (let c of cookies) {
             c = c.trim();
             if (c.startsWith(nameEQ)) {
@@ -55,7 +55,7 @@ export function manageCookies({ barSelector, acceptBtnSelector, rejectBtnSelecto
             }
         }
         return null;
-    }    
+    }
 
     // GET CONSENT INFO (WITH DAYS REMAINING)
     function getConsentInfo() {
@@ -103,7 +103,7 @@ export function manageCookies({ barSelector, acceptBtnSelector, rejectBtnSelecto
         if (barEl) barEl.style.display = 'none';
 
         loadConsentScripts();
-        
+
         const newConsent = { name: cookieName, value: true, daysRemaining: 365 };
         logConsent(newConsent);
     }
@@ -140,7 +140,7 @@ export function manageCookies({ barSelector, acceptBtnSelector, rejectBtnSelecto
 
         script.onload = () => {
             window.dataLayer = window.dataLayer || [];
-            function gtag(){ dataLayer.push(arguments); }
+            function gtag() { dataLayer.push(arguments); }
             gtag('js', new Date());
             gtag('config', 'G-JMZTXS94TS');
         };
@@ -150,10 +150,10 @@ export function manageCookies({ barSelector, acceptBtnSelector, rejectBtnSelecto
     function loadMicrosoftClarity() {
         if (document.querySelector('script[src="https://www.clarity.ms/tag/sgweog5585"]')) return;
 
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
         })(window, document, "clarity", "script", "sgweog5585");
     }
 
@@ -161,14 +161,14 @@ export function manageCookies({ barSelector, acceptBtnSelector, rejectBtnSelecto
     function loadYandexMetrika() {
         if (document.querySelector('script[src="https://mc.yandex.ru/metrika/tag.js?id=103528686"]')) return;
 
-        (function(m,e,t,r,i,k,a){
-            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();
-            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103528686', 'ym');
-    
-        ym(103528686, 'init', {ssr:true, webvisor:true, trackHash:true, clickmap:true, accurateTrackBounce:true, trackLinks:true});
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=103528686', 'ym');
+
+        ym(103528686, 'init', { ssr: true, webvisor: true, trackHash: true, clickmap: true, accurateTrackBounce: true, trackLinks: true });
     }
 
     // COOKIE BAR INITIALIZATION

@@ -4,7 +4,7 @@ import { i18nConfig } from "../config.js";
 import {
     logger,
     validateJSON
-} from "./index.js";
+} from 'open-utils';
 
 import {
     initCarousel,

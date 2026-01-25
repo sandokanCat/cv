@@ -1,5 +1,5 @@
 // IMPORTS
-import { logger } from "./index.js";
+import { logger } from "open-utils";
 
 // COMMON TOOGLE MENU FUNCTION
 export async function initToggler({
