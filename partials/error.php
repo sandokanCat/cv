@@ -18,7 +18,7 @@ http_response_code($code);
 ?>
 
 <!DOCTYPE html>
-<html lang="<?= htmlspecialchars($currentLang, ENT_QUOTES | ENT_HTML5); ?>" dir="<?= htmlspecialchars($dir, ENT_QUOTES | ENT_HTML5); ?>" data-theme="light">
+<html lang="<?= htmlspecialchars($currentLang, ENT_QUOTES | ENT_HTML5); ?>" dir="<?= htmlspecialchars($dir, ENT_QUOTES | ENT_HTML5); ?>" data-theme="dark">
 
 <head>
     <title><?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?> | Error <?= htmlspecialchars($code, ENT_QUOTES | ENT_HTML5); ?></title>
@@ -39,7 +39,9 @@ http_response_code($code);
             <h2><?= htmlspecialchars($errMsg, ENT_QUOTES | ENT_HTML5); ?></h2>
         </header>
         <main>
-            <p><a class="icons-snippet active" href="/"><?= htmlspecialchars($btnTxt, ENT_QUOTES | ENT_HTML5); ?></a></p>
+            <p>
+                <a class="icons-snippet active" href="<?= htmlspecialchars($brand['url'], ENT_QUOTES | ENT_HTML5); ?>"><?= htmlspecialchars($btnTxt, ENT_QUOTES | ENT_HTML5); ?></a>
+            </p>
         </main>
         <footer>
             <?php require_once __DIR__."/includes/signature.php"; // LOAD SIGNATURE ?>
