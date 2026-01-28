@@ -1,9 +1,27 @@
-// 📥 IMPORTS ORDERED BY UTILITY
-import { signature } from '../utils/signature.js';
-import { getSystemTheme, applyTheme } from './themeDark.js';
+// 📥 IMPORTS ORDERED BY LAYER: UTILS → COMPONENTS
+import {
+    replaceClass,
+    getLocale,
+    initPopStateListener,
+    changeLocale,
+    signature
+} from '../utils/index.js';
+import {
+    initTheme,
+    initLangMenu
+} from '../components/index.js';
 
 // 🧠 APP INITIALIZATION
-document.addEventListener("DOMContentLoaded", () => {
-    applyTheme(document.documentElement, localStorage.getItem('theme') || getSystemTheme());
+document.addEventListener("DOMContentLoaded", async () => {
+    const { locale } = await getLocale();
+
+    replaceClass('js-disabled', 'js-enabled');
+
+    initTheme('#theme-dark-btn', document.documentElement);
+
+    initPopStateListener(changeLocale);
+
+    initLangMenu(locale, changeLocale);
+
     signature('#signature-year');
 });

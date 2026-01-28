@@ -1,6 +1,12 @@
 <?php
 declare(strict_types=1);
 
+// PREVENT DIRECT ACCESS
+if (!defined('ENTRY_POINT')) {
+    http_response_code(403);
+    exit('Forbidden');
+}
+
 // ----------------------------
 // ENVIRONMENT LOADER (.env)
 // ----------------------------

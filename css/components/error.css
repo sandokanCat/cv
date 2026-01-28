@@ -2,7 +2,7 @@
 @import url("../base/variables.css");
 
 /* GENERIC */
-@import url("https://open-utils-dev-sandokan-cat.vercel.app/css/custom-reset.css");
+@import url("../../public/open-utils/public/css/custom-reset.css") layer(open-utils);
 
 /* ELEMENTS */
 @import url("../base/base.css");
@@ -12,25 +12,27 @@
 /* UTILITIES */
 @import url("../utils/icons.css");
 
+/* OBJECTS */
+@import url("../layout/grid.css");
+@import url("../layout/nav.css");
+
+/* STATES */
+@import url("../states/active-js.css");
+@import url("../states/noscript.css");
+@import url("../states/rtl.css");
+
 /* SPECIFIC STYLES */
 #error-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 2fr 2fr fit-content(100%);
-    width: 90vw;
-    height: calc(100vh - 100px);
-    margin: 50px auto;
+    margin-top: 15dvh;
+    height: 85dvh;
 }
-#error-container header,
-#error-container main,
-#error-container footer,
-#error-container p {
+#error-container main {
     display: flex;
     flex-direction: column;
-    width: 100%;
     position: relative;
-    gap: 50px 0;
     text-align: center;
+    margin: 0 auto;
+    gap: 5dvh 0;
 }
 #error-container h1 {
     min-width: 100%;
@@ -48,7 +50,11 @@
     font-size: 3rem;
     font-size: clamp(1.5rem, 4vw, 3rem) !important;
 }
-#error-container a {
+#return-btn-wrapper {
+    margin-top: 10dvh;
+    text-align: center;
+}
+#return-btn-wrapper a {
     background-color: var(--accent-1);
     color: var(--accent-2);
     font-weight: 700;
@@ -62,17 +68,13 @@
     font-size: clamp(1.1rem, 2.5vw, 1.5rem) !important;
 }
 #error-container #signature {
-    position: relative;
-    text-align: end;
-    top: auto;
-    right: auto;
+    position: absolute;
+    right: 5dvw;
+    bottom: 5dvh;
 }
 
 /* RESPONSIVE LAYOUT */
 @media screen and (max-width: 768px) { /* TABLET */
-    #error-container {
-        width: 100vw;
-    }
     #error-container h1 {
         font-size: 120px;
         font-size: 7.5rem;

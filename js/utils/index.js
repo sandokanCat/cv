@@ -8,6 +8,7 @@ export { replaceClass } from './replaceClass.js';
 
 export {
     getLocale,
+    initI18n,
     initPopStateListener,
     changeLocale,
     getI18nData

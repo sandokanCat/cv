@@ -41,6 +41,27 @@
     "location": {
         "aria-label": "Localització"
     },
+    "workExp": {
+        "text": "Experiència laboral"
+    },
+    "backDev": {
+        "html": "Desenvolupador web <span lang='en-GB'>Backend</span>"
+    },
+    "backContent": {
+        "html": "Vaig formar part de l'equip que va desenvolupar part del <span lang='en-GB'>Dashboard</span> de l'acadèmia per a la gestió de cursos, exàmens i expedients, així com la generació i exportació de <span lang='en-GB'>Newsletters</span> personalizables."
+    },
+    "RRPP": {
+        "text": "Coordinador de Relacions Públiques"
+    },
+    "teamCoord": {
+        "html": "Com a encarregat de Relacions Públiques, vaig gestionar el <span lang='en-GB'>Marketing</span> dels esdeveniments organitzats per l'empresa, així com la venda de <span lang='en-GB'>Merchandising</span>, a través de xarxes socials juntament amb l'equip que coordinava. Junts, vam crear una marca d'oci nocturn que va estar de moda durant anys."
+    },
+    "volunteer": {
+        "text": "Classificació i empaquetament. Voluntari"
+    },
+    "sorting": {
+        "text": "Tot i que va ser una feina sense especialització ni grans responsabilitats, reconec que vaig gaudir d'ajudar els altres. Sempre m'han motivat els meus sentiments de justícia, i mai dubto a socórrer qui realment ho necessita."
+    },
     "studies": {
         "text": "Estudis"
     },
@@ -97,24 +118,6 @@
     },
     "seeCertificate": {
         "aria-label": "Veure certificat"
-    },
-    "workExp": {
-        "text": "Experiència laboral"
-    },
-    "backDev": {
-        "html": "Desenvolupador web <span lang='en-GB'>Backend</span>"
-    },
-    "RRPP": {
-        "text": "Relacions públiques"
-    },
-    "teamCoord": {
-        "text": "Coordinador d'equip"
-    },
-    "volunteer": {
-        "text": "Voluntari"
-    },
-    "sorting": {
-        "text": "Clasificació i empaquetat"
     },
     "otherData": {
         "text": "Altres dades"

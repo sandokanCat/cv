@@ -14,9 +14,9 @@ body {
 main {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    width: 90vw;
+    width: 90dvw;
     margin: 50px auto;
-    gap: 0 5vw;
+    gap: 0 5dvw;
 }
 #bottom-container {
     grid-column: span 2;
@@ -25,10 +25,10 @@ main {
 /* RESPONSIVE LAYOUT */
 @media screen and (max-width: 768px) { /* TABLET */
     main {
-        width: 100vw;
+        width: 100dvw;
     }
     #left-panel {
-        margin-left: 5vw;
+        margin-left: 5dvw;
     }
 }
 @media screen and (max-width: 480px) { /* MEDIUM PHONE */
@@ -36,8 +36,8 @@ main {
         grid-template-columns: repeat(1, 1fr);
     }
     #left-panel{
-        margin-left: 10vw !important;
-        margin-right: 10vw !important;
+        margin-left: 10dvw !important;
+        margin-right: 10dvw !important;
     }
     #bottom-container {
         grid-column: 1;

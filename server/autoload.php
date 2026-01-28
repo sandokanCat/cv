@@ -1,9 +1,15 @@
 <?php
 declare(strict_types=1);
 
+// PREVENT DIRECT ACCESS
+if (!defined('ENTRY_POINT')) {
+    http_response_code(403);
+    exit('Forbidden');
+}
+
 // LOAD CSP HEADERS
 define('ALLOW_CSPHEADER', true);
-require_once __DIR__.'/../_secure/CSPheader.php';
+require_once __DIR__ . '/../_secure/CSPheader.php';
 
 // REPORT ERRORS
 ini_set('display_errors', 1);
@@ -14,7 +20,7 @@ error_reporting(E_ALL);
 // AUTOLOAD v4.0 (NO CACHE)
 // ----------------------------
 
-$serverDir   = __DIR__;
+$serverDir = __DIR__;
 $loadedCores = [];
 
 // ----------------------------
@@ -22,7 +28,7 @@ $loadedCores = [];
 // ----------------------------
 // COMMENT: LOAD NUMERICALLY ORDERED CORE FILES
 $coreFiles = glob("$serverDir/[0-9]*_*.php");
-usort($coreFiles, fn($a,$b) => strnatcmp(basename($a), basename($b)));
+usort($coreFiles, fn($a, $b) => strnatcmp(basename($a), basename($b)));
 
 foreach ($coreFiles as $file) {
     require_once $file;
@@ -33,7 +39,8 @@ foreach ($coreFiles as $file) {
 // LAZY HELPER LOADER FUNCTION
 // ----------------------------
 // COMMENT: LOAD HELPERS ONLY WHEN REQUESTED
-function helper(string $name): void {
+function helper(string $name): void
+{
     static $loadedHelpers = [];
     global $serverDir;
 
@@ -68,7 +75,7 @@ function helper(string $name): void {
 // ----------------------------
 // PSR-4 AUTOLOADER FOR CLASSES
 // ----------------------------
-spl_autoload_register(function(string $class) use ($serverDir) {
+spl_autoload_register(function (string $class) use ($serverDir) {
     // COMMENT: MAP NAMESPACE TO FILE PATH
     $file = $serverDir . '/' . str_replace('\\', '/', $class) . '.php';
     if (file_exists($file)) {

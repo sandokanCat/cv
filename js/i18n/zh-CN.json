@@ -41,6 +41,27 @@
     "location": {
         "aria-label": "位置"
     },
+    "workExp": {
+        "text": "工作经验"
+    },
+    "backDev": {
+        "html": "Web 后端开发者 <span lang='en-GB'>Backend</span>"
+    },
+    "backContent": {
+        "html": "我是开发学院 <span lang='en-GB'>Dashboard</span> 部分功能的团队成员，负责课程管理、考试、档案管理以及可定制 <span lang='en-GB'>Newsletters</span> 的生成与导出。"
+    },
+    "RRPP": {
+        "text": "公共关系协调员"
+    },
+    "teamCoord": {
+        "html": "作为公共关系负责人，我负责公司组织的活动 <span lang='en-GB'>Marketing</span> 推广，并与协调的团队一起通过社交网络销售 <span lang='en-GB'>Merchandising</span>。我们共同创建了一个流行多年的夜生活品牌。"
+    },
+    "volunteer": {
+        "text": "分拣和包装。志愿者"
+    },
+    "sorting": {
+        "text": "虽然这是一份没有专业要求或重大责任的工作，但我承认我喜欢帮助他人。正义感总是激励着我，我从不犹豫去帮助那些真正需要的人。"
+    },
     "studies": {
         "text": "学习经历"
     },
@@ -97,24 +118,6 @@
     },
     "seeCertificate": {
         "aria-label": "查看证书"
-    },
-    "workExp": {
-        "text": "工作经验"
-    },
-    "backDev": {
-        "html": "后端网络开发者 <span lang='en-GB'>Backend</span>"
-    },    
-    "RRPP": {
-        "text": "公共关系"
-    },
-    "teamCoord": {
-        "text": "团队协调员"
-    },
-    "volunteer": {
-        "text": "志愿者"
-    },
-    "sorting": {
-        "text": "分类与包装"
     },
     "otherData": {
         "text": "其他信息"

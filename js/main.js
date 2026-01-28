@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const { locale } = await getLocale();
 
     replaceClass('js-disabled', 'js-enabled');
+
     initTheme('#theme-dark-btn', document.documentElement);
 
     initPopStateListener(changeLocale);
@@ -39,9 +40,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     await initToggler(await getBurgerConfig(locale));
 
     signature('#signature-year');
+
     manageCookies({ ...cookiesConfig });
 
     // openModal({getModalRefs(), locale});
+
     // sendMail();
 
     await easterEgg();

@@ -41,6 +41,27 @@
     "location": {
         "aria-label": "Location"
     },
+    "workExp": {
+        "text": "Work experience"
+    },
+    "backDev": {
+        "html": "<span lang='en-GB'>Backend</span> web developer"
+    },
+    "backContent": {
+        "html": "I was part of the team that developed part of the academy's <span lang='en-GB'>Dashboard</span> for managing courses, exams, and records, as well as the generation and export of customizable <span lang='en-GB'>Newsletters</span>."
+    },
+    "RRPP": {
+        "text": "Public Relations Coordinator"
+    },
+    "teamCoord": {
+        "html": "As head of Public Relations, I managed the <span lang='en-GB'>Marketing</span> of events organized by the company, as well as the sale of <span lang='en-GB'>Merchandising</span>, through social networks together with the team I coordinated. Together, we created a nightlife brand that was trendy for years."
+    },
+    "volunteer": {
+        "text": "Sorting and packaging. Volunteer"
+    },
+    "sorting": {
+        "text": "While it was a job without specialization or great responsibilities, I admit I enjoyed helping others. I have always been motivated by my feelings of justice, and I never hesitate to help those who truly need it."
+    },
     "studies": {
         "text": "Studies"
     },
@@ -97,24 +118,6 @@
     },
     "seeCertificate": {
         "aria-label": "See certificate"
-    },
-    "workExp": {
-        "text": "Work experience"
-    },
-    "backDev": {
-        "html": "<span lang='en-GB'>Backend</span> web developer"
-    },
-    "RRPP": {
-        "text": "Public relations"
-    },
-    "teamCoord": {
-        "text": "Team Coordinator"
-    },
-    "volunteer": {
-        "text": "Volunteer"
-    },
-    "sorting": {
-        "text": "Sorting and packaging"
     },
     "otherData": {
         "text": "Other data"

@@ -1,12 +1,15 @@
 <?php
+define('ENTRY_POINT', true);
+define('IS_ERROR_PAGE', true);
+
 // LOAD I18N & GLOBALS
-require_once __DIR__.'/../server/autoload.php';
+require_once __DIR__ . '/../server/autoload.php';
 
 // ERROR CODE HANDLING
-$code = (int)($_GET['code'] ?? 500);
+$code = (int) ($_GET['code'] ?? 500);
 
 // GET I18N ERROR MESSAGES
-$errorsFile = __DIR__.'/../js/data/errors.json';
+$errorsFile = __DIR__ . '/../js/data/errors.json';
 $i18nErrors = json_decode(file_get_contents($errorsFile), true);
 
 // GET MESSAGE OR FALLBACK TO 500
@@ -21,9 +24,10 @@ http_response_code($code);
 <html lang="<?= htmlspecialchars($currentLang, ENT_QUOTES | ENT_HTML5); ?>" dir="<?= htmlspecialchars($dir, ENT_QUOTES | ENT_HTML5); ?>" data-theme="dark">
 
 <head>
-    <title><?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?> | Error <?= htmlspecialchars($code, ENT_QUOTES | ENT_HTML5); ?></title>
+    <!-- TITLE -->
+    <title><?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?> | Error <?= htmlspecialchars((string) $code, ENT_QUOTES | ENT_HTML5); ?></title>
 
-    <?php require_once __DIR__."/includes/noindex.php"; // LOAD NOINDEX/NOFOLLOW HEAD ?>
+    <?php require_once __DIR__ . "/includes/noindex.php"; // LOAD NOINDEX/NOFOLLOW HEAD ?>
 
     <!-- SPECIFIC CSS -->
     <link rel="stylesheet" href="css/components/error.css">
@@ -33,18 +37,17 @@ http_response_code($code);
 </head>
 
 <body>
+    <?php require_once __DIR__ . "/body/header.php"; // LOAD HEADER ?>
     <div id="error-container">
-        <header>
-            <h1><?= $code ?></h1>
-            <h2><?= htmlspecialchars($errMsg, ENT_QUOTES | ENT_HTML5); ?></h2>
-        </header>
         <main>
-            <p>
-                <a class="icons-snippet active" href="<?= htmlspecialchars($brand['url'], ENT_QUOTES | ENT_HTML5); ?>"><?= htmlspecialchars($btnTxt, ENT_QUOTES | ENT_HTML5); ?></a>
+            <h1><?= $code ?></h1>
+            <h2 data-i18n="<?= $code ?>"><?= htmlspecialchars($errMsg, ENT_QUOTES | ENT_HTML5); ?></h2>
+            <p id="return-btn-wrapper">
+                <a class="icons-snippet active" href="<?= htmlspecialchars($brand['url'], ENT_QUOTES | ENT_HTML5); ?>" data-i18n="return"><?= htmlspecialchars($btnTxt, ENT_QUOTES | ENT_HTML5); ?></a>
             </p>
         </main>
         <footer>
-            <?php require_once __DIR__."/includes/signature.php"; // LOAD SIGNATURE ?>
+            <?php require_once __DIR__ . "/includes/signature.php"; // LOAD SIGNATURE ?>
         </footer>
     </div>
 </body>

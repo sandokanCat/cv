@@ -41,6 +41,27 @@
     "location": {
         "aria-label": "Localización"
     },
+    "workExp": {
+        "text": "Experiencia laboral"
+    },
+    "backDev": {
+        "html": "Desarrollador web <span lang='en-GB'>Backend</span>"
+    },
+    "backContent": {
+        "html": "Formé parte del equipo que desarrolló parte del <span lang='en-GB'>Dashboard</span> de la academia para la gestión de cursos, exámenes y expedientes, así como la generación y exportación de <span lang='en-GB'>Newsletters</span> personalizables."
+    },
+    "RRPP": {
+        "text": "Coordinador de Relaciones Públicas"
+    },
+    "teamCoord": {
+        "html": "Como encargado de Relaciones Públicas, gestioné el <span lang='en-GB'>Marketing</span> de los eventos organizados por la empresa, así como la venta de <span lang='en-GB'>Merchandising</span>, a través de redes sociales junto al equipo que coordinaba. Juntos, creamos una marca de ocio nocturno que estuvo de moda durante años."
+    },
+    "volunteer": {
+        "text": "Clasificación y empaquetado. Voluntario"
+    },
+    "sorting": {
+        "text": "Si bien fue un trabajo sin especialización ni grandes responsabilidades, reconozco que disfruté de ayudar a los demás. Siempre me han motivado mis sentimientos de justicia, y nunca dudo en socorrer a quien realmente lo necesita."
+    },
     "studies": {
         "text": "Estudios"
     },
@@ -97,24 +118,6 @@
     },
     "seeCertificate": {
         "aria-label": "Ver certificado"
-    },
-    "workExp": {
-        "text": "Experiencia laboral"
-    },
-    "backDev": {
-        "html": "Desarrollador web <span lang='en-GB'>Backend</span>"
-    },
-    "RRPP": {
-        "text": "Relaciones públicas"
-    },
-    "teamCoord": {
-        "text": "Coordinador de equipo"
-    },
-    "volunteer": {
-        "text": "Voluntario"
-    },
-    "sorting": {
-        "text": "Clasificación y empaquetado"
     },
     "otherData": {
         "text": "Otros datos"

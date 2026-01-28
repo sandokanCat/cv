@@ -161,6 +161,16 @@ export const getI18nData = async (locale) => {
     }
 };
 
+// GET I18N ERROR MESSAGES FROM ERRORS.JSON
+export const getI18nErrors = async () => {
+    try {
+        return await validateJSON('js/data/errors.json');
+    } catch (err) {
+        logger.er("FAILED TO LOAD ERRORS.JSON", err.name, err.message, err.stack);
+        return {};
+    }
+};
+
 // NESTED VALUE UTIL
 const getNestedValue = (obj, key, fallback = "") =>
     key.split(".").reduce((acc, part) => (acc && typeof acc === "object") ? acc[part] : undefined, obj) ?? fallback;
@@ -192,7 +202,7 @@ const interpolateBrand = (str, brand = {}, locale = 'en-GB') => {
 };
 
 // INIT i18n TO TRANSLATE PAGE
-const initI18n = async ({
+export const initI18n = async ({
     textSelector = '[data-i18n]',
     attrSelector = '[data-i18n-attr]',
     locale = null
@@ -208,7 +218,13 @@ const initI18n = async ({
         // GET DATA
         const globals = await loadGlobals();
         const brand = globals.brand || {};
-        const translations = await getI18nData(resolvedLocale);
+        let translations = await getI18nData(resolvedLocale);
+
+        // MERGE WITH ERRORS IF IT'S AN ERROR PAGE
+        if (document.getElementById('error-container')) {
+            const errorTrans = await getI18nErrors();
+            translations = { ...translations, ...(errorTrans[resolvedLocale] || {}) };
+        }
 
         // SET HTML LANG & DIR
         setLocaleStorage(resolvedLocale);

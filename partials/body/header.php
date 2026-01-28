@@ -1,3 +1,11 @@
+<?php
+// PREVENT DIRECT ACCESS
+if (!defined('ENTRY_POINT')) {
+    http_response_code(403);
+    exit('Forbidden');
+}
+?>
+
 <header>
     <noscript> <!-- NOSCRIPT WARNING -->
         <section id="noscript-warning" data-i18n="noscriptWarn" role="alert">
@@ -12,17 +20,14 @@
             </li>
 
             <!-- LANG MENU -->
-            <?php foreach ($opLang as $langCode => $langData): 
+            <?php foreach ($opLang as $langCode => $langData):
                 $localeCode = htmlspecialchars($langData[0] ?? '', ENT_QUOTES | ENT_HTML5);
                 $label = htmlspecialchars($langData[1] ?? '', ENT_QUOTES | ENT_HTML5); ?>
                 <li>
-                    <button 
-                        data-lang="<?= $localeCode ?>" 
-                        class="icons-snippet" 
-                        aria-label="<?= $label; ?>" 
-                        type="button">
+                    <button data-lang="<?= $localeCode ?>" class="icons-snippet" aria-label="<?= $label; ?>" type="button">
                         <svg aria-hidden="true" width="40" height="40" preserveAspectRatio="xMinYMin meet">
-                            <use href="img/sprite.svg#<?= $localeCode; ?>" xlink:href="img/sprite.svg#<?= $localeCode; ?>"></use>
+                            <use href="img/sprite.svg#<?= $localeCode; ?>" xlink:href="img/sprite.svg#<?= $localeCode; ?>">
+                            </use>
                         </svg>
                     </button>
                 </li>

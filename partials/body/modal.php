@@ -1,3 +1,11 @@
+<?php
+// PREVENT DIRECT ACCESS
+if (!defined('ENTRY_POINT')) {
+    http_response_code(403);
+    exit('Forbidden');
+}
+?>
+
 <!-- MODAL WINDOW -->
 <div id="modal-container" role="dialog" aria-hidden="true" tabindex="-1">
     <div id="modal-content">
