@@ -1,13 +1,22 @@
 /* BOTTOM CONTAINER LAYOUT & STRUCTURE */
-#workExp {
-    margin-left: 1vw;
+#workExp article {
+    width: 90%;
+    margin: 0 auto;
+}
+#workExp h5 {
+    margin-right: 0;
+    margin-left: 5%;
 }
 #workExp h5 span {
     text-transform: uppercase;
 }
+#workExp h6 {
+    margin-right: 0;
+    margin-left: 0;
+}
 #workExp p {
     order: 3;
-    margin: 0 5% 0 20%;
+    margin: auto 0 auto 10%;
 }
 .others {
     display: flex;
@@ -36,13 +45,13 @@
 #other-data {
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    gap: 35px 5vw;
-    padding: 0 5vw;
+    gap: 35px 5dvw;
+    padding: 0 5dvw;
     align-items: center;
 }
 #other-data ol {
     list-style: disc;
-    margin-left: 1vw;
+    margin-left: 1dvw;
 }
 #other-data ol li + li {
     margin-top: 15px;
@@ -58,7 +67,7 @@
 /* PORTFOLIO SECTION */
 #portfolio img {
     filter: var(--imgs-filter);
-    width: 60vw;
+    width: 60dvw;
 }
 #portfolio img:hover {
     transform: scale(1.05);
@@ -73,21 +82,27 @@
 
 /* RESPONSIVE BREAKPOINTS */
 @media screen and (max-width: 768px) { /* TABLET */
-    #workExp,
-    #other-data {
-        padding: 0 10vw;
+    #workExp article {
+        width: 80%;
     }
-    #workEsxp,
-    #other-data ul {
-        margin-left: 6vw;
+    #workExp p {
+        text-align: justify;
     }
     .other-links {
         top: 10%;
         right: 5%;
     }
+    #other-data {
+        padding: 0 10dvw;
+    }
+    #other-data ul {
+        margin-left: 6dvw;
+    }
 }
 @media screen and (max-width: 480px) { /* MEDIUM PHONE */
-    #workExp,
+    #workExp p {
+        text-align: center;
+    }
     #other-data {
         grid-template-columns: repeat(1,1fr);
     }

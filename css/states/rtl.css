@@ -67,6 +67,14 @@ html[dir="rtl"] #carousel-fallback {
 }
 
 /* BOTTOM-CONTAINER.CSS */
+html[dir="rtl"] #workExp h5 {
+    margin-right: 5%;
+    margin-left: 0;
+}
+html[dir="rtl"] #workExp p {
+    margin-right: 10%;
+    margin-left: 0;
+}
 html[dir="rtl"] .other-links {
     right: auto;
     left: 2.5%;

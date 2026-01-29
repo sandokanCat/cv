@@ -45,7 +45,7 @@ if (!defined('ENTRY_POINT')) {
                 <li data-i18n="drivingLic"><?= $T('drivingLic'); ?></li>
                 <li data-i18n="availability"><?= $H('availability'); ?></li>
             </ol>
-            <p id="random-phrases" aria-live="polite"></p>
+            <p id="random-phrases" class="js-disabled" aria-live="polite"></p>
         </div>
     </section>
     <section>
