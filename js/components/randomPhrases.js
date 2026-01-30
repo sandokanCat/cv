@@ -57,7 +57,7 @@ async function showRandomMsg(locale = getLocale()) {
 
     try {
         await loadPhrasesData(locale); // ENSURE JSON IS LOADED
-        
+
         const loop = () => {
             const pool = phrasesRandomPoolRef.current;
             if (!pool) return;

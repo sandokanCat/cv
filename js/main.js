@@ -18,7 +18,8 @@ import {
     initTheme,
     initLangMenu,
     initCarousel,
-    getBurgerConfig/*,
+    getBurgerConfig,
+    reloadRandomMsg/*,
     openModal,
     sendMail */
 } from './components/index.js';
@@ -42,6 +43,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     signature('#signature-year');
 
     manageCookies({ ...cookiesConfig });
+
+    await reloadRandomMsg(locale);
 
     // openModal({getModalRefs(), locale});
 
