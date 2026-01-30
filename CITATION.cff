@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Cabezas Núñez"
+  given-names: "Gonzalo"
+title: "cv"
+version: 1.0.0
+date-released: 2026-01-24
+url: "https://github.com/sandokanCat/cv"
+license: MIT
+keywords:
+  - html5
+  - css3
+  - js
+  - json
+  - ajax
+  - php
+  - sql
+  - mariadb
+  - xml
+  - xhtml
+  - python3
+  - bash
+  - apache
+  - fullstack

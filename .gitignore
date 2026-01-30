@@ -3,6 +3,7 @@ _*
 .*
 
 # ALLOWED
+!.github/
 !.gitignore
 !.gitattributes
 !.gitmodules

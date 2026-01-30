@@ -6,7 +6,7 @@ This document explains the security practices for this repository and how potent
 
 Although this is a **personal portfolio project**, security best practices are applied throughout **frontend and backend code**.
 
-> **Note:** Security measures cover `HTML`, `CSS`, `JS`, and `PHP` to demonstrate `fullstack`se pueden usar enlaces tipo mailto awareness.
+> **Note:** Security measures cover `HTML`, `CSS`, `JS`, and `PHP` to demonstrate `fullstack`
 
 ---
 
