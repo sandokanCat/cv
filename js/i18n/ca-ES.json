@@ -65,6 +65,12 @@
     "studies": {
         "text": "Estudis"
     },
+    "blockchain": {
+        "text": "Desenvolupament de blockchain"
+    },
+    "otherLangs": {
+        "text": "Altres llenguatges"
+    },
     "cybersec": {
         "text": "Ciberseguretat"
     },

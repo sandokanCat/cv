@@ -65,6 +65,12 @@
     "studies": {
         "text": "学习经历"
     },
+    "blockchain": {
+        "text": "区块链开发"
+    },
+    "otherLangs": {
+        "text": "其他语言"
+    },
     "cybersec": {
         "text": "网络安全"
     },

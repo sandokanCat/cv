@@ -99,7 +99,9 @@ foreach ($verification as $agent => $keys) {
     }
 }
 
-// BACK & FRONT TECH
+// TECH STACK
+$blockchain = G($globals, 'tech.blockchain', 'json') ?: [];
+$fortyTwo = G($globals, 'tech.42bcn', 'json') ?: [];
 $backTech = G($globals, 'tech.backEnd', 'json') ?: [];
 $frontTech = G($globals, 'tech.frontEnd', 'json') ?: [];
 ?>

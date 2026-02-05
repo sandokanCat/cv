@@ -73,6 +73,13 @@
     },
 
     "tech": {
+        "blockchain": {
+            "sol": "Solidity"
+        },
+        "42bcn": {
+            "py": "Python",
+            "c": "C"
+        },
         "backEnd": {
             "php": "<abbr lang='en-GB' title='Hypertext Preprocessor'>PHP</abbr>",
             "mysql": "<abbr lang='en-GB' title='Structured Query Language'>SQL</abbr>",

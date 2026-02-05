@@ -11,6 +11,26 @@ if (!defined('ENTRY_POINT')) {
         <h4 data-i18n="studies"><?= $T('studies'); ?></h4>
         <article>
             <h5>
+                <strong data-i18n="blockchain"><?= $T('blockchain'); ?></strong>
+            </h5>
+            <h6 lang="en-GB"><?= htmlspecialchars($academy['blockchain']['name'], ENT_QUOTES | ENT_HTML5); ?></h6>
+            <ol>
+            <?php foreach ($blockchain as $blockchainItem): ?>
+                    <li><?= $blockchainItem; ?></li>
+                <?php endforeach; ?>
+            </ol>
+        </article>
+        <article>
+            <h5 data-i18n="otherLangs"><?= $T('otherLangs'); ?></h5>
+            <h6 lang="ca-ES"><?= htmlspecialchars($academy['42bcn']['name'], ENT_QUOTES | ENT_HTML5); ?></h6>
+            <ol>
+                <?php foreach ($fortyTwo as $fortyTwoItem): ?>
+                    <li><?= $fortyTwoItem; ?></li>
+                <?php endforeach; ?>
+            </ol>
+        </article>
+        <article>
+            <h5>
                 <strong data-i18n="cybersec"><?= $T('cybersec'); ?></strong>
             </h5>
             <h6 lang="es-ES"><?= htmlspecialchars($academy['cybersec']['name'], ENT_QUOTES | ENT_HTML5); ?></h6>

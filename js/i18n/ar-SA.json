@@ -65,6 +65,12 @@
     "studies": {
         "text": "الدراسات"
     },
+    "blockchain": {
+        "text": "تطوير البلوكشين"
+    },
+    "otherLangs": {
+        "text": "لغات أخرى"
+    },
     "cybersec": {
         "text": "الأمن السيبراني"
     },
