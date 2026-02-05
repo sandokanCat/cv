@@ -110,7 +110,7 @@ Actualment treballo en la versió 2.0 del meu CV web, que serà la pàgina princ
 > محرم ١٤٤٦ هـ – حتى الآن
 
 • **الملخص التقني:**  
-  &nbsp;&nbsp;&nbsp;&nbsp;‏◦ `HTML5`‏، و`CSS3` النمطي‏، و`Vanilla JS` (ES modules)‏، و`PHP` آمن وقابل للصيانة‏، و`i18n` مع `JSON`‏، وسهولة الوصول (Accessibility)‏، و`SVG` القابل للتوسع.
+  &nbsp;&nbsp;&nbsp;&nbsp;‏◦ `HTML5`‏، و`CSS3` النمطي‏، و`Vanilla JS`‏، و`PHP` آمن وقابل للصيانة‏، و`i18n` مع `JSON`‏، وسهولة الوصول (Accessibility)‏، و`SVG` القابل للتوسع.
 
 • **التوثيق والإرشادات:**  
   &nbsp;&nbsp;&nbsp;&nbsp;‏◦ [README.md](./README.md)‏ — عرض المشروع، نظرة عامة متعددة اللغات  
