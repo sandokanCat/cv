@@ -12,7 +12,6 @@
     flex: 0 0 100%;
     line-height: 0;
 }
-
 .carousel-track picture {
     display: block;
     width: 100%;
@@ -104,17 +103,20 @@ article noscript {
 }
 
 /* RESPONSIVE BREAKPOINTS */
-@media screen and (max-width: 768px) { /* TABLET */
-    #carousel {
-        width: 100%;
-    }
-}
-@media (hover: none) {
+@media (hover: none) { /* TOUCH DEVICES */
     #carousel-fallback {
         scrollbar-width: auto;
     }
     #carousel-fallback::-webkit-scrollbar {
         height: 12px;
+    }
+    .carousel-control {
+        display: none;
+    }
+}
+@media screen and (max-width: 768px) { /* TABLET */
+    #carousel {
+        width: 100%;
     }
 }
 @media screen and (max-width: 480px) { /* MEDIUM PHONE */
