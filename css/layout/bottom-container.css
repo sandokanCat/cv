@@ -4,6 +4,7 @@
     margin: 0 auto;
 }
 #workExp h5 {
+    color: var(--body-txt);
     margin-right: 0;
     margin-left: 5%;
 }
