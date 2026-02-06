@@ -1,4 +1,7 @@
 /* COMMON STYLES */
+#carousel h6 {
+    margin-left: 10%;
+}
 .carousel-track {
     display: flex;
     padding: 0;
