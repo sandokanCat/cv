@@ -1,22 +1,28 @@
 /* COMMON STYLES */
-#carousel {
-    margin: 30px 0 0 0;
-}
 .carousel-track {
     display: flex;
+    padding: 0;
     transition: transform 0.6s ease-in-out;
     will-change: transform;
     list-style: none;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 .carousel-track li {
-    flex: 0 0 100%
+    flex: 0 0 100%;
+    line-height: 0;
+}
+
+.carousel-track picture {
+    display: block;
+    width: 100%;
 }
 .carousel-track img {
     display: block;
     width: 100%;
+    height: auto;
     aspect-ratio: 877 / 619;
-    object-fit: contain;
-    /* cursor: pointer; */
+    object-fit: cover;
     filter: var(--imgs-filter);
 }
 
@@ -55,7 +61,7 @@
 .carousel-scrollbar {
     position: relative;
     height: 7px;
-    background-color: transparent;
+    background-color: var(--body-bg);
     overflow: hidden;
 }
 .carousel-scrollbar::after {
@@ -86,7 +92,7 @@ article noscript {
 }
 #carousel-fallback::-webkit-scrollbar {
     height: 7px;
-    background-color: transparent;
+    background-color: var(--body-bg);
 }
 #carousel-fallback::-webkit-scrollbar-thumb {
     background-color: var(--accent-1);
@@ -94,7 +100,7 @@ article noscript {
     cursor: pointer;
 }
 #carousel-fallback::-webkit-scrollbar-track {
-    background-color: transparent;
+    background-color: var(--body-bg);
 }
 
 /* RESPONSIVE BREAKPOINTS */
@@ -109,5 +115,10 @@ article noscript {
     }
     #carousel-fallback::-webkit-scrollbar {
         height: 12px;
+    }
+}
+@media screen and (max-width: 480px) { /* MEDIUM PHONE */
+    #carousel {
+        background-color: var(--panel-bg);
     }
 }

@@ -106,7 +106,7 @@ export async function initCarousel({
         const update = () => {
             // RTL SUPPORT: REVERSE TRANSLATION AND SCROLLBAR
             const dirMultiplier = isRTL ? 1 : -1;
-            trackSelector.style.transform = `translateX(${dirMultiplier * index * 100}%)`;
+            trackSelector.style.transform = `translate3d(${dirMultiplier * index * 100}%, 0, 0)`;
 
             const width = 100 / validImgs.length;
             const offset = index * width;
