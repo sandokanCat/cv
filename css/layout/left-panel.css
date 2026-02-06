@@ -66,6 +66,9 @@ h3 {
     }
 }
 @media screen and (max-width: 480px) { /* MEDIUM PHONE */
+    #me img {
+        width: 300px;
+    }
     #languages svg { /* RESTORED TO ORIGINAL SIZE IN COLUMN LAYOUT */
         width: 140px;
         height: 20px;
