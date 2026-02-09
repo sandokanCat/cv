@@ -13,7 +13,13 @@ h3 {
     place-items: center;
     gap: 50px;
 }
+#me picture {
+    grid-column: 1;
+    grid-row: 1;
+}
 #me figcaption {
+    grid-column: 1;
+    grid-row: 2;
     display: flex;
     flex-direction: column;
     gap: 50px;

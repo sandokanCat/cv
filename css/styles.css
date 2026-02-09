@@ -20,6 +20,7 @@
 @import url("layout/bottom-container.css");
 
 /* COMPONENTS */
+@import url("components/slider.css");
 @import url("components/carousel.css");
 @import url("components/phrases.css");
 @import url("components/burger.css");

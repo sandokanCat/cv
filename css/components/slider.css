@@ -1,0 +1,19 @@
+/* SLIDER */
+@keyframes slider { /* CROSSFADE ANIMATION */
+    0%,
+    100% { opacity: 1; }
+    37.5% { opacity: 1; }
+    50%,
+    87.5% { opacity: 0; }
+}
+
+#me picture {
+    opacity: 0;
+    animation: slider 12s infinite ease-in-out;
+}
+#me #sandokan { /* DIFFERENT DELAY */
+    animation-delay: 0s;
+}
+#me #gonzalo {
+    animation-delay: -6s;
+}

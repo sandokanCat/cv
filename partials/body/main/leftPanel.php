@@ -9,7 +9,22 @@ if (!defined('ENTRY_POINT')) {
 <div id="left-panel">
     <section>
         <figure id="me">
-            <picture>
+            <!-- SANDOKAN IMG -->
+            <picture id="<?= htmlspecialchars($firstNick, ENT_QUOTES | ENT_HTML5); ?>">
+                <!-- WEBP SOURCES -->
+                <source type="image/webp"
+                    srcset="img/photos/<?= htmlspecialchars($firstNick, ENT_QUOTES | ENT_HTML5); ?>@3x.webp 3x, img/photos/<?= htmlspecialchars($firstNick, ENT_QUOTES | ENT_HTML5); ?>@2x.webp 2x, img/photos/<?= htmlspecialchars($firstNick, ENT_QUOTES | ENT_HTML5); ?>@1x.webp 1x">
+                <!-- PNG FALLBACK -->
+                <source type="image/png"
+                    srcset="img/photos/<?= htmlspecialchars($firstNick, ENT_QUOTES | ENT_HTML5); ?>@3x.png 3x, img/photos/<?= htmlspecialchars($firstNick, ENT_QUOTES | ENT_HTML5); ?>@2x.png 2x, img/photos/<?= htmlspecialchars($firstNick, ENT_QUOTES | ENT_HTML5); ?>@1x.png 1x">
+                <!-- FALLBACK IMG (LAST RESORT) -->
+                <img data-i18n-attr="alt:portrait"
+                    src="img/photos/<?= htmlspecialchars($firstNick, ENT_QUOTES | ENT_HTML5); ?>@3x.png"
+                    fetchpriority="high" decoding="sync" loading="eager"
+                    alt="<?= $A('portrait') ?> <?= $capitalizedNick ?>">
+            </picture>
+            <!-- GONZALO IMG -->
+            <picture id="<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>">
                 <!-- WEBP SOURCES -->
                 <source type="image/webp"
                     srcset="img/photos/<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>@3x.webp 3x, img/photos/<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>@2x.webp 2x, img/photos/<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>@1x.webp 1x">
@@ -19,7 +34,7 @@ if (!defined('ENTRY_POINT')) {
                 <!-- FALLBACK IMG (LAST RESORT) -->
                 <img data-i18n-attr="alt:portrait"
                     src="img/photos/<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>@3x.png"
-                    fetchpriority="high" decoding="sync" loading="eager" alt="<?= $A('portrait') ?>">
+                    fetchpriority="auto" decoding="async" loading="eager" alt="<?= $A('portrait') ?> <?= $firstName ?>">
             </picture>
             <figcaption>
                 <h1 lang="es-ES"><?= htmlspecialchars($brand['name'], ENT_QUOTES | ENT_HTML5); ?></h1>
@@ -86,7 +101,8 @@ if (!defined('ENTRY_POINT')) {
             <li>
                 <address data-i18n-attr="aria-label:location">
                     <?= htmlspecialchars($brand['postal'], ENT_QUOTES | ENT_HTML5); ?> <span
-                        lang="ca-ES"><?= htmlspecialchars($brand['city'], ENT_QUOTES | ENT_HTML5); ?></span></address>
+                        lang="ca-ES"><?= htmlspecialchars($brand['city'], ENT_QUOTES | ENT_HTML5); ?></span>
+                </address>
                 <svg class="icons-color-1" aria-hidden="true" width="22" height="22"
                     preserveAspectRatio="xMinYMin meet">
                     <use href="img/sprite.svg#address" xlink:href="img/sprite.svg#address"></use>

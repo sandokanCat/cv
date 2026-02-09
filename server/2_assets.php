@@ -47,6 +47,12 @@ $dnsPrefetch = array_map(
     $path['social'] ?: []
 );
 
+// EXPLODE NICK
+[$firstNick, $lastNick] = array_pad(explode('.', ($brand['nick'] ?? ''), 2), 2, '');
+$capitalizedNick = $firstNick !== ''
+    ? mb_convert_case($firstNick, MB_CASE_TITLE, 'UTF-8')
+    : '';
+
 // EXPLODE NAMES
 [$firstName, $lastName] = array_pad(explode(' ', ($brand['name'] ?? ''), 2), 2, '');
 $shortName = strtolower($firstName);
