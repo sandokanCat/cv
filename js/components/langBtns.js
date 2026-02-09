@@ -13,7 +13,8 @@ export function initLangMenu(currentLang, onSelectLang) {
     function updateBtnTransform(btn, scale = 1) {
         if (btn.matches(':hover') && btn.classList.contains('selected')) scale = 1.2; // MAINTAIN HOVER SCALE FOR SELECTED BUTTON UNDER CURSOR
 
-        btn.style.transform = `translateY(${btn._baseTranslateY}px) scale(${scale})`;
+        btn.style.translate = `0px ${btn._baseTranslateY}px`;
+        btn.style.scale = `${scale}`;
     }
 
     // 🎯 SET CURRENT LANGUAGE BUTTON STATE

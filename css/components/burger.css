@@ -21,21 +21,18 @@
 }
 .icons-snippet #burger-icon-top,
 .icons-snippet #burger-icon-bottom {
-    transform:
-        translate(
-            var(--translate-x),
-            var(--translate-y)
-        )
-        rotate(var(--rotate));
+    translate: var(--translate-x) var(--translate-y);
+    rotate: var(--rotate);
     transition:
-        transform var(--transition) var(--cubic-bezier);
+        translate var(--transition) var(--cubic-bezier),
+        rotate var(--transition) var(--cubic-bezier);
 }
 .icons-snippet#burger-btn[aria-expanded="true"] #burger-icon-top {
-    --translate-y: 12px;
+    --translate-y: 12.5px;
     --rotate: -45deg;
 }
 .icons-snippet#burger-btn[aria-expanded="true"] #burger-icon-bottom {
-    --translate-y: -12px;
+    --translate-y: -12.5px;
     --rotate: 45deg;
 }
 .icons-snippet #burger-icon-middle {
@@ -52,6 +49,6 @@
 #github-icon.icons-snippet.active {
     --translate-x: -110px;
 }
-#vercel-icon.icons-snippet.active  {
+#vercel-icon.icons-snippet.active {
     --translate-x: -80px;
 }
