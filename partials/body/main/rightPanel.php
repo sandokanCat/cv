@@ -15,7 +15,7 @@ if (!defined('ENTRY_POINT')) {
             </h5>
             <h6 lang="en-GB"><?= htmlspecialchars($academy['blockchain']['name'], ENT_QUOTES | ENT_HTML5); ?></h6>
             <ol>
-            <?php foreach ($blockchain as $blockchainItem): ?>
+                <?php foreach ($blockchain as $blockchainItem): ?>
                     <li><?= $blockchainItem; ?></li>
                 <?php endforeach; ?>
             </ol>
@@ -133,9 +133,12 @@ if (!defined('ENTRY_POINT')) {
         <div class="carousel-imgs">
             <ol class="carousel-track" aria-live="polite" role="group" aria-roledescription="carousel"></ol>
         </div>
-        <aside data-i18n-attr="aria-label:carouselCtrl" class="carousel-control" aria-label="<?= $L('carouselCtrl'); ?>">
-            <button data-i18n-attr="aria-label:carouselBack" class="carousel-back" aria-label="<?= $L('carouselBack'); ?>" type="button" aria-controls="carousel-track">
-                <svg class="icons-snippet active" aria-hidden="true" width="30" height="30" preserveAspectRatio="xMinYMin meet">
+        <aside data-i18n-attr="aria-label:carouselCtrl" class="carousel-control"
+            aria-label="<?= $L('carouselCtrl'); ?>">
+            <button data-i18n-attr="aria-label:carouselBack" class="carousel-back"
+                aria-label="<?= $L('carouselBack'); ?>" type="button" aria-controls="carousel-track">
+                <svg class="icons-snippet active" aria-hidden="true" width="30" height="30"
+                    preserveAspectRatio="xMinYMin meet">
                     <use href="img/sprite.svg#arrow-left" xlink:href="img/sprite.svg#arrow-left"></use>
                 </svg>
             </button>
@@ -153,16 +156,18 @@ if (!defined('ENTRY_POINT')) {
         <ol id="carousel-fallback" class="carousel-track" role="group" aria-roledescription="carousel">
             <?php
             $carouselData = json_decode(file_get_contents('js/data/carousel.json'), true);
+            $i = 0;
 
             foreach ($carouselData as $item):
                 $imgSrc = $item['png']['fallback'] ?? '';
-                $alt = $item['alt'][$currentLang] ?? ''; ?>
+                $alt = $item['alt'][$currentLang] ?? '';
+                $isFirst = ($i === 0);
+                ?>
                 <li>
-                    <img src="<?= htmlspecialchars($imgSrc, ENT_QUOTES | ENT_HTML5); ?>" fetchpriority="high"
-                        decoding="sync" loading="eager"
-                        alt="<?= htmlspecialchars($alt, ENT_QUOTES | ENT_HTML5); ?>">
+                    <img src="<?= htmlspecialchars($imgSrc, ENT_QUOTES | ENT_HTML5); ?>"
+                        fetchpriority="<?= $isFirst ? 'high' : 'auto'; ?>" decoding="<?= $isFirst ? 'sync' : 'async'; ?>" loading="<?= $isFirst ? 'eager' : 'lazy'; ?>" alt="<?= htmlspecialchars($alt, ENT_QUOTES | ENT_HTML5); ?>">
                 </li>
-            <?php endforeach; ?>
+            <?php $i++; endforeach; ?>
         </ol>
     </noscript>
     <!--//CAROUSEL END -->
