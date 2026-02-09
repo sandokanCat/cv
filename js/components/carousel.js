@@ -11,6 +11,7 @@ const json = "./js/data/carousel.json";
 // CACHED DATA
 let cachedCarouselImgs = null;
 let currentLocaleForCarousel = null;
+let timer; // MODULE-LEVEL TIMER TO ALLOW CLEARING ON RE-INIT
 
 // FETCHES AND VALIDATES REMOTE JSON VIA PUBLIC LIBRARY
 const loadCarouselData = async (forceReload = false) => {
@@ -70,11 +71,13 @@ export async function initCarousel({
         if (!trackSelector || !scrollbarSelector || !imgWrapperSelector)
             throw new Error("initCarousel: MISSING REQUIRED ELEMENTS IN CONTAINER");
 
-        let index = startIndex, timer;
+        clearTimeout(timer); // CLEAR PREVIOUS INSTANCE TIMER
+        let index = startIndex;
         trackSelector.innerHTML = ''; // CLEAN PREVIOUS SLIDES
 
         // RENDER <picture> SLIDES
-        validImgs.forEach(({ webp, png, alt }) => {
+        validImgs.forEach(({ webp, png, alt }, i) => {
+            const isFirst = i === 0;
             const li = document.createElement("li");
             const picture = document.createElement("picture");
 
@@ -90,10 +93,11 @@ export async function initCarousel({
             img.alt = ''; // SET TEMPORARY EMPTY ALT – UPDATED LATER BY i18n
             img.className = "modal-link";
             img.setAttribute("data-modal", png.fallback);
-            img.fetchPriority = "high"; //primera foto
-            img.decoding = "sync"; //primera foto
-            img.loading = "eager"; //primera foto
-            // RESTO FOTOS: auto, async, lazy   <=============================VOLVER AQUI=====================================
+
+            // PRIORITY LOADING FOR FIRST IMAGE (LCP)
+            img.fetchPriority = isFirst ? "high" : "auto";
+            img.decoding = isFirst ? "sync" : "async";
+            img.loading = isFirst ? "eager" : "lazy";
 
             picture.appendChild(sourceWebp); // APPEND CHILDREN TO PICTURE
             picture.appendChild(sourcePng);
@@ -104,39 +108,31 @@ export async function initCarousel({
 
         // MOVE TRACK + UPDATE SCROLLBAR
         const update = () => {
-            // RTL SUPPORT: REVERSE TRANSLATION AND SCROLLBAR
+            // RTL SUPPORT: REVERSE TRANSLATION
             const dirMultiplier = isRTL ? 1 : -1;
             trackSelector.style.transform = `translate3d(${dirMultiplier * index * 100}%, 0, 0)`;
 
             const width = 100 / validImgs.length;
             const offset = index * width;
 
-            if (isRTL) scrollbarSelector.style.setProperty('--scrollbar-offset', `calc(100% - ${offset}% - ${width}%)`);
-            else scrollbarSelector.style.setProperty('--scrollbar-offset', `${offset}%`);
-
+            // SCROLLBAR OFFSET (CSS HANDLES left/right IN rtl.css)
+            scrollbarSelector.style.setProperty('--scrollbar-offset', `${offset}%`);
             scrollbarSelector.style.setProperty('--scrollbar-width', `${width}%`);
 
             clearTimeout(timer);
             timer = setTimeout(() => {
-                index = isRTL
-                    ? (index - 1 + validImgs.length) % validImgs.length
-                    : (index + 1) % validImgs.length;
-
+                index = (index + 1) % validImgs.length;
                 update();
             }, interval);
         };
 
-        // MANUAL BUTTON CONTROLS
+        // MANUAL BUTTON CONTROLS (LINEAR INDEXING, CSS HANDLES VISUALS)
         advanceBtnSelector?.addEventListener("click", () => {
-            index = isRTL
-                ? (index - 1 + validImgs.length) % validImgs.length
-                : (index + 1) % validImgs.length;
+            index = (index + 1) % validImgs.length;
             update();
         });
         backBtnSelector?.addEventListener("click", () => {
-            index = isRTL
-                ? (index + 1) % validImgs.length
-                : (index - 1 + validImgs.length) % validImgs.length;
+            index = (index - 1 + validImgs.length) % validImgs.length;
             update();
         });
 
@@ -159,15 +155,12 @@ export async function initCarousel({
             const threshold = 50;
 
             if (Math.abs(delta) > threshold) {
-                if (delta > 0) { // SWIPE RIGHT (Back in LTR)
-                    index = isRTL
-                        ? (index + 1) % validImgs.length
-                        : (index - 1 + validImgs.length) % validImgs.length;
-                } else { // SWIPE LEFT (Advance in LTR)
-                    index = isRTL
-                        ? (index - 1 + validImgs.length) % validImgs.length
-                        : (index + 1) % validImgs.length;
-                }
+                // IN RTL, SWIPE LEFT (NEGATIVE DELTA) SHOULD ADVANCE
+                const isAdvance = isRTL ? delta > 0 : delta < 0;
+
+                if (isAdvance) index = (index + 1) % validImgs.length;
+                else index = (index - 1 + validImgs.length) % validImgs.length;
+
                 update();
             } else {
                 update(); // RESUME AUTOSCROLL IF NO THRESHOLD SWIPE

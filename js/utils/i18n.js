@@ -1,5 +1,8 @@
 // IMPORTS
-import { i18nConfig } from "../config.js";
+import {
+    i18nConfig,
+    carouselConfig
+} from "../config.js";
 
 import {
     logger,
@@ -7,8 +10,7 @@ import {
 } from 'open-utils';
 
 import {
-    initCarousel,
-    updateCarouselAlts,
+    initCarousel, updateCarouselAlts,
     reloadRandomMsg,
     getBurgerConfig,
     updateProvisionalAlert
@@ -25,7 +27,7 @@ const reloadedLocales = new Set();
 async function reloadDynamicContent(locale) {
     if (reloadedLocales.has(locale)) return;
 
-    // if (typeof initCarousel === 'function') await initCarousel({ locale });
+    if (typeof initCarousel === 'function') await initCarousel({ ...carouselConfig, locale, refs: carouselConfig.refs() });
     if (typeof updateCarouselAlts === 'function') await updateCarouselAlts(locale);
     if (typeof reloadRandomMsg === 'function') await reloadRandomMsg(locale);
     if (typeof getBurgerConfig === 'function') await getBurgerConfig(locale);
