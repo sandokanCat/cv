@@ -47,10 +47,10 @@ if (!defined('ENTRY_POINT')) {
     <meta property="og:description" content="<?= $T('ogDescription'); ?>">
     <meta property="og:url" content="<?= htmlspecialchars($brand['url'], ENT_QUOTES | ENT_HTML5); ?>">
     <meta property="og:image"
-        content="<?= htmlspecialchars($brand['url'], ENT_QUOTES | ENT_HTML5); ?>img/og-img.jpg?version=2.0">
+        content="<?= htmlspecialchars($brand['url'], ENT_QUOTES | ENT_HTML5); ?>img/og-banner.jpg">
     <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="200">
-    <meta property="og:image:height" content="200">
+    <meta property="og:image:width" content="926">
+    <meta property="og:image:height" content="300">
     <meta property="og:image:alt" content="<?= $T('ogImageAlt'); ?>">
     <?php foreach ($ogLocales as $ogLocale):
         if ($ogLocale == str_replace('-', '_', $currentLang)): ?>
