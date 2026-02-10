@@ -29,3 +29,7 @@
     url = https://github.com/sandokanCat/open-utils
     branch = main
     ignore = none
+[submodule "app/renderCV"]
+	path = app/renderCV
+	url = https://github.com/rendercv/rendercv
+	branch = main
