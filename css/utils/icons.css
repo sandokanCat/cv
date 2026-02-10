@@ -21,11 +21,9 @@
         rotate var(--transition) var(--cubic-bezier);
     pointer-events: none;
 }
-
 .icons-snippet:hover { /* HOVER STATE */
     --scale: 1.2;
 }
-
 .icons-snippet.active,
 .icons-snippet.selected { /* ACTIVE STATE */
     opacity: 1;
@@ -37,7 +35,6 @@
 .icons-color-1 { /* LEFT-PANEL & MODAL */
     color: var(--accent-1);
 }
-
 .icons-color-2 { /* RIGHT-PANEL & BOTTOM-CONTAINER*/
     color: var(--accent-2);
 }

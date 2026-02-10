@@ -21,12 +21,10 @@ html[dir="rtl"] h3 {
     border-left: none;
     border-right: 7px solid var(--accent-1);
 }
-
 html[dir="rtl"] #left-panel li {
     padding-left: auto;
     padding-right: 19px;
 }
-
 html[dir="rtl"] #contact address {
     margin-left: auto;
     margin-right: 40px;
@@ -36,25 +34,20 @@ html[dir="rtl"] #contact address {
 html[dir="rtl"] article {
     margin: 0 10% 0 5%;
 }
-
 html[dir="rtl"] h5 {
     margin: 0 10% 15px 5%;
 }
-
 html[dir="rtl"] article ol {
     margin: 0 20% 0 5%;
 }
-
 html[dir="rtl"] #carousel h6 {
     margin-left: auto;
     margin-right: 10%;
 }
-
 html[dir="rtl"] #carousel {
     margin: 0 0 30px -5dvw;
     width: calc(100% + 5dvw);
 }
-
 @media screen and (max-width: 768px) { /* TABLET */
     html[dir="rtl"] #carousel {
         width: 100%;
@@ -65,7 +58,6 @@ html[dir="rtl"] #carousel {
 html[dir="rtl"] .carousel-control svg {
     transform: scaleX(-1);
 }
-
 html[dir="rtl"] .carousel-scrollbar::after {
     left: auto;
     right: var(--scrollbar-offset, 0%);
@@ -73,7 +65,6 @@ html[dir="rtl"] .carousel-scrollbar::after {
         right 0.6s ease-in-out,
         width 0.6s ease-in-out;
 }
-
 html[dir="rtl"] #carousel-fallback {
     direction: rtl;
 }
@@ -83,27 +74,22 @@ html[dir="rtl"] #workExp h5 {
     margin-right: 5%;
     margin-left: 0;
 }
-
 html[dir="rtl"] #workExp p {
     margin-right: 10%;
     margin-left: 0;
 }
-
 html[dir="rtl"] .other-links {
     right: auto;
     left: 2.5%;
 }
-
 html[dir="rtl"] #other-data ol {
     margin-left: auto;
-    margin-right: 1vw;
+    margin-right: 1dvw;
 }
-
 @media screen and (max-width: 768px) { /* TABLET */
-    html[dir="rtl"] #workExp,
     html[dir="rtl"] #other-data ul {
         margin-left: auto;
-        margin-right: 6vw;
+        margin-right: 6dvw;
     }
     html[dir="rtl"] .other-links {
         right: auto;
@@ -111,20 +97,12 @@ html[dir="rtl"] #other-data ol {
     }
 }
 
-/* BURGUER.CSS */
-html[dir="rtl"] #burger-nav {
-    right: auto;
-    left: 2.5%;
+/* BURGER.CSS */
+html[dir="rtl"] .icons-snippet#burger-btn[aria-expanded="true"] #burger-icon-top {
+    --rotate: 45deg;
 }
-html[dir="rtl"] #burger-links {
-    right: auto;
-    left: 0;
-}
-html[dir="rtl"] #burger-btn-wrapper,
-html[dir="rtl"] #github-icon,
-html[dir="rtl"] #vercel-icon {
-    right: auto;
-    left: 0;
+html[dir="rtl"] .icons-snippet#burger-btn[aria-expanded="true"] #burger-icon-bottom {
+    --rotate: -45deg;
 }
 html[dir="rtl"] #github-icon.icons-snippet.active {
     --translate-x: 110px;
@@ -132,20 +110,12 @@ html[dir="rtl"] #github-icon.icons-snippet.active {
 html[dir="rtl"] #vercel-icon.icons-snippet.active {
     --translate-x: 80px;
 }
-html[dir="rtl"] #menu-fallback {
-    right: auto;
-    left: 2.5%;
-}
-html[dir="rtl"] #menu-fallback ul {
-    flex-direction: row-reverse;
-}
 
 /* SIGNATURE.CSS */
 html[dir="rtl"] #signature {
     right: auto;
     left: 2.5%;
 }
-
 @media screen and (max-width: 768px) { /* TABLET */
     html[dir="rtl"] #signature {
         right: auto;

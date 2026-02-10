@@ -89,7 +89,7 @@ if (!defined('ENTRY_POINT')) {
             </aside>
             <noscript> <!-- FALLBACK -->
                 <aside class="other-links">
-                    <ul aria-label="Repository menu">
+                    <ul aria-label="<?= $L('burger'); ?>">
                         <li>
                             <a href="<?= htmlspecialchars($path['social']['github'], ENT_QUOTES | ENT_HTML5); ?>"
                                 target="_blank" rel="noopener noreferrer" aria-label="Github">
