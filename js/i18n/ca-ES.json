@@ -153,7 +153,7 @@
         "alt": "Pàgina de fans d'Estopa. Inacabat"
     },
     "cookies": {
-        "html": "respecta la teva privacitat. <em>No rastregem</em>, només mesurem visites anònimes — (si acceptes). <button id='accept-cookies' class='icons-snippet active' aria-label='Seguir navegant'>Acceptar</button> <button id='reject-cookies' aria-label='No m'importen les cookies' type='button'>Rebutjar</button> | <a id='info-cookies' href='https://ca.wikipedia.org/wiki/Galeta_(inform%C3%A0tica)' target='_blank' rel='noopener noreferrer' aria-label='Més informació'>Què és una <span lang='en-GB'>cookie</span>?"
+        "html": "respecta la teva privacitat. <em>No rastregem</em>, només mesurem visites anònimes — (si acceptes). <button id='accept-cookies' class='icons-snippet active' aria-label='Seguir navegant'>Acceptar</button> <button id='reject-cookies' aria-label='No m’importen les cookies' type='button'>Rebutjar</button> | <a id='info-cookies' href='https://ca.wikipedia.org/wiki/Galeta_(inform%C3%A0tica)' target='_blank' rel='noopener noreferrer' aria-label='Més informació'>Què és una <span lang='en-GB'>cookie</span>?"
     },
     "modalIframe": {
         "aria-label": "Certificat oficial"
