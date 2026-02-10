@@ -80,7 +80,7 @@ html[dir="rtl"] #workExp p {
 }
 html[dir="rtl"] .other-links {
     right: auto;
-    left: 2.5%;
+    left: 2.5dvw;
 }
 html[dir="rtl"] .other-links button {
     right: auto;
@@ -97,7 +97,7 @@ html[dir="rtl"] #other-data ol {
     }
     html[dir="rtl"] .other-links {
         right: auto;
-        left: 5%;
+        left: 5dvw;
     }
 }
 
@@ -114,15 +114,29 @@ html[dir="rtl"] #github-icon.icons-snippet.active {
 html[dir="rtl"] #vercel-icon.icons-snippet.active {
     --translate-x: 80px;
 }
+@media screen and (max-width: 360px) { /* PHONE */
+    html[dir="rtl"] #github-icon.icons-snippet.active {
+        --translate-x: 72px;
+    }
+    html[dir="rtl"] #vercel-icon.icons-snippet.active {
+        --translate-x: 52px;
+    }
+}
 
 /* SIGNATURE.CSS */
 html[dir="rtl"] #signature {
     right: auto;
-    left: 2.5%;
+    left: 2.5dvw;
 }
 @media screen and (max-width: 768px) { /* TABLET */
     html[dir="rtl"] #signature {
         right: auto;
-        left: 5%;
+        left: 5dvw;
+    }
+}
+@media screen and (max-width: 480px) { /* MEDIUM PHONE */
+    html[dir="rtl"] #signature {
+        right: auto;
+        left: 7dvw;
     }
 }

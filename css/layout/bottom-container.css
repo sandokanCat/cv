@@ -28,7 +28,7 @@
 .other-links {
     position: absolute;
     top: 13%;
-    right: 2.5%;
+    right: 2.5dvw;
     height: 30px;
 }
 .other-links ul {
@@ -90,8 +90,7 @@
         text-align: justify;
     }
     .other-links {
-        top: 10%;
-        right: 5%;
+        right: 5dvw;
     }
     #other-data {
         padding: 0 10dvw;
@@ -104,7 +103,24 @@
     #workExp p {
         text-align: center;
     }
+    .other-links {
+        top: 11%;
+        right: 7dvw;
+    }
     #other-data {
         grid-template-columns: repeat(1,1fr);
+    }
+}
+@media screen and (max-width: 360px) { /* PHONE */
+    #pdf-icon,
+    noscript .other-links svg {
+        width: 22.5px;
+        height: 22.5px;
+    }
+    .other-links {
+        top: 12.5%;
+    }
+    .other-links ul {
+        gap: 10px;
     }
 }

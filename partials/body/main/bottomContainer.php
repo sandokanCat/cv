@@ -30,7 +30,7 @@ if (!defined('ENTRY_POINT')) {
     <section>
         <div class="others">
             <h4 data-i18n="otherData"><?= $T('otherData'); ?></h4>
-            <a class="other-links icons-snippet active" data-i18n-attr="aria-label:downloadCV"
+            <a id="pdf-icon" class="other-links icons-snippet active" data-i18n-attr="aria-label:downloadCV"
                 href="doc/pdf_signed/CV_<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>.pdf"
                 download="CV_<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>.pdf"
                 aria-label="Download CV pdf">
