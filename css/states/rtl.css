@@ -5,14 +5,6 @@ html[dir="rtl"] nav {
     left: auto;
     right: 20px;
 }
-html[dir="rtl"] #theme-dark-btn {
-    transform: scaleX(-1);
-}
-
-/* ICONS.CSS */
-html[dir="rtl"] .icons-color-1 {
-    transform: scaleX(-1);
-}
 
 /* LEFT-PANEL.CSS */
 html[dir="rtl"] h3 {
@@ -24,6 +16,9 @@ html[dir="rtl"] h3 {
 html[dir="rtl"] #left-panel li {
     padding-left: auto;
     padding-right: 19px;
+}
+html[dir="rtl"] #languages .icons-color-1 {
+    transform: scaleX(-1);
 }
 html[dir="rtl"] #contact address {
     margin-left: auto;
