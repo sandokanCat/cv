@@ -11,7 +11,7 @@ if (!defined('ENTRY_POINT')) {
         <h4 data-i18n="studies"><?= $T('studies'); ?></h4>
         <article>
             <h5>
-                <strong data-i18n="blockchain"><?= $T('blockchain'); ?></strong>
+                <strong data-i18n="blockchain"><?= $H('blockchain'); ?></strong>
             </h5>
             <h6 lang="en-GB"><?= htmlspecialchars($academy['blockchain']['name'], ENT_QUOTES | ENT_HTML5); ?></h6>
             <ol>
