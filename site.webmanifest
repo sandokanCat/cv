@@ -1,0 +1,20 @@
+{
+    "name": "Gonzalo Cabezas Núñez - Portfolio",
+    "short_name": "G. Cabezas",
+    "icons": [
+        {
+            "src": "img/favicon/tech-cat-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "img/favicon/tech-cat-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#1d2a42",
+    "background_color": "#000000",
+    "display": "standalone",
+    "start_url": "."
+}

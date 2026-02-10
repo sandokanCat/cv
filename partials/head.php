@@ -60,9 +60,12 @@ if (!defined('ENTRY_POINT')) {
         <?php endif; endforeach; ?>
 
     <!-- FAVICONS -->
-    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon" sizes="any">
-    <link rel="apple-touch-icon" href="img/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/tech-cat-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/tech-cat-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/tech-cat-180x180.png">
+    <!-- <link rel="icon" type="image/svg+xml" sizes="any" href="img/favicon/tech-cat.svg">
+    <link rel="icon" type="image/x-icon" sizes="any" href="img/favicon/tech-cat.ico"> -->
+    <link rel="manifest" href="site.webmanifest">
 
     <!-- PRECONNECT & DNS-PREFETCH -->
     <link rel="preconnect" href="<?= $path['open-utils']; ?>" crossorigin>
@@ -75,7 +78,7 @@ if (!defined('ENTRY_POINT')) {
     <link rel="stylesheet" href="css/styles.css">
 
     <!-- THEME COLOR -->
-    <meta name="theme-color" content="#0a1120">
+    <meta name="theme-color" content="#1d2a42">
 
     <!-- AUTHORSHIP -->
     <meta name="copyright"
