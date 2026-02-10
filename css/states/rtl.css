@@ -82,6 +82,10 @@ html[dir="rtl"] .other-links {
     right: auto;
     left: 2.5%;
 }
+html[dir="rtl"] .other-links button {
+    right: auto;
+    left: 0;
+}
 html[dir="rtl"] #other-data ol {
     margin-left: auto;
     margin-right: 1dvw;
