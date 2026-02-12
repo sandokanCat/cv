@@ -67,9 +67,9 @@ $dir = in_array(strtolower(substr($currentLang, 0, 2)), $rtl) ? 'rtl' : 'ltr';
 // ----------------------------
 // LOAD TRANSLATIONS JSON
 // ----------------------------
-$translationsFile = __DIR__ . "/../js/i18n/{$currentLang}.json";
+$translationsFile = __DIR__ . "/../../js/i18n/{$currentLang}.json";
 if (!file_exists($translationsFile))
-    $translationsFile = __DIR__ . "/../js/i18n/en-GB.json";
+    $translationsFile = __DIR__ . "/../../js/i18n/en-GB.json";
 $translations = json_decode(file_get_contents($translationsFile), true);
 
 // ----------------------------
@@ -159,7 +159,7 @@ if (!$isErrorPage) {
     if ($sysError >= 400) {
         http_response_code($sysError);
         $_GET['code'] = $sysError;
-        require __DIR__ . '/../partials/error.php';
+        require __DIR__ . '/../../partials/error.php';
         exit;
     }
 
@@ -174,7 +174,7 @@ if (!$isErrorPage) {
         $err = preg_match('/(^|\/)[._]/', $uriPath) ? 403 : 404;
         http_response_code($err);
         $_GET['code'] = $err;
-        require __DIR__ . '/../partials/error.php';
+        require __DIR__ . '/../../partials/error.php';
         exit;
     }
 }

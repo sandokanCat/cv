@@ -41,7 +41,7 @@ function loadEnv(string $path): void
 }
 
 // INITIATE SECURE ENVIRONMENT
-loadEnv(__DIR__ . '/../_secure/.env');
+loadEnv(__DIR__ . '/../../_secure/.env');
 
 // ----------------------------
 // CORE CONFIGURATION LOADER
@@ -51,7 +51,7 @@ function config(string $path, $default = null)
     static $config = null;
 
     if ($config === null) {
-        $iniFile = __DIR__ . '/../config.ini';
+        $iniFile = __DIR__ . '/../../config.ini';
         if (!file_exists($iniFile)) {
             throw new RuntimeException("CONFIG.INI MISSING: $iniFile");
         }
@@ -80,7 +80,7 @@ function loadGlobals(): array
     static $globals = null;
 
     if ($globals === null) {
-        $globalsFile = __DIR__ . '/../js/globals.json';
+        $globalsFile = __DIR__ . '/../../js/globals.json';
         if (!file_exists($globalsFile)) {
             throw new RuntimeException("GLOBALS.JSON MISSING: {$globalsFile}");
         }
