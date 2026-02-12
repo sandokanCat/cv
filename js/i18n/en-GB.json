@@ -1,6 +1,6 @@
 {
     "noscriptWarn": {
-        "html": "<h3>🚨 Oops! A cybersecurity enthusiast has arrived! <em lang='en-GB'>#NoJS = 😿</em></h3><p><strong>This website is 100% <span lang='en-GB'>Vanilla JavaScript</span></strong>, but I've adapted all the content so you can view it</p>"
+        "html": "<h3>🚨 Oops! A cybersecurity enthusiast has arrived! <em lang='en-GB'>#NoJS = 😿</em></h3><p><strong>This website is 100% <span lang='en-GB'>Vanilla JavaScript</span></strong>, but I’ve adapted all the content so you can view it</p>"
     },
     "darkBtn": {
         "aria-label": "Toggle dark mode"
@@ -48,7 +48,7 @@
         "html": "<span lang='en-GB'>Backend</span> web developer"
     },
     "backContent": {
-        "html": "I was part of the team that developed the academy's <span lang='en-GB'>Dashboard</span> for managing courses, exams, and records, as well as the generation and export of customizable <span lang='en-GB'>Newsletters</span>."
+        "html": "I was part of the team that developed the academy’s <span lang='en-GB'>Dashboard</span> for managing courses, exams, and records, as well as the generation and export of customizable <span lang='en-GB'>Newsletters</span>."
     },
     "RRPP": {
         "text": "Public Relations Coordinator"

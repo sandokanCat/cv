@@ -1,10 +1,4 @@
-# ADD EXTERNAL REPOS AS SUBMODULES
-[submodule "renderCV"]
-    path = app/renderCV
-    url = https://github.com/rendercv/rendercv
-    branch = main
-    ignore = dirty
-
+# ADD EXTERNAL REPO AS SUBMODULE
 [submodule "PHPMailer"]
     path = app/PHPMailer
     url = https://github.com/PHPMailer/PHPMailer
@@ -27,5 +21,11 @@
 [submodule "open-utils"]
     path = public/open-utils
     url = https://github.com/sandokanCat/open-utils
+    branch = main
+    ignore = none
+
+[submodule "renderCV"]
+    path = app/renderCV
+    url = https://github.com/sandokanCat/rendercv
     branch = main
     ignore = none

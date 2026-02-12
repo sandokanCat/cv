@@ -1,0 +1,110 @@
+cv:
+  name: Gonzalo Cabezas Núñez
+  website: https://sandokan.cat/
+  email: dev@sandokan.cat
+  phone: "+34 631 306 583"
+  social_networks:
+    - network: LinkedIn
+      username: sandokanCat
+    - network: GitHub
+      username: sandokanCat
+  location: 08014 Barcelona, España
+  sections:
+    biografía:
+      - Me apasiona el código limpio y funcional. Me formo a diario, tanto en academias como por libre, porque el conocimiento no se acaba cuando suena el timbre. Me gusta romper cosas para entenderlas (y arreglarlas mejor), por eso el Red Team me llama fuerte. No sigo el camino estándar; prefiero trazar el mío con teclado y café. Busco proyectos donde pueda aprender, aportar y dejar huella, sin postureos ni promesas vacías. Si algo no lo sé, lo investigo. Y si algo me motiva, no paro hasta hacerlo bien.
+    habilidades_técnicas:
+      - label: Frontend
+        details: HTML5, CSS3, JavaScript (Vanilla), JSON, AJAX, XHTML, WordPress, Responsive Design, A11y, SEO.
+      - label: Backend
+        details: PHP, Python, SQL (MariaDB), JWT, XML, Java, JSP, Apache HTTP Server.
+      - label: Blockchain & Low-Level
+        details: Solidity, Blockchain Architecture, C.
+      - label: Herramientas & IT
+        details: Git, GitHub, Linux (Bash), Ciberseguridad, Markdown, Arquitectura de Redes.
+    experiencia:
+      - company: Escuela de Negocios y Administración de Empresas
+        position: Desarrollador Web Backend
+        location: L’Hospitalet de Llobregat
+        start_date: 2025-11
+        end_date: 2025-12
+        highlights:
+          - Desarrollo del Dashboard de la academia para la gestión de cursos, exámenes y expedientes.
+          - Implementación de sistemas de generación y exportación de Newsletters personalizables.
+      - company: Gold Group
+        position: Coordinador de Relaciones Públicas
+        location: Barcelona
+        start_date: 2012-09
+        end_date: 2015-04
+        highlights:
+          - Coordinación de equipos y creación de marca en redes sociales.
+          - Gestión del Marketing de eventos y venta de Merchandising.
+    educación:
+      - institution: Blockchain Accelerator
+        area: Desarrollo de Blockchain
+        degree: Máster
+        start_date: 2026-02
+        end_date: present
+        location: Online
+        highlights:
+          - Máster en Desarrollo Blockchain
+      - institution: Institució Pau Casals
+        area: Inglés como lengua extranjera
+        degree: Certificado
+        start_date: 2026-02
+        end_date: present
+        location: L’Hospitalet de Llobregat
+        highlights:
+          - Cambridge B1
+      - institution: Formación Tajamar
+        area: Ciberseguridad
+        degree: Certificado Profesional
+        start_date: 2025-09
+        end_date: 2025-11
+        location: Online
+        highlights:
+          - Especialización en Ciberseguridad para usuarios y entornos empresariales.
+      - institution: 42 Barcelona
+        area: Programación
+        degree: Sin certificado
+        start_date: 2025-08
+        end_date: 2025-12
+        location: Barcelona
+        highlights:
+          - Formación intensiva basada en proyectos y aprendizaje entre pares.
+      - institution: Institució Pau Casals
+        area: Desarrollo de aplicaciones con tecnologías web
+        degree: Certificado Profesional
+        start_date: 2025-05
+        end_date: 2025-12
+        location: L’Hospitalet de Llobregat
+        highlights:
+          - Desarrollo Web Backend centrado en arquitecturas escalables.
+      - institution: ADAMS Formación
+        area: Confección y publicación de páginas web
+        degree: Certificado Profesional
+        start_date: 2024-04
+        end_date: 2024-07
+        location: Barcelona
+        highlights:
+          - Desarrollo Web Frontend centrado en el diseño web adaptable, accesibilidad y SEO.
+    otros_datos:
+      - bullet: Permiso de conducir B y vehículo propio.
+      - bullet: Disponibilidad total dentro de la provincia de Barcelona.
+design:
+  theme: classic
+  sections:
+    show_time_spans_in:
+      - experiencia
+      - educación
+  colors:
+    name: rgb(29, 42, 66)
+    section_titles: rgb(29, 42, 66)
+    connections: rgb(29, 42, 66)
+    links: rgb(255, 180, 0)
+  typography:
+    font_family:
+      body: Source Sans 3
+      name: Source Sans 3
+locale:
+  language: spanish
+  present: Actualidad
