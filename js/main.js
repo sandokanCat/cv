@@ -19,7 +19,8 @@ import {
     initLangMenu,
     initCarousel,
     getBurgerConfig,
-    reloadRandomMsg/*,
+    reloadRandomMsg,
+    updateProvisionalAlert/*,
     openModal,
     sendMail */
 } from './components/index.js';
@@ -45,6 +46,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     manageCookies({ ...cookiesConfig });
 
     await reloadRandomMsg(locale);
+
+    await updateProvisionalAlert(locale);
 
     // openModal({getModalRefs(), locale});
 

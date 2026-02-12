@@ -7,7 +7,6 @@ import {
 
 // GLOBAL VARIABLES
 const json = "./js/data/alerts.json"; // SOURCE JSON FILE
-const alertLinks = document.querySelectorAll('a[data-status]'); // CACHED DOM ELEMENTS
 
 let alertsCache = []; // CACHE ARRAY OF STRINGS
 
@@ -29,12 +28,13 @@ const loadAlertsData = async (locale = getLocale()) => {
 
 // PUBLIC FUNCTION: RELOAD ALERTS IN SPECIFIED LOCALE
 export async function updateProvisionalAlert(locale = getLocale()) {
-    resetProvisionalAlert();
-    await provisionalAlert(locale);
+    const alertLinks = document.querySelectorAll('a[data-status]');
+    resetProvisionalAlert(alertLinks);
+    await provisionalAlert(locale, alertLinks);
 }
 
 // RESET ALL ALERT LINKS
-function resetProvisionalAlert() {
+function resetProvisionalAlert(alertLinks) {
     resetRandomModule({
         cache: alertsCache,
         poolRef: alertsRandomPoolRef
@@ -44,26 +44,26 @@ function resetProvisionalAlert() {
 }
 
 // ATTACH ALERT FUNCTIONALITY TO LINKS
-async function provisionalAlert(locale = getLocale()) {
+async function provisionalAlert(locale = getLocale(), alertLinks = document.querySelectorAll('a[data-status]')) {
     try {
         await loadAlertsData(locale); // ENSURE JSON IS LOADED
 
         alertLinks.forEach(link => {
             const oldHandler = link._alertHandler;
             if (oldHandler) link.removeEventListener('click', oldHandler);
-        
+
             const handler = (event) => {
                 event.preventDefault();
                 const pool = alertsRandomPoolRef.current;
                 if (!pool || !alertsCache.length) return;
-        
+
                 const selected = pool.getNext(); // GET NEXT RANDOM PHRASE
                 if (typeof selected !== "string") // ENSURE IT'S A STRING
                     throw new Error("INVALID ALERT TYPE (EXPECTED STRING)");
-        
+
                 if (confirm(selected)) window.open(link.href, '_blank');
             };
-        
+
             link.addEventListener('click', handler);
             link._alertHandler = handler;
         });
