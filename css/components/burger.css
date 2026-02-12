@@ -67,10 +67,10 @@
         height: 4px;
     }
     .icons-snippet#burger-btn[aria-expanded="true"] #burger-icon-top {
-        --translate-y: 9.5px;
+        --translate-y: 9.25px;
     }
     .icons-snippet#burger-btn[aria-expanded="true"] #burger-icon-bottom {
-        --translate-y: -9.5px;
+        --translate-y: -9.25px;
     }
     #github-icon.icons-snippet.active {
         --translate-x: -72px;
