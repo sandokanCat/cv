@@ -20,8 +20,8 @@ import {
     getBurgerConfig,
     reloadRandomMsg,
     updateProvisionalAlert,
-    openModal,
-    sendMail
+    openModal/*,
+    sendMail*/
 } from './components/index.js';
 
 // 🧠 APP INITIALIZATION SEQUENCE: FROM GLOBALS TO INTERACTIVE UI
@@ -48,9 +48,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     await updateProvisionalAlert(locale);
 
-    await openModal({ refs: getModalRefs, locale });
+    await openModal({ refs: getModalRefs });
 
-    sendMail();
+    // sendMail();
 
     await easterEgg();
 });

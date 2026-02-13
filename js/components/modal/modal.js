@@ -1,13 +1,10 @@
 // IMPORTS
-import { getLocale, logger } from "../../utils/index.js";
+import { logger } from "../../utils/index.js";
 import { handlePdf } from "./pdfLogic.js";
 import { modalCarousel } from "./modalCarousel.js";
 
 // OPEN MODAL HANDLER
-export async function openModal({
-    refs = {},
-    locale = getLocale()
-} = {}) {
+export async function openModal({ refs = {} }) {
     let carouselCleanup = null;
 
     try {

@@ -67,6 +67,7 @@ main {
     }
     #left-panel,
     #right-panel,
+    #carousel,
     #bottom-container {
         grid-column: 1;
         grid-row: auto;

@@ -13,8 +13,7 @@ body.no-scroll {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7) !important;
-    z-index: 10002;
-    /* OVER ALL LAYERS */
+    z-index: 10002; /* OVER ALL LAYERS */
     justify-content: center;
     align-items: center;
     overflow: hidden;
@@ -93,14 +92,16 @@ body.no-scroll {
 #modal-img-wrapper .carousel-imgs {
     width: 100%;
 }
+#modal-img-wrapper .carousel-scrollbar {
+    background-color: transparent;
+}
 
 /* CLOSE BUTTON */
 #modal-close {
     all: unset;
     cursor: pointer;
     position: absolute;
-    top: -30px;
-    /* OFFSET FROM TOP RIGHT CORNER */
+    top: -30px; /* OFFSET RIGHT CORNER */
     right: -30px;
     z-index: 10001;
     transition: transform 0.2s ease;

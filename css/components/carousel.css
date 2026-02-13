@@ -1,6 +1,7 @@
 /* COMMON STYLES */
 #carousel h6 {
-    margin-left: 10%;
+    margin-bottom: 0;
+    padding: 0 0 20px 10%;
 }
 .carousel-track {
     display: flex;
@@ -116,5 +117,10 @@ article noscript {
     }
     .carousel-control {
         display: none;
+    }
+}
+@media screen and (max-width: 480px) { /* MEDIUM PHONE */
+    #carousel h6 {
+        background-color: var(--panel-bg);
     }
 }

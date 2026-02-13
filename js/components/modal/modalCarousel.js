@@ -1,5 +1,8 @@
 // IMPORTS
-import { getLocale, logger } from "../../utils/index.js";
+import {
+    logger,
+    getLocale
+} from "../../utils/index.js";
 import { loadCarouselData, reloadCarousel, updateCarouselAlts } from "../carousel.js";
 
 // HELPER TO ENSURE ROOT-RELATIVE PATHS
@@ -22,14 +25,14 @@ export async function modalCarousel(link, imgWrapper) {
             case "left":
                 btn.className = "carousel-back";
                 btn.setAttribute("aria-label", "Retroceder");
-                svg = `<svg aria-hidden="true" width="30" height="30" viewBox="0 0 64 74" fill="none">
+                svg = `<svg class="icons-snippet active" aria-hidden="true" width="30" height="30" viewBox="0 0 64 74" fill="none">
 							<path d="M0.25,37 L64.25,0.05 L64.25,74Z" fill="currentColor" />
 						</svg>`;
                 break;
             case "right":
                 btn.className = "carousel-advance";
                 btn.setAttribute("aria-label", "Avanzar");
-                svg = `<svg aria-hidden="true" width="30" height="30" viewBox="0 0 64 74" fill="none">
+                svg = `<svg class="icons-snippet active" aria-hidden="true" width="30" height="30" viewBox="0 0 64 74" fill="none">
 							<path d="M63.75,37 L0.75,0.05 L0.75,74Z" fill="currentColor" />
 						</svg>`;
                 break;
