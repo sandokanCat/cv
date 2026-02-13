@@ -7,8 +7,8 @@ export const i18nConfig = {
 // CAROUSEL CONFIG
 export const carouselConfig = {
     imgs: null,
-	startIndex: 0,
-	interval: 6000,
+    startIndex: 0,
+    interval: 6000,
     locale: null,
     refs: function getCarouselRefs() {
         return {
@@ -22,22 +22,15 @@ export const carouselConfig = {
     }
 }
 
-// COOKIES CONFIG
-export const cookiesConfig = {
-    barSelector: '#cookies-bar',
-    acceptBtnSelector: '#accept-cookies',
-    rejectBtnSelector: '#reject-cookies'
-}
-
 // MODAL CONFIG
-// export function getModalRefs() {
-//     return {
-//         siteSelector: document.getElementById('site-wrapper'),
-//         linkSelector: document.getElementsByClassName('modal-link'),
-//         containerSelector: document.getElementById('modal-container'),
-//         contentSelector: document.getElementById('modal-content'),
-//         iframeSelector: document.getElementById('modal-iframe'),
-//         imgWrapperSelector: document.getElementById('modal-img-wrapper'),
-//         closeSelector: document.getElementById('modal-close')
-//     };
-// }
+export function getModalRefs() {
+    return {
+        siteSelector: document.getElementById('site-wrapper'),
+        linkSelector: document.getElementsByClassName('modal-link'),
+        containerSelector: document.getElementById('modal-container'),
+        contentSelector: document.getElementById('modal-content'),
+        iframeSelector: document.getElementById('modal-iframe'),
+        imgWrapperSelector: document.getElementById('modal-img-wrapper'),
+        closeSelector: document.getElementById('modal-close')
+    };
+}

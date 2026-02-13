@@ -55,6 +55,10 @@ main {
     #bottom-container {
         grid-row: 4;
     }
+    #carousel {
+        margin: 0 0 30px 0;
+        width: 100%;
+    }
 }
 @media screen and (max-width: 480px) { /* MEDIUM PHONE */
     main {
@@ -62,21 +66,13 @@ main {
         grid-template-rows: auto;
     }
     #left-panel,
-    #carousel,
     #right-panel,
     #bottom-container {
         grid-column: 1;
         grid-row: auto;
-    }
-    #carousel {
-        margin: 0 0 30px 0;
-        width: 100%;
     }
     #left-panel {
         margin-left: 10dvw !important;
         margin-right: 10dvw !important;
     }
 }
-/* @media screen and (max-width: 360px) {  PHONE
-
-} */

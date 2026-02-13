@@ -5,23 +5,8 @@ import { logger } from 'open-utils';
 const cookieName = 'sandokan.cat_consent';
 
 // GET/SET COOKIE WITH EXPIRATION DAYS
-export function manageCookies({ barSelector, acceptBtnSelector, rejectBtnSelector }) {
+export function manageCookies({ barSelector }) {
     const barEl = document.querySelector(barSelector);
-    const acceptBtnEl = document.querySelector(acceptBtnSelector);
-    const rejectBtnEl = document.querySelector(rejectBtnSelector);
-
-    // IGNORE COOKIES
-    function iStillDontCareAboutCookies() {
-        if (!rejectBtnEl) return;
-
-        rejectBtnEl.addEventListener('click', (event) => {
-            event.preventDefault();
-
-            if (barEl) barEl.style.display = 'none';
-
-            document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; SameSite=Lax; Secure`;
-        })
-    }
 
     // SET COOKIE WITH EXPIRATION DAYS
     function setCookie(name, value, days) {
@@ -173,19 +158,25 @@ export function manageCookies({ barSelector, acceptBtnSelector, rejectBtnSelecto
 
     // COOKIE BAR INITIALIZATION
     function initCookieBar() {
+        if (!barEl) return;
+
         checkAndShowCookieBar();
 
-        if (acceptBtnEl && !acceptBtnEl.dataset.listenerAdded) {
-            acceptBtnEl.addEventListener('click', acceptConsent);
-            acceptBtnEl.dataset.listenerAdded = 'true';
-        } else if (!acceptBtnEl) {
-            logger.er(`BUTTON ${acceptBtnEl} NOT FOUND`);
-        }
+        // DELEGATED LISTENER ON BAR (RESISTANT TO i18n CHANGES)
+        if (!barEl.dataset.delegationAdded) {
+            barEl.addEventListener('click', (event) => {
+                const acceptBtn = event.target.closest('#accept-cookies');
+                const rejectBtn = event.target.closest('#reject-cookies');
 
-        if (rejectBtnEl && !rejectBtnEl.dataset.listenerAdded) {
-            iStillDontCareAboutCookies();
-        } else {
-            logger.er(`BUTTON ${rejectBtnEl} NOT FOUND`);
+                if (acceptBtn) {
+                    acceptConsent(event);
+                } else if (rejectBtn) {
+                    event.preventDefault();
+                    if (barEl) barEl.style.display = 'none';
+                    document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; SameSite=Lax; Secure`;
+                }
+            });
+            barEl.dataset.delegationAdded = 'true';
         }
     }
 

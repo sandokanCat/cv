@@ -1,9 +1,10 @@
 const mail = document.getElementById('mail');
 
 export function sendMail() {
-    mail.addEventListener('click', (event) => {
-        event.preventDefault();
+    if (!mail) return;
 
-        window.location.href = "server/contact/form.php"; // REDIRECT TO FORM PAGE
-    })
+    // PREPARE LINK FOR MODAL
+    mail.classList.add('modal-link');
+    mail.setAttribute('data-modal', "server/contact/form.php");
+    mail.setAttribute('target', '_blank'); // FALLBACK
 }

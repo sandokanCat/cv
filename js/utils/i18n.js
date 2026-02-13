@@ -51,14 +51,13 @@ async function loadGlobals() {
         const isParseError = (err instanceof SyntaxError);
         const msg = isParseError ? "CORRUPT DOM DATA" : "GLOBALS DATA NOT IN DOM";
 
-        logger.wa(`${msg}, FALLING BACK TO FETCH...`, err.name, err.message, err.stack);
+        logger.wa(`${msg}, FALLING BACK TO FETCH...`, err.name, err.message);
 
         try {
-            globalsData = await validateJSON('js/globals.json');
+            globalsData = await validateJSON('/js/globals.json');
         } catch (fetchErr) {
             globalsData = {};
-
-            logger.er("ALL GLOBAL DATA SOURCES FAILED", fetchErr.name, fetchErr.message, fetchErr.stack);
+            logger.er("ALL GLOBAL DATA SOURCES FAILED", fetchErr.name, fetchErr.message);
         }
     }
 
@@ -154,10 +153,10 @@ export const getI18nData = async (locale) => {
 
     // FALLBACK TO NETWORK
     try {
-        const data = await validateJSON(`js/i18n/${locale}.json`);
+        const data = await validateJSON(`/js/i18n/${locale}.json`);
         return cachedTranslations[locale] = data || {};
     } catch (err) {
-        logger.er(`LOCALE FALLBACK: ${locale} → ${inCase}`, err.name, err.message, err.stack);
+        logger.er(`LOCALE FALLBACK: ${locale} → ${inCase}`, err.name, err.message);
         if (locale !== inCase) return getI18nData(inCase);
         return {};
     }
@@ -166,9 +165,9 @@ export const getI18nData = async (locale) => {
 // GET I18N ERROR MESSAGES FROM ERRORS.JSON
 export const getI18nErrors = async () => {
     try {
-        return await validateJSON('js/data/errors.json');
+        return await validateJSON('/js/data/errors.json');
     } catch (err) {
-        logger.er("FAILED TO LOAD ERRORS.JSON", err.name, err.message, err.stack);
+        logger.er("FAILED TO LOAD ERRORS.JSON", err.name, err.message);
         return {};
     }
 };

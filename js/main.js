@@ -1,8 +1,7 @@
 // 📥 INTERNAL IMPORTS ORDERED BY LAYER: CONFIG → UTILS → COMPONENTS
 import {
     carouselConfig,
-    cookiesConfig/*,
-    getModalRefs*/
+    getModalRefs
 } from './config.js';
 import {
     replaceClass,
@@ -20,9 +19,9 @@ import {
     initCarousel,
     getBurgerConfig,
     reloadRandomMsg,
-    updateProvisionalAlert/*,
+    updateProvisionalAlert,
     openModal,
-    sendMail */
+    sendMail
 } from './components/index.js';
 
 // 🧠 APP INITIALIZATION SEQUENCE: FROM GLOBALS TO INTERACTIVE UI
@@ -43,15 +42,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     signature('#signature-year');
 
-    manageCookies({ ...cookiesConfig });
+    manageCookies('#cookies-bar');
 
     await reloadRandomMsg(locale);
 
     await updateProvisionalAlert(locale);
 
-    // openModal({getModalRefs(), locale});
+    await openModal({ refs: getModalRefs, locale });
 
-    // sendMail();
+    sendMail();
 
     await easterEgg();
 });

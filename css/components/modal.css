@@ -1,89 +1,97 @@
-/* BODY */
-.no-scroll {
-    overflow: hidden;
+/* PREVENT SCROLLING WHEN MODAL IS OPEN */
+html.no-scroll,
+body.no-scroll {
+    overflow: hidden !important;
 }
 
-/* MODAL BACKGROUND */
+/* MODAL SYSTEM OVERLAY */
 #modal-container {
-    visibility: hidden;
-    opacity: 0;
-    position: fixed;
-    inset: 0;
-    z-index: 999;
-    background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
-    align-items: center;
+    display: none;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    z-index: 10002;
+    /* OVER ALL LAYERS */
     justify-content: center;
-    transition:
-        opacity 0.3s ease-out,
-        visibility 0s linear 0.3s;
-    pointer-events: none;
+    align-items: center;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
+    pointer-events: auto !important;
 }
 #modal-container.show {
-    visibility: visible;
-    opacity: 1;
-    transition: opacity 0.3s ease-out;
-    pointer-events: auto;
+    display: flex;
 }
 
 /* MODAL CONTENT */
 #modal-content {
     position: relative;
-    border: 1px solid red;
-    /* box-sizing: border-box; */
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+    max-width: 90dvw;
+    max-height: 90dvh;
     opacity: 0;
     transition: opacity 0.3s ease-out;
-    max-width: fit-content;
 }
 #modal-container.show #modal-content {
     opacity: 1;
 }
 
-/* PDF WRAPPER */
+/* CONTENT TYPES TOGGLING */
 #modal-iframe-wrapper {
     display: none;
-    width: 90vw;
-    height: 90vh;
+    width: 90dvw;
+    height: 90dvh;
+}
+#modal-img-wrapper {
+    display: none;
+    width: auto;
+    height: auto;
+    max-width: 90dvw;
+    max-height: 90dvh;
+}
+
+/* PDF & FORM (IFRAME BASED) */
+#modal-container.show.pdf #modal-iframe-wrapper,
+#modal-container.show.form #modal-iframe-wrapper {
+    display: block;
 }
 #modal-iframe {
     width: 100%;
     height: 100%;
     border: none;
 }
-#modal-container.show.pdf #modal-iframe-wrapper {
-    display: block;
-}
 
-/* IMG WRAPPER */
-#modal-img-wrapper {
-    display: none;
+/* IMG & CAROUSEL (SCOPED TO PREVENT BREAKING HOME) */
+#modal-container.show.image #modal-img-wrapper,
+#modal-container.show.carousel #modal-img-wrapper {
+    display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 90vw;
-    max-height: 90vh;
+    width: 100%;
+    height: 100%;
 }
 #modal-img-wrapper img {
     display: block;
     width: 100%;
-    max-height: 90vh;
-    pointer-events: none;
-    /* margin: 0;
-    padding: 0;
-    gap: 0; */
-}
-#modal-container.show.carousel #modal-img-wrapper {
-    display: flex;
+    max-height: 90dvh;
+    object-fit: contain;
+    cursor: auto;
 }
 #modal-img-wrapper .carousel-container {
-    object-fit: contain;
+    width: 90dvw; /* BASE WIDTH */
+    max-width: calc(90dvh * (877 / 619)); /* CONSTRAIN BY CONTENT HEIGHT & RATIO */
+    aspect-ratio: 877 / 619;
+    margin: 0 auto; /* CENTER FOR CONTROLS ALIGNMENT */
+    max-height: 90dvh;
 }
-#modal-img-wrapper .carousel-img {
-    width: 80%;
-}
-#modal-img-wrapper .carousel-control {
-    border: 1px solid lime;
-    /* padding: 0 10%; */
+#modal-img-wrapper .carousel-imgs {
+    width: 100%;
 }
 
 /* CLOSE BUTTON */
@@ -91,24 +99,30 @@
     all: unset;
     cursor: pointer;
     position: absolute;
-    top: -35px;
-    right: -35px;
-    z-index: 1000;
+    top: -30px;
+    /* OFFSET FROM TOP RIGHT CORNER */
+    right: -30px;
+    z-index: 10001;
+    transition: transform 0.2s ease;
+    border-radius: 50%;
 }
 
-/* RESPONSIVE LAYOUT */
+/* RESPONSIVE BREAKPOINTS */
 @media screen and (max-width: 768px) { /* TABLET */
-    #modal-content {
-        width: 100%;
+    #modal-content,
+    #modal-img-wrapper {
+        max-width: 100dvw;
+        width: auto;
     }
     #modal-iframe-wrapper {
-        width: 100%;
+        width: 100dvw;
     }
-    #modal-img-wrapper {
-        width: 100%;
+    #modal-img-wrapper .carousel-container {
+        width: 100dvw;
+        max-width: calc(90dvh * (877 / 619)); /* PROTECTION FOR LANDSCAPE */
     }
     #modal-close {
-        right: 5px;
+        top: 10px;
+        right: 10px;
     }
 }
-

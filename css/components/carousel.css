@@ -26,6 +26,7 @@
     aspect-ratio: 877 / 619;
     object-fit: cover;
     filter: var(--imgs-filter);
+    cursor: pointer;
 }
 
 /* JS CAROUSEL */
@@ -115,15 +116,5 @@ article noscript {
     }
     .carousel-control {
         display: none;
-    }
-}
-@media screen and (max-width: 768px) { /* TABLET */
-    #carousel {
-        width: 100%;
-    }
-}
-@media screen and (max-width: 480px) { /* MEDIUM PHONE */
-    #carousel {
-        background-color: var(--panel-bg);
     }
 }
