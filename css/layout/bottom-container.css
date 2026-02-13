@@ -45,7 +45,7 @@
 }
 #other-data {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: 1fr;
     gap: 35px 5dvw;
     padding: 0 5dvw;
     align-items: center;
@@ -54,11 +54,10 @@
     list-style: disc;
     margin-left: 1dvw;
 }
-#other-data ol li + li {
+#other-data ol li+li {
     margin-top: 15px;
 }
 #other-data p {
-    display: flex;
     align-items: center;
     height: 100px;
     text-align: center;
@@ -108,7 +107,7 @@
         right: 7dvw;
     }
     #other-data {
-        grid-template-columns: repeat(1,1fr);
+        grid-template-columns: repeat(1, 1fr);
     }
 }
 @media screen and (max-width: 360px) { /* PHONE */

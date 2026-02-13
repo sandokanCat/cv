@@ -10,6 +10,14 @@
 
 /* EXCEPTIONS */
 nav ul.js-enabled,
-#burger-nav.js-enabled {
+#random-phrases.js-enabled {
     display: flex;
+}
+#other-data.js-enabled {
+    grid-template-columns: repeat(2, 1fr);
+}
+@media screen and (max-width: 480px) {
+    #other-data.js-enabled {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }

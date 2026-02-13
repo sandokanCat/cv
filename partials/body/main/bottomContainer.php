@@ -40,7 +40,7 @@ if (!defined('ENTRY_POINT')) {
                 </svg>
             </a>
         </div>
-        <div id="other-data">
+        <div id="other-data" class="js-disabled">
             <ol>
                 <li data-i18n="drivingLic"><?= $T('drivingLic'); ?></li>
                 <li data-i18n="availability"><?= $H('availability'); ?></li>
