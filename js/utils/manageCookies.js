@@ -5,8 +5,21 @@ import { logger } from 'open-utils';
 const cookieName = 'sandokan.cat_consent';
 
 // GET/SET COOKIE WITH EXPIRATION DAYS
-export function manageCookies({ barSelector }) {
+export function manageCookies(barSelector) {
     const barEl = document.querySelector(barSelector);
+
+    // SAFE NONCE EXTRACTION (IDL Property first, content fallback)
+    const globalsEl = document.getElementById('globals-data');
+    let nonce = globalsEl?.nonce || '';
+
+    if (!nonce && globalsEl?.textContent) {
+        try {
+            const data = JSON.parse(globalsEl.textContent);
+            nonce = data.nonce || '';
+        } catch (e) { }
+    }
+
+    if (nonce) logger.lg('CSP NONCE DATA: ', nonce);
 
     // SET COOKIE WITH EXPIRATION DAYS
     function setCookie(name, value, days) {
@@ -117,11 +130,14 @@ export function manageCookies({ barSelector }) {
         }
     }
 
-    // GOOGLE ANALYTICS SCRIPT
     function loadGoogleAnalytics() {
-        if (document.querySelector('script[src="https://www.googletagmanager.com/gtag/js?id=G-JMZTXS94TS"]')) return;
+        if (document.querySelector('script[src*="googletagmanager.com/gtag/js"]')) return;
 
         const script = document.createElement('script');
+        if (nonce) {
+            script.setAttribute('nonce', nonce);
+            script.nonce = nonce;
+        }
         script.async = true;
         script.src = 'https://www.googletagmanager.com/gtag/js?id=G-JMZTXS94TS';
         document.head.appendChild(script);
@@ -134,27 +150,35 @@ export function manageCookies({ barSelector }) {
         };
     }
 
-    // MICROSOFT CLARITY SCRIPT
     function loadMicrosoftClarity() {
-        if (document.querySelector('script[src="https://www.clarity.ms/tag/sgweog5585"]')) return;
+        if (window.clarity || document.querySelector('script[src*="clarity.ms/tag"]')) return;
 
-        (function (c, l, a, r, i, t, y) {
-            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-        })(window, document, "clarity", "script", "sgweog5585");
+        window.clarity = window.clarity || function () { (window.clarity.q = window.clarity.q || []).push(arguments) };
+
+        const script = document.createElement('script');
+        if (nonce) {
+            script.setAttribute('nonce', nonce);
+            script.nonce = nonce;
+        }
+        script.async = true;
+        script.src = "https://www.clarity.ms/tag/sgweog5585";
+        document.head.appendChild(script);
     }
 
-    // YANDEX METRIKA SCRIPT
     function loadYandexMetrika() {
-        if (document.querySelector('script[src="https://mc.yandex.ru/metrika/tag.js?id=103528686"]')) return;
+        if (window.ym || document.querySelector('script[src*="mc.yandex.ru/metrika"]')) return;
 
-        (function (m, e, t, r, i, k, a) {
-            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
-            m[i].l = 1 * new Date();
-            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
-            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-        })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=103528686', 'ym');
+        window.ym = window.ym || function () { (window.ym.a = window.ym.a || []).push(arguments) };
+        window.ym.l = 1 * new Date();
+
+        const script = document.createElement('script');
+        if (nonce) {
+            script.setAttribute('nonce', nonce);
+            script.nonce = nonce;
+        }
+        script.async = true;
+        script.src = 'https://mc.yandex.ru/metrika/tag.js?id=103528686';
+        document.head.appendChild(script);
 
         ym(103528686, 'init', { ssr: true, webvisor: true, trackHash: true, clickmap: true, accurateTrackBounce: true, trackLinks: true });
     }

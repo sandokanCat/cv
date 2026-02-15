@@ -145,5 +145,7 @@ if (!defined('ENTRY_POINT')) {
     </script>
 
     <!-- MAIN JS -->
-    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/main.js"
+        nonce="<?= htmlspecialchars($GLOBALS['nonce'], ENT_QUOTES, ENT_HTML5) ?>">
+    </script>
 </head>
