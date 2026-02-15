@@ -109,6 +109,7 @@ export async function openModal({ refs = {} }) {
 
                     if (pdfStatus === true) {
                         // PDF class handled within handlePdf
+                        container.classList.remove('image');
                     } else if (isForm) {
                         container.classList.remove('image');
                         container.classList.add('form');
