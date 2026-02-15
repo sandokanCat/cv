@@ -71,8 +71,11 @@ export function manageCookies({ barSelector }) {
 
         if (!consent || consent.value !== true || consent.daysRemaining <= 0) {
             barEl.style.display = 'block';
+            barEl.style.visibility = 'visible';
+            barEl.style.opacity = '1';
         } else {
             barEl.style.display = 'none';
+            barEl.style.visibility = 'hidden';
             loadConsentScripts();
             logConsent(consent);
         }

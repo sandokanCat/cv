@@ -43,17 +43,12 @@ export async function modalCarousel(link, imgWrapper) {
     };
 
     try {
-        // USE SHARED DATA (FAST & CACHED) - ADD FAIL-SAFE TIMEOUT
-        const loadWithTimeout = (promise, ms) => {
-            const timeout = new Promise((_, reject) => setTimeout(() => reject(new Error('TIMEOUT')), ms));
-            return Promise.race([promise, timeout]);
-        };
-
-        const imgsData = await loadWithTimeout(loadCarouselData(), 5000);
+        // USE SHARED DATA (FAST & CACHED)
+        const imgsData = await loadCarouselData();
         if (!imgsData || !imgsData.length) throw new Error('NO_IMAGES_DATA');
 
         // NORMALIZE & FIND INDEX
-        const clickedImg = link.querySelector('img') || link;
+        const clickedImg = (link.tagName?.toLowerCase() === 'img') ? link : (link.querySelector('img') || link);
         const clickedSrc = clickedImg.src;
         const normalize = src => new URL(src, window.location.origin).href;
 
@@ -67,10 +62,7 @@ export async function modalCarousel(link, imgWrapper) {
             logger.wa('modalCarousel: index not found among', imgsData.length, 'images. Falling back to 0');
         }
 
-        // CLEAN MODAL CONTENT
-        imgWrapper.innerHTML = '';
-
-        // CREATE STRUCTURE
+        // PREPARE STRUCTURE
         const figure = document.createElement('figure');
         figure.classList.add('carousel-container');
 
@@ -97,7 +89,6 @@ export async function modalCarousel(link, imgWrapper) {
             // Strip descriptor (e.g. " 3x") if it leaked into the entry for the actual URL
             const getUrlOnly = (entry) => entry.split(' ')[0];
 
-            const absWebp = toAbs(getUrlOnly(rawHighResWebp));
             const absPng = toAbs(getUrlOnly(rawHighResPng));
 
             const srcWebp = document.createElement("source");
@@ -109,7 +100,7 @@ export async function modalCarousel(link, imgWrapper) {
 
             const img = document.createElement("img");
             img.src = absPng; // src MUST NOT have descriptors
-            img.loading = "lazy";
+            img.loading = "eager"; // Load immediately in modal
             img.alt = "";
 
             img.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); });
@@ -136,6 +127,8 @@ export async function modalCarousel(link, imgWrapper) {
         figure.appendChild(imgsDiv);
         figure.appendChild(controls);
         figure.appendChild(scrollbar);
+
+        // Append to wrapper (modal.js might have a preview there)
         imgWrapper.appendChild(figure);
 
         // INIT RELOAD (NO AUTO-SCROLL)

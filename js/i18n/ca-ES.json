@@ -9,7 +9,7 @@
         "alt": "Retrat"
     },
     "biography": {
-        "html": "M’apassiona el codi net i funcional. Em formo a diari, tant en acadèmies com per lliure, perquè el coneixement no s’acaba quan sona el timbre. M’agrada trencar coses per entendre-les (i arreglar-les millor), per això el <span lang='en-GB'>Red Team</span> em crida fort. No segueixo el camí estàndard; prefereixo traçar el meu amb teclat i cafè. Busco projectes on pugui aprendre, aportar i deixar empremta, sense postureigs ni promeses buides. Si no sé alguna cosa, la investigo. I si alguna cosa em motiva, no paro fins a fer-ho bé."
+        "html": "M’apassiona el codi net i funcional. Em formo a diari, tant en acadèmies com per lliure, perquè el coneixement no s’acaba quan sona el timbre. M’agrada trencar coses per entendre-les (i arreglar-les millor), per això el <span lang='en-GB'>Red Team</span> em crida fort. No segueixo el camí estàndard; prefereixo traçar el meu amb teclat i cafè. Busco projectes on pugui aprendre, aportar i deixar empremta, sense postureigs ni promesas buides. Si no sé alguna cosa, la investigo. I si alguna cosa em motiva, no paro fins a fer-ho bé."
     },
     "languages": {
         "text": "Idiomes"
@@ -54,7 +54,7 @@
         "text": "Coordinador de Relacions Públiques"
     },
     "teamCoord": {
-        "html": "Com a encarregat de Relacions Públiques, vaig gestionar el <span lang='en-GB'>Marketing</span> dels esdeveniments organitzats per l’empresa, així com la venda de <span lang='en-GB'>Merchandising</span>, a través de xarxes socials juntament amb l’equip que coordinava. Junts, vam crear una marca d’oci nocturn que va estar de moda durant anys."
+        "html": "Com a encarregat de Relacions Públiques, vaig gestionar el <span lang='en-GB'>Marketing</span> dels esdeveniments organizats per l’empresa, així com la venda de <span lang='en-GB'>Merchandising</span>, a través de xarxes socials juntament amb l’equip que coordinava. Junts, vam crear una marca d’oci nocturn que va estar de moda durant anys."
     },
     "volunteer": {
         "text": "Classificació i empaquetament. Voluntari"
@@ -153,7 +153,7 @@
         "alt": "Pàgina de fans d’Estopa. Inacabat"
     },
     "cookies": {
-        "html": "respecta la teva privacitat. <em>No rastregem</em>, només mesurem visites anònimes — (si acceptes). <button id='accept-cookies' class='icons-snippet active' aria-label='Seguir navegant'>Acceptar</button> <button id='reject-cookies' aria-label='No m’importen les cookies' type='button'>Rebutjar</button> | <a id='info-cookies' href='https://ca.wikipedia.org/wiki/Galeta_(inform%C3%A0tica)' target='_blank' rel='noopener noreferrer' aria-label='Més informació'>Què és una <span lang='en-GB'>cookie</span>?"
+        "html": "respecta la teva privacitat. <em>No rastregem</em>, només mesurem visites anònimes — (si acceptes). <button id='accept-cookies' class='icons-snippet active' aria-label='Seguir navegando'>Acceptar</button> <button id='reject-cookies' aria-label='No m’importen les cookies' type='button'>Rebutjar</button> | <a id='info-cookies' href='https://ca.wikipedia.org/wiki/Galeta_(inform%C3%A0tica)' target='_blank' rel='noopener noreferrer' aria-label='Més informació'>Què és una <span lang='en-GB'>cookie</span>?</a>"
     },
     "modalIframe": {
         "aria-label": "Certificat oficial"

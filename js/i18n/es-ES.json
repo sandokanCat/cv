@@ -153,7 +153,7 @@
         "alt": "Página de fans de Estopa. Inacabado"
     },
     "cookies": {
-        "html": "respeta tu privacidad. <em>No rastreamos</em>, solo medimos visitas anónimas — (si aceptas). <button id='accept-cookies' class='icons-snippet active' aria-label='Seguir navegando'>Aceptar</button> <button id='reject-cookies' aria-label='No me importan las cookies' type='button'>Rechazar</button> | <a id='info-cookies' href='https://es.wikipedia.org/wiki/Cookie_(inform%C3%A1tica)' target='_blank' rel='noopener noreferrer' aria-label='Más información'>¿Qué es una <span lang='en-GB'>cookie</span>?"
+        "html": "respeta tu privacidad. <em>No rastreamos</em>, solo medimos visitas anónimas — (si aceptas). <button id='accept-cookies' class='icons-snippet active' aria-label='Seguir navegando'>Aceptar</button> <button id='reject-cookies' aria-label='No me importan las cookies' type='button'>Rechazar</button> | <a id='info-cookies' href='https://es.wikipedia.org/wiki/Cookie_(inform%C3%A1tica)' target='_blank' rel='noopener noreferrer' aria-label='Más información'>¿Qué es una <span lang='en-GB'>cookie</span>?</a>"
     },
     "modalIframe": {
         "aria-label": "Certificado oficial"

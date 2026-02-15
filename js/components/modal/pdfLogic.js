@@ -13,7 +13,7 @@ export function handlePdf(link) {
 
     if (isMobile) { // OPEN IN NEW TAB FOR MOBILE
         window.open(src, '_blank');
-        return 'new-tab'; // EXIT IF MOBILE
+        return 'new-tab'; // EXIT IF MOBILE6
     } else { // LOAD PDF INTO MODAL
         container.classList.add('pdf'); // SET MODAL TYPE
         iframe.src = src;
