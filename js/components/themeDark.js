@@ -1,10 +1,13 @@
+// IMPORTS
+import { PreferenceStore } from '../utils/index.js';
+
 // GET SYSTEM PREFERENCE
 export const getSystemTheme = () => window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 
 // APPLY THEME TO HTML AND SAVE
 export const applyTheme = (htmlSelector, theme) => {
     htmlSelector.setAttribute('data-theme', theme); // SET DATA-THEME
-    localStorage.setItem('theme', theme); // SAVE PREFERENCE
+    PreferenceStore.set('theme', theme); // SAVE PREFERENCE VIA STORE
 
     // FORCE SVG RELOAD
     const svgContainer = document.getElementById('theme-dark-btn');
@@ -37,7 +40,7 @@ export const initThemeToggle = (buttonSelector, htmlSelector) => {
 // MAIN INITIALIZER
 export const initTheme = (buttonSelector, htmlSelector) => {
     const html = htmlSelector;
-    const savedTheme = localStorage.getItem('theme');
+    const savedTheme = PreferenceStore.get('theme'); // GET VIA STORE
     const systemTheme = getSystemTheme();
     const initialTheme = savedTheme || systemTheme;
 

@@ -153,7 +153,7 @@
         "alt": "Estopa Fanpage, unfinished"
     },
     "cookies": {
-        "html": "respect your privacy. <em>We do not track</em>, only measure anonymous visits — (if you agree). <button id='accept-cookies' class='icons-snippet active' aria-label='Continue browsing' type='button'>Accept</button> <button id='reject-cookies' aria-label='I don’t care about cookies' type='button'>Reject</button> | <a id='info-cookies' href='https://en.wikipedia.org/wiki/HTTP_cookie' target='_blank' rel='noopener noreferrer' aria-label='More information'>What is a <span lang='en-GB'>cookie</span>?</a>"
+        "html": "respects your privacy. <em>We do not track</em>, only measure anonymous visits — (if you agree). <button id='all-cookies' class='icons-snippet active' aria-label='Analytical cookies' type='button'>Accept all</button> <button id='essential-cookies' class='icons-snippet' aria-label='User preferences' type='button'>Only essential</button> <button id='reject-cookies' aria-label='I don’t care about cookies!' type='button'>Reject</button> | <a id='info-cookies' href='https://en.wikipedia.org/wiki/HTTP_cookie' target='_blank' rel='noopener noreferrer' aria-label='More information'>What is a <span lang='en-GB'>cookie</span>?</a>"
     },
     "modalIframe": {
         "aria-label": "Official certificate"

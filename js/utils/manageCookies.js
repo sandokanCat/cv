@@ -4,6 +4,46 @@ import { logger } from 'open-utils';
 // GLOBAL VARIABLES
 const cookieName = 'sandokan.cat_consent';
 
+/**
+ * PREFERENCE STORE (localStorage wrapper)
+ * Centralizes settings and enforces consent rules.
+ */
+export const PreferenceStore = {
+    get(key, defaultValue) {
+        try {
+            const val = localStorage.getItem(key);
+            return val !== null ? val : defaultValue;
+        } catch (e) {
+            return defaultValue;
+        }
+    },
+    set(key, value) {
+        // WE ONLY PERSIST IF CONSENT IS 'all' OR 'essential'
+        const consent = getConsentLevel();
+        if (consent === 'all' || consent === 'essential') {
+            try {
+                localStorage.setItem(key, value);
+            } catch (e) {
+                logger.wa(`PreferenceStore: Failed to persist ${key}`);
+            }
+        }
+    }
+};
+
+// HELPER TO GET RAW CONSENT TYPE
+function getConsentLevel() {
+    const nameEQ = cookieName + "=";
+    const cookies = document.cookie.split(';');
+    for (let c of cookies) {
+        c = c.trim();
+        if (c.startsWith(nameEQ)) {
+            const raw = decodeURIComponent(c.substring(nameEQ.length));
+            return raw.split('|')[0]; // 'all', 'essential', 'false' or 'none'
+        }
+    }
+    return 'none';
+}
+
 // GET/SET COOKIE WITH EXPIRATION DAYS
 export function manageCookies(barSelector) {
     const barEl = document.querySelector(barSelector);
@@ -67,7 +107,7 @@ export function manageCookies(barSelector) {
             if (isNaN(expireDate)) return null; // INVALID DATE GUARD
 
             const daysRemaining = Math.max(0, Math.floor((expireDate - new Date()) / (1000 * 60 * 60 * 24)));
-            return { name: cookieName, value: value === 'true', daysRemaining };
+            return { name: cookieName, value, daysRemaining };
         } catch (err) {
             logger.wa('ERROR PARSING COOKIE', err.name, err.message);
             return null;
@@ -80,31 +120,52 @@ export function manageCookies(barSelector) {
 
         if (!barEl) return;
 
-        if (!consent || consent.value !== true || consent.daysRemaining <= 0) {
+        const needsConsent = !consent || consent.daysRemaining <= 0 || (consent.value !== 'all' && consent.value !== 'essential' && consent.value !== 'false');
+
+        if (needsConsent) {
             barEl.style.display = 'block';
             barEl.style.visibility = 'visible';
             barEl.style.opacity = '1';
         } else {
             barEl.style.display = 'none';
             barEl.style.visibility = 'hidden';
-            loadConsentScripts();
+
+            if (consent.value === 'all') {
+                loadConsentScripts();
+            }
             logConsent(consent);
         }
     }
 
     // ACCEPT CONSENT
-    function acceptConsent(event) {
+    function acceptConsent(event, type = 'all') {
         if (event) event.preventDefault();
 
         const expiration = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toUTCString();
-        setCookie(cookieName, `true|${expiration}`, 365);
+        setCookie(cookieName, `${type}|${expiration}`, 365);
 
         if (barEl) barEl.style.display = 'none';
 
-        loadConsentScripts();
+        // TRACKERS ONLY FOR 'all'
+        if (type === 'all') {
+            loadConsentScripts();
+        }
 
-        const newConsent = { name: cookieName, value: true, daysRemaining: 365 };
+        const newConsent = { name: cookieName, value: type, daysRemaining: 365 };
         logConsent(newConsent);
+
+        // SYNC SETTINGS AFTER CONSENT (THEME/LANG IN localStorage)
+        if (type !== 'false') {
+            syncPreferencesToStore();
+        }
+    }
+
+    // PERSIST CURRENT PAGE STATE TO PreferenceStore
+    function syncPreferencesToStore() {
+        const theme = document.documentElement.getAttribute('data-theme');
+        const lang = document.documentElement.getAttribute('lang');
+        if (theme) PreferenceStore.set('theme', theme);
+        if (lang) PreferenceStore.set('lang', lang);
     }
 
     // LOAD EXTERNAL TRACKERS AFTER CONSENT
@@ -194,15 +255,17 @@ export function manageCookies(barSelector) {
         // DELEGATED LISTENER ON BAR (RESISTANT TO i18n CHANGES)
         if (!barEl.dataset.delegationAdded) {
             barEl.addEventListener('click', (event) => {
-                const acceptBtn = event.target.closest('#accept-cookies');
+                const acceptAllBtn = event.target.closest('#all-cookies');
+                const essentialBtn = event.target.closest('#essential-cookies');
                 const rejectBtn = event.target.closest('#reject-cookies');
 
-                if (acceptBtn) {
-                    acceptConsent(event);
+                if (acceptAllBtn) {
+                    acceptConsent(event, 'all');
+                } else if (essentialBtn) {
+                    acceptConsent(event, 'essential');
                 } else if (rejectBtn) {
                     event.preventDefault();
-                    if (barEl) barEl.style.display = 'none';
-                    document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; SameSite=Lax; Secure`;
+                    acceptConsent(event, 'false');
                 }
             });
             barEl.dataset.delegationAdded = 'true';

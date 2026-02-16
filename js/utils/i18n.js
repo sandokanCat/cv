@@ -16,6 +16,8 @@ import {
     updateProvisionalAlert
 } from "../components/index.js";
 
+import { PreferenceStore } from "./manageCookies.js";
+
 // TRANSLATION CACHE
 let globalsData = null;
 let langMapData = null;
@@ -110,9 +112,9 @@ export const getLocale = async (inputLocale = null) => {
 
         if (!raw) {
             try {
-                raw = localStorage.getItem("lang") || navigator.language || inCase;
+                raw = PreferenceStore.get("lang") || navigator.language || inCase;
             } catch (err) {
-                logger.wa("LOCALSTORAGE UNAVAILABLE, FALLBACK TO NAVIGATOR OR DEFAULT", err.name, err.message, err.stack);
+                logger.wa("PreferenceStore UNAVAILABLE, FALLBACK TO NAVIGATOR OR DEFAULT", err.name, err.message, err.stack);
                 raw = navigator.language || inCase;
             }
         }
@@ -130,12 +132,12 @@ export const getLocale = async (inputLocale = null) => {
     }
 };
 
-// SET LOCALE IN LOCAL STORAGE
+// SET LOCALE IN PREFERENCE STORE
 const setLocaleStorage = (locale) => {
     try {
-        localStorage.setItem('lang', locale);
+        PreferenceStore.set('lang', locale);
     } catch (err) {
-        logger.wa("FAILED TO SET LOCALE IN LOCALSTORAGE", err.name, err.message, err.stack);
+        logger.wa("FAILED TO SET LOCALE IN PreferenceStore", err.name, err.message, err.stack);
     }
 }
 

@@ -24,6 +24,6 @@ export { initToggler } from './initToggler.js';
 
 export { signature } from './signature.js';
 
-export { manageCookies } from './manageCookies.js';
+export { PreferenceStore, manageCookies } from './manageCookies.js';
 
 export { easterEgg } from './easterEgg.js';
