@@ -14,7 +14,7 @@ Vanilla JS
 JSON
 AJAX
 PHP
-MySQL
+SQL
 MariaDB
 XML
 XHTML

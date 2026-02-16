@@ -19,8 +19,6 @@ export function manageCookies(barSelector) {
         } catch (e) { }
     }
 
-    if (nonce) logger.lg('CSP NONCE DATA: ', nonce);
-
     // SET COOKIE WITH EXPIRATION DAYS
     function setCookie(name, value, days) {
         try {
@@ -71,7 +69,7 @@ export function manageCookies(barSelector) {
             const daysRemaining = Math.max(0, Math.floor((expireDate - new Date()) / (1000 * 60 * 60 * 24)));
             return { name: cookieName, value: value === 'true', daysRemaining };
         } catch (err) {
-            logger.wa('ERROR PARSING COOKIE', err.name, err.message, err.stack);
+            logger.wa('ERROR PARSING COOKIE', err.name, err.message);
             return null;
         }
     }
@@ -111,76 +109,80 @@ export function manageCookies(barSelector) {
 
     // LOAD EXTERNAL TRACKERS AFTER CONSENT
     function loadConsentScripts() {
-        try {
-            loadGoogleAnalytics();
-        } catch (err) {
-            logger.wa('GA FAILED', err.name, err.message, err.stack);
-        }
+        const trackers = [
+            // GOOGLE ANALYTICS 4
+            `<script async src="https://www.googletagmanager.com/gtag/js?id=G-JMZTXS94TS"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-JMZTXS94TS');
+            </script>`,
 
-        try {
-            loadMicrosoftClarity();
-        } catch (err) {
-            logger.wa('CLARITY FAILED', err.name, err.message, err.stack);
-        }
+            // MICROSOFT CLARITY
+            `<script type="text/javascript">
+                (function(c,l,a,r,i,t,y){
+                    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                })(window, document, "clarity", "script", "sgweog5585");
+            </script>`,
 
-        try {
-            loadYandexMetrika();
-        } catch (err) {
-            logger.wa('YANDEX FAILED', err.name, err.message, err.stack);
-        }
+            // YANDEX METRIKA
+            `<script type="text/javascript">
+                (function(m,e,t,r,i,k,a){
+                    m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+                    m[i].l=1*new Date();
+                    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+                    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+                })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103528686', 'ym');
+
+                ym(103528686, 'init', {ssr:true, webvisor:true, trackHash:true, clickmap:true, referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+            </script>`
+        ];
+
+        trackers.forEach(html => injectRawHTML(html, nonce));
     }
 
-    function loadGoogleAnalytics() {
-        if (document.querySelector('script[src*="googletagmanager.com/gtag/js"]')) return;
+    /**
+     * INJECTS RAW HTML STRINGS INTO HEAD
+     * Ensures all <script> tags within the string carry the nonce and execute.
+     */
+    function injectRawHTML(htmlString, nonce) {
+        const range = document.createRange();
+        const fragment = range.createContextualFragment(htmlString);
+        const scripts = fragment.querySelectorAll('script');
 
-        const script = document.createElement('script');
-        if (nonce) {
-            script.setAttribute('nonce', nonce);
-            script.nonce = nonce;
-        }
-        script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-JMZTXS94TS';
-        document.head.appendChild(script);
+        scripts.forEach(oldScript => {
+            const newScript = document.createElement('script');
+            const placeholderSrc = oldScript.getAttribute('src');
 
-        script.onload = () => {
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
-            gtag('config', 'G-JMZTXS94TS');
-        };
-    }
+            // 1. NONCE & ASYNC FIRST
+            if (nonce) {
+                newScript.setAttribute('nonce', nonce);
+                newScript.nonce = nonce;
+            }
+            if (oldScript.async) newScript.async = true;
+            if (oldScript.defer) newScript.defer = true;
 
-    function loadMicrosoftClarity() {
-        if (window.clarity || document.querySelector('script[src*="clarity.ms/tag"]')) return;
+            // 2. COPY OTHER ATTRIBUTES EXCEPT SRC
+            Array.from(oldScript.attributes).forEach(attr => {
+                const name = attr.name.toLowerCase();
+                if (name !== 'src' && name !== 'nonce' && name !== 'async' && name !== 'defer') {
+                    newScript.setAttribute(attr.name, attr.value);
+                }
+            });
 
-        window.clarity = window.clarity || function () { (window.clarity.q = window.clarity.q || []).push(arguments) };
+            // 3. APPLY CONTENT OR SRC LAST
+            if (placeholderSrc) {
+                newScript.src = placeholderSrc;
+            } else if (oldScript.textContent) {
+                newScript.textContent = oldScript.textContent;
+            }
 
-        const script = document.createElement('script');
-        if (nonce) {
-            script.setAttribute('nonce', nonce);
-            script.nonce = nonce;
-        }
-        script.async = true;
-        script.src = "https://www.clarity.ms/tag/sgweog5585";
-        document.head.appendChild(script);
-    }
-
-    function loadYandexMetrika() {
-        if (window.ym || document.querySelector('script[src*="mc.yandex.ru/metrika"]')) return;
-
-        window.ym = window.ym || function () { (window.ym.a = window.ym.a || []).push(arguments) };
-        window.ym.l = 1 * new Date();
-
-        const script = document.createElement('script');
-        if (nonce) {
-            script.setAttribute('nonce', nonce);
-            script.nonce = nonce;
-        }
-        script.async = true;
-        script.src = 'https://mc.yandex.ru/metrika/tag.js?id=103528686';
-        document.head.appendChild(script);
-
-        ym(103528686, 'init', { ssr: true, webvisor: true, trackHash: true, clickmap: true, accurateTrackBounce: true, trackLinks: true });
+            // 4. ATTACH TO DOM
+            document.head.appendChild(newScript);
+        });
     }
 
     // COOKIE BAR INITIALIZATION
