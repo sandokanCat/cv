@@ -153,7 +153,7 @@
         "alt": "Estopa 粉丝页面。未完成"
     },
     "cookies": {
-        "html": "尊重你的隐私。<em>我们不跟踪</em>，仅统计匿名访问 —（如果你接受）。<button id='all-cookies' class='icons-snippet active' aria-label='分析型 Cookie' type='button'>接受全部</button> <button id='essential-cookies' class='icons-snippet' aria-label='用户偏好' type='button'>仅必要</button> <button id='reject-cookies' aria-label='我不在乎 Cookie!' type='button'>拒绝</button> | <a id='info-cookies' href='https://zh.wikipedia.org/wiki/Cookie' target='_blank' rel='noopener noreferrer' aria-label='更多信息'>什么是 <span lang='en-GB'>cookie</span>？</a>"
+        "html": "尊重你的隐私。<em>我们不跟踪</em>，仅统计匿名访问 —（如果你接受）。<button id='all-cookies' class='icons-snippet active' aria-label='分析型 Cookie' type='button'>接受全部</button> <button id='essential-cookies' class='icons-snippet active' aria-label='用户偏好' type='button'>仅必要</button> <button id='reject-cookies' aria-label='我不在乎 Cookie!' type='button'>拒绝</button> | <a id='info-cookies' href='https://zh.wikipedia.org/wiki/Cookie' target='_blank' rel='noopener noreferrer' aria-label='更多信息'>什么是 <span lang='en-GB'>cookie</span>？</a>"
     },
     "modalIframe": {
         "aria-label": "官方证书"

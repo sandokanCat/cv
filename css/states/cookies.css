@@ -23,7 +23,7 @@
 #essential-cookies {
     background-color: transparent;
     color: var(--accent-1);
-    border: 2px solid var(--accent-1);
+    border: 1px solid var(--accent-1);
     font-weight: 600;
     border-radius: 7px;
     padding: 2.5px 5px;
