@@ -5,9 +5,8 @@ define('ENTRY_POINT', true);
 
 // LOAD SERVER DIRECTORY
 require_once __DIR__ . '/server/autoload.php';
-
-// INIT HTML5
 ?>
+
 <!DOCTYPE html>
 <html lang="<?= htmlspecialchars($currentLang, ENT_QUOTES | ENT_HTML5); ?>" dir="<?= htmlspecialchars($dir, ENT_QUOTES | ENT_HTML5); ?>" data-theme="dark">
 

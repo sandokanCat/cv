@@ -27,13 +27,9 @@ http_response_code($code);
 
 <?php
 $isError = true;
-$robotsPolicy = "noindex, nofollow";
-$fullHydration = false;
-
 require_once __DIR__ . "/head.php"; // LOAD HEAD
-
-// INIT HTML5
 ?>
+
 <body>
     <?php require_once __DIR__ . "/body/header.php"; // LOAD HEADER ?>
     <div id="error-container">

@@ -6,10 +6,13 @@ if (!defined('ENTRY_POINT')) {
     exit;
 }
 
+// PAGE-SPECIFIC VARIABLES
 $isError = $isError ?? false;
 $isForm = $isForm ?? false;
-$robotsPolicy = $robotsPolicy ?? "index, follow";
-$fullHydration = $fullHydration ?? true;
+
+// AUTOMATED INFRASTRUCTURE DEFAULTS
+$robotsPolicy = $robotsPolicy ?? (($isError || $isForm) ? "noindex, nofollow" : "index, follow");
+$fullHydration = $fullHydration ?? (($isError || $isForm) ? false : true);
 ?>
 
 <head>
@@ -50,7 +53,7 @@ $fullHydration = $fullHydration ?? true;
     <link rel="alternate" hreflang="x-default" href="<?= htmlspecialchars($brand['url'], ENT_QUOTES | ENT_HTML5); ?>">
 
     <!-- ROBOTS -->
-    <meta name="robots" content="<?= htmlspecialchars($robotsPolicy); ?>">
+    <meta name="robots" content="<?= htmlspecialchars($robotsPolicy, ENT_QUOTES | ENT_HTML5); ?>">
 
     <!-- OPEN GRAPH -->
     <meta property="og:type" content="website">
@@ -68,7 +71,7 @@ $fullHydration = $fullHydration ?? true;
             <meta property="og:locale" content="<?= htmlspecialchars($ogLocale, ENT_QUOTES | ENT_HTML5); ?>">
         <?php else: ?>
             <meta property="og:locale:alternate" content="<?= htmlspecialchars($ogLocale, ENT_QUOTES | ENT_HTML5); ?>">
-    <?php endif; endforeach; ?>
+        <?php endif; endforeach; ?>
 
     <!-- FAVICONS -->
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/tech-cat-16x16.png">
@@ -78,9 +81,9 @@ $fullHydration = $fullHydration ?? true;
     <link rel="icon" type="image/x-icon" sizes="any" href="img/favicon/tech-cat.ico">
     <link rel="manifest" href="site.webmanifest">
 
-    <!-- PRECONNECT -->
+    <!-- PRECONNECT & PREFETCH -->
     <link rel="preconnect" href="<?= $path['open-utils']; ?>" crossorigin>
-    <?php if (!$isError && !$isForm && isset($dnsPrefetch) && is_array($dnsPrefetch)): 
+    <?php if (!$isError && !$isForm && isset($dnsPrefetch) && is_array($dnsPrefetch)):
         foreach ($dnsPrefetch as $url): ?>
             <link rel="dns-prefetch" href="<?= htmlspecialchars($url, ENT_QUOTES | ENT_HTML5); ?>">
         <?php endforeach; ?>
@@ -104,58 +107,58 @@ $fullHydration = $fullHydration ?? true;
     <link type="text/plain" rel="author" href="humans.txt">
 
     <!-- SEARCH ENGINE VERIFICATION -->
-    <?php if (isset($metaKeys) && is_array($metaKeys)): 
+    <?php if (isset($metaKeys) && is_array($metaKeys)):
         foreach ($metaKeys as $metaName => $metaContent): ?>
             <meta name="<?= htmlspecialchars($metaName, ENT_QUOTES | ENT_HTML5); ?>" content="<?= htmlspecialchars((string) $metaContent, ENT_QUOTES | ENT_HTML5); ?>">
-    <?php endforeach; endif; ?>
+        <?php endforeach; endif; ?>
 
     <!-- SCHEMA LD+JSON -->
     <script type="application/ld+json" nonce="<?= htmlspecialchars($GLOBALS['nonce'], ENT_QUOTES, ENT_HTML5) ?>">
         <?= json_encode([
-            "@context" => "https://schema.org",
-            "@type" => "WebSite",
-            "url" => $brand['url'],
-            "name" => $brand['nick'] . ' | ' . $T('role'),
-            "description" => $T('description'),
-            "author" => ["@id" => "#" . $shortName],
-            "publisher" => ["@id" => "#" . $shortName],
-            "mainEntity" => ["@id" => "#" . $shortName]
-        ], 
-        JSON_UNESCAPED_SLASHES | 
-        JSON_UNESCAPED_UNICODE | 
-        JSON_PRETTY_PRINT
+                "@context" => "https://schema.org",
+                "@type" => "WebSite",
+                "url" => $brand['url'],
+                "name" => $brand['nick'] . ' | ' . $T('role'),
+                "description" => $T('description'),
+                "author" => ["@id" => "#" . $shortName],
+                "publisher" => ["@id" => "#" . $shortName],
+                "mainEntity" => ["@id" => "#" . $shortName]
+            ],
+            JSON_UNESCAPED_SLASHES |
+            JSON_UNESCAPED_UNICODE |
+            JSON_PRETTY_PRINT
         ); ?>
     </script>
     <script type="application/ld+json" nonce="<?= htmlspecialchars($GLOBALS['nonce'], ENT_QUOTES, ENT_HTML5) ?>">
         <?= json_encode([
-            "@context" => "https://schema.org",
-            "@type" => "Person",
-            "@id" => "#" . $shortName,
-            "name" => $brand['name'],
-            "jobTitle" => $T('role'),
-            "url" => $brand['url'] . "#" . $shortName,
-            "contactPoint" => [
-                "@type" => "ContactPoint",
-                "contactType" => $T('contactType'),
-                "email" => $brand['email'],
-                "telephone" => $brand['tel'],
-                "url" => $brand['url'] . "partials/contact/form.php"
+                "@context" => "https://schema.org",
+                "@type" => "Person",
+                "@id" => "#" . $shortName,
+                "name" => $brand['name'],
+                "jobTitle" => $T('role'),
+                "url" => $brand['url'] . "#" . $shortName,
+                "contactPoint" => [
+                    "@type" => "ContactPoint",
+                    "contactType" => $T('contactType'),
+                    "email" => $brand['email'],
+                    "telephone" => $brand['tel'],
+                    "url" => $brand['url'] . "partials/contact/form.php"
+                ],
+                "address" => [
+                    "@type" => "PostalAddress",
+                    "postalCode" => $brand['postal'],
+                    "addressLocality" => $brand['city'],
+                    "addressRegion" => $region,
+                    "addressCountry" => $country
+                ],
+                "image" => $brand['url'] . "img/photos/" . $shortName . "@3x.png",
+                "sameAs" => $sameAs,
+                "knowsAbout" => $knowsAbout,
+                "alumniOf" => $alumniOf
             ],
-            "address" => [
-                "@type" => "PostalAddress",
-                "postalCode" => $brand['postal'],
-                "addressLocality" => $brand['city'],
-                "addressRegion" => $region,
-                "addressCountry" => $country
-            ],
-            "image" => $brand['url'] . "img/photos/" . $shortName . "@3x.png",
-            "sameAs" => $sameAs,
-            "knowsAbout" => $knowsAbout,
-            "alumniOf" => $alumniOf
-        ], 
-        JSON_UNESCAPED_SLASHES | 
-        JSON_UNESCAPED_UNICODE | 
-        JSON_PRETTY_PRINT
+            JSON_UNESCAPED_SLASHES |
+            JSON_UNESCAPED_UNICODE |
+            JSON_PRETTY_PRINT
         ); ?>
     </script>
 

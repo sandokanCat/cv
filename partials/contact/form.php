@@ -1,23 +1,23 @@
 <?php
 // LOAD I18N & GLOBALS
-require_once __DIR__.'/../../server/autoload.php';
+require_once __DIR__ . '/../../server/autoload.php';
 
 // LOAD DEPENDENCIES
-require_once __DIR__.'/../../app/PHPdotenv/vendor/autoload.php';
-require_once __DIR__.'/../../app/PHPMailer/src/PHPMailer.php';
-require_once __DIR__.'/../../app/PHPMailer/src/SMTP.php';
-require_once __DIR__.'/../../app/PHPMailer/src/Exception.php';
+require_once __DIR__ . '/../../app/PHPdotenv/vendor/autoload.php';
+require_once __DIR__ . '/../../app/PHPMailer/src/PHPMailer.php';
+require_once __DIR__ . '/../../app/PHPMailer/src/SMTP.php';
+require_once __DIR__ . '/../../app/PHPMailer/src/Exception.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // LOAD .ENV
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__.'/../');
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header('Content-Type: application/json; charset=utf-8');
-    
+
     // SANITIZE INPUTS
     $name = htmlspecialchars(trim($_POST['name'] ?? ''), ENT_QUOTES, 'UTF-8');
     $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Username = $_ENV['MAIL_USER'];
         $mail->Password = $_ENV['MAIL_PASS'];
         $mail->SMTPSecure = ($_ENV['MAIL_SECURE'] === 'tls') ? PHPMailer::ENCRYPTION_STARTTLS : PHPMailer::ENCRYPTION_SMTPS;
-        $mail->Port = (int)$_ENV['MAIL_PORT'];
+        $mail->Port = (int) $_ENV['MAIL_PORT'];
         $mail->CharSet = 'UTF-8';
 
         // HEADERS
@@ -77,15 +77,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <!DOCTYPE html>
-<html lang="<?= htmlspecialchars($currentLang, ENT_QUOTES | ENT_HTML5); ?>" dir="<?= htmlspecialchars($dir, ENT_QUOTES | ENT_HTML5); ?>" data-theme="dark">
-    
-<?php 
-$isForm = true;
-$robotsPolicy = "noindex, nofollow";
-$fullHydration = false;
+<html lang="<?= htmlspecialchars($currentLang, ENT_QUOTES | ENT_HTML5); ?>"
+    dir="<?= htmlspecialchars($dir, ENT_QUOTES | ENT_HTML5); ?>" data-theme="dark">
 
-// LOAD HEAD
-require_once __DIR__ . "/../head.php";
+<?php
+$isForm = true;
+require_once __DIR__ . "/../head.php"; // LOAD HEAD
 ?>
 
 <body>
@@ -94,19 +91,20 @@ require_once __DIR__ . "/../head.php";
     $form = simplexml_load_file("form.xml", "SimpleXMLElement", LIBXML_NONET);
 
     // VALIDATE AND SANITIZE FORM ACTION
-    $rawAction = trim((string)$form['action']);
+    $rawAction = trim((string) $form['action']);
     $allowedHost = 'sandokan.cat';
     $parsed = parse_url($rawAction);
     if (
         empty($rawAction) ||
         preg_match('/^(javascript:|data:)/i', $rawAction) ||
         (isset($parsed['host']) && $parsed['host'] !== $allowedHost)
-    ) $rawAction = 'server/contact/form.php';
-    $action = htmlspecialchars($rawAction, ENT_QUOTES | ENT_HTML5, 'UTF-8');    
+    )
+        $rawAction = 'server/contact/form.php';
+    $action = htmlspecialchars($rawAction, ENT_QUOTES | ENT_HTML5, 'UTF-8');
 
     // CHECK SUPPORTED METHODS AND SANITIZE
     $allowedMethods = ['GET', 'POST'];
-    $method = trim((string)$form['method']);
+    $method = trim((string) $form['method']);
     if (!in_array($method, $allowedMethods, true)) {
         $method = 'POST';
     }
@@ -117,7 +115,7 @@ require_once __DIR__ . "/../head.php";
         'application/x-www-form-urlencoded',
         'multipart/form-data'
     ];
-    $enctype = strtolower((string)$form['enctype']);
+    $enctype = strtolower((string) $form['enctype']);
     if (!in_array($enctype, $allowedEnctypes, true)) {
         $enctype = 'application/x-www-form-urlencoded';
     }
@@ -125,45 +123,45 @@ require_once __DIR__ . "/../head.php";
 
     // LOAD I18N HELPER AND SANITIZE LANG
     $lang = htmlspecialchars($currentLang, ENT_QUOTES | ENT_HTML5, 'UTF-8');
-    
+
     // START FORM
     echo "<form action='$action' method='$method' enctype='$enctype'>";
 
     // PRINT FORM FIELDS
-    foreach ($form->field as $field){
+    foreach ($form->field as $field) {
         // SANITIZE NAME
-        $name = htmlspecialchars((string)$field->name, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+        $name = htmlspecialchars((string) $field->name, ENT_QUOTES | ENT_HTML5, 'UTF-8');
 
         // CHECK SUPPORTED TYPES AND SANITIZE
         $allowedTypes = ['text', 'email', 'textarea', 'checkbox', 'submit', 'password', 'number', 'url'];
-        $type = (string)$field->type;
+        $type = (string) $field->type;
         if (!in_array($type, $allowedTypes, true)) {
             $type = 'text';
         }
         $type = htmlspecialchars($type, ENT_QUOTES | ENT_HTML5, 'UTF-8');
 
         // CHECK AND SANITIZE IF REQUIRED
-        $required = (isset($field['required']) && (string)$field['required'] === 'true') ? 'required' : '';
+        $required = (isset($field['required']) && (string) $field['required'] === 'true') ? 'required' : '';
         $required = htmlspecialchars($required, ENT_QUOTES | ENT_HTML5, 'UTF-8');
 
         // FIND LABEL FOR CURRENT LANG AND SANITIZE
         $label = '';
         foreach ($field->label as $lbl) {
-            if ((string)$lbl['lang'] === $lang) {
-                $label = (string)$lbl;
+            if ((string) $lbl['lang'] === $lang) {
+                $label = (string) $lbl;
                 break;
             }
         }
         if (!$label) { // FALLBACK TO en-GB IF NOT FOUND
             foreach ($field->label as $lbl) {
-                if ((string)$lbl['lang'] === 'en-GB') {
-                    $label = (string)$lbl;
+                if ((string) $lbl['lang'] === 'en-GB') {
+                    $label = (string) $lbl;
                     break;
                 }
             }
         }
         if (!$label && isset($field->label[0])) { // IF STILL EMPTY, USE FIRST AVAILABLE
-            $label = (string)$field->label[0];
+            $label = (string) $field->label[0];
         }
         $label = htmlspecialchars($label, ENT_QUOTES | ENT_HTML5, 'UTF-8');
 
@@ -196,13 +194,14 @@ require_once __DIR__ . "/../head.php";
                     <label for='$name'>$label</label>
                     <input id='$name' name='$name' type='$type' $required>
                 ";
-        };
+        }
+        ;
     }
     ?>
 
     </form>
     <footer>
-        <?php require_once __DIR__."/../includes/signature.php"; // LOAD SIGNATURE ?>
+        <?php require_once __DIR__ . "/../includes/signature.php"; // LOAD SIGNATURE ?>
     </footer>
 </body>
 
