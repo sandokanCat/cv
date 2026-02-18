@@ -24,7 +24,7 @@ export const PreferenceStore = {
             try {
                 localStorage.setItem(key, value);
             } catch (e) {
-                logger.wa(`PreferenceStore: Failed to persist ${key}`);
+                logger.wa(`PreferenceStore: FAILED TO PERSIST ${key}`);
             }
         }
     }
@@ -62,13 +62,13 @@ export function manageCookies(barSelector) {
     // SET COOKIE WITH EXPIRATION DAYS
     function setCookie(name, value, days) {
         try {
-            if (!name) throw new Error('Cookie name is required');
+            if (!name) throw new Error('COOKIE NAME IS REQUIRED');
 
             const encodedValue = encodeURIComponent(value); // ESCAPE VALUE
             const expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
             document.cookie = `${name.trim()}=${encodedValue}; expires=${expires}; path=/; SameSite=Lax; Secure`;
         } catch (err) {
-            logger.er('FAILED TO SET COOKIE:', err.name, err.message, err.stack);
+            logger.er('FAILED TO SET COOKIE:', err.name, err.message);
         }
     }
 
@@ -274,8 +274,17 @@ export function manageCookies(barSelector) {
 
     // LOG CONSENT INFO
     function logConsent(consent) {
-        logger.lg(`Consentimiento para cookies analíticas: %c${consent.value}%c. Expira en %c${consent.daysRemaining}%c días.`,
-            'color: rgb(0,255,0)', '', 'color: rgb(0,255,0)', '');
+        const valMap = { 'all': 'rgb(0,255,0)', 'essential': 'rgb(255,200,0)', 'false': 'rgb(255,50,50)' };
+        const valColor = valMap[consent.value] || 'inherit';
+
+        let dayColor = 'rgb(0,150,255)'; // > 292 (BLUE)
+        if (consent.daysRemaining < 73) dayColor = 'rgb(255,50,50)'; // < 73 (RED)
+        else if (consent.daysRemaining < 146) dayColor = 'rgb(255,140,0)'; // < 146 (ORANGE)
+        else if (consent.daysRemaining < 219) dayColor = 'rgb(255,220,0)'; // < 219 (YELLOW)
+        else if (consent.daysRemaining < 292) dayColor = 'rgb(0,255,0)'; // < 292 (GREEN)
+
+        logger.lg(`Consentimiento para cookies: %c${consent.value}%c. Expira en: %c${consent.daysRemaining}%c días.`,
+            `color: ${valColor}; font-weight: bold`, '', `color: ${dayColor}; font-weight: bold`, '');
     }
 
     initCookieBar();

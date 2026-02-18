@@ -153,7 +153,7 @@
         "alt": "Фан-страница Estopa. Незавершено"
     },
     "cookies": {
-        "html": "уважает вашу приватность. <em>Мы не отслеживаем</em>, только измеряем анонимные посещения — (если согласны). <button id='all-cookies' class='icons-snippet active' aria-label='Аналитические куки' type='button'>Принять всё</button> <button id='essential-cookies' class='icons-snippet active' aria-label='Пользовательские настройки' type='button'>Только основные</button> <button id='reject-cookies' aria-label='Мне всё равно на куки!' type='button'>Отклонить</button> | <a id='info-cookies' href='https://ru.wikipedia.org/wiki/Cookie' target='_blank' rel='noopener noreferrer' aria-label='Подробнее'>Что такое <span lang='en-GB'>cookie</span>?</a>"
+        "html": "уважает вашу приватность. <em>Мы не отслеживаем</em>, только измеряем анонимные посещения — (если согласны). <button id='all-cookies' class='icons-snippet active' aria-label='Аналитические куки' type='button'>Принять всё</button> <button id='essential-cookies' aria-label='Пользовательские настройки' type='button'>Только основные</button> <button id='reject-cookies' aria-label='Мне всё равно на куки!' type='button'>Отклонить</button> | <a id='info-cookies' href='https://ru.wikipedia.org/wiki/Cookie' target='_blank' rel='noopener noreferrer' aria-label='Подробнее'>Что такое <span lang='en-GB'>cookie</span>?</a>"
     },
     "modalIframe": {
         "aria-label": "Официальный сертификат"
