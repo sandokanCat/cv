@@ -29,6 +29,8 @@ $fullHydration = $fullHydration ?? (($isError || $isForm) ? false : true);
     <script nonce="<?= htmlspecialchars($GLOBALS['nonce'], ENT_QUOTES, ENT_HTML5) ?>">
         const BRAND_NICK = "<?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?>"
         const BRAND_EMAIL = "<?= htmlspecialchars($brand['email'], ENT_QUOTES | ENT_HTML5); ?>"
+        const IS_ERROR = <?= json_encode($isError); ?>;
+        const IS_FORM = <?= json_encode($isForm); ?>;
     </script>
 
     <!-- TITLE & DESCRIPTION -->

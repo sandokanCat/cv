@@ -234,10 +234,13 @@ export const initI18n = async ({
         document.documentElement.setAttribute("lang", resolvedLocale);
         document.documentElement.setAttribute("dir", rtl.includes(base) ? "rtl" : "ltr");
 
-        // UPDATE TITLE
-        const brandNick = BRAND_NICK?.trim() || 'sandokan.cat';
-        const role = brand[resolvedLocale]?.role?.trim() || '';
-        document.title = role ? `${brandNick} | ${role}` : brandNick;
+        // UPDATE TITLE (SKIP FOR ERRORS/FORMS)
+        const isUtilityPage = (typeof IS_ERROR !== 'undefined' && IS_ERROR) || (typeof IS_FORM !== 'undefined' && IS_FORM);
+        if (!isUtilityPage) {
+            const brandNick = BRAND_NICK?.trim() || 'sandokan.cat';
+            const role = brand[resolvedLocale]?.role?.trim() || '';
+            document.title = role ? `${brandNick} | ${role}` : brandNick;
+        }
 
         // TRANSLATE VISIBLE CONTENT
         document.querySelectorAll(textSelector).forEach(el => {
