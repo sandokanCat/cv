@@ -2,7 +2,8 @@
 // PREVENT DIRECT ACCESS
 if (!defined('ENTRY_POINT')) {
     http_response_code(403);
-    exit('Forbidden');
+    header('Location: /partials/error.php?code=403');
+    exit;
 }
 ?>
 
