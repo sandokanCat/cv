@@ -1,5 +1,4 @@
-<?php
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 // SECURITY ENTRY POINT
 define('ENTRY_POINT', true);
@@ -10,8 +9,7 @@ require_once __DIR__ . '/server/autoload.php';
 // INIT HTML5
 ?>
 <!DOCTYPE html>
-<html lang="<?= htmlspecialchars($currentLang, ENT_QUOTES | ENT_HTML5); ?>"
-    dir="<?= htmlspecialchars($dir, ENT_QUOTES | ENT_HTML5); ?>" data-theme="dark">
+<html lang="<?= htmlspecialchars($currentLang, ENT_QUOTES | ENT_HTML5); ?>" dir="<?= htmlspecialchars($dir, ENT_QUOTES | ENT_HTML5); ?>" data-theme="dark">
 
 <?php require_once __DIR__ . "/partials/head.php"; // LOAD HEAD ?>
 

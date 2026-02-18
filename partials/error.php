@@ -1,8 +1,10 @@
-<?php
+<?php declare(strict_types=1);
+
+// SECURITY ENTRY POINT
 define('ENTRY_POINT', true);
 define('IS_ERROR_PAGE', true);
 
-// LOAD I18N & GLOBALS
+// LOAD SERVER DIRECTORY
 require_once __DIR__ . '/../server/autoload.php';
 
 // ERROR CODE HANDLING
@@ -23,19 +25,15 @@ http_response_code($code);
 <!DOCTYPE html>
 <html lang="<?= htmlspecialchars($currentLang, ENT_QUOTES | ENT_HTML5); ?>" dir="<?= htmlspecialchars($dir, ENT_QUOTES | ENT_HTML5); ?>" data-theme="dark">
 
-<head>
-    <!-- TITLE -->
-    <title><?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?> | Error <?= htmlspecialchars((string) $code, ENT_QUOTES | ENT_HTML5); ?></title>
+<?php
+$isError = true;
+$robotsPolicy = "noindex, nofollow";
+$fullHydration = false;
 
-    <?php require_once __DIR__ . "/includes/noindex.php"; // LOAD NOINDEX/NOFOLLOW HEAD ?>
+require_once __DIR__ . "/head.php"; // LOAD HEAD
 
-    <!-- SPECIFIC CSS -->
-    <link rel="stylesheet" href="css/components/error.css">
-
-    <!-- SPECIFIC JS -->
-    <script type="module" src="js/components/error.js"></script>
-</head>
-
+// INIT HTML5
+?>
 <body>
     <?php require_once __DIR__ . "/body/header.php"; // LOAD HEADER ?>
     <div id="error-container">

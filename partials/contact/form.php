@@ -77,19 +77,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <!DOCTYPE html>
-<html lang="<?= htmlspecialchars($currentLang, ENT_QUOTES | ENT_HTML5); ?>" dir="<?= htmlspecialchars($dir, ENT_QUOTES | ENT_HTML5); ?>" data-theme="light">
+<html lang="<?= htmlspecialchars($currentLang, ENT_QUOTES | ENT_HTML5); ?>" dir="<?= htmlspecialchars($dir, ENT_QUOTES | ENT_HTML5); ?>" data-theme="dark">
     
-<head>
-    <title><?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?> | Contact</title>
+<?php 
+$isForm = true;
+$robotsPolicy = "noindex, nofollow";
+$fullHydration = false;
 
-    <?php require_once __DIR__."/../includes/noindex.php"; // LOAD NOINDEX/NOFOLLOW HEAD ?>
-
-    <!-- SPECIFIC CSS -->
-    <link rel="stylesheet" href="css/components/form.css">
-
-    <!-- SPECIFIC JS -->
-    <script type="module" src="js/components/form.js"></script>
-</head>
+// LOAD HEAD
+require_once __DIR__ . "/../head.php";
+?>
 
 <body>
     <?php
