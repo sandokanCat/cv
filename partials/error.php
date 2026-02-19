@@ -32,18 +32,15 @@ require_once __DIR__ . "/head.php"; // LOAD HEAD
 
 <body>
     <?php require_once __DIR__ . "/body/header.php"; // LOAD HEADER ?>
-    <div id="error-container">
-        <main>
-            <h1><?= $code ?></h1>
-            <h2 data-i18n="<?= $code ?>"><?= htmlspecialchars($errMsg, ENT_QUOTES | ENT_HTML5); ?></h2>
-            <p id="return-btn-wrapper">
-                <a class="icons-snippet active" href="<?= htmlspecialchars($brand['url'], ENT_QUOTES | ENT_HTML5); ?>" data-i18n="return"><?= htmlspecialchars($btnTxt, ENT_QUOTES | ENT_HTML5); ?></a>
-            </p>
-        </main>
-        <footer>
-            <?php require_once __DIR__ . "/includes/signature.php"; // LOAD SIGNATURE ?>
-        </footer>
-    </div>
+    <main id="error-container">
+        <h1><?= $code ?></h1>
+        <h2 data-i18n="<?= $code ?>"><?= htmlspecialchars($errMsg, ENT_QUOTES | ENT_HTML5); ?></h2>
+        <p id="return-btn-wrapper">
+            <a class="icons-snippet active icons-color-2" href="<?= htmlspecialchars($brand['url'], ENT_QUOTES | ENT_HTML5); ?>" data-i18n="return"><?= htmlspecialchars($btnTxt, ENT_QUOTES | ENT_HTML5); ?></a>
+        </p>
+        <?php require_once __DIR__ . "/includes/signature.php"; // LOAD SIGNATURE ?>
+    </main>
+    <?php require_once __DIR__ . "/body/footer.php"; // LOAD FOOTER ?>
 </body>
 
 </html>

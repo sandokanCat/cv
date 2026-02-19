@@ -42,9 +42,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     signature('#signature-year');
 
-    manageCookies('#cookies-bar');
-
     await reloadRandomMsg(locale);
+
+    manageCookies('#cookies-bar');
 
     await updateProvisionalAlert(locale);
 

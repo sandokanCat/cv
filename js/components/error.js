@@ -4,7 +4,8 @@ import {
     getLocale,
     initPopStateListener,
     changeLocale,
-    signature
+    signature,
+    manageCookies,
 } from '../utils/index.js';
 import {
     initTheme,
@@ -24,4 +25,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     initLangMenu(locale, changeLocale);
 
     signature('#signature-year');
+
+    manageCookies('#cookies-bar');
 });

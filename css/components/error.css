@@ -18,20 +18,19 @@
 
 /* STATES */
 @import url("../states/active-js.css");
+@import url("../states/cookies.css");
 @import url("../states/noscript.css");
 @import url("../states/rtl.css");
 
 /* SPECIFIC STYLES */
 #error-container {
-    margin-top: 15dvh;
-    height: 85dvh;
-}
-#error-container main {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
     position: relative;
     text-align: center;
-    margin: 0 auto;
+    margin: 15dvh auto;
+    height: 70dvh;
     gap: 5dvh 0;
 }
 #error-container h1 {
@@ -49,28 +48,25 @@
     font-size: 48px;
     font-size: 3rem;
     font-size: clamp(1.5rem, 4vw, 3rem) !important;
+    text-align: center;
 }
 #return-btn-wrapper {
-    margin-top: 10dvh;
     text-align: center;
 }
 #return-btn-wrapper a {
+    display: inline-block;
     background-color: var(--accent-1);
-    color: var(--accent-2);
     font-weight: 700;
     border-radius: 7px;
     padding: 2.5px 5px;
     width: fit-content;
-    margin: 0 auto;
     text-decoration: none;
     font-size: 24px;
     font-size: 1.5rem;
     font-size: clamp(1.1rem, 2.5vw, 1.5rem) !important;
 }
 #error-container #signature {
-    position: absolute;
-    right: 5dvw;
-    bottom: 5dvh;
+    text-align: end;
 }
 
 /* RESPONSIVE LAYOUT */
@@ -80,7 +76,6 @@
         font-size: 7.5rem;
     }
     #error-container h2 {
-        padding: 0 5vw;
         font-size: 32px;
         font-size: 2rem;
     }
@@ -89,7 +84,7 @@
         font-size: 1.3rem;
     }
     #error-container #signature {
-        right: 5vw;
+        text-align: center;
     }
 }
 @media screen and (max-width: 480px) { /* MEDIUM PHONE */
@@ -97,14 +92,8 @@
         font-size: 96px;
         font-size: 6rem;
     }
-    #error-container h2 {
-        padding: 0 10vw;
-    }
     #error-container a {
         font-size: 17.6px;
         font-size: 1.1rem;
-    }
-    #error-container #signature {
-        right: 10vw;
     }
 }
