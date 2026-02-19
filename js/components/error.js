@@ -3,6 +3,8 @@ import {
     replaceClass,
     getLocale,
     initPopStateListener,
+    initI18n,
+    updateUrlLocale,
     changeLocale,
     signature,
     manageCookies,
@@ -15,6 +17,12 @@ import {
 // 🧠 APP INITIALIZATION
 document.addEventListener("DOMContentLoaded", async () => {
     const { locale } = await getLocale();
+
+    // ⚡ SYNC PAGE WITH TARGET LOCALE IF DIFFERENT FROM SERVER RENDER
+    if (locale !== document.documentElement.lang) {
+        await initI18n({ locale });
+        await updateUrlLocale(locale);
+    }
 
     replaceClass('js-disabled', 'js-enabled');
 

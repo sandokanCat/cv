@@ -10,6 +10,7 @@ export {
     getLocale,
     initI18n,
     initPopStateListener,
+    updateUrlLocale,
     changeLocale,
     getI18nData
 } from './i18n.js';

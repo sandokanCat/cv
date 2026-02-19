@@ -53,9 +53,19 @@ function detectUserLang(array $langOpts = []): string
 }
 
 // ----------------------------
-// CURRENT LANGUAGE
+// CURRENT LANGUAGE RESOLUTION
 // ----------------------------
-$currentLang = in_array($urlLang, $validLangs) ? $urlLang : detectUserLang($langOpts);
+$currentLang = detectUserLang($langOpts); // DEFAULT FALLBACK
+
+// CHECK IF URL HAS A VALID LOCALE (FULL OR SHORT)
+$opLang = $langOpts['op'] ?? [];
+foreach ($opLang as $short => $data) {
+    $fullLocale = $data[0] ?? '';
+    if ($urlLang === $fullLocale || $urlLang === $short) {
+        $currentLang = $fullLocale;
+        break;
+    }
+}
 
 // ----------------------------
 // RTL / LTR

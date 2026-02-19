@@ -46,6 +46,9 @@ function getConsentLevel() {
 
 // GET/SET COOKIE WITH EXPIRATION DAYS
 export function manageCookies(barSelector) {
+    if (window._cookiesManaged) return;
+    window._cookiesManaged = true;
+
     const barEl = document.querySelector(barSelector);
 
     // SAFE NONCE EXTRACTION (IDL Property first, content fallback)

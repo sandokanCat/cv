@@ -29,11 +29,26 @@ const reloadedLocales = new Set();
 async function reloadDynamicContent(locale) {
     if (reloadedLocales.has(locale)) return;
 
-    if (typeof initCarousel === 'function') await initCarousel({ ...carouselConfig, locale, refs: carouselConfig.refs() });
-    if (typeof updateCarouselAlts === 'function') await updateCarouselAlts(locale);
-    if (typeof reloadRandomMsg === 'function') await reloadRandomMsg(locale);
-    if (typeof getBurgerConfig === 'function') await getBurgerConfig(locale);
-    if (typeof updateProvisionalAlert === 'function') await updateProvisionalAlert(locale);
+    // RELOAD CAROUSEL IF PRESENT
+    if (document.querySelector('.carousel-container')) {
+        if (typeof initCarousel === 'function') await initCarousel({ ...carouselConfig, locale, refs: carouselConfig.refs() });
+        if (typeof updateCarouselAlts === 'function') await updateCarouselAlts(locale);
+    }
+
+    // RELOAD RANDOM MSG IF PRESENT
+    if (document.getElementById('random-phrases')) {
+        if (typeof reloadRandomMsg === 'function') await reloadRandomMsg(locale);
+    }
+
+    // RELOAD BURGER MENU IF PRESENT
+    if (document.getElementById('burger-btn')) {
+        if (typeof getBurgerConfig === 'function') await getBurgerConfig(locale);
+    }
+
+    // RELOAD PROVISIONAL ALERT IF PRESENT
+    if (document.querySelectorAll('[data-alert]')) {
+        if (typeof updateProvisionalAlert === 'function') await updateProvisionalAlert(locale);
+    }
 
     reloadedLocales.add(locale);
 }
@@ -112,10 +127,11 @@ export const getLocale = async (inputLocale = null) => {
 
         if (!raw) {
             try {
-                raw = PreferenceStore.get("lang") || navigator.language || inCase;
+                // PRIORITIZE HTML LANG (SERVER RENDERED TRUTH) OVER STORE/BROWSER
+                raw = PreferenceStore.get("lang") || document.documentElement.lang || navigator.language || inCase;
             } catch (err) {
                 logger.wa("PreferenceStore UNAVAILABLE, FALLBACK TO NAVIGATOR OR DEFAULT", err.name, err.message, err.stack);
-                raw = navigator.language || inCase;
+                raw = document.documentElement.lang || navigator.language || inCase;
             }
         }
 
@@ -278,7 +294,7 @@ export const initI18n = async ({
 };
 
 // UPDATE URL WITH LOCALE
-const updateUrlLocale = async (locale) => {
+export const updateUrlLocale = async (locale) => {
     const { op, inCase } = await loadLangMap();
     const validLocales = Object.values(op);
 
@@ -292,13 +308,15 @@ const updateUrlLocale = async (locale) => {
         .split('/')
         .filter(Boolean);
 
-    // REMOVE OLD LOCALE
-    if (validLocales.includes(pathSegments[0])) pathSegments.shift();
+    // REMOVE OLD LOCALE (MATCHES ANY 2-5 CHAR SEGMENT THAT LOOKS LIKE A LOCALE)
+    if (pathSegments.length > 0 && /^[a-z]{2}(-[A-Z]{2})?$/.test(pathSegments[0])) {
+        pathSegments.shift();
+    }
 
     // PREPEND NEW LOCALE
     pathSegments.unshift(locale);
 
-    const newPath = `/${pathSegments.join('/')}/`;
+    const newPath = '/' + pathSegments.join('/') + (window.location.pathname.endsWith('/') ? '/' : '');
 
     // ONLY PUSH STATE IF PATH CHANGED
     if (newPath !== window.location.pathname) {
