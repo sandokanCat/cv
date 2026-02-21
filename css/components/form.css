@@ -67,12 +67,12 @@ form[action="partials/contact/form.php"] {
 }
 .form-group.group-content {
     grid-area: content;
-    height: 100% !important;
+    height: 100%;
 }
 .form-group.group-content textarea {
-    flex-grow: 1 !important;
+    flex-grow: 1;
     resize: none;
-    height: 100% !important;
+    height: 100%;
 }
 .form-group.group-consent {
     grid-area: consent;
@@ -103,10 +103,15 @@ form[action="partials/contact/form.php"] {
 /* FORM ELEMENTS */
 label {
     color: var(--body-txt);
+    font-size: 18px;
+    font-size: 1.125rem;
+    font-size: clamp(1rem, 3dvw, 1.125rem) !important;
+    font-weight: 700;
 }
 label:has(+ input:required)::after,
 label:has(+ textarea:required)::after {
     content: " *";
+    font-weight: 700;
     color: var(--accent-1)
 }
 label:has(+ input:optional)::after,
@@ -119,10 +124,6 @@ select,
 textarea,
 progress,
 meter {
-    font-size: 18px;
-    font-size: 1.125rem;
-    font-size: clamp(1rem, 3vw, 1.125rem) !important;
-    font-weight: 700;
     padding: 3px 8px;
     background-color: transparent;
     border: 2px solid var(--panel-bg);
@@ -152,7 +153,7 @@ input[type="submit"] {
     width: fit-content;
     font-size: 24px;
     font-size: 1.5rem;
-    font-size: clamp(1.1rem, 2.5vw, 1.5rem) !important;
+    font-size: clamp(1.1rem, 2.5dvw, 1.5rem) !important;
 }
 input[type="reset"] {
     background-color: transparent;
@@ -194,7 +195,7 @@ input[type="checkbox"]:checked::after {
     font-family: 'PT Sans', Tahoma, Geneva;
     font-size: 14px;
     font-size: 0.875rem;
-    font-size: clamp(0.75rem, 2.5vw, 0.875rem) !important;
+    font-size: clamp(0.75rem, 2.5dvw, 0.875rem) !important;
     color: var(--accent-3);
 } */
 .form-message {
@@ -214,10 +215,10 @@ input[type="checkbox"]:checked::after {
     border: 1px solid #f5c6cb;
 }
 
-/* RESPONSIVE BREAKPOINTS */
-@media screen and (max-width: 768px) { /* TABLET */
-    form[action="partials/contact/form.php"] {
-        grid-template-rows:
+/* RESPONSIVE BREAKPOINTS
+Controlled by JS .tablet-layout class to sync perfectly with parent modal breakpoint */
+html.tablet-layout form[action="partials/contact/form.php"] {
+    grid-template-rows:
             min-content
             min-content
             min-content
@@ -226,31 +227,31 @@ input[type="checkbox"]:checked::after {
             min-content
             min-content
             min-content;
-        grid-template-areas:
-            "response response"
-            "name name"
-            "email email"
-            "subject subject"
-            "content content"
-            "consent consent"
-            "reset send"
-            "signature signature";
-    }
-    input,
-    select,
-    textarea,
-    progress,
-    meter {
-        font-size: 16px;
-        font-size: 1rem;
-    }
-    input[type="reset"],
-    input[type="submit"] {
-        font-size: 17.6px;
-        font-size: 1.1rem;
-    }
-    /* #check-consent {
-        font-size: 12px;
-        font-size: 0.75rem;
-    } */
+    grid-template-areas:
+        "response response"
+        "name name"
+        "email email"
+        "subject subject"
+        "content content"
+        "consent consent"
+        "reset send"
+        "signature signature";
+    gap: 15px;
+    padding: 10px 25px;
 }
+html.tablet-layout label {
+    font-size: 16px;
+    font-size: 1rem;
+}
+html.tablet-layout .form-group.group-content textarea {
+    min-height: 260px;
+}
+html.tablet-layout input[type="reset"],
+html.tablet-layout input[type="submit"] {
+    font-size: 17.6px;
+    font-size: 1.1rem;
+}
+/* html.tablet-layout #check-consent {
+    font-size: 12px;
+    font-size: 0.75rem;
+} */

@@ -20,6 +20,24 @@ document.addEventListener("DOMContentLoaded", async () => {
     initPopStateListener(changeLocale);
 
     signature('#signature-year');
+
+    // Sync layout with parent modal for accurate breakpoints inside the iframe
+    const syncLayout = () => {
+        try {
+            const width = (window.self !== window.top) ? window.parent.innerWidth : window.innerWidth;
+            document.documentElement.classList.toggle('tablet-layout', width <= 768);
+        } catch (e) { }
+    };
+    window.addEventListener('resize', syncLayout);
+    if (window.self !== window.top) {
+        try {
+            window.parent.addEventListener('resize', syncLayout);
+            window.addEventListener('unload', () => {
+                window.parent.removeEventListener('resize', syncLayout);
+            });
+        } catch (e) { }
+    }
+    syncLayout();
 });
 
 // 📧 CONTACT FORM SUBMISSION
