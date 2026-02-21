@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 // 🔄 DYNAMIC FORM LOCALIZATION
 async function changeFormLanguage(targetLang) {
     try {
-        const response = await fetch('partials/contact/form.xml');
+        const response = await fetch('/partials/contact/form.xml');
         if (!response.ok) throw new Error('Failed to load form.xml');
 
         const xmlText = await response.text();
@@ -120,7 +120,7 @@ document.getElementById('contact-form')?.addEventListener('submit', async (e) =>
         let errorMsg = 'Connection error. Please try again later.';
 
         try {
-            const xmlResponse = await fetch('partials/contact/form.xml');
+            const xmlResponse = await fetch('/partials/contact/form.xml');
             if (xmlResponse.ok) {
                 const xmlText = await xmlResponse.text();
                 const parser = new DOMParser();
@@ -142,7 +142,7 @@ document.getElementById('contact-form')?.addEventListener('submit', async (e) =>
         if (result.result === 'OK') {
             responseDiv.className = 'form-message success';
             responseDiv.textContent = successMsg;
-            form.reset();
+            HTMLFormElement.prototype.reset.call(form);
         } else {
             responseDiv.className = 'form-message error';
             responseDiv.textContent = 'Error: ' + (result.error || errorMsg);

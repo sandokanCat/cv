@@ -2,7 +2,7 @@
 
 // SECURITY ENTRY POINT
 define('ENTRY_POINT', true);
-define('IS_ERROR_PAGE', true); // Bypass router redirection for direct testing
+define('IS_ERROR_PAGE', true);
 
 // LOAD SERVER DIRECTORY
 require_once __DIR__ . '/../../server/autoload.php';
@@ -15,7 +15,23 @@ require_once __DIR__ . '/../../app/PHPMailer/src/Exception.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+// PREVENT BROWSERS FROM CACHING THE REDIRECT OR THE FORM
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
+
+// CHECK IF LOADED INSIDE AN IFRAME OR FETCH
+$fetchDest = $_SERVER['HTTP_SEC_FETCH_DEST'] ?? '';
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && $fetchDest === 'document') {
+    http_response_code(403);
+    // Use Vary to tell the browser this response depends on the fetch destination
+    header('Vary: Sec-Fetch-Dest');
+    header('Location: /partials/error.php?code=403');
+    exit;
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // START OUTPUT BUFFER TO PREVENT NOTICES FROM CORRUPTING JSON
+    ob_start();
     header('Content-Type: application/json; charset=utf-8');
 
     // SANITIZE INPUTS
@@ -28,10 +44,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // BASIC VALIDATION
     if (!$email) {
         http_response_code(400);
+        ob_end_clean();
         echo json_encode(['result' => 'Error', 'error' => 'Invalid email address']);
         exit;
     } elseif (empty($name) || empty($subject) || empty($content)) {
         http_response_code(400);
+        ob_end_clean();
         echo json_encode(['result' => 'Error', 'error' => 'Missing required fields']);
         exit;
     }
@@ -39,49 +57,83 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail = new PHPMailer(true);
 
     try {
+        // GET VARIABLES WITH FALLBACKS
+        $mailHost = $_ENV['MAIL_HOST'] ?? getenv('MAIL_HOST');
+        $mailUser = $_ENV['MAIL_USER'] ?? getenv('MAIL_USER');
+        $mailUserName = $_ENV['MAIL_USER_NAME'] ?? getenv('MAIL_USER_NAME');
+        $mailPass = $_ENV['MAIL_PASS'] ?? getenv('MAIL_PASS');
+        $mailSecure = $_ENV['MAIL_SECURE'] ?? getenv('MAIL_SECURE');
+        $mailPort = $_ENV['MAIL_PORT'] ?? getenv('MAIL_PORT');
+        $brandUrl = $brand['url'] ?? '';
+        $brandNick = $brand['nick'] ?? '';
+
         // SMTP CONFIG
         $mail->isSMTP();
-        $mail->Host = $_ENV['MAIL_HOST'] ?? getenv('MAIL_HOST');
+        $mail->Host = $mailHost;
         $mail->SMTPAuth = true;
-        $mail->Username = $_ENV['MAIL_USER'] ?? getenv('MAIL_USER');
-        $mail->Password = $_ENV['MAIL_PASS'] ?? getenv('MAIL_PASS');
-        $mail->SMTPSecure = (($_ENV['MAIL_SECURE'] ?? getenv('MAIL_SECURE')) === 'tls') ? PHPMailer::ENCRYPTION_STARTTLS : PHPMailer::ENCRYPTION_SMTPS;
-        $mail->Port = (int) ($_ENV['MAIL_PORT'] ?? getenv('MAIL_PORT'));
+        $mail->Username = $mailUser;
+        $mail->Password = $mailPass;
+        $mail->SMTPSecure = ($mailSecure === 'tls') ? PHPMailer::ENCRYPTION_STARTTLS : PHPMailer::ENCRYPTION_SMTPS;
+        $mail->Port = (int) $mailPort;
         $mail->CharSet = 'UTF-8';
 
-        // HEADERS
-        $mail->setFrom($_ENV['MAIL_FROM'] ?? getenv('MAIL_FROM'), $_ENV['MAIL_FROM_NAME'] ?? getenv('MAIL_FROM_NAME'));
-        $mail->addAddress($_ENV['MAIL_TO'] ?? getenv('MAIL_TO'), $_ENV['MAIL_TO_NAME'] ?? getenv('MAIL_TO_NAME'));
-        $mail->addCC($email, $name);
+        // 1. SEND EMAIL TO SITE OWNER
+        $mail->setFrom($mailUser, $mailUserName);
+        $mail->addAddress($mailUser, $brandNick);
         $mail->addReplyTo($email, $name);
 
-        // BODY
         $mail->isHTML(true);
         $mail->Subject = $subject;
         $mail->Body = "
-            <p>Nombre: <strong>$name</strong></p>
-            <p>Email: <strong>$email</strong></p>
-            <p>Asunto: <strong>$subject</strong></p>
-            <p>Mensaje: <br/><strong>$content</strong></p>
+            <h2>Nuevo mensaje desde el formulario de contacto</h2>
+            <p><strong>Nombre:</strong> $name</p>
+            <p><strong>Email:</strong> <a href='mailto:$email'>$email</a></p>
+            <p><strong>Asunto:</strong> $subject</p>
+            <p><strong>Mensaje:</strong> <br/>" . nl2br($content) . "</p>
         ";
         $mail->AltBody = strip_tags($mail->Body);
 
-        // SEND MAIL
-        if ($mail->send()) {
-            echo json_encode(['result' => 'OK']);
-        } else {
-            echo json_encode(['result' => 'Error', 'error' => 'Error sending E-mail: ' . $mail->ErrorInfo]);
-        }
+        $mail->send();
+
+        // 2. SEND AUTO-REPLY TO SENDER
+        $mail->clearAllRecipients();
+        $mail->clearReplyTos();
+
+        $mail->setFrom($mailUser, $mailUserName);
+        $mail->addAddress($email, $name);
+
+        $mail->Subject = "Re: $subject";
+        $replyBody = "
+            <h2>¡Hola <strong>$name</strong>!</h2>
+            <p>He recibido tu mensaje correctamente y te responderé lo antes posible.</p>
+            <p>Aquí tienes una copia de lo que enviaste:</p>
+            <blockquote style='border-left: 4px solid #ccc; padding-left: 10px; color: #555;'>
+                " . nl2br($content) . "
+            </blockquote>
+            <p>Un saludo.</p>
+            <a href='$brandUrl' target='_blank'>$brandNick</a>
+        ";
+
+        $mail->Body = $replyBody;
+        $mail->AltBody = strip_tags(str_replace(['<br>', '</p>'], "\n", $replyBody));
+
+        $mail->send();
+
+        // RETURN SUCCESS
+        ob_end_clean();
+        echo json_encode(['result' => 'OK']);
+
     } catch (Exception $err) {
-        echo json_encode(['result' => 'Error', 'error' => 'Exception: ' . $err->getMessage()]);
+        $errorMsg = $mail->ErrorInfo ?: $err->getMessage();
+        ob_end_clean();
+        echo json_encode(['result' => 'Error', 'error' => 'Error sending E-mail: ' . $errorMsg]);
     }
     exit;
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="<?= htmlspecialchars($currentLang, ENT_QUOTES | ENT_HTML5); ?>"
-    dir="<?= htmlspecialchars($dir, ENT_QUOTES | ENT_HTML5); ?>" data-theme="dark">
+<html lang="<?= htmlspecialchars($currentLang, ENT_QUOTES | ENT_HTML5); ?>" dir="<?= htmlspecialchars($dir, ENT_QUOTES | ENT_HTML5); ?>" data-theme="dark">
 
 <?php
 $isForm = true;
@@ -102,7 +154,7 @@ require_once __DIR__ . "/../head.php"; // LOAD HEAD
     // we use the current script since it contains the POST handler logic.
     if (
         empty($rawAction) ||
-        $rawAction === 'server/contact/form.php' ||
+        $rawAction === 'partials/contact/form.php' ||
         preg_match('/^(javascript:|data:)/i', $rawAction) ||
         (isset($parsed['host']) && $parsed['host'] !== $allowedHost)
     ) {
