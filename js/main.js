@@ -5,11 +5,7 @@ import {
 } from './config.js';
 import {
     replaceClass,
-    getLocale,
-    initPopStateListener,
-    initI18n,
-    updateUrlLocale,
-    changeLocale,
+    getLocale, initPopStateListener, initI18n, updateUrlLocale, changeLocale,
     initToggler,
     signature,
     manageCookies,
@@ -22,8 +18,7 @@ import {
     getBurgerConfig,
     reloadRandomMsg,
     updateProvisionalAlert,
-    openModal/*,
-    sendMail*/
+    openModal
 } from './components/index.js';
 
 // 🧠 APP INITIALIZATION SEQUENCE: FROM GLOBALS TO INTERACTIVE UI
@@ -57,8 +52,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     await updateProvisionalAlert(locale);
 
     await openModal({ refs: getModalRefs });
-
-    // sendMail();
 
     await easterEgg();
 });

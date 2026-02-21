@@ -1,11 +1,7 @@
 // 📥 IMPORTS ORDERED BY LAYER: UTILS → COMPONENTS
 import {
     replaceClass,
-    getLocale,
-    initPopStateListener,
-    initI18n,
-    updateUrlLocale,
-    changeLocale,
+    getLocale, initPopStateListener, initI18n, updateUrlLocale, changeLocale,
     signature,
     manageCookies,
 } from '../utils/index.js';

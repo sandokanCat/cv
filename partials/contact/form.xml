@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE form SYSTEM "form.dtd">
 
-<form action="server/contact/form.php" method="POST" enctype="application/x-www-form-urlencoded">
+<form action="partials/contact/form.php" method="POST" enctype="application/x-www-form-urlencoded">
 
     <lang locale="en-GB">
         <field required="true">
@@ -24,10 +24,15 @@
             <type>textarea</type>
             <label>Message:</label>
         </field>
-        <field>
+        <!-- <field>
             <name>consent</name>
             <type>checkbox</type>
             <label>I agree to have my data securely stored in a database for future communications. (It will never be shared with third parties under any circumstances).</label>
+        </field> -->
+        <field>
+            <name>reset</name>
+            <type>reset</type>
+            <label>Reset</label>
         </field>
         <field>
             <name>send</name>
@@ -57,10 +62,15 @@
             <type>textarea</type>
             <label>Mensaje:</label>
         </field>
-        <field>
+        <!-- <field>
             <name>consent</name>
             <type>checkbox</type>
             <label>Accedo a que mis datos se almacenen de forma segura en una base de datos para futuras comunicaciones. (Nunca serán cedidos a terceros bajo ninguna premisa).</label>
+        </field> -->
+        <field>
+            <name>reset</name>
+            <type>reset</type>
+            <label>Reiniciar</label>
         </field>
         <field>
             <name>send</name>
@@ -90,10 +100,15 @@
             <type>textarea</type>
             <label>Missatge:</label>
         </field>
-        <field>
+        <!-- <field>
             <name>consent</name>
             <type>checkbox</type>
             <label>Accedeixo a que les meves dades s'emmagatzemin de manera segura en una base de dades per a futures comunicacions. (Mai seran cedits a tercers sota cap premissa).</label>
+        </field> -->
+        <field>
+            <name>reset</name>
+            <type>reset</type>
+            <label>Reiniciar</label>
         </field>
         <field>
             <name>send</name>
@@ -123,10 +138,15 @@
             <type>textarea</type>
             <label>Сообщение:</label>
         </field>
-        <field>
+        <!-- <field>
             <name>consent</name>
             <type>checkbox</type>
             <label>Я согласен на безопасное хранение моих данных в базе данных для будущих сообщений. (Никогда не будет передано третьим лицам при любых обстоятельствах).</label>
+        </field> -->
+        <field>
+            <name>reset</name>
+            <type>reset</type>
+            <label>Сбросить</label>
         </field>
         <field>
             <name>send</name>
@@ -156,10 +176,15 @@
             <type>textarea</type>
             <label>الرسالة:</label>
         </field>
-        <field>
+        <!-- <field>
             <name>consent</name>
             <type>checkbox</type>
             <label>أوافق على تخزين بياناتي بشكل آمن في قاعدة بيانات للتواصل المستقبلي. (لن يتم مشاركة البيانات مع أي طرف ثالث تحت أي ظرف).</label>
+        </field> -->
+        <field>
+            <name>reset</name>
+            <type>reset</type>
+            <label>إعادة تعيين</label>
         </field>
         <field>
             <name>send</name>
@@ -189,10 +214,15 @@
             <type>textarea</type>
             <label>信息：</label>
         </field>
-        <field>
+        <!-- <field>
             <name>consent</name>
             <type>checkbox</type>
             <label>我同意将我的数据安全存储在数据库中以便未来通信。（在任何情况下都不会与第三方共享）。</label>
+        </field> -->
+        <field>
+            <name>reset</name>
+            <type>reset</type>
+            <label>重置</label>
         </field>
         <field>
             <name>send</name>

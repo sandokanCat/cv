@@ -57,8 +57,8 @@ if (!defined('ENTRY_POINT')) {
         <ol id="contact">
             <li>
                 <address>
-                    <a id="mail" data-i18n-attr="aria-label:mail"
-                        href="mailto:<?= htmlspecialchars($brand['email'], ENT_QUOTES | ENT_HTML5); ?>"
+                    <a id="mail" class="modal-link" data-i18n-attr="aria-label:mail"
+                        href="mailto:<?= htmlspecialchars($brand['email'], ENT_QUOTES | ENT_HTML5); ?>" data-modal="partials/contact/form.php"
                         aria-label="<?= $L('mail'); ?>"><strong><?= htmlspecialchars($brand['email'], ENT_QUOTES | ENT_HTML5); ?></strong></a>
                 </address>
                 <svg class="icons-color-1" aria-hidden="true" width="25" height="25"

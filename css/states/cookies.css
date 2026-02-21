@@ -13,20 +13,21 @@
     margin: 0;
     text-align: center;
 }
+#all-cookies,
+#essential-cookies {
+    border-radius: 7px;
+    padding: 2.5px 5px;
+}
 #all-cookies {
     background-color: var(--accent-1);
     color: var(--accent-2);
     font-weight: 700;
-    border-radius: 7px;
-    padding: 2.5px 5px;
 }
 #essential-cookies {
     background-color: transparent;
     color: var(--accent-1);
     border: 1px solid var(--accent-1);
     font-weight: 600;
-    border-radius: 7px;
-    padding: 2.5px 5px;
 }
 #reject-cookies {
     background: none;
@@ -36,17 +37,13 @@
 }
 
 /* RESPONSIVE LAYOUT */
-@media screen and (max-width: 768px) {
-
-    /* TABLET */
+@media screen and (max-width: 768px) { /* TABLET */
     #cookies-bar {
         text-align: justify;
     }
 }
 
-@media screen and (max-width: 360px) {
-
-    /* PHONE */
+@media screen and (max-width: 360px) { /* PHONE */
     #cookies-bar {
         text-align: justify;
     }

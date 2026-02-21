@@ -20,7 +20,7 @@ error_reporting(E_ALL);
 // AUTOLOAD v4.0 (NO CACHE)
 // ----------------------------
 
-$serverDir = __DIR__.'/modules/';
+$serverDir = __DIR__ . '/modules/';
 $loadedCores = [];
 
 // ----------------------------

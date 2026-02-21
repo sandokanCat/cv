@@ -1,29 +1,9 @@
 // 📥 IMPORTS ORDERED BY LAYER: UTILS → COMPONENTS
 import {
-    replaceClass,
-    getLocale,
-    initPopStateListener,
-    initI18n,
-    updateUrlLocale,
-    changeLocale,
-    signature,
-    manageCookies,
+    getLocale, initPopStateListener, initI18n, updateUrlLocale, changeLocale,
+    signature
 } from '../utils/index.js';
-import {
-    initTheme,
-    initLangMenu
-} from '../components/index.js';
-
-const mail = document.getElementById('mail');
-
-export function sendMail() {
-    if (!mail) return;
-
-    // PREPARE LINK FOR MODAL
-    mail.classList.add('modal-link');
-    mail.setAttribute('data-modal', "server/contact/form.php");
-    mail.setAttribute('target', '_blank'); // FALLBACK
-}
+import { initTheme } from '../components/index.js';
 
 // 🧠 APP INITIALIZATION
 document.addEventListener("DOMContentLoaded", async () => {
@@ -35,17 +15,50 @@ document.addEventListener("DOMContentLoaded", async () => {
         await updateUrlLocale(locale);
     }
 
-    replaceClass('js-disabled', 'js-enabled');
-
     initTheme('#theme-dark-btn', document.documentElement);
 
     initPopStateListener(changeLocale);
 
-    initLangMenu(locale, changeLocale);
-
     signature('#signature-year');
+});
 
-    manageCookies('#cookies-bar');
+// 📧 CONTACT FORM SUBMISSION
+document.getElementById('contact-form')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const responseDiv = document.getElementById('form-response');
+    const submitBtn = form.querySelector('button[type="submit"]');
 
-    sendMail();
+    // Disable button
+    if (submitBtn) submitBtn.disabled = true;
+
+    try {
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        const result = await response.json();
+
+        responseDiv.style.display = 'block';
+        if (result.result === 'OK') {
+            responseDiv.className = 'form-message success';
+            responseDiv.textContent = '¡Correo enviado con éxito! / Email sent successfully!';
+            form.reset();
+        } else {
+            responseDiv.className = 'form-message error';
+            responseDiv.textContent = 'Error: ' + (result.error || 'Unknown error');
+        }
+    } catch (err) {
+        console.error('Submission error:', err);
+        responseDiv.style.display = 'block';
+        responseDiv.className = 'form-message error';
+        responseDiv.textContent = 'Error de conexión / Connection error';
+    } finally {
+        if (submitBtn) submitBtn.disabled = false;
+    }
 });
