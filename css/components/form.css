@@ -239,6 +239,9 @@ html.tablet-layout form[action="partials/contact/form.php"] {
     gap: 15px;
     padding: 10px 25px;
 }
+html.tablet-layout #signature {
+    text-align: center;
+}
 html.tablet-layout label {
     font-size: 16px;
     font-size: 1rem;

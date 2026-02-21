@@ -4,10 +4,13 @@
     method CDATA #REQUIRED
     enctype CDATA #REQUIRED
 >
-<!ELEMENT lang (field+)>
+<!ELEMENT lang (field+, sending)>
 <!ATTLIST lang locale CDATA #REQUIRED>
 <!ELEMENT field (name, type, label)>
 <!ATTLIST field required (true|false) "false">
 <!ELEMENT name (#PCDATA)>
 <!ELEMENT type (#PCDATA)>
 <!ELEMENT label (#PCDATA)>
+<!ELEMENT sending (success, error)>
+<!ELEMENT success (#PCDATA)>
+<!ELEMENT error (#PCDATA)>

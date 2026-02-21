@@ -7,22 +7,22 @@
         <field required="true">
             <name>name</name>
             <type>text</type>
-            <label>Name:</label>
+            <label>Name</label>
         </field>
         <field required="true">
             <name>email</name>
             <type>email</type>
-            <label>E-mail:</label>
+            <label>E-mail</label>
         </field>
         <field required="true">
             <name>subject</name>
             <type>text</type>
-            <label>Subject:</label>
+            <label>Subject</label>
         </field>
         <field required="true">
             <name>content</name>
             <type>textarea</type>
-            <label>Message:</label>
+            <label>Message</label>
         </field>
         <!-- <field>
             <name>consent</name>
@@ -39,28 +39,32 @@
             <type>submit</type>
             <label>Send</label>
         </field>
+        <sending>
+            <success>Email sent successfully!</success>
+            <error>Connection error. Please try again later.</error>
+        </sending>
     </lang>
 
     <lang locale="es-ES">
         <field required="true">
             <name>name</name>
             <type>text</type>
-            <label>Nombre:</label>
+            <label>Nombre</label>
         </field>
         <field required="true">
             <name>email</name>
             <type>email</type>
-            <label>Correo Electrónico:</label>
+            <label>Correo Electrónico</label>
         </field>
         <field required="true">
             <name>subject</name>
             <type>text</type>
-            <label>Asunto:</label>
+            <label>Asunto</label>
         </field>
         <field required="true">
             <name>content</name>
             <type>textarea</type>
-            <label>Mensaje:</label>
+            <label>Mensaje</label>
         </field>
         <!-- <field>
             <name>consent</name>
@@ -77,28 +81,32 @@
             <type>submit</type>
             <label>Enviar</label>
         </field>
+        <sending>
+            <success>¡Correo enviado con éxito!</success>
+            <error>Error de conexión. Por favor, intenta más tarde.</error>
+        </sending>
     </lang>
 
     <lang locale="ca-ES">
         <field required="true">
             <name>name</name>
             <type>text</type>
-            <label>Nom:</label>
+            <label>Nom</label>
         </field>
         <field required="true">
             <name>email</name>
             <type>email</type>
-            <label>Correu Electrònic:</label>
+            <label>Correu Electrònic</label>
         </field>
         <field required="true">
             <name>subject</name>
             <type>text</type>
-            <label>Assumpte:</label>
+            <label>Assumpte</label>
         </field>
         <field required="true">
             <name>content</name>
             <type>textarea</type>
-            <label>Missatge:</label>
+            <label>Missatge</label>
         </field>
         <!-- <field>
             <name>consent</name>
@@ -115,28 +123,32 @@
             <type>submit</type>
             <label>Enviar</label>
         </field>
+        <sending>
+            <success>Correu enviat amb èxit!</success>
+            <error>Error de connexió. Si us plau, intenta més tard.</error>
+        </sending>
     </lang>
 
     <lang locale="ru-RU">
         <field required="true">
             <name>name</name>
             <type>text</type>
-            <label>Имя:</label>
+            <label>Имя</label>
         </field>
         <field required="true">
             <name>email</name>
             <type>email</type>
-            <label>Электронная почта:</label>
+            <label>Электронная почта</label>
         </field>
         <field required="true">
             <name>subject</name>
             <type>text</type>
-            <label>Тема:</label>
+            <label>Тема</label>
         </field>
         <field required="true">
             <name>content</name>
             <type>textarea</type>
-            <label>Сообщение:</label>
+            <label>Сообщение</label>
         </field>
         <!-- <field>
             <name>consent</name>
@@ -153,28 +165,32 @@
             <type>submit</type>
             <label>Отправить</label>
         </field>
+        <sending>
+            <success>Письмо успешно отправлено!</success>
+            <error>Ошибка подключения. Пожалуйста, попробуйте позже.</error>
+        </sending>
     </lang>    
 
     <lang locale="ar-SA">
         <field required="true">
             <name>name</name>
             <type>text</type>
-            <label>الاسم:</label>
+            <label>الاسم</label>
         </field>
         <field required="true">
             <name>email</name>
             <type>email</type>
-            <label>البريد الإلكتروني:</label>
+            <label>البريد الإلكتروني</label>
         </field>
         <field required="true">
             <name>subject</name>
             <type>text</type>
-            <label>الموضوع:</label>
+            <label>الموضوع</label>
         </field>
         <field required="true">
             <name>content</name>
             <type>textarea</type>
-            <label>الرسالة:</label>
+            <label>الرسالة</label>
         </field>
         <!-- <field>
             <name>consent</name>
@@ -191,28 +207,32 @@
             <type>submit</type>
             <label>إرسال</label>
         </field>
+        <sending>
+            <success>تم إرسال البريد الإلكتروني بنجاح!</success>
+            <error>خطأ في الاتصال. يرجى المحاولة مرة أخرى لاحقًا.</error>
+        </sending>
     </lang>
     
     <lang locale="zh-CN">
         <field required="true">
             <name>name</name>
             <type>text</type>
-            <label>姓名：</label>
+            <label>姓名</label>
         </field>
         <field required="true">
             <name>email</name>
             <type>email</type>
-            <label>电子邮件：</label>
+            <label>电子邮件</label>
         </field>
         <field required="true">
             <name>subject</name>
             <type>text</type>
-            <label>主题：</label>
+            <label>主题</label>
         </field>
         <field required="true">
             <name>content</name>
             <type>textarea</type>
-            <label>信息：</label>
+            <label>信息</label>
         </field>
         <!-- <field>
             <name>consent</name>
@@ -229,6 +249,10 @@
             <type>submit</type>
             <label>发送</label>
         </field>
+        <sending>
+            <success>邮件发送成功！</success>
+            <error>连接错误。请稍后再试。</error>
+        </sending>
     </lang>
     
 </form>

@@ -22,7 +22,7 @@
 @import url("../states/noscript.css");
 @import url("../states/rtl.css");
 
-/* SPECIFIC STYLES */
+/* ERROR PAGE STYLES */
 #error-container {
     display: grid;
     grid-template-columns: 1fr;
@@ -69,7 +69,7 @@
     text-align: end;
 }
 
-/* RESPONSIVE LAYOUT */
+/* RESPONSIVE BREAKPOINTS */
 @media screen and (max-width: 768px) { /* TABLET */
     #error-container h1 {
         font-size: 120px;
