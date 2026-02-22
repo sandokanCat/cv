@@ -23,14 +23,19 @@ export async function loadLocalizedArray({
     const base = raw[locale.split("-")[0]];
     const selected = exact || base;
 
-    if (!selected || !Array.isArray(selected) || selected.length === 0)
+    // Support for mixed object { alerts: [], buttons: {} }
+    const poolData = (selected && !Array.isArray(selected) && Array.isArray(selected.alerts))
+        ? selected.alerts
+        : selected;
+
+    if (!poolData || !Array.isArray(poolData) || poolData.length === 0)
         throw new Error(`NO ${errorLabel} FOUND FOR LOCALE '${locale}'`);
 
-    const cloned = selected.slice();
+    const cloned = poolData.slice();
     setCache(cloned); // UPDATE MODULE CACHE
     setPool(createPoolFn(cloned)); // INIT RANDOM POOL
 
-    return cloned;
+    return selected;
 }
 
 // MANAGE RANDOM ITEMS WITH TEMP POOL + NO IMMEDIATE REPEATS

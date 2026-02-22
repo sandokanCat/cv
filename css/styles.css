@@ -11,6 +11,7 @@
 
 /* UTILITIES */
 @import url("utils/icons.css");
+@import url("utils/alert-loader.css");
 
 /* OBJECTS */
 @import url("layout/grid.css");

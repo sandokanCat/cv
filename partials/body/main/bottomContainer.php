@@ -116,9 +116,19 @@ if (!defined('ENTRY_POINT')) {
         </div>
         <div id="portfolio">
             <?php require_once __DIR__ . "/../../includes/signature.php"; // LOAD SIGNATURE ?>
-            <a href="https://<?= htmlspecialchars($brand['user'], ENT_QUOTES | ENT_HTML5); ?>.github.io/estopa/" target="_blank" data-status>
+            <!-- ALERT MESSAGE -->
+            <button popovertarget="alert" popovertargetaction="show" style="background: transparent; border: none; padding: 0; cursor: pointer;" data-status>
                 <img data-i18n-attr="alt:estopa" src="img/portfolio/estopa.png" decoding="async" loading="lazy" alt="<?= $A('estopa'); ?>">
-            </a>
+            </button>
         </div>
     </section>
 </div>
+<div id="alert" popover>
+    <div class="loader"></div>
+    <p id="alert-message">⚠️ WIP Alert: This project is still under development. Your feedback is welcome!</p>
+    <div class="actions">
+        <a id="alert-ok" class="icons-snippet active" href="https://<?= htmlspecialchars($brand['user'], ENT_QUOTES | ENT_HTML5); ?>.github.io/estopa/" target="_blank">Continue</a>
+        <button id="alert-close" class="icons-snippet active" popovertarget="alert" popovertargetaction="hide">Close</button>
+    </div>
+</div>
+<!--//ALERT END -->
