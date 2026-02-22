@@ -2,7 +2,7 @@
 
 🇬🇧 **English**
 
-I’m currently working on version 2.0 of my web CV, which will serve as the homepage of my portfolio. My goal is to stand out from the typical plain PDF and showcase my skills to the IT community through my personal projects — where I put all my talent, knowledge, and effort to excel. I appreciate your feedback!
+I’m currently working on version 2.1 of my web CV, which will serve as the homepage of my portfolio. My goal is to stand out from the typical plain PDF and showcase my skills to the IT community through my personal projects — where I put all my talent, knowledge, and effort to excel. I appreciate your feedback!
 
 > Jul 2024 – present
 
@@ -10,7 +10,7 @@ I’m currently working on version 2.0 of my web CV, which will serve as the hom
 
 ## Project Overview
 
-This repository contains the code and assets behind my Web CV 2.0, which serves as the main page of my personal portfolio.
+This repository contains the code and assets behind my Web CV 2.1, which serves as the main page of my personal portfolio.
 
 Its purpose is to showcase my **Fullstack development skills**, emphasizing **clean code, modular architecture, accessibility, security, and internationalization**.
 
@@ -39,7 +39,7 @@ For agents, IDEs, or technical reviewers:
 <details>
 <summary>🇪🇸 Español</summary>
 
-Actualmente trabajo en la versión 2.0 de mi CV web, que será la página principal de mi portafolio. Busco diferenciarme del típico PDF simplón y darme a conocer en el mundo de las Tecnologías de la Información (TI) a través de mis proyectos personales; en los que pongo todo mi talento, conocimientos y esfuerzo para destacar. ¡Agradezco tu retroalimentación!
+Actualmente trabajo en la versión 2.1 de mi CV web, que será la página principal de mi portafolio. Busco diferenciarme del típico PDF simplón y darme a conocer en el mundo de las Tecnologías de la Información (TI) a través de mis proyectos personales; en los que pongo todo mi talento, conocimientos y esfuerzo para destacar. ¡Agradezco tu retroalimentación!
 
 > Julio 2024 - actualidad
 
@@ -61,7 +61,7 @@ Actualmente trabajo en la versión 2.0 de mi CV web, que será la página princi
 <details>
 <summary>🇦🇩 Català</summary>
 
-Actualment treballo en la versió 2.0 del meu CV web, que serà la pàgina principal del meu portafoli. Vull diferenciar-me del típic PDF simple i donar-me a conèixer al món de les Tecnologies de la Informació (TI) mitjançant els meus projectes personals; en què hi poso tot el meu talent, coneixements i esforç per destacar. Agraeixo els teus comentaris!
+Actualment treballo en la versió 2.1 del meu CV web, que serà la pàgina principal del meu portafoli. Vull diferenciar-me del típic PDF simple i donar-me a conèixer al món de les Tecnologies de la Informació (TI) mitjançant els meus projectes personals; en què hi poso tot el meu talent, coneixements i esforç per destacar. Agraeixo els teus comentaris!
 
 > Juliol 2024 - actualitat
 
@@ -83,7 +83,7 @@ Actualment treballo en la versió 2.0 del meu CV web, que serà la pàgina princ
 <details>
 <summary>🇷🇺 Русский</summary>
 
-В настоящее время я работаю над версией 2.0 моего веб-резюме, которое станет главной страницей моего портфолио. Я стремлюсь выделиться среди обычных простых PDF-файлов и представить себя в сообществе ИТ через свои личные проекты, в которые я вкладываю весь свой талант, знания и усилия, чтобы добиться отличных результатов. Буду благодарен за обратную связь!
+В настоящее время я работаю над версией 2.1 моего веб-резюме, которое станет главной страницей моего портфолио. Я стремлюсь выделиться среди обычных простых PDF-файлов и представить себя в сообществе ИТ через свои личные проекты, в которые я вкладываю весь свой талант, знания и усилия, чтобы добиться отличных результатов. Буду благодарен за обратную связь!
 
 > Июль 2024 – настоящее время
 
@@ -105,7 +105,7 @@ Actualment treballo en la versió 2.0 del meu CV web, que serà la pàgina princ
 <details dir="rtl">
 <summary>🇸🇦 العربية</summary>
 
-أعمل حالياً على الإصدار 2.0 من سيرتي الذاتية على الويب، والتي ستكون بمنزلة الصفحة الرئيسية لمحفظتي. هدفي هو التميّز عن ملفات الـ PDF التقليدية والتعريف بنفسي في مجتمع تكنولوجيا المعلومات عبر مشاريعي الشخصية؛ التي أستثمر فيها كل طاقتي ومعارفي لتحقيق التميز. أقدّر ملاحظاتك!
+أعمل حالياً على الإصدار 2.1 من سيرتي الذاتية على الويب، والتي ستكون بمنزلة الصفحة الرئيسية لمحفظتي. هدفي هو التميّز عن ملفات الـ PDF التقليدية والتعريف بنفسي في مجتمع تكنولوجيا المعلومات عبر مشاريعي الشخصية؛ التي أستثمر فيها كل طاقتي ومعارفي لتحقيق التميز. أقدّر ملاحظاتك!
 
 > محرم ١٤٤٦ هـ – حتى الآن
 
@@ -128,7 +128,7 @@ Actualment treballo en la versió 2.0 del meu CV web, que serà la pàgina princ
 <details>
 <summary>🇨🇳 中文（简体）</summary>
 
-我目前正在开发我的网页版简历 2.0，它将成为我个人作品集的主页。我的目标是区别于传统的普通 PDF，通过我的个人项目向 IT 社区展示我的技能——这些项目凝聚了我的才华、知识和努力。欢迎你提出宝贵的反馈意见！
+我目前正在开发我的网页版简历 2.1，它将成为我个人作品集的主页。我的目标是区别于传统的普通 PDF，通过我的个人项目向 IT 社区展示我的技能——这些项目凝聚了我的才华、知识和努力。欢迎你提出宝贵的反馈意见！
 
 > 农历2024年六月 – 至今
 
