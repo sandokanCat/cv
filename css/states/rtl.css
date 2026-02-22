@@ -135,3 +135,10 @@ html[dir="rtl"] #signature {
         left: 7dvw;
     }
 }
+
+/* ALERT-LOADER.CSS */
+html[dir="rtl"] #alert:popover-open {
+    left: auto;
+    right: 50%;
+    transform: translate(50%, -50%);
+}
