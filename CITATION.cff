@@ -4,8 +4,8 @@ authors:
 - family-names: "Cabezas Núñez"
   given-names: "Gonzalo"
 title: "cv"
-version: 1.0.0
-date-released: 2026-01-24
+version: 2.1.0
+date-released: 2026-02-22
 url: "https://github.com/sandokanCat/cv"
 license: © 2026 sandokan.cat
 keywords:
