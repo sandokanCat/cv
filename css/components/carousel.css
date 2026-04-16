@@ -120,7 +120,7 @@ article noscript {
     }
 }
 @media screen and (max-width: 480px) { /* MEDIUM PHONE */
-    #carousel h6 {
+    #carousel {
         background-color: var(--panel-bg);
     }
 }
