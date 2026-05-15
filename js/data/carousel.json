@@ -1,104 +1,135 @@
-[
-    {
-        "webp": {
-            "srcSet": "img/carousel/FRONT-END_certificate@3x.webp 3x, img/carousel/FRONT-END_certificate@2x.webp 2x, img/carousel/FRONT-END_certificate@1x.webp 1x"
-        },
-        "png": {
-            "srcSet": "img/carousel/FRONT-END_certificate@3x.png 3x, img/carousel/FRONT-END_certificate@2x.png 2x, img/carousel/FRONT-END_certificate@1x.png 1x",
-            "fallback": "img/carousel/FRONT-END_certificate@3x.png"
-        },
-        "alt": {
-            "en-GB": "Front-End certificate",
-            "es-ES": "Certificado de Front-End",
-            "ca-ES": "Certificat de Front-End",
-            "ru-RU": "Сертификат по фронтенд-разработке",
-            "ar-SA": "شهادة الواجهة الأمامية",
-            "zh-CN": "前端证书"
-        }
+{
+    "mainDir": "img/carousel/",
+    "ext": [
+        ".webp",
+        ".png",
+        ".jpg"
+    ],
+    "scales": {
+        "3x": "@3x",
+        "2x": "@2x",
+        "1x": "@1x"
     },
-    {
-        "webp": {
-            "srcSet": "img/carousel/WEB-DEV_certificate@3x.webp 3x, img/carousel/WEB-DEV_certificate@2x.webp 2x, img/carousel/WEB-DEV_certificate@1x.webp 1x"
+    "stacks": {
+        "backend": {
+            "stackDir": "backend/",
+            "types": {
+                "python": {
+                    "typeDir": "python/",
+                    "files": {
+                        "name": "python_certificate",
+                        "alt": {
+                            "en-GB": "Introduction to Python certificate",
+                            "es-ES": "Certificado de introducción a Python",
+                            "ca-ES": "Certificat d’introducció a Python",
+                            "ru-RU": "Сертификат по введению в Python",
+                            "ar-SA": "شهادة مقدمة في بايثون",
+                            "zh-CN": "Python 入门证书"
+                        }
+                    }
+                }
+            }
         },
-        "png": {
-            "srcSet": "img/carousel/WEB-DEV_certificate@3x.png 3x, img/carousel/WEB-DEV_certificate@2x.png 2x, img/carousel/WEB-DEV_certificate@1x.png 1x",
-            "fallback": "img/carousel/WEB-DEV_certificate@3x.png"
-        },
-        "alt": {
-            "en-GB": "Web development certificate",
-            "es-ES": "Certificado de Desarrollo Web",
-            "ca-ES": "Certificat de desenvolupament web",
-            "ru-RU": "Сертификат по веб-разработке",
-            "ar-SA": "شهادة تطوير الويب",
-            "zh-CN": "Web 开发证书"
-        }
-    },
-    {
-        "webp": {
-            "srcSet": "img/carousel/HTML_certificate@3x.webp 3x, img/carousel/HTML_certificate@2x.webp 2x, img/carousel/HTML_certificate@1x.webp 1x"
-        },
-        "png": {
-            "srcSet": "img/carousel/HTML_certificate@3x.png 3x, img/carousel/HTML_certificate@2x.png 2x, img/carousel/HTML_certificate@1x.png 1x",
-            "fallback": "img/carousel/HTML_certificate@3x.png"
-        },
-        "alt": {
-            "en-GB": "HTML certificate",
-            "es-ES": "Certificado de HTML",
-            "ca-ES": "Certificat d’HTML",
-            "ru-RU": "Сертификат HTML",
-            "ar-SA": "شهادة HTML",
-            "zh-CN": "HTML 证书"
-        }
-    },
-    {
-        "webp": {
-            "srcSet": "img/carousel/CSS_certificate@3x.webp 3x, img/carousel/CSS_certificate@2x.webp 2x, img/carousel/CSS_certificate@1x.webp 1x"
-        },
-        "png": {
-            "srcSet": "img/carousel/CSS_certificate@3x.png 3x, img/carousel/CSS_certificate@2x.png 2x, img/carousel/CSS_certificate@1x.png 1x",
-            "fallback": "img/carousel/CSS_certificate@3x.png"
-        },
-        "alt": {
-            "en-GB": "CSS certificate",
-            "es-ES": "Certificado de CSS",
-            "ca-ES": "Certificat de CSS",
-            "ru-RU": "Сертификат CSS",
-            "ar-SA": "شهادة CSS",
-            "zh-CN": "CSS 证书"
-        }
-    },
-    {
-        "webp": {
-            "srcSet": "img/carousel/JS_certificate@3x.webp 3x, img/carousel/JS_certificate@2x.webp 2x, img/carousel/JS_certificate@1x.webp 1x"
-        },
-        "png": {
-            "srcSet": "img/carousel/JS_certificate@3x.png 3x, img/carousel/JS_certificate@2x.png 2x, img/carousel/JS_certificate@1x.png 1x",
-            "fallback": "img/carousel/JS_certificate@3x.png"
-        },
-        "alt": {
-            "en-GB": "JavaScript certificate",
-            "es-ES": "Certificado de JavaScript",
-            "ca-ES": "Certificat de JavaScript",
-            "ru-RU": "Сертификат JavaScript",
-            "ar-SA": "شهادة جافاسكريبت",
-            "zh-CN": "JavaScript 证书"
-        }
-    },
-    {
-        "webp": {
-            "srcSet": "img/carousel/JS-2_certificate@3x.webp 3x, img/carousel/JS-2_certificate@2x.webp 2x, img/carousel/JS-2_certificate@1x.webp 1x"
-        },
-        "png": {
-            "srcSet": "img/carousel/JS-2_certificate@3x.png 3x, img/carousel/JS-2_certificate@2x.png 2x, img/carousel/JS-2_certificate@1x.png 1x",
-            "fallback": "img/carousel/JS-2_certificate@3x.png"
-        },
-        "alt": {
-            "en-GB": "JavaScript intermediate certificate",
-            "es-ES": "Certificado de JavaScript intermedio",
-            "ca-ES": "Certificat de JavaScript intermedi",
-            "ru-RU": "Сертификат JavaScript среднего уровня",
-            "ar-SA": "شهادة جافاسكريبت المتوسطة",
-            "zh-CN": "JavaScript 中级证书"
+        "frontend": {
+            "stackDir": "frontend/",
+            "types": {
+                "seo": {
+                    "typeDir": "seo/",
+                    "files": {
+                        "name": "SEOwithAI_certificate",
+                        "alt": {
+                            "en-GB": "SEO with AI certificate",
+                            "es-ES": "Certificado de SEO con IA",
+                            "ca-ES": "Certificat de SEO amb IA",
+                            "ru-RU": "Сертификат по SEO с использованием ИИ",
+                            "ar-SA": "شهادة تحسين محركات البحث بالذكاء الاصطناعي",
+                            "zh-CN": "AI 搜索引擎优化 (SEO) 证书"
+                        }
+                    }
+                },
+                "dev": {
+                    "typeDir": "dev/",
+                    "files": {
+                        "front": {
+                            "name": "FRONT-END_certificate",
+                            "alt": {
+                                "en-GB": "Front-End for beginners certificate",
+                                "es-ES": "Certificado de Front-End para principiantes",
+                                "ca-ES": "Certificat de Front-End per a principiants",
+                                "ru-RU": "Сертификат по фронтенд-разработке для начинающих",
+                                "ar-SA": "شهادة الواجهة الأمامية للمبتدئين",
+                                "zh-CN": "前端入门证书"
+                            }
+                        },
+                        "webdev": {
+                            "name": "WEB-DEV_certificate",
+                            "alt": {
+                                "en-GB": "Web development certificate",
+                                "es-ES": "Certificado de desarrollo web",
+                                "ca-ES": "Certificat de desenvolupament web",
+                                "ru-RU": "Сертификат по веб-разработке",
+                                "ar-SA": "شهادة تطوير الويب",
+                                "zh-CN": "Web 开发证书"
+                            }
+                        }
+                    }
+                },
+                "js": {
+                    "dir": "js/",
+                    "files": {
+                        "js1": {
+                            "name": "JS_certificate",
+                            "alt": {
+                                "en-GB": "Introduction to JavaScript certificate",
+                                "es-ES": "Certificado de introducción a JavaScript",
+                                "ca-ES": "Certificat d’introducció a JavaScript",
+                                "ru-RU": "Сертификат по введению в JavaScript",
+                                "ar-SA": "شهادة مقدمة في جافاسكريبت",
+                                "zh-CN": "JavaScript 入门证书"
+                            }
+                        },
+                        "js2": {
+                            "name": "JS-2_certificate",
+                            "alt": {
+                                "en-GB": "JavaScript intermediate certificate",
+                                "es-ES": "Certificado de JavaScript intermedio",
+                                "ca-ES": "Certificat de JavaScript intermedi",
+                                "ru-RU": "Сертификат JavaScript среднего уровня",
+                                "ar-SA": "شهادة جافاسكريبت المتوسطة",
+                                "zh-CN": "JavaScript 中级证书"
+                            }
+                        }
+                    }
+                },
+                "css": {
+                    "dir": "css/",
+                    "files": {
+                        "name": "CSS_certificate",
+                        "alt": {
+                            "en-GB": "Introduction to CSS certificate",
+                            "es-ES": "Certificado de introducción a CSS",
+                            "ca-ES": "Certificat d’introducció a CSS",
+                            "ru-RU": "Сертификат по введению в CSS",
+                            "ar-SA": "شهادة مقدمة في CSS",
+                            "zh-CN": "CSS 入门证书"
+                        }
+                    }
+                },
+                "html": {
+                    "dir": "html/",
+                    "files": {
+                        "name": "HTML_certificate",
+                        "alt": {
+                            "en-GB": "Introduction to HTML certificate",
+                            "es-ES": "Certificado de introducción a HTML",
+                            "ca-ES": "Certificat d’introducció a HTML",
+                            "ru-RU": "Сертификат по введению в HTML",
+                            "ar-SA": "شهادة مقدمة في HTML",
+                            "zh-CN": "HTML 入门证书"
+                        }
+                    }
+                }
+            }
         }
     }
-]
+}
