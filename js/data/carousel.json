@@ -1,10 +1,5 @@
 {
     "mainDir": "img/carousel/",
-    "ext": [
-        ".webp",
-        ".png",
-        ".jpg"
-    ],
     "scales": {
         "3x": "@3x",
         "2x": "@2x",
@@ -13,21 +8,11 @@
     "stacks": {
         "backend": {
             "stackDir": "backend/",
+            "ext": ".jpg",
             "types": {
                 "python": {
                     "typeDir": "python/",
                     "files": {
-                        "py": {
-                            "name": "PYTHON_certificate",
-                            "alt": {
-                                "en-GB": "Introduction to Python certificate",
-                                "es-ES": "Certificado de introducción a Python",
-                                "ca-ES": "Certificat d’introducció a Python",
-                                "ru-RU": "Сертификат по введению в Python",
-                                "ar-SA": "شهادة مقدمة في بايثون",
-                                "zh-CN": "Python 入门证书"
-                            }
-                        },
                         "py2": {
                             "name": "PYTHON-2_certificate",
                             "alt": {
@@ -38,6 +23,17 @@
                                 "ar-SA": "شهادة بايثون المتوسطة",
                                 "zh-CN": "Python 中级证书"
                             }
+                        },
+                        "py": {
+                            "name": "PYTHON_certificate",
+                            "alt": {
+                                "en-GB": "Introduction to Python certificate",
+                                "es-ES": "Certificado de introducción a Python",
+                                "ca-ES": "Certificat d’introducció a Python",
+                                "ru-RU": "Сертификат по введению в Python",
+                                "ar-SA": "شهادة مقدمة في بايثون",
+                                "zh-CN": "Python 入门证书"
+                            }
                         }
                     }
                 }
@@ -45,11 +41,13 @@
         },
         "frontend": {
             "stackDir": "frontend/",
+            "ext": ".png",
             "types": {
                 "seo": {
                     "typeDir": "seo/",
+                    "ext": ".jpg",
                     "files": {
-                        "name": "SEOwithAI_certificate",
+                        "name": "SEO-AI_certificate",
                         "alt": {
                             "en-GB": "SEO with AI certificate",
                             "es-ES": "Certificado de SEO con IA",
@@ -90,17 +88,6 @@
                 "js": {
                     "dir": "js/",
                     "files": {
-                        "js1": {
-                            "name": "JS_certificate",
-                            "alt": {
-                                "en-GB": "Introduction to JavaScript certificate",
-                                "es-ES": "Certificado de introducción a JavaScript",
-                                "ca-ES": "Certificat d’introducció a JavaScript",
-                                "ru-RU": "Сертификат по введению в JavaScript",
-                                "ar-SA": "شهادة مقدمة في جافاسكريبت",
-                                "zh-CN": "JavaScript 入门证书"
-                            }
-                        },
                         "js2": {
                             "name": "JS-2_certificate",
                             "alt": {
@@ -110,6 +97,17 @@
                                 "ru-RU": "Сертификат JavaScript среднего уровня",
                                 "ar-SA": "شهادة جافاسكريبت المتوسطة",
                                 "zh-CN": "JavaScript 中级证书"
+                            }
+                        },
+                        "js1": {
+                            "name": "JS_certificate",
+                            "alt": {
+                                "en-GB": "Introduction to JavaScript certificate",
+                                "es-ES": "Certificado de introducción a JavaScript",
+                                "ca-ES": "Certificat d’introducció a JavaScript",
+                                "ru-RU": "Сертификат по введению в JavaScript",
+                                "ar-SA": "شهادة مقدمة في جافاسكريبت",
+                                "zh-CN": "JavaScript 入门证书"
                             }
                         }
                     }

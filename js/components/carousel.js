@@ -13,17 +13,20 @@ let dataPromise = null;
 let currentLocaleForCarousel = null;
 
 /**
- * FETCHES AND VALIDATES REMOTE JSON (WITH PROMISE SHARING)
+ * FETCHES AND VALIDATES REMOTE JSON AND TRANSFORMS IT TO FLAT CAROUSEL STRUCTURE
  */
 export const loadCarouselData = (forceReload = false) => {
     if (forceReload || !dataPromise) {
-        dataPromise = validateCarousel(json).catch(err => {
+        dataPromise = (async () => {
+            const items = await validateCarousel(json);
+            return items;
+        })().catch(err => {
             dataPromise = null; // Reset on failure so next call retries
             throw err;
         });
     }
     return dataPromise;
-}
+};
 
 /**
  * UPDATE ONLY IMG ALTS BASED ON CURRENT LOCALE

@@ -37,9 +37,66 @@ if (!defined('ENTRY_POINT')) {
         <ol id="carousel-fallback" class="carousel-track" role="group" aria-roledescription="carousel">
             <?php
             $carouselData = json_decode(file_get_contents('js/data/carousel.json'), true);
-            $i = 0;
+            $mainDir = $carouselData['mainDir'] ?? 'img/carousel/';
+            $scales = $carouselData['scales'] ?? ['3x' => '@3x', '2x' => '@2x', '1x' => '@1x'];
+            
+            // Get the first scale value as the highest resolution fallback
+            reset($scales);
+            $highestScaleVal = current($scales) ?: '@3x';
+            
+            $items = [];
 
-            foreach ($carouselData as $item):
+            if (isset($carouselData['stacks']) && is_array($carouselData['stacks'])) {
+                foreach ($carouselData['stacks'] as $stackKey => $stack) {
+                    $stackDir = $stack['stackDir'] ?? '';
+                    $stackExt = $stack['ext'] ?? null;
+                    
+                    if (isset($stack['types']) && is_array($stack['types'])) {
+                        foreach ($stack['types'] as $typeKey => $type) {
+                            $typeDir = $type['typeDir'] ?? $type['dir'] ?? '';
+                            $typeExt = $type['ext'] ?? $stackExt;
+                            
+                            if (isset($type['files']) && is_array($type['files'])) {
+                                $filesGroup = [];
+                                if (isset($type['files']['name'])) {
+                                    $filesGroup[] = $type['files'];
+                                } else {
+                                    foreach ($type['files'] as $fKey => $fObj) {
+                                        if (is_array($fObj)) {
+                                            $filesGroup[] = $fObj;
+                                        }
+                                    }
+                                }
+
+                                foreach ($filesGroup as $fileObj) {
+                                    $fileName = $fileObj['name'] ?? '';
+                                    $alt = $fileObj['alt'] ?? [];
+                                    
+                                    if ($fileName) {
+                                        $dirPath = $mainDir . $stackDir . $typeDir;
+                                        
+                                        // Resolve extension using stack -> type -> file hierarchy (directly as string)
+                                        $fallbackExt = $fileObj['ext'] ?? $typeExt ?? '.png';
+                                        if (substr($fallbackExt, 0, 1) !== '.') {
+                                            $fallbackExt = '.' . $fallbackExt;
+                                        }
+
+                                        $items[] = [
+                                            'png' => [
+                                                'fallback' => $dirPath . $fileName . $highestScaleVal . $fallbackExt
+                                            ],
+                                            'alt' => $alt
+                                        ];
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            $i = 0;
+            foreach ($items as $item):
                 $imgSrc = $item['png']['fallback'] ?? '';
                 $alt = $item['alt'][$currentLang] ?? '';
                 $isFirst = ($i === 0);
