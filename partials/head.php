@@ -106,7 +106,8 @@ $fullHydration = $fullHydration ?? (($isError || $isForm) ? false : true);
 
     <!-- AUTHORSHIP -->
     <meta name="copyright" content="© <?= htmlspecialchars(gmdate('Y'), ENT_QUOTES | ENT_HTML5); ?> <?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?>">
-    <link rel="author" type="text/plain" href="humans.txt">
+    <meta name="creator" content="<?= htmlspecialchars($brand['name'], ENT_QUOTES | ENT_HTML5); ?>">
+    <link rel="author" type="text/plain" href="/humans.txt">
     <link rel="me" href="<?= htmlspecialchars($path['social']['orcid'], ENT_QUOTES | ENT_HTML5); ?>">
     <link rel="license" href="<?= htmlspecialchars($path['social']['github'], ENT_QUOTES | ENT_HTML5); ?>/cv/blob/main/LICENSE">
 
