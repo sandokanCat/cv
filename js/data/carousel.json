@@ -7,12 +7,23 @@
     },
     "stacks": {
         "backend": {
-            "stackDir": "backend/",
+            "stackDir": "back/",
             "ext": ".jpg",
             "types": {
                 "python": {
-                    "typeDir": "python/",
+                    "typeDir": "py/",
                     "files": {
+                        "py3": {
+                            "name": "PYTHON-3_certificate",
+                            "alt": {
+                                "en-GB": "Python Developer certificate",
+                                "es-ES": "Certificado de desarrollador Python",
+                                "ca-ES": "Certificat de desenvolupador Python",
+                                "ru-RU": "Сертификат Python-разработчика",
+                                "ar-SA": "شهادة مطور بايثون",
+                                "zh-CN": "Python 开发者证书"
+                            }
+                        },
                         "py2": {
                             "name": "PYTHON-2_certificate",
                             "alt": {
@@ -40,7 +51,7 @@
             }
         },
         "frontend": {
-            "stackDir": "frontend/",
+            "stackDir": "front/",
             "ext": ".png",
             "types": {
                 "seo": {
