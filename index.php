@@ -19,6 +19,7 @@ require_once __DIR__ . '/server/autoload.php';
             <?php // LOAD MAIN PANELS
             require_once __DIR__ . "/partials/body/main/leftPanel.php";
             require_once __DIR__ . "/partials/body/main/rightPanel.php";
+            require_once __DIR__ . "/partials/body/main/carousel.php";
             require_once __DIR__ . "/partials/body/main/bottomContainer.php";
             ?>
         </main>

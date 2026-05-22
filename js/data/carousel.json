@@ -17,14 +17,27 @@
                 "python": {
                     "typeDir": "python/",
                     "files": {
-                        "name": "python_certificate",
-                        "alt": {
-                            "en-GB": "Introduction to Python certificate",
-                            "es-ES": "Certificado de introducción a Python",
-                            "ca-ES": "Certificat d’introducció a Python",
-                            "ru-RU": "Сертификат по введению в Python",
-                            "ar-SA": "شهادة مقدمة في بايثون",
-                            "zh-CN": "Python 入门证书"
+                        "py": {
+                            "name": "PYTHON_certificate",
+                            "alt": {
+                                "en-GB": "Introduction to Python certificate",
+                                "es-ES": "Certificado de introducción a Python",
+                                "ca-ES": "Certificat d’introducció a Python",
+                                "ru-RU": "Сертификат по введению в Python",
+                                "ar-SA": "شهادة مقدمة في بايثون",
+                                "zh-CN": "Python 入门证书"
+                            }
+                        },
+                        "py2": {
+                            "name": "PYTHON-2_certificate",
+                            "alt": {
+                                "en-GB": "Python intermediate certificate",
+                                "es-ES": "Certificado de Python intermedio",
+                                "ca-ES": "Certificat de Python intermedi",
+                                "ru-RU": "Сертификат Python среднего уровня",
+                                "ar-SA": "شهادة بايثون المتوسطة",
+                                "zh-CN": "Python 中级证书"
+                            }
                         }
                     }
                 }
