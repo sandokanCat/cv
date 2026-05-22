@@ -61,7 +61,7 @@ $shortName = strtolower($firstName);
 $pathSocial = $path['social'] ?? [];
 if (!is_array($pathSocial))
     $pathSocial = [];
-$sameAs = array_values(array_map(fn($k) => $pathSocial[$k] ?? '', ['github', 'vercel', 'linkedin', 'discord', 'infojobs']));
+$sameAs = array_values(array_map(fn($k) => $pathSocial[$k] ?? '', ['orcid', 'github', 'vercel', 'linkedin', 'discord', 'infojobs']));
 
 // TECHNICAL SKILLS
 $languages = is_array($tech['languages'] ?? null)
