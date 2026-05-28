@@ -47,6 +47,20 @@
                             }
                         }
                     }
+                },
+                "sql": {
+                    "typeDir": "sql/",
+                    "files": {
+                        "name": "SQL_certificate",
+                        "alt": {
+                            "en-GB": "Introduction to SQL certificate",
+                            "es-ES": "Certificado de introducción a SQL",
+                            "ca-ES": "Certificat d’introducció a SQL",
+                            "ru-RU": "Сертификат по введению в SQL",
+                            "ar-SA": "شهادة مقدمة في SQL",
+                            "zh-CN": "SQL 入门证书"
+                        }
+                    }
                 }
             }
         },
