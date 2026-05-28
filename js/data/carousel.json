@@ -122,20 +122,6 @@
                         }
                     }
                 },
-                "css": {
-                    "dir": "css/",
-                    "files": {
-                        "name": "CSS_certificate",
-                        "alt": {
-                            "en-GB": "Introduction to CSS certificate",
-                            "es-ES": "Certificado de introducción a CSS",
-                            "ca-ES": "Certificat d’introducció a CSS",
-                            "ru-RU": "Сертификат по введению в CSS",
-                            "ar-SA": "شهادة مقدمة في CSS",
-                            "zh-CN": "CSS 入门证书"
-                        }
-                    }
-                },
                 "html": {
                     "dir": "html/",
                     "files": {
@@ -147,6 +133,20 @@
                             "ru-RU": "Сертификат по введению в HTML",
                             "ar-SA": "شهادة مقدمة في HTML",
                             "zh-CN": "HTML 入门证书"
+                        }
+                    }
+                },
+                "css": {
+                    "dir": "css/",
+                    "files": {
+                        "name": "CSS_certificate",
+                        "alt": {
+                            "en-GB": "Introduction to CSS certificate",
+                            "es-ES": "Certificado de introducción a CSS",
+                            "ca-ES": "Certificat d’introducció a CSS",
+                            "ru-RU": "Сертификат по введению в CSS",
+                            "ar-SA": "شهادة مقدمة في CSS",
+                            "zh-CN": "CSS 入门证书"
                         }
                     }
                 },
