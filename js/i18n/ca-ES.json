@@ -50,26 +50,14 @@
     "backContent": {
         "html": "Vaig col·laborar en el desenvolupament d’un <span lang='en-GB'>Dashboard</span> intern de gestió utilitzat per administrar cursos, exàmens i registres acadèmics, incloent eines per a la generació i exportació de <span lang='en-GB'>newsletters</span> personalitzables."
     },
-    "RRPP": {
-        "text": "Coordinador de Relacions Públiques"
-    },
-    "teamCoord": {
-        "html": "Vaig gestionar les Relacions Públiques i coordinar estratègies de <span lang='en-GB'>marketing</span> per a esdeveniments, incloent promoció a xarxes socials i venda de marxandatge. Vaig col·laborar amb l’equip per construir una marca d’oci nocturn reconeixible i amb una audiència fidel durant diversos anys."
-    },
-    "volunteer": {
-        "text": "Classificació i empaquetament. Voluntari"
-    },
-    "sorting": {
-        "text": "Vaig col·laborar en tasques de distribució i logística d’aliments com a part d’un equip de voluntariat enfocat a ajudar persones i famílies en situacions vulnerables. Aquesta experiència va reforçar el meu sentit de la responsabilitat, el treball en equip i el compromís amb la comunitat."
-    },
     "studies": {
         "text": "Estudis"
     },
     "blockchain": {
         "html": "Màster en Desenvolupament Blockchain <span>(en curs)</span>"
     },
-    "otherLangs": {
-        "text": "Altres llenguatges"
+    "otherKnow": {
+        "text": "Altres coneixements"
     },
     "cybersec": {
         "text": "Ciberseguretat"
@@ -80,8 +68,14 @@
     "cyberUsers": {
         "text": "Ciberseguretat per a usuaris"
     },
+    "netSecurity": {
+        "text": "Seguretat de xarxes"
+    },
     "appDev": {
         "text": "Desenvolupament d’aplicacions amb tecnologies web"
+    },
+    "software": {
+        "text": "Arquitectura de programari i patrons de disseny"
     },
     "network": {
         "text": "Arquitectura de xarxes"
@@ -89,14 +83,17 @@
     "webDev": {
         "text": "Confecció i publicació de pàgines web"
     },
-    "responsive": {
-        "text": "Disseny web adaptable"
+    "performance": {
+        "text": "Optimització del rendiment web"
     },
     "a11y": {
         "text": "Accesibilitat web"
     },
+    "responsive": {
+        "text": "Disseny web adaptable"
+    },
     "seo": {
-        "text": "Optimizació per a motors de cerca (SEO)"
+        "html": "<span lang='en-GB' title='Search Engine Optimization'>SEO</span> tècnic"
     },
     "publi": {
         "text": "Publicació web"
@@ -116,26 +113,11 @@
     "carouselAdvance": {
         "aria-label": "Avançar"
     },
-    "UNEDaccess": {
-        "text": "Accès a la universitat"
-    },
-    "ESO": {
-        "html": "Certificat d’<abbr lang='es-ES' title='Educación Secundaria Obligatoria'>ESO</abbr>"
-    },
     "seeCertificate": {
         "aria-label": "Veure certificat"
     },
-    "otherData": {
-        "text": "Altres dades"
-    },
     "downloadCV": {
         "aria-label": "Descarregar CV pdf"
-    },
-    "drivingLic": {
-        "text": "Permís de conduir B i vehicle propi"
-    },
-    "availability": {
-        "html": "Disponibilitat total dins de la província de <span lang='ca-ES'>Barcelona</span>"
     },
     "portfolio": {
         "text": "Portafoli"

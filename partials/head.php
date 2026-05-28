@@ -146,15 +146,7 @@ $fullHydration = $fullHydration ?? (($isError || $isForm) ? false : true);
                     "@type" => "ContactPoint",
                     "contactType" => $T('contactType'),
                     "email" => $brand['email'],
-                    "telephone" => $brand['tel'],
                     "url" => $brand['url'] . "partials/contact/form.php"
-                ],
-                "address" => [
-                    "@type" => "PostalAddress",
-                    "postalCode" => $brand['postal'],
-                    "addressLocality" => $brand['city'],
-                    "addressRegion" => $region,
-                    "addressCountry" => $country
                 ],
                 "image" => $brand['url'] . "img/photos/" . $shortName . "@3x.png",
                 "sameAs" => $sameAs,

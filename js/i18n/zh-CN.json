@@ -50,26 +50,14 @@
     "backContent": {
         "html": "参与开发了一个内部管理 <span lang='en-GB'>Dashboard</span>，用于管理课程、考试和学术记录，并包含可自定义 <span lang='en-GB'>newsletters</span> 的生成与导出工具。"
     },
-    "RRPP": {
-        "text": "公共关系协调员"
-    },
-    "teamCoord": {
-        "html": "负责公共关系管理并协调活动 <span lang='en-GB'>marketing</span> 策略，包括社交媒体推广和周边商品销售。与团队合作打造了一个具有持续用户参与度的知名夜生活品牌。"
-    },
-    "volunteer": {
-        "text": "分拣和包装。志愿者"
-    },
-    "sorting": {
-        "text": "作为志愿团队的一员，我参与了食品分发与物流相关工作，帮助处于弱势处境中的个人和家庭。这段经历增强了我的责任感、团队合作能力以及社会参与意识。"
-    },
     "studies": {
         "text": "学习经历"
     },
     "blockchain": {
         "html": "区块链开发硕士 <span>(在读)</span>"
     },
-    "otherLangs": {
-        "text": "其他语言"
+    "otherKnow": {
+        "text": "其他知识"
     },
     "cybersec": {
         "text": "网络安全"
@@ -80,8 +68,14 @@
     "cyberUsers": {
         "text": "用户网络安全"
     },
+    "netSecurity": {
+        "text": "网络安全"
+    },
     "appDev": {
         "text": "使用网络技术进行应用开发"
+    },
+    "software": {
+        "text": "软件架构与设计模式"
     },
     "network": {
         "text": "网络架构"
@@ -89,14 +83,17 @@
     "webDev": {
         "text": "网页的创建与发布"
     },
-    "responsive": {
-        "text": "响应式网页设计"
+    "performance": {
+        "text": "Web 性能优化"
     },
     "a11y": {
         "text": "网页无障碍"
     },
+    "responsive": {
+        "text": "响应式网页设计"
+    },
     "seo": {
-        "text": "搜索引擎优化（SEO）"
+        "html": "技术性 <span lang='en-GB' title='Search Engine Optimization'>SEO</span>"
     },
     "publi": {
         "text": "网页发布"
@@ -116,26 +113,11 @@
     "carouselAdvance": {
         "aria-label": "前进"
     },
-    "UNEDaccess": {
-        "text": "大学入学资格"
-    },
-    "ESO": {
-        "html": "获得 <abbr lang='es-ES' title='Educación Secundaria Obligatoria'>ESO</abbr> 证书"
-    },
     "seeCertificate": {
         "aria-label": "查看证书"
     },
-    "otherData": {
-        "text": "其他信息"
-    },
     "downloadCV": {
         "aria-label": "下载 PDF 简历"
-    },
-    "drivingLic": {
-        "text": "持有 B 类驾照与自备车辆"
-    },
-    "availability": {
-        "html": "在 <span lang='ca-ES'>巴塞罗那</span> 省内可完全出勤"
     },
     "portfolio": {
         "text": "作品集"

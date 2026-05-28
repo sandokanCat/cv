@@ -50,26 +50,14 @@
     "backContent": {
         "html": "ساهمت في تطوير <span lang='en-GB'>Dashboard</span> داخلي للإدارة يُستخدم لتنظيم الدورات والامتحانات والسجلات الأكاديمية، بما في ذلك أدوات لإنشاء وتصدير <span lang='en-GB'>newsletters</span> قابلة للتخصيص."
     },
-    "RRPP": {
-        "text": "منسق العلاقات العامة"
-    },
-    "teamCoord": {
-        "html": "أدرت العلاقات العامة ونسّقت استراتيجيات <span lang='en-GB'>marketing</span> للفعاليات، بما في ذلك الترويج عبر وسائل التواصل الاجتماعي وبيع المنتجات الدعائية. تعاونت مع الفريق لبناء علامة تجارية معروفة في مجال الحياة الليلية مع تفاعل جماهيري مستمر لعدة سنوات."
-    },
-    "volunteer": {
-        "text": "فرز وتغليف. متطوع"
-    },
-    "sorting": {
-        "text": "شاركت في مهام توزيع المواد الغذائية والخدمات اللوجستية كجزء من فريق تطوعي يركز على مساعدة الأفراد والعائلات في أوضاع هشة. ساهمت هذه التجربة في تعزيز إحساسي بالمسؤولية والعمل الجماعي والالتزام المجتمعي."
-    },
     "studies": {
         "text": "الدراسات"
     },
     "blockchain": {
         "html": "ماجستير في تطوير البلوكشين <span>(قيد التنفيذ)</span>"
     },
-    "otherLangs": {
-        "text": "لغات أخرى"
+    "otherKnow": {
+        "text": "معارف أخرى"
     },
     "cybersec": {
         "text": "الأمن السيبراني"
@@ -80,8 +68,14 @@
     "cyberUsers": {
         "text": "الأمن السيبراني للمستخدمين"
     },
+    "netSecurity": {
+        "text": "أمن الشبكات"
+    },
     "appDev": {
         "text": "تطوير التطبيقات باستخدام تقنيات الويب"
+    },
+    "software": {
+        "text": "هندسة البرمجيات وأنماط التصميم"
     },
     "network": {
         "text": "هندسة الشبكات"
@@ -89,14 +83,17 @@
     "webDev": {
         "text": "إنشاء ونشر صفحات الويب"
     },
-    "responsive": {
-        "text": "تصميم ويب متجاوب"
+    "performance": {
+        "text": "تحسين أداء الويب"
     },
     "a11y": {
         "text": "إتاحة الويب"
     },
+    "responsive": {
+        "text": "تصميم ويب متجاوب"
+    },
     "seo": {
-        "text": "تحسين محركات البحث (SEO)"
+        "html": "تحسين محركات البحث التقني <span lang='en-GB' title='Search Engine Optimization'>SEO</span>"
     },
     "publi": {
         "text": "نشر الويب"
@@ -116,26 +113,11 @@
     "carouselAdvance": {
         "aria-label": "تقدم"
     },
-    "UNEDaccess": {
-        "text": "الوصول إلى الجامعة"
-    },
-    "ESO": {
-        "html": "شهادة <abbr lang='es-ES' title='Educación Secundaria Obligatoria'>ESO</abbr>"
-    },
     "seeCertificate": {
         "aria-label": "عرض الشهادة"
     },
-    "otherData": {
-        "text": "بيانات أخرى"
-    },
     "downloadCV": {
         "aria-label": "تحميل السيرة الذاتية PDF"
-    },
-    "drivingLic": {
-        "text": "رخصة قيادة B ومركبة خاصة"
-    },
-    "availability": {
-        "html": "التوافر الكامل داخل محافظة <span lang='ca-ES'>برشلونة</span>"
     },
     "portfolio": {
         "text": "المعرض"

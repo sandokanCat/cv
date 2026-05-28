@@ -68,17 +68,6 @@ if (!defined('ENTRY_POINT')) {
             </li>
             <li>
                 <address>
-                    <a data-i18n-attr="aria-label:mobile"
-                        href="tel:<?= htmlspecialchars($brand['tel'], ENT_QUOTES | ENT_HTML5); ?>"
-                        aria-label="<?= $L('mobile'); ?>"><?= htmlspecialchars($brand['tel'], ENT_QUOTES | ENT_HTML5); ?></a>
-                </address>
-                <svg class="icons-color-1" aria-hidden="true" width="22" height="22"
-                    preserveAspectRatio="xMinYMin meet">
-                    <use href="img/sprite.svg#whatsapp" xlink:href="img/sprite.svg#whatsapp"></use>
-                </svg>
-            </li>
-            <li>
-                <address>
                     <a data-i18n-attr="aria-label:linkedin" href="<?= $path['social']['linkedin']; ?>" target="_blank"
                         rel="noopener noreferrer"
                         aria-label="<?= $L('linkedin'); ?>">in/<?= htmlspecialchars($brand['user'], ENT_QUOTES | ENT_HTML5); ?></a>
@@ -86,27 +75,6 @@ if (!defined('ENTRY_POINT')) {
                 <svg class="icons-color-1" aria-hidden="true" width="22" height="22"
                     preserveAspectRatio="xMinYMin meet">
                     <use href="img/sprite.svg#linkedin" xlink:href="img/sprite.svg#linkedin"></use>
-                </svg>
-            </li>
-            <li>
-                <address>
-                    <a data-i18n-attr="aria-label:discord" href="<?= $path['social']['discord']; ?>" target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="<?= $L('discord'); ?>"><?= htmlspecialchars($brand['nick'], ENT_QUOTES | ENT_HTML5); ?></a>
-                </address>
-                <svg class="icons-color-1" aria-hidden="true" width="24" height="24"
-                    preserveAspectRatio="xMinYMin meet">
-                    <use href="img/sprite.svg#discord" xlink:href="img/sprite.svg#discord"></use>
-                </svg>
-            </li>
-            <li>
-                <address data-i18n-attr="aria-label:location">
-                    <?= htmlspecialchars($brand['postal'], ENT_QUOTES | ENT_HTML5); ?> <span
-                        lang="ca-ES"><?= htmlspecialchars($brand['city'], ENT_QUOTES | ENT_HTML5); ?></span>
-                </address>
-                <svg class="icons-color-1" aria-hidden="true" width="22" height="22"
-                    preserveAspectRatio="xMinYMin meet">
-                    <use href="img/sprite.svg#address" xlink:href="img/sprite.svg#address"></use>
                 </svg>
             </li>
         </ol>

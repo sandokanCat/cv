@@ -64,19 +64,35 @@ if (!is_array($pathSocial))
 $sameAs = array_values(array_map(fn($k) => $pathSocial[$k] ?? '', ['orcid', 'github', 'vercel', 'linkedin', 'discord', 'infojobs']));
 
 // TECHNICAL SKILLS
+$stack = is_array($tech['stack'] ?? null)
+    ? ["@type" => "Thing", "name" => $tech['stack']]
+    : ["@type" => "Thing", "name" => []];
 $languages = is_array($tech['languages'] ?? null)
     ? ["@type" => "Thing", "name" => $tech['languages']]
     : ["@type" => "Thing", "name" => []];
-$tools = is_array($tech['tools'] ?? null)
-    ? ["@type" => "Thing", "name" => $tech['tools']]
+$frontend = is_array($tech['frontend'] ?? null)
+    ? ["@type" => "Thing", "name" => $tech['frontend']]
+    : ["@type" => "Thing", "name" => []];
+$security = is_array($tech['security'] ?? null)
+    ? ["@type" => "Thing", "name" => $tech['security']]
     : ["@type" => "Thing", "name" => []];
 $systems = is_array($tech['systems'] ?? null)
     ? ["@type" => "Thing", "name" => $tech['systems']]
     : ["@type" => "Thing", "name" => []];
+$platforms = is_array($tech['platforms'] ?? null)
+    ? ["@type" => "Thing", "name" => $tech['platforms']]
+    : ["@type" => "Thing", "name" => []];
+$knowledge = is_array($tech['knowledge'] ?? null)
+    ? ["@type" => "Thing", "name" => $tech['knowledge']]
+    : ["@type" => "Thing", "name" => []];
 $knowsAbout = [
+    "stack" => $stack,
     "languages" => $languages,
-    "tools" => $tools,
-    "systems" => $systems
+    "frontend" => $frontend,
+    "security" => $security,
+    "systems" => $systems,
+    "platforms" => $platforms,
+    "knowledge" => $knowledge
 ];
 
 // ACADEMIES
@@ -108,6 +124,7 @@ foreach ($verification as $agent => $keys) {
 // TECH STACK
 $blockchain = G($globals, 'tech.blockchain', 'json') ?: [];
 $fortyTwo = G($globals, 'tech.42bcn', 'json') ?: [];
+$cybersec = G($globals, 'tech.cybersec', 'json') ?: [];
 $backTech = G($globals, 'tech.backEnd', 'json') ?: [];
 $frontTech = G($globals, 'tech.frontEnd', 'json') ?: [];
 ?>

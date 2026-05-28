@@ -50,26 +50,14 @@
     "backContent": {
         "html": "Contributed to the development of an internal management <span lang='en-GB'>Dashboard</span> used for handling courses, exams and academic records, including tools for customizable <span lang='en-GB'>newsletters</span> generation and export."
     },
-    "RRPP": {
-        "text": "Public Relations Coordinator"
-    },
-    "teamCoord": {
-        "html": "Managed Public Relations and coordinated event <span lang='en-GB'>marketing</span> strategies, including social media promotion and merchandising sales. Collaborated with the team to build a recognizable nightlife brand with sustained audience engagement over several years."
-    },
-    "volunteer": {
-        "text": "Sorting and packaging. Volunteer"
-    },
-    "sorting": {
-        "text": "Supported food distribution and logistics tasks as part of a volunteer team focused on assisting people and families in vulnerable situations. This experience strengthened my sense of responsibility, teamwork and community engagement."
-    },
     "studies": {
         "text": "Studies"
     },
     "blockchain": {
         "html": "Master’s in Blockchain Development <span>(in progress)</span>"
     },
-    "otherLangs": {
-        "text": "Other languages"
+    "otherKnow": {
+        "text": "Other knowledge"
     },
     "cybersec": {
         "text": "Cybersecurity"
@@ -80,8 +68,14 @@
     "cyberUsers": {
         "text": "Cybersecurity for users"
     },
+    "netSecurity": {
+        "text": "Network security"
+    },
     "appDev": {
         "text": "Application development with web technologies"
+    },
+    "software": {
+        "text": "Software architecture and design patterns"
     },
     "network": {
         "text": "Network architecture"
@@ -89,14 +83,17 @@
     "webDev": {
         "text": "Creation and publication of web pages"
     },
-    "responsive": {
-        "text": "Responsive web design"
+    "performance": {
+        "text": "Web performance optimization"
     },
     "a11y": {
         "text": "Web accessibility"
     },
+    "responsive": {
+        "text": "Responsive web design"
+    },
     "seo": {
-        "text": "Search engine optimization (SEO)"
+        "html": "Technical <span lang='en-GB' title='Search Engine Optimization'>SEO</span>"
     },
     "publi": {
         "text": "Web publishing"
@@ -116,26 +113,11 @@
     "carouselAdvance": {
         "aria-label": "Advance"
     },
-    "UNEDaccess": {
-        "text": "Access to university"
-    },
-    "ESO": {
-        "html": "<abbr lang='es-ES' title='Educación Secundaria Obligatoria'>ESO</abbr> Certificate"
-    },
     "seeCertificate": {
         "aria-label": "See certificate"
     },
-    "otherData": {
-        "text": "Other data"
-    },
     "downloadCV": {
         "aria-label": "Download CV pdf"
-    },
-    "drivingLic": {
-        "text": "Driving license B and own vehicle"
-    },
-    "availability": {
-        "html": "Full availability within the province of <span lang='ca-ES'>Barcelona</span>"
     },
     "portfolio": {
         "text": "Portfolio"

@@ -22,7 +22,7 @@ if (!defined('ENTRY_POINT')) {
             </ol>
         </article>
         <article>
-            <h5 data-i18n="otherLangs"><?= $T('otherLangs'); ?></h5>
+            <h5 data-i18n="otherKnow"><?= $T('otherKnow'); ?></h5>
             <h6 lang="ca-ES"><?= htmlspecialchars($academy['42bcn']['name'], ENT_QUOTES | ENT_HTML5); ?></h6>
             <ol>
                 <?php foreach ($fortyTwo as $fortyTwoItem): ?>
@@ -50,6 +50,10 @@ if (!defined('ENTRY_POINT')) {
                         data-modal="doc/pdf_signed/IFCT0024-CYBERSEC-USERS_<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>.pdf"
                         aria-label="<?= $L('seeCertificate'); ?>"><?= $T('cyberUsers'); ?></a>
                 </li>
+                <?php foreach ($cybersec as $cybersecItem): ?>
+                    <li><?= $cybersecItem; ?></li>
+                <?php endforeach; ?>
+                <li data-i18n="netSecurity"><?= $T('netSecurity'); ?></li>
             </ol>
         </article>
         <article>
@@ -62,10 +66,14 @@ if (!defined('ENTRY_POINT')) {
             </h5>
             <h6 lang="ca-ES"><?= htmlspecialchars($academy['backend']['name'], ENT_QUOTES | ENT_HTML5); ?></h6>
             <ol>
+                <li data-i18n="software"><?= $T('software'); ?></li>
                 <?php foreach ($backTech as $backItem): ?>
                     <li><?= $backItem; ?></li>
                 <?php endforeach; ?>
                 <li data-i18n="network"><?= $T('network'); ?></li>
+                <li><abbr lang='en-GB' title='Apache HTTP Server'>Apache</abbr></li>
+                <li><span lang='en-GB'>Java</span></li>
+                <li><abbr lang='en-GB' title='JavaServer Pages'>JSP</abbr></li>
                 <li>
                     <a data-i18n-attr="aria-label:seeCertificate" data-i18n="addTraining" class="modal-link"
                         href="doc/pdf_signed/IFCD0210-FC_<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>.pdf"
@@ -88,40 +96,18 @@ if (!defined('ENTRY_POINT')) {
                 <?php foreach ($frontTech as $frontItem): ?>
                     <li><?= $frontItem; ?></li>
                 <?php endforeach; ?>
-                <li data-i18n="responsive"><?= $T('responsive'); ?></li>
+                <li data-i18n="performance"><?= $T('performance'); ?></li>
                 <li data-i18n="a11y"><?= $T('a11y'); ?></li>
+                <li data-i18n="responsive"><?= $T('responsive'); ?></li>
                 <li data-i18n="seo"><?= $T('seo'); ?></li>
                 <li data-i18n="publi"><?= $T('publi'); ?></li>
+                <li lang="en-GB">GitHub</li>
                 <li>
                     <a data-i18n-attr="aria-label:seeCertificate" data-i18n="addTraining" class="modal-link"
                         href="doc/pdf_signed/IFCD0110-FC_<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>.pdf"
                         target="_blank"
                         data-modal="doc/pdf_signed/IFCD0110-FC_<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>.pdf"
                         aria-label="<?= $L('seeCertificate'); ?>"><?= $T('addTraining'); ?></a>
-                </li>
-            </ol>
-        </article>
-        <article>
-            <h6 lang="es-ES"><?= htmlspecialchars($academy['university']['name'], ENT_QUOTES | ENT_HTML5); ?></h6>
-            <ol>
-                <li>
-                    <a data-i18n-attr="aria-label:seeCertificate" data-i18n="UNEDaccess" class="modal-link"
-                        href="doc/pdf_signed/accesoUNED_<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>.pdf"
-                        target="_blank"
-                        data-modal="doc/pdf_signed/accesoUNED_<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>.pdf"
-                        aria-label="<?= $L('seeCertificate'); ?>"><?= $T('UNEDaccess'); ?></a>
-                </li>
-            </ol>
-        </article>
-        <article>
-            <h6 lang="ca-ES"><?= htmlspecialchars($academy['highschool']['name'], ENT_QUOTES | ENT_HTML5); ?></h6>
-            <ol>
-                <li>
-                    <a data-i18n-attr="aria-label:seeCertificate" data-i18n="ESO" class="modal-link"
-                        href="doc/pdf_signed/certificatESO_<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>.pdf"
-                        target="_blank"
-                        data-modal="doc/pdf_signed/certificatESO_<?= htmlspecialchars($shortName, ENT_QUOTES | ENT_HTML5); ?>.pdf"
-                        aria-label="<?= $L('seeCertificate'); ?>"><?= $H('ESO'); ?></a>
                 </li>
             </ol>
         </article>
