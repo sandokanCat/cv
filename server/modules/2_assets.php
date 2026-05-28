@@ -29,9 +29,6 @@ if ($isDev) {
 // CURRENT LANGUAGE
 $opLang = G($globals, 'lang.op', 'json') ?: [];
 
-// COUNTRY AND REGION
-[$country, $region] = array_pad(explode('-', ($brand['region'] ?? ''), 2), 2, '');
-
 // LOCALES FOR OG
 $ogLocales = [];
 if (is_array($opLang)) {
