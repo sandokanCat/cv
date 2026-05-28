@@ -68,21 +68,6 @@
             "stackDir": "front/",
             "ext": ".png",
             "types": {
-                "seo": {
-                    "typeDir": "seo/",
-                    "ext": ".jpg",
-                    "files": {
-                        "name": "SEO-AI_certificate",
-                        "alt": {
-                            "en-GB": "SEO with AI certificate",
-                            "es-ES": "Certificado de SEO con IA",
-                            "ca-ES": "Certificat de SEO amb IA",
-                            "ru-RU": "Сертификат по SEO с использованием ИИ",
-                            "ar-SA": "شهادة تحسين محركات البحث بالذكاء الاصطناعي",
-                            "zh-CN": "AI 搜索引擎优化 (SEO) 证书"
-                        }
-                    }
-                },
                 "dev": {
                     "typeDir": "dev/",
                     "files": {
@@ -162,6 +147,21 @@
                             "ru-RU": "Сертификат по введению в HTML",
                             "ar-SA": "شهادة مقدمة في HTML",
                             "zh-CN": "HTML 入门证书"
+                        }
+                    }
+                },
+                "seo": {
+                    "typeDir": "seo/",
+                    "ext": ".jpg",
+                    "files": {
+                        "name": "SEO-AI_certificate",
+                        "alt": {
+                            "en-GB": "SEO with AI certificate",
+                            "es-ES": "Certificado de SEO con IA",
+                            "ca-ES": "Certificat de SEO amb IA",
+                            "ru-RU": "Сертификат по SEO с использованием ИИ",
+                            "ar-SA": "شهادة تحسين محركات البحث بالذكاء الاصطناعي",
+                            "zh-CN": "AI 搜索引擎优化 (SEO) 证书"
                         }
                     }
                 }
