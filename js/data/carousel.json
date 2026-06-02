@@ -6,6 +6,21 @@
         "1x": "@1x"
     },
     "stacks": {
+        "data": {
+            "stackDir": "data/",
+            "ext": ".jpg",
+            "files": {
+                "name": "DATA_certificate",
+                "alt": {
+                    "en-GB": "Coding for Data certificate",
+                    "es-ES": "Certificado de programación para datos",
+                    "ca-ES": "Certificat de programació per a dades",
+                    "ru-RU": "Сертификат по программированию для работы с данными",
+                    "ar-SA": "شهادة البرمجة للبيانات",
+                    "zh-CN": "数据编程证书"
+                }
+            }
+        },
         "backend": {
             "stackDir": "back/",
             "ext": ".jpg",
@@ -45,6 +60,20 @@
                                 "ar-SA": "شهادة مقدمة في بايثون",
                                 "zh-CN": "Python 入门证书"
                             }
+                        }
+                    }
+                },
+                "sql2": {
+                    "typeDir": "sql/",
+                    "files": {
+                        "name": "SQL-2_certificate",
+                        "alt": {
+                            "en-GB": "SQL intermediate certificate",
+                            "es-ES": "Certificado de SQL intermedio",
+                            "ca-ES": "Certificat de SQL intermedi",
+                            "ru-RU": "Сертификат по SQL среднего уровня",
+                            "ar-SA": "شهادة SQL للمستوى المتوسط",
+                            "zh-CN": "SQL 中级证书"
                         }
                     }
                 },
