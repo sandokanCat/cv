@@ -50,45 +50,58 @@ if (!defined('ENTRY_POINT')) {
                 foreach ($carouselData['stacks'] as $stackKey => $stack) {
                     $stackDir = $stack['stackDir'] ?? '';
                     $stackExt = $stack['ext'] ?? null;
-                    
+
+                    // Nested closure to process files under a directory and extension context
+                    $processFiles = function($filesObj, $typeDir = '', $typeExt = null) use (&$items, $mainDir, $stackDir, $stackExt, $highestScaleVal) {
+                        if (!is_array($filesObj)) return;
+
+                        $filesGroup = [];
+                        if (isset($filesObj['name'])) {
+                            $filesGroup[] = $filesObj;
+                        } else {
+                            foreach ($filesObj as $fKey => $fObj) {
+                                if (is_array($fObj)) {
+                                    $filesGroup[] = $fObj;
+                                }
+                            }
+                        }
+
+                        foreach ($filesGroup as $fileObj) {
+                            $fileName = $fileObj['name'] ?? '';
+                            $alt = $fileObj['alt'] ?? [];
+
+                            if ($fileName) {
+                                $dirPath = $mainDir . $stackDir . $typeDir;
+
+                                // Resolve extension using stack -> type -> file hierarchy (directly as string)
+                                $fallbackExt = $fileObj['ext'] ?? $typeExt ?? $stackExt ?? '.png';
+                                if (substr($fallbackExt, 0, 1) !== '.') {
+                                    $fallbackExt = '.' . $fallbackExt;
+                                }
+
+                                $items[] = [
+                                    'png' => [
+                                        'fallback' => $dirPath . $fileName . $highestScaleVal . $fallbackExt
+                                    ],
+                                    'alt' => $alt
+                                ];
+                            }
+                        }
+                    };
+
+                    // 1. Process files directly under the stack (if present)
+                    if (isset($stack['files'])) {
+                        $processFiles($stack['files'], '', $stackExt);
+                    }
+
+                    // 2. Process types and their files under the stack (if present)
                     if (isset($stack['types']) && is_array($stack['types'])) {
                         foreach ($stack['types'] as $typeKey => $type) {
                             $typeDir = $type['typeDir'] ?? $type['dir'] ?? '';
                             $typeExt = $type['ext'] ?? $stackExt;
-                            
-                            if (isset($type['files']) && is_array($type['files'])) {
-                                $filesGroup = [];
-                                if (isset($type['files']['name'])) {
-                                    $filesGroup[] = $type['files'];
-                                } else {
-                                    foreach ($type['files'] as $fKey => $fObj) {
-                                        if (is_array($fObj)) {
-                                            $filesGroup[] = $fObj;
-                                        }
-                                    }
-                                }
 
-                                foreach ($filesGroup as $fileObj) {
-                                    $fileName = $fileObj['name'] ?? '';
-                                    $alt = $fileObj['alt'] ?? [];
-                                    
-                                    if ($fileName) {
-                                        $dirPath = $mainDir . $stackDir . $typeDir;
-                                        
-                                        // Resolve extension using stack -> type -> file hierarchy (directly as string)
-                                        $fallbackExt = $fileObj['ext'] ?? $typeExt ?? '.png';
-                                        if (substr($fallbackExt, 0, 1) !== '.') {
-                                            $fallbackExt = '.' . $fallbackExt;
-                                        }
-
-                                        $items[] = [
-                                            'png' => [
-                                                'fallback' => $dirPath . $fileName . $highestScaleVal . $fallbackExt
-                                            ],
-                                            'alt' => $alt
-                                        ];
-                                    }
-                                }
+                            if (isset($type['files'])) {
+                                $processFiles($type['files'], $typeDir, $typeExt);
                             }
                         }
                     }
