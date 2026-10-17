@@ -202,7 +202,8 @@ export function manageCookies(barSelector) {
                 })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=103528686', 'ym');
 
                 ym(103528686, 'init', {ssr:true, webvisor:true, trackHash:true, clickmap:true, referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-            </script>`
+            </script>`,
+
             // SAVRI ANALYTICS
             `<script async src="https://savri.io/script.js" data-site-id="site_mvcu55wu_1y7piql" data-api="https://savri.io"></script>`
         ];
