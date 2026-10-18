@@ -1,9 +1,7 @@
 # BLOCKED
 _*
-.*
+.htaccess
 
 # ALLOWED
-!.github/
-!.gitignore
-!.gitattributes
-!.gitmodules
+!_secure/CSPcatalog.php
+!_secure/CSPvalidator.php
