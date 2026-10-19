@@ -1,17 +1,16 @@
 cff-version: 1.2.0
-title: sandokan.cat's CV
-message: "All rights reserved"
+title: "sandokan.cat's CV"
+message: "If you use this CV, please cite it using these metadata."
 type: software
 authors:
   - given-names: Gonzalo
-    family-names: Cabezas Núñez
-    email: 
-dev@sandokan.cat
+    family-names: "Cabezas Núñez"
+    email: dev@sandokan.cat
     affiliation: sandokan.cat
-    orcid: 'https://orcid.org/0009-0006-5181-5463'
-repository-code: 'https://github.com/sandokanCat/cv'
-url: 'https://sandokan.cat'
-abstract: Gonzalo Cabezas Núñez | Resume
+    orcid: "https://orcid.org/0009-0006-5181-5463"
+repository-code: "https://github.com/sandokanCat/cv"
+url: "https://sandokan.cat"
+abstract: "Gonzalo Cabezas Núñez | Resume"
 keywords:
   - fullstack
   - php
@@ -23,7 +22,6 @@ keywords:
   - portfolio
   - web-cv
   - web-development
-license: © 2026 sandokan.cat
 commit: 0e331aee96302cf067e59c3fca837c6525a1d92e
 version: 2.1.0
-date-released: '2026-10-20'
+date-released: "2026-10-20"
