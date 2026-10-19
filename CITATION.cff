@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 title: "sandokan.cat's CV"
-message: "If you use this CV, please cite it using these metadata."
+message: "All rights reserved"
 type: software
 authors:
   - given-names: Gonzalo
@@ -22,6 +22,7 @@ keywords:
   - portfolio
   - web-cv
   - web-development
+license-url: "https://github.com/sandokanCat/cv/blob/main/LICENSE"
 commit: 0e331aee96302cf067e59c3fca837c6525a1d92e
 version: 2.1.0
 date-released: "2026-10-20"
