@@ -3,6 +3,7 @@ message: "If you use this software, please cite it as below."
 authors:
 - family-names: "Cabezas Núñez"
   given-names: "Gonzalo"
+  orcid: "https://orcid.org/0009-0006-5181-5463"
 title: "cv"
 version: 2.1.0
 date-released: 2026-02-22
