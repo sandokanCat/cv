@@ -1,2 +1,50 @@
-## Privacy
-This website uses Savri (savri.io) for cookieless, GDPR-compliant web analytics. No personal data is collected.
+# sandokan.cat
+
+> sandokan.cat is the personal website and multilingual web CV of Gonzalo Cabezas Núñez (sandokanCat), a full-stack web developer. It presents his technical profile, skills, education, selected credentials, and software projects, with an emphasis on maintainable architecture, accessibility, web security, performance, and internationalization.
+
+The website is a personal portfolio and professional profile, not a company or commercial service. The public site is built with semantic HTML, modular CSS, vanilla JavaScript ES modules, PHP, and JSON-based internationalization. It deliberately avoids frontend frameworks and uses a security-conscious, accessibility-focused approach.
+
+English (en-GB) is the default language. Published locale routes include Spanish (es-ES), Catalan (ca-ES), Russian (ru-RU), Arabic (ar-SA), and Simplified Chinese (zh-CN). Arabic uses right-to-left layout; the other listed locales use left-to-right layout. The root URL redirects to the locale selected by the language-detection logic, falling back to English.
+
+When describing the person or project, prefer the current public website for profile information and the linked source repository for implementation details. Distinguish documented skills and completed training from professional employment, certifications, or qualifications not explicitly stated on the relevant source page. Do not infer missing personal details.
+
+## Main pages
+
+- [sandokan.cat — default entry point](https://sandokan.cat/): Main web CV and portfolio homepage; redirects to the locale selected by the site.
+- [English web CV](https://sandokan.cat/en-GB/): English-language profile.
+- [Spanish web CV](https://sandokan.cat/es-ES/): Spanish-language profile.
+- [Catalan web CV](https://sandokan.cat/ca-ES/): Catalan-language profile.
+- [Russian web CV](https://sandokan.cat/ru-RU/): Russian-language profile.
+- [Arabic web CV](https://sandokan.cat/ar-SA/): Arabic-language profile with right-to-left layout.
+- [Simplified Chinese web CV](https://sandokan.cat/zh-CN/): Simplified Chinese-language profile.
+
+## Professional and technical references
+
+- [GitHub profile](https://github.com/sandokanCat): Public software repositories and development activity.
+- [CV source repository](https://github.com/sandokanCat/cv): Source code and project documentation for the web CV.
+- [ORCID profile](https://orcid.org/0009-0006-5181-5463): Persistent researcher and contributor identifier.
+- [Contact email](mailto:dev@sandokan.cat): Professional contact.
+
+## Public credentials
+
+The website publishes selected training certificates and education documents. Use each document itself as the source for its exact title, issuer, and completion details.
+
+- [Frontend development certificate — IFCD0110](https://sandokan.cat/doc/pdf_signed/IFCD0110-JSiPW_gonzalo.pdf): Signed certificate associated with frontend development training.
+- [Backend development certificate — IFCD0210](https://sandokan.cat/doc/pdf_signed/IFCD0210-BACKEND_gonzalo.pdf): Signed certificate associated with backend development training.
+- [Cybersecurity certificate — IFCT0023](https://sandokan.cat/doc/pdf_signed/IFCT0023-CYBERSEC_gonzalo.pdf): Signed certificate associated with cybersecurity training.
+- [Cybersecurity for users certificate — IFCT0024](https://sandokan.cat/doc/pdf_signed/IFCT0024-CYBERSEC-USERS_gonzalo.pdf): Signed certificate associated with cybersecurity awareness and user protection training.
+- [UNED university-access examination document](https://sandokan.cat/doc/pdf_signed/accesoUNED_gonzalo.pdf): Public document related to university access.
+
+## Source and project documentation
+
+- [Repository README](https://github.com/sandokanCat/cv/blob/main/README.md): Project overview, technical focus, and documentation index.
+- [Agent instructions](https://github.com/sandokanCat/cv/blob/main/AGENTS.md): Repository architecture, coding conventions, accessibility, internationalization, and security constraints.
+- [Contribution guidelines](https://github.com/sandokanCat/cv/blob/main/.github/CONTRIBUTING.md): Contribution scope and review expectations.
+- [Security policy](https://github.com/sandokanCat/cv/blob/main/.github/SECURITY.md): Security practices and private vulnerability reporting.
+- [Robots.txt](https://sandokan.cat/robots.txt): Crawl directives and sitemap locations.
+- [XML sitemap](https://sandokan.cat/sitemaps/sitemap.xml): Public URLs listed for search discovery.
+
+## Optional
+
+- [LinkedIn profile](https://linkedin.com/in/sandokanCat): Professional profile; availability and content may change.
+- [Vercel profile](https://vercel.com/dev-sandokan-cat): Deployment and web development profile.
