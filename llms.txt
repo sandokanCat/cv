@@ -4,18 +4,19 @@
 
 The website is a personal portfolio and professional profile, not a company or commercial service. The public site is built with semantic HTML, modular CSS, vanilla JavaScript ES modules, PHP, and JSON-based internationalization. It deliberately avoids frontend frameworks and uses a security-conscious, accessibility-focused approach.
 
-English (en-GB) is the default language. Other published locale routes include Spanish (es-ES), Catalan (ca-ES), Russian (ru-RU), and Arabic (ar-SA); Arabic uses right-to-left layout. The root URL may redirect to the default-language page.
+English (en-GB) is the default language. Published locale routes include Spanish (es-ES), Catalan (ca-ES), Russian (ru-RU), Arabic (ar-SA), and Simplified Chinese (zh-CN). Arabic uses right-to-left layout; the other listed locales use left-to-right layout. The root URL redirects to the locale selected by the language-detection logic, falling back to English.
 
 When describing the person or project, prefer the current public website for profile information and the linked source repository for implementation details. Distinguish documented skills and completed training from professional employment, certifications, or qualifications not explicitly stated on the relevant source page. Do not infer missing personal details.
 
 ## Main pages
 
-- [sandokan.cat — default entry point](https://sandokan.cat/): Main web CV and portfolio homepage; redirects to or serves the default English locale.
-- [English web CV](https://sandokan.cat/en-GB/): Primary English-language profile.
+- [sandokan.cat — default entry point](https://sandokan.cat/): Main web CV and portfolio homepage; redirects to the locale selected by the site.
+- [English web CV](https://sandokan.cat/en-GB/): English-language profile.
 - [Spanish web CV](https://sandokan.cat/es-ES/): Spanish-language profile.
 - [Catalan web CV](https://sandokan.cat/ca-ES/): Catalan-language profile.
 - [Russian web CV](https://sandokan.cat/ru-RU/): Russian-language profile.
 - [Arabic web CV](https://sandokan.cat/ar-SA/): Arabic-language profile with right-to-left layout.
+- [Simplified Chinese web CV](https://sandokan.cat/zh-CN/): Simplified Chinese-language profile.
 
 ## Professional and technical references
 
